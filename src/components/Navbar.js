@@ -31,7 +31,7 @@ function Navbar() {
         <Link to="/menu"> Menu </Link>
         <Link to="/about"> About </Link>
         <Link to="/contact"> Contact </Link>
-        <Link to="/contact"> <AccountCircleIcon /> </Link>
+        <Link to="/profile"> <AccountCircleIcon /> </Link>
         <button onClick={toggleNavbar}>
           <ReorderIcon />
         </button>
