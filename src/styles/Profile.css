@@ -79,4 +79,52 @@
     cursor: pointer;
   }
 
+  .SideMenu{
+    height: auto;
+    width: 250px;
+    background-color: #F5C6AA;
+    margin-left: 20px;
+    border-radius: 7%;
+  }
+  
+  .SideMenuList{
+    height: auto;
+    padding: 0;
+    width: 100%;
+  }
+
+
+  .SideMenuList .title{
+    display: flex;
+    align-items: center;
+  }
+
+  .SideMenuList .title p{
+    color: #8F3C02;
+  }
+  .accountCircleIcon{
+    transform: scale(1.7);
+    padding: 20px;
+  }
+
+  .SideMenuList .row{
+    width: 100%;
+    height: 50px;
+    border: 1px solid white;
+    list-style-type: none;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    color: #8F3C02;
+    justify-content: left;
+    align-items: center;
+
+  }
+
+  .SideMenuList .row .content{
+    padding-left: 30px;
+
+  }
+
+
   
