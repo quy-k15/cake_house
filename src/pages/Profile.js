@@ -9,9 +9,16 @@ function Profile() {
               <SideMenu />
           </div>
           <div className="rightSide">
-              <h1> Contact Us</h1>
+              
 
               <form id="contact-form" method="POST">
+                  <h3>Thông tin tài khoản</h3>
+                  <p>Trần Văn Quý</p>
+                  <p>Email: 20521818@gm.uit.edu.vn</p>
+                  <p>Số điện thoại: 0889201726</p>
+                  <p>Giới tính: Nam</p>
+                  <p>Ngày sinh: 08/01/2002</p>
+
                   <label htmlFor="name">Full Name</label>
                   <input name="name" placeholder="Enter full name..." type="text" />
                   <label htmlFor="email">Email</label>

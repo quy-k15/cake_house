@@ -3,6 +3,7 @@ import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
 import PersonPinCircleIcon from '@material-ui/icons/PersonPinCircle';
 import ListAltIcon from '@material-ui/icons/ListAlt';
 import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
+import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 export const SideMenuData = [
     {
         title: "Sản phẩm yêu thích",
@@ -17,6 +18,11 @@ export const SideMenuData = [
     {
         title: "Đơn mua",
         icon: <ListAltIcon/>,
+        link:"/"
+    },
+    {
+        title: "Thông báo",
+        icon: <NotificationsNoneIcon/>,
         link:"/"
     },
     {

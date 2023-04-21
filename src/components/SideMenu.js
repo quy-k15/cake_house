@@ -15,12 +15,16 @@ function SideMenu() {
         </div>
         {SideMenuData.map((val,key) => {
           return (
-            <li className="row" key = {key} onClick={() => {window.location.pathname = val.link;
+            <li 
+            className="row" 
+            key = {key}
+            id={window.location.pathname == val.link ? "active":""} 
+            onClick={() => {window.location.pathname = val.link;
             }}
             >
               {""}
-              <div className="content">{val.icon}</div>
-              <div>{val.title}</div>
+              <div id="icon">{val.icon}</div>
+              <div id="title">{val.title}</div>
             </li>
           );
         })}
