@@ -71,20 +71,38 @@ function Home() {
             <button className="btn_ViewMore"> Xem thêm </button>
           </Link>
         </div>
-        <div className="HomeBestSeller">
-          {ListBestSeller.map((cardCake, key) => {
-            return (
-              <CardCake
-                key={key}
-                image={cardCake.image}
-                name={cardCake.name}
-                price = {cardCake.price}
-                size = {cardCake.size}
 
-              />
-            );
-          })}
+        <div className="BackgroundWhite">
+          <div class="my-div">
+            <div class="line1"></div>
+            <div class="BestSeller"> 
+              <h2>Bánh bán chạy nhất</h2>
+            </div>
+            <div class="line2"></div>
+
+          </div>
+          <div className="HomeBestSeller">
+            {ListBestSeller.map((cardCake, key) => {
+              return (
+                <CardCake
+                  key={key}
+                  image={cardCake.image}
+                  name={cardCake.name}
+                  price = {cardCake.price}
+                  size = {cardCake.size}
+
+                />
+              );
+            })}
+          </div>
+          <div className="ViewMore">
+          <Link to="/menu">
+            <button className="btn_ViewMore"> Xem thêm </button>
+          </Link>
         </div>
+
+        </div>
+        
         
     </div>
     
