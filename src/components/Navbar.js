@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import ReorderIcon from "@material-ui/icons/Reorder";
 import "../styles/Navbar.css";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 function Navbar() {
   const [openLinks, setOpenLinks] = useState(false);
 
@@ -32,6 +32,7 @@ function Navbar() {
         <Link to="/about"> About </Link>
         <Link to="/contact"> Contact </Link>
         <Link to="/profile"> <AccountCircleIcon /> </Link>
+        <Link to="/login"> <ExitToAppIcon /> </Link>
         <button onClick={toggleNavbar}>
           <ReorderIcon />
         </button>
