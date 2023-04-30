@@ -3,6 +3,7 @@ import user1 from "../assets/user1.png";
 import "../styles/Profile.css";
 import SideMenu from "../components/SideMenu";
 
+
 function Profile() {
     return (
         <div className="contact">
@@ -14,8 +15,8 @@ function Profile() {
                 <div className="infomation">
                     <div className="contact-form" method="POST">
                         <div className="info-user">
-                            <h3>Thông tin tài khoản</h3>
-                            <p>Trần Văn Quý</p>
+                            <h2>Thông tin tài khoản</h2>
+                            <p id="name">Trần Văn Quý</p>
                             <p>Email: 20521818@gm.uit.edu.vn</p>
                             <p>Số điện thoại: 0889201726</p>
                             <p>Giới tính: Nam</p>
@@ -46,7 +47,7 @@ function Profile() {
                 </div>
 
                 <div className="address">
-                    <h3>Sổ địa chỉ</h3>
+                    <h2>Sổ địa chỉ</h2>
                     <div className="address-info">
                     <p id="name">Trần Văn Quý - 0889201726</p>
                     <p>Trường Đại học Công nghệ Thông tin - ĐHQG TP.HCM,

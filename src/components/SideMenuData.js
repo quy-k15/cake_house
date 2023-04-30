@@ -12,7 +12,7 @@ export const SideMenuData = [
     },
     {
         title: "Quản lý sổ địa chỉ",
-        icon: <PersonPinCircleIcon/>,
+        icon: <i class="far fa-address-book fa-lg"></i>,
         link:"/"
     },
     {

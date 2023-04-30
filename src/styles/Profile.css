@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 1.5% 5% 0 1%;
+    margin: 1.5% 4% 0 2%;
     background-color: white;
     border-radius: 3%;
     color: #8F3C02;
@@ -28,8 +28,7 @@
   }
   
   .contact .rightSide h1 {
-    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-      "Lucida Sans", Arial, sans-serif;
+    
     font-weight: 10;
     font-size: 50px;
     margin-left: 30px;
@@ -62,6 +61,7 @@
     display: flex;
     flex-direction: column;
     padding: 2% 0;
+
   }
 
 
@@ -113,6 +113,11 @@
     cursor: pointer;
   }
 
+  button:hover{
+    cursor: pointer;
+    background-color: #D77B44;
+  }
+
   .address{
     margin-top: 3%;
   }
@@ -124,21 +129,26 @@
     margin: 20px 30px;
   }
 
-  .address-info #name{
+  #name{
     font-weight:bold;
   }
   .SideMenu{
     height: auto;
     width: 250px;
     background-color: #F5C6AA;
-    margin-left: 15%;
+    margin-left: 4%;
+    margin-top: 1.5%;
     border-radius: 7%;
+    position: fixed;
+    z-index: 2;
   }
   
   .SideMenuList{
     height: auto;
     padding: 0;
     width: 100%;
+    margin-block-start: 0;
+    margin-block-end: 0;
   }
 
 
@@ -157,8 +167,8 @@
 
   .SideMenuList .row{
     width: 100%;
-    height: 50px;
-    border: 1px solid white;
+    height: 60px;
+    border-top: 1px solid white;
     list-style-type: none;
     margin: 0%;
     display: flex;
