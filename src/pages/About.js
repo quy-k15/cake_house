@@ -1,30 +1,19 @@
 import React from "react";
-import MultiplePizzas from "../assets/multiplePizzas.jpeg";
+import Theme from "../assets/CoverPic.jpg";
 import "../styles/About.css";
 function About() {
   return (
     <div className="about">
-      <div
-        className="aboutTop"
-        style={{ backgroundImage: `url(${MultiplePizzas})` }}
-      ></div>
+      <div className="aboutTop">
+        <img src = {Theme} />
+      </div>
       <div className="aboutBottom">
-        <h1> ABOUT US</h1>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime
-          mollitia, molestiae quas vel sint commodi repudiandae consequuntur
-          voluptatum laborum numquam blanditiis harum quisquam eius sed odit
-          fugiat iusto fuga praesentium optio, eaque rerum! Provident similique
-          accusantium nemo autem. Veritatis obcaecati tenetur iure eius earum ut
-          molestias architecto voluptate aliquam nihil, eveniet aliquid culpa
-          officia aut! Impedit sit sunt quaerat, odit, tenetur error, harum
-          nesciunt ipsum debitis quas aliquid. Reprehenderit, quia. Quo neque
-          error repudiandae fuga? Ipsa laudantium molestias eos sapiente
-          officiis modi at sunt excepturi expedita sint? Sed quibusdam
-          recusandae alias error harum maxime adipisci amet laborum.
-          Perspiciatis minima nesciunt dolorem! Officiis iure rerum voluptates a
-          cumque velit
-        </p>
+        <h1 class="heading"> <span>about</span> us </h1>
+        <div class="content">
+                <h3>Good things come to those <span>who bake </span> for others</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit veritatis sunt id modi quis in eveniet at! Vero iusto excepturi.</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam molestiae maxime quibusdam rem necessitatibus optio maiores fugiat. Pariatur molestiae.</p>
+        </div>
       </div>
     </div>
   );
