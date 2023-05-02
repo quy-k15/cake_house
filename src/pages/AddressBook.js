@@ -36,8 +36,8 @@ function AddressBook() {
                     </div>
                 </div>
 
-                <div>
-                    <button>Thêm địa chỉ mới</button>
+                <div className="btn_add_address">
+                    <button >Thêm địa chỉ mới</button>
                 </div>
             </div>
         </div>
