@@ -1,0 +1,149 @@
+.contact {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-top: 60px;
+    margin-bottom: 17%;
+  }
+  
+  .contact .leftSide {
+    height: 100%;
+    flex: 27%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .contact .rightSide {
+    height: 100%;
+    flex: 73%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1.5% 4% 0 2%;
+    background-color: white;
+    border-radius: 3%;
+    color: #8F3C02;
+    padding: 20px 50px;
+  }
+  
+  .contact .rightSide h1 {
+    
+    font-weight: 10;
+    font-size: 50px;
+    margin-left: 30px;
+  }
+
+
+  /* .address{
+    margin-top: 3%;
+  } */
+
+  .cover-address{
+    background-color: #FCD8D4;
+    /* padding: 0; */
+    border-radius: 10px;
+    margin: 20px 30px;
+    display: flex;
+  }
+  .address-info{
+    
+    flex: 85%;
+  
+  }
+
+  .edit{
+    flex: 15%;
+  }
+
+  .fas{
+    padding: 10px;
+  }
+
+  .fas:hover{
+    cursor: pointer;
+    color:#3b1901;
+
+  }
+  #name{
+    font-weight:bold;
+  }
+  .SideMenu{
+    height: auto;
+    width: 250px;
+    background-color: #F5C6AA;
+    margin-left: 4%;
+    margin-top: 1.5%;
+    border-radius: 7%;
+    position: fixed;
+    z-index: 2;
+  }
+  
+  .SideMenuList{
+    height: auto;
+    padding: 0;
+    width: 100%;
+    margin-block-start: 0;
+    margin-block-end: 0;
+  }
+
+
+  .SideMenuList .title{
+    display: flex;
+    align-items: center;
+  }
+
+  .SideMenuList .title p{
+    color: #8F3C02;
+  }
+  .accountCircleIcon{
+    transform: scale(1.7);
+    padding: 20px;
+  }
+
+  .SideMenuList .row{
+    width: 100%;
+    height: 60px;
+    border-top: 1px solid white;
+    list-style-type: none;
+    margin: 0%;
+    display: flex;
+    flex-direction: row;
+    color: #8F3C02;
+    justify-content: left;
+    align-items: center;
+
+  }
+
+  .row #icon{
+    flex: 30%;
+    display: grid;
+    place-items: center;
+  }
+
+  .row #title{
+    flex: 70%;
+  }
+
+  .SideMenuList .row:hover{
+    cursor: pointer;
+    background-color: #D77B44;
+  }
+
+  .SideMenuList #active{
+    background-color: #D77B44;
+  } 
+
+  button{
+    background-color: #CD8042;
+    color:#fff;
+    margin-left: 79%;
+  }
+
+  button:hover{
+    background-color: #8F3C02;
+  }
+
+
+
+  

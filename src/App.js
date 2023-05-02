@@ -7,6 +7,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
+import AddressBook from "./pages/AddressBook";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path="/contact" exact component={Contact} />
           <Route path="/profile" exact component={Profile} />
           <Route path="/login" exact component={Login} />
+          <Route path="/addressbook" exact component={AddressBook} />
         </Switch>
         <Footer />
       </Router>
