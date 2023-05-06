@@ -44,10 +44,10 @@ const Login= ()=> {
                     </div>
 
                     <div className="buttonField">
-                        <button>
+                        <button className="login">
                             Log in
                         </button>
-                        <button>
+                        <button className="register">
                             Register
                         </button>
                     </div>

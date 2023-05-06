@@ -5,6 +5,7 @@
   background-color: #F2A06F;
   display: flex;
   flex-direction: row;
+  z-index: 2;
 }
 
 .navbar .leftSide {
