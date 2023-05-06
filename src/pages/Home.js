@@ -84,7 +84,8 @@ function Home() {
           <div className="HomeBestSeller">
             {ListBestSeller.map((cardCake, key) => {
               return (
-                <CardCake
+                <Link to="/detail">
+                  <CardCake
                   key={key}
                   image={cardCake.image}
                   name={cardCake.name}
@@ -92,6 +93,9 @@ function Home() {
                   size = {cardCake.size}
 
                 />
+                
+                </Link>
+                
               );
             })}
           </div>

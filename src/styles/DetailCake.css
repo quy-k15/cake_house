@@ -1,0 +1,180 @@
+.detail{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Bellota";
+    background-color: #FDF6F0;
+}
+
+.detail_item_card{
+    background-color: #F8E2CF;
+    height: 380px;
+    width:90%;
+    margin-left: 5%;
+    margin-top: 14vh;
+    margin-bottom: 3vh;
+    display: flex;
+    border-radius: 10px;
+  
+}
+.detail_img_center{
+    width: 305px;
+    height: 305px;
+    margin-top: 20px;
+    margin-left: 15px;
+    margin-bottom: 30px;
+    border-radius: 5px;
+}
+.detail_img_1{
+    width: 145px;
+    height: 145px;
+
+    margin-left: 30px;
+    border-radius: 5px;
+}
+.detail_img_2{
+    width: 145px;
+    height: 145px;
+    margin-top: 15px;
+    border-radius: 5px;
+    margin-left: 30px;
+}
+.detail_group_img{
+    display: flex;
+   
+}
+.detail_secondary_img{
+    display: grid;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    height: 300px;
+}
+.detail_info{
+    margin-left: 40px;
+    width: 55%;
+}
+
+.detail_info h1{
+    font-size: 50px;
+}
+
+.detail_info h2{
+   /* margin-top: -20px; */
+   font-size: 30px;
+  
+}
+.detail_info p{
+    font-size: 20px;
+    /* margin-top: -10px; */
+ }
+
+ .my-div {
+    width: 90%;
+    height: 80px;
+    display: flex;
+  
+  }
+  
+  .line1 {
+   
+    margin-top: 3%;
+    margin-left: 21%;
+    width: 25%;
+    height: 5px;
+    background-color: #FCD8D4;
+  }
+  .line2 {
+  
+    margin-top: 3%;
+    width: 25%;
+    height: 5px;
+    background-color: #FCD8D4;
+  }
+  .detail_BanhLienQuan{
+    width: 30%;
+    text-align: center;
+    font-family: Bellota;
+  }
+
+  .button_size{
+    height: 40%;
+  }
+  .detail_button_size button{
+    margin-right: 3%;
+    background-color: #CD8042;
+    color: white;
+    width: 19%;
+
+  }
+  .detail_number_button{
+    display: flex;
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  .detail_number_button h2{
+    margin-bottom: 20px;
+    margin-left: 20px;
+
+  }
+  .detail_number_button button{
+    color: #CD8042;
+    margin-left: 20px;
+    background-color: white;
+  }
+  .detail_number{
+    display: flex;
+    margin-top: 20px;
+  }
+  .detail_name_review{
+    display: flex;
+    height: 20%;
+  }
+  .detail_name_review p{
+    margin-left: 60%;
+    margin-top: 40px;
+  }
+  
+ .detail_ChiTiet_MoTa{
+  background-color: #F8E2CF;
+  width:90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border-radius: 10px;
+ }
+ .detail_ChiTiet{
+  margin-left: 5%;
+  margin-top: 20px;
+ }
+ .detail_MoTa{
+  margin-left: 5%;
+  margin-top: 60px;
+  margin-bottom: 50px;
+ }
+ /* =================Feed Back==================== */
+ .my-div_feedback{
+ 
+  width: 90%;
+  height: 80px;
+  display: flex;
+ }
+
+ /* =================Card feedback=================== */
+ .CardFeedBack{
+  width: 80%;
+  background-color: #FDF6F0;
+ }
+ .FeedBack_User{
+  display: flex;
+ }
+ .FeedBack_img{
+  width: 30px;
+  height: 30px;
+ }
+
