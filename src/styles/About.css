@@ -3,6 +3,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 }
 
 .aboutTop {
@@ -18,9 +19,8 @@
   height: 30%;
 }
 .aboutBottom {
-  display: flex;
   flex-direction: column;
-  height: 55%;
+  height: 10%;
   align-items: center;
   margin-top: 50px;
 }
@@ -58,3 +58,43 @@
   padding: 1rem 0;
   line-height: 1;
 }
+ /*-------------BETWEEN-------*/
+ .between {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem;
+ }
+ .leftBetween {
+  padding-left: 5%;
+  position: relative;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.leftBetween img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.rightBetween {
+  padding-left: 10%;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 5rem/* 80px */;
+  justify-content: space-between;
+}
+.tail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(45rem, 1fr));
+  gap: 2rem;
+}
+
+.rightTail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
