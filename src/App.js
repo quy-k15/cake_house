@@ -8,6 +8,7 @@ import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import AddressBook from "./pages/AddressBook";
+import Detail from "./pages/DetailCake";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route path="/profile" exact component={Profile} />
           <Route path="/login" exact component={Login} />
           <Route path="/addressbook" exact component={AddressBook} />
+          <Route path="/detail" exact component={Detail} />
         </Switch>
         <Footer />
       </Router>
