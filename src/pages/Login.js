@@ -44,12 +44,8 @@ const Login= ()=> {
                     </div>
 
                     <div className="buttonField">
-                        <button className="login">
-                            Log in
-                        </button>
-                        <button className="register">
-                            Register
-                        </button>
+                        <button className="btnlogin">Log in</button>
+                        <button className="btnregister">Register</button>
                     </div>
 
                     <div className="option2">
