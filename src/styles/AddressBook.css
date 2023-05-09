@@ -56,11 +56,11 @@
     flex: 15%;
   }
 
-  .fas{
+  .edit .fas{
     padding: 10px;
   }
 
-  .fas:hover{
+  .edit .fas:hover{
     cursor: pointer;
     color:#3b1901;
 
