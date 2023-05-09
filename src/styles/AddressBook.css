@@ -35,9 +35,9 @@
   }
 
 
-  /* .address{
+  .addr{
     margin-top: 3%;
-  } */
+  }
 
   .cover-address{
     background-color: #FCD8D4;
@@ -46,10 +46,10 @@
     margin: 20px 30px;
     display: flex;
   }
-  .address-info{
+  .cover-address .address-info{
     
     flex: 85%;
-  
+    padding: 2px 7px;
   }
 
   .edit{
@@ -57,7 +57,8 @@
   }
 
   .edit .fas{
-    padding: 10px;
+    padding: 20px 10px;
+
   }
 
   .edit .fas:hover{
@@ -138,6 +139,12 @@
     background-color: #CD8042;
     color:#fff;
     margin-left: 79%;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    width: 140px;
+    height: 40px;
+    border: none;
   }
 
   button:hover{
