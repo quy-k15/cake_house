@@ -55,11 +55,11 @@ function Detail_item(){
                 </div>
             </div>
             <div class="my-div">
-                <div class="line1"></div>
+                <div class="line1_LienQuan"></div>
                 <div class="detail_BanhLienQuan"> 
                     <h2>Những loại bánh liên quan</h2>
                 </div>
-                <div class="line2"></div>
+                <div class="line2_LienQuan"></div>
             </div>
             <div className="HomeBestSeller">
                 {ListBestSeller.slice(0, 4).map((cardCake, key) => {
@@ -76,28 +76,52 @@ function Detail_item(){
                 })}
             </div>
             <div className="detail_ChiTiet_MoTa">
-                <div className="detail_ChiTiet">
-                    <h2>Chi tiết sản phẩm</h2>
-                    <p>Bánh được làm thủ công không chất bảo quản. Hương vị .....</p>
-                    <p>saucbyjhcbWIBCSIALHCDSULACBIL</p>
-                    <p>CDSULACBILdhcbaeudbibvdueaihbCDSULACBILdhcbaeudbibvdueaihb</p>
+                <div class="my-div">
+                    <div class="line1_Chitiet"></div>
+                    <div class="detail_BanhLienQuan"> 
+                        <h2>Mô tả và Chi tiết của sản phẩm</h2>
+                    </div>
+                    <div class="line2_Chitiet"></div>
                 </div>
-                <div className="detail_MoTa">
-                    <h2>Mô tả sản phẩm</h2>
-                    <p>Kích thước: 20-20-20 cm (dài- rộng - cao)</p>
-                    <p>Khối lượng: 500g</p>
-                    <p>Thành phần: Bột mì, trứng, dầu ô liu,.....</p>
-                    <p>Cách bảo quản: Bảo quản trong nhiệt độ 20-25 độ C.</p>
+                
+                <div className="detail_ChiTiet_div">
+                    <div className="detail_ChiTiet">
+                        <h2>Chi tiết sản phẩm</h2>
+                        <p>Bánh được làm thủ công không chất bảo quản. Hương vị .....</p>
+                        <p>saucbyjhcbWIBCSIALHCDSULACBIL</p>
+                        <p>CDSULACBILdhcbaeudbibvdueaihbCDSULACBILdhcbaeudbibvdueaihb</p>
+                    </div>
+                    <div className="detail_ChiTiet_div_img">
+                        <img className="detail_ChiTiet_img" src={banhkem1_1}></img>
+                    </div>
                 </div>
+                <div className="detail_MoTa_div">
+                    <div className="detail_Mota_div_img">
+                        <img className="detail_MoTa_img" src={banhkem1_2}></img>
+                    </div>
+                    <div className="detail_MoTa">
+                        <h2>Mô tả sản phẩm</h2>
+                        <p>Kích thước: 20-20-20 cm (dài- rộng - cao)</p>
+                        <p>Khối lượng: 500g</p>
+                        <p>Thành phần: Bột mì, trứng, dầu ô liu,.....</p>
+                        <p>Cách bảo quản: Bảo quản trong nhiệt độ 20-25 độ C.</p>
+                    </div>
+                   
+
+                </div>
+                    
+
+              
+                    
             
             </div>
             <div className="detail_Feedback">
                 <div class="my-div_feedback">
-                    <div class="line1"></div>
+                    <div class="line1_Chitiet"></div>
                     <div class="detail_BanhLienQuan"> 
                         <h2>Đánh giá của khách hàng</h2>
                     </div>
-                    <div class="line2"></div>
+                    <div class="line2_Chitiet"></div>
                 </div>
 
                 <div className="detai_item_FeedBack">
@@ -116,8 +140,6 @@ function Detail_item(){
                 </div>
                 
             </div>
-
-
 
         </div>
     );

@@ -78,10 +78,11 @@
     width: 90%;
     height: 80px;
     display: flex;
+    margin-top: 3%;
   
   }
   
-  .line1 {
+  .line1_LienQuan {
    
     margin-top: 3%;
     margin-left: 21%;
@@ -89,7 +90,7 @@
     height: 5px;
     background-color: #FCD8D4;
   }
-  .line2 {
+  .line2_LienQuan {
   
     margin-top: 3%;
     width: 25%;
@@ -110,12 +111,17 @@
     background-color: #CD8042;
     color: white;
     width: 19%;
-
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #CD8042;
+ 
   }
   .detail_number_button{
-    display: flex;
+    display: contents;
     margin-left: 20px;
-    margin-top: 10px;
+    margin-top: 20px;
+    width: 80%;
+    height: 30px;
   }
   .detail_number_button h2{
     margin-bottom: 20px;
@@ -126,6 +132,11 @@
     color: #CD8042;
     margin-left: 20px;
     background-color: white;
+    width: 15%;
+    height: 30px;
+    margin-top: 30px;
+    border-radius: 10px;
+    border: 1px solid #CD8042;
   }
   .detail_number{
     display: flex;
@@ -140,7 +151,76 @@
     margin-top: 40px;
   }
   
- .detail_ChiTiet_MoTa{
+
+
+ /* =================Feed Back==================== */
+ .my-div_feedback{
+ 
+  width: 90%;
+  height: 80px;
+  display: flex;
+ }
+ .detai_item_FeedBack{
+  margin-left: 5%;
+ }
+ .detail_Feedback{
+  background-color: #FCD8D4;
+  width: 90%;
+  margin-left: 5%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+  border-radius: 10px;
+}
+
+ /* =================Card feedback=================== */
+ .CardFeedBack{
+  width: 95%;
+  background-color: #FDF6F0;
+  border-radius: 10px;
+  margin-bottom: 2%;
+ }
+ .FeedBack_User{
+  display: flex;
+ }
+ .FeedBack_img {
+  width: 30px;
+  height: 30px;
+  margin-left: 3%;
+  margin-top: 1.5%;
+}
+.FeedBack_User h2{
+  margin-left: 1%;
+}
+.FeedBack_Comment{
+  margin-left: 7%;
+  width: 85%;
+  height: 100%;
+}
+
+
+
+ /* =================Chi tiết và mô tả sản phẩm ===============*/
+ .line1_Chitiet {
+   
+  margin-top: 3%;
+  margin-left: 21%;
+  width: 25%;
+  height: 5px;
+  background-color: white;
+}
+.line2_Chitiet {
+
+  margin-top: 3%;
+  width: 25%;
+  height: 5px;
+  background-color: white;
+}
+
+.detail_ChiTiet_div{
+  display: flex;
+}
+
+.detail_ChiTiet_MoTa{
   background-color: #F8E2CF;
   width:90%;
   margin-left: 5%;
@@ -151,30 +231,50 @@
  .detail_ChiTiet{
   margin-left: 5%;
   margin-top: 20px;
+  width: 50%;
  }
+
  .detail_MoTa{
   margin-left: 5%;
-  margin-top: 60px;
+  margin-top: 20px;
   margin-bottom: 50px;
+  width: 50%;
+  
  }
- /* =================Feed Back==================== */
- .my-div_feedback{
+ .detail_ChiTiet_div_img{
+  width: 40%;
+  height: 40%;
+ }
+ .detail_ChiTiet_img{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+ }
+ .detail_MoTa_div{
+  display: flex;
+  margin-bottom: 5%;
+  margin-left: 5%;
+  margin-top: 2%;
+ }
  
-  width: 90%;
-  height: 80px;
-  display: flex;
+ .detail_MoTa_div_img{
+  width: 40%;
+  height: 40%;
+  
+ 
  }
-
- /* =================Card feedback=================== */
- .CardFeedBack{
-  width: 80%;
-  background-color: #FDF6F0;
+ .detail_MoTa_img{
+  width: 100%;
+  height: 100%;
+ 
  }
- .FeedBack_User{
-  display: flex;
+ .detail_Mota_div_img{
+  width: 50%;
+  height: 50%;
  }
- .FeedBack_img{
-  width: 30px;
-  height: 30px;
+ .detail_MoTa_img{
+  width: 85%;
+  height: 85%;
+  border-radius: 10px;
  }
-
+ 
