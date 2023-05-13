@@ -9,7 +9,7 @@ function AddressBook() {
                 <SideMenu />
             </div>
             <div className="rightSide">
-                <div className="address">
+                <div className="addr">
                     <h2>Sổ địa chỉ</h2>
                     <div className="cover-address">
                         <div className="address-info">
