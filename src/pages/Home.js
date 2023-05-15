@@ -8,7 +8,7 @@ import {ListBestSeller} from "../helpers/ListBestSeller"
 import CardCategory from "../components/CardCategory";
 import CardCake from "../components/CardCake";
 import MenuItem from "../components/MenuItem";
-import "../styles/Menu.css";
+// import "../styles/Menu.css";
 import "../styles/CardCake.css"
 import home_img1 from "../assets/img_home1.png";
 

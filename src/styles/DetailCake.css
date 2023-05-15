@@ -1,3 +1,4 @@
+
 .detail{
     width: 100%;
     display: flex;
@@ -22,12 +23,15 @@
     border-radius: 10px;
   
 }
+.detail_group_img{
+  flex:45%
+}
 .detail_img_center{
     width: 305px;
     height: 305px;
     margin-top: 20px;
     margin-left: 15px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     border-radius: 5px;
 }
 .detail_img_1{
@@ -44,20 +48,17 @@
     border-radius: 5px;
     margin-left: 30px;
 }
-.detail_group_img{
-    display: flex;
-   
-}
+
 .detail_secondary_img{
     display: grid;
     margin-top: 20px;
     margin-left: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 5px;
     height: 300px;
 }
 .detail_info{
     margin-left: 40px;
-    width: 55%;
+    flex:60%
 }
 
 .detail_info h1{
@@ -106,6 +107,8 @@
   .button_size{
     height: 40%;
   }
+
+
   .detail_button_size button{
     margin-right: 3%;
     background-color: #CD8042;
@@ -138,6 +141,11 @@
     border-radius: 10px;
     border: 1px solid #CD8042;
   }
+  /* .detail_number_button button:hover {
+    box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in;
+    cursor: pointer;
+  } */
   .detail_number{
     display: flex;
     margin-top: 20px;
@@ -147,11 +155,215 @@
     height: 20%;
   }
   .detail_name_review p{
-    margin-left: 60%;
+  
     margin-top: 40px;
+    flex: 40%;
+    font-size: 15px;
+  }
+  .detail_name_review h1{
+    flex: 55%;
+  }
+  .detail_review_star{
+    display: flex;
+    margin-top: 5%;
+    flex: 45%;
+  }
+  .detail_img_star{
+    width: 20px;
+    height: 20px;
+  }
+
+  .detail_review {
+    display: flex;
+    margin-top: 4%;
+    flex: 27%;}
+
+  .detail_review p{
+    flex: 60% 1;
+
+    margin-top: 7%;
+    margin-left: 4%;
+  }
+  .detail_buy{
+    display: flex;
+  }
+  .detail_addcart_button{
+    flex: 30%;
+    margin-right: 5%;
+    cursor: pointer;
   }
   
+  .detail_buy_button{
+    margin-right: 40%;
+    cursor: pointer;
+  }
+  .detail_img_love{
+    width: 30px;
+    height: 30px;
+    margin-left: 70%;
+  }
+  .detail_img{
+    display: flex;
+  }
+  .detail_love{
+    display: flex;
+  }
+  .detail_img_love{
+    flex: 20%;
+  }
+  .detail_love p{
+    flex: 70%;
+    margin-top: -1px;
+    margin-left: 2%;
+  }
 
+  .detail_addcart_button{
+    color: #CD8042;
+    background-color: white;
+    width: 15%;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #CD8042;
+  }
+  .detail_buy_button{
+    
+
+    background-color: #CD8042;
+    color: white;
+    width: 19%;
+    height: 30px;
+    border-radius: 10px;
+    border: 1px solid #CD8042;
+  }
+  /* =================Reposip=============== */
+  /* @media screen and (max-width: 600px) {
+    div.example {
+      font-size: 30px;
+    }
+  }
+  @media screen and (min-width: 600px) {
+    div.example {
+      font-size: 80px;
+    }
+  } */
+
+  /* ================ review Star============= */
+  :root{
+    --yellow:#ffeb3b;
+    --star-color:#f1f1f1;
+    --red:#FF6243;
+  }
+  *::before,
+  *::after{
+    box-sizing: border-box;
+  }
+  .detail_rating_star{
+    position: relative;
+    display: flex;
+    margin:10px 0;
+    flex-direction: row-reverse;
+  }
+  .detail_rating_star input{
+    position: relative;
+    width: 27px;
+    height: 27px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 0px 1px;
+  }
+  .detail_rating_star input::before{
+    content: '\eeb8';
+    position: absolute;
+    font-family: boxicons;
+    font-size: 27px;
+    position: absolute;
+    /* left: 4px; */
+    color: var(--star-color);
+    transition: all .3s;
+  }
+  .detail_rating_star input:nth-child(2n+1)::before{
+    /* right: 4px; */
+    left: initial;
+  }
+  .detail_rating_star input:hover ~input::before,
+  .detail_rating_star input:hover::before,
+  .detail_rating_star input:checked ~ input::before,
+  .detail_rating_star input:checked::before{
+    color: var(--yellow);
+  }
+
+  /* ==================Sản phẩm yêu thích============== */
+  /* .detail_love{
+    position: relative;
+    display: flex;
+    margin:10px 0;
+    flex-direction: row-reverse; 
+  }
+  .detail_love input{
+    position: relative;
+    width: 50px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    overflow: hidden;
+    cursor: pointer;
+    margin: 0px 1px;
+  }
+  .detail_love input::before{
+    content: '\2665';
+    position: absolute;
+    font-family: Arial, sans-serif;
+    font-size: 50px;
+    position: absolute;
+
+    color: var(--star-color);
+    transition: all .3s;
+  }
+  
+  .detail_love input:hover ~input::before,
+  .detail_love input:hover::before,
+  .detail_love input:checked ~ input::before,
+  .detail_love input:checked::before{
+    color: var(--red);
+  } */
+   .detail_love_div{
+    display: flex;
+    margin-left: 70%;
+  } 
+  .detail_love input {
+    position: relative;
+    width: 50px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    appearance: none;
+    cursor: pointer;
+    margin: 0px 1px;
+}
+
+.detail_love input::before {
+    content: "\2665";
+    position: absolute;
+    font-family: Arial, sans-serif;
+    font-size: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--star-color);
+    transition: all 0.3s;
+}
+
+.detail_love input:checked ~ input::before,
+.detail_love input:checked::before {
+    color: var(--red);
+}
 
  /* =================Feed Back==================== */
  .my-div_feedback{
@@ -230,9 +442,15 @@
  }
  .detail_ChiTiet{
   margin-left: 5%;
-  margin-top: 20px;
   width: 50%;
  }
+
+ .detail_ChiTiet h2 {
+  font-size: 35px;
+  /* margin-bottom: 7%; */
+  margin-top: 11%;
+}
+
 
  .detail_MoTa{
   margin-left: 5%;
@@ -240,6 +458,11 @@
   margin-bottom: 50px;
   width: 50%;
   
+ }
+ .detail_MoTa h2{
+  font-size: 35px;
+  /* margin-bottom: 7%; */
+  margin-top: 11%;
  }
  .detail_ChiTiet_div_img{
   width: 40%;
@@ -254,7 +477,7 @@
   display: flex;
   margin-bottom: 5%;
   margin-left: 5%;
-  margin-top: 2%;
+  margin-top: 5%;
  }
  
  .detail_MoTa_div_img{
@@ -278,3 +501,36 @@
   border-radius: 10px;
  }
  
+ .detail_ChiTiet_header{
+  display: flex;
+  /* margin-bottom: 5%; */
+ }
+ .detail_ChiTiet_header h2{
+  flex: 60%;
+  /* margin-left: 2%; */
+ }
+.detail_header_img{
+  width: 92%;
+  margin-top: -20%;
+
+
+}
+
+.detail_header_img_div{
+  flex: 5%;
+}
+.detail_header_MoTa_img_div{
+  flex: 35%;
+}
+.detail_MoTa_header{
+  display: flex;
+  /* margin-bottom: 5%; */
+ }
+.detail_MoTa_header h2{
+  flex: 25%;
+}
+.detail_header_MoTa_img{
+  width: 40%;
+  /* height: 100%; */
+  margin-top: -10%;
+}

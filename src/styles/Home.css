@@ -221,28 +221,4 @@
   background-color: white;
 }
 
-@media only screen and (max-width: 1300px) {
-  .HomeCategory {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .HomeCategory {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media only screen and (max-width: 1300px) {
-  .HomeBestSeller {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-@media only screen and (max-width: 800px) {
-  .HomeBestSeller {
-    grid-template-columns: 1fr;
-  }
-}
-
 

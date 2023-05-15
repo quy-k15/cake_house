@@ -7,50 +7,154 @@ import CardCake from "../components/CardCake";
 import banhkem1 from "../assets/BanhKem1.png";
 import banhkem1_1 from "../assets/BanhKem1_1.png";
 import banhkem1_2 from "../assets/BanhKem1_2.png";
+import star_yellow from "../assets/Star_Yellow.png";
+import star_while from "../assets/Star_While.png";
+import ic_banker from "../assets/ic_banker.png";
+import ic_banker2 from "../assets/ic_banker2.png";
+import ic_love_red from "../assets/love_red.png";
+import ic_love_white from "../assets/love_white.png";
 import "../styles/DetailCake.css"
 import {ListBestSeller} from "../helpers/ListBestSeller"
 import {ListFeedBack} from "../helpers/ListFeedBack"
 import { useState } from "react";
 
 
-function Detail_item(){
-    
 
-    // const [counter,setCounter]=useState(0);
+function Detail_item(){
+    // Tăng giảm số lượng
+    const [count,setCount]=React.useState(0)
+    function add(){
+        setCount(prevCount => prevCount + 1)
+    }
+    function subtract(){
+        setCount(prevCount => prevCount - 1)
+    }
+    // Thay đổi màu button từ cam => trắng
+    // const [bgColor, setBgColor] = useState("");
+    // const [textColor, setTextColor] = useState("");
+    // const handleMouseEnter = () => {
+    //     setBgColor("white");
+    //     setTextColor("#CD8042");
+    //   };
+    
+    //   const handleMouseLeave = () => {
+    //     setBgColor("");
+    //     setTextColor("");
+    //   };
+
+    const defaultStyle = {
+        backgroundColor: "",
+        color: ""
+      };
+      const hoverStyle = {
+        backgroundColor: "white",
+        color: "#CD8042"
+      };
+      const hoverStyle_White = {// Chuyển thành màu trắng
+        backgroundColor: "#CD8042",
+        color: "white"
+      };
+
+    
+      const [style1, setStyle1] = useState(defaultStyle);
+      const [style2, setStyle2] = useState(defaultStyle);
+      const [style3, setStyle3] = useState(defaultStyle);
+      const [style4, setStyle4] = useState(defaultStyle);
+      const [style5, setStyle5] = useState(defaultStyle);
+
+      const [style6, setStyle6] = useState(defaultStyle);
+      const [style7, setStyle7] = useState(defaultStyle);
+      const [style8, setStyle8] = useState(defaultStyle);
+
+    // Chuyển màu click Tim
+    const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => {
+    setIsClicked(!isClicked);
+  };
+
+  const getHeartColor = () => {
+    if (isClicked) {
+      return "var(--red)";
+    } else {
+      return "var(--star-color)";
+    }
+  };
 
     return(
         <div className="detail">
             <div className="detail_item_card">
                 <div className="detail_group_img">
-                    <div className="detail_secondary_img">
-                        <img className="detail_img_1" src={banhkem1_1}></img>
-                        <img className="detail_img_2" src={banhkem1_2}></img>
+                    <div className="detail_img">
+                        <div className="detail_secondary_img">
+                            <img className="detail_img_1" src={banhkem1_1}></img>
+                            <img className="detail_img_2" src={banhkem1_2}></img>
+                        </div>
+                        <img className="detail_img_center" src={banhkem1}></img>
                     </div>
-                    <img className="detail_img_center" src={banhkem1}></img>
+                    <div className="detail_love_div">
+                        <div className="detail_love">
+                            <input type="radio" name="love" onClick={handleClick} style={{ color: getHeartColor() }}></input>
+                        </div>
+                        <p>700 lượt thích</p>
+                    </div>
+                    
                 </div>
                 <div className="detail_info">
                     <div className="detail_name_review">
                         <h1>Bánh kem</h1>
-                        <p>review</p>
+                        <div className="detail_review">
+                            <div className="detail_rating_star">
+                                <input type="radio" name="html"></input>
+                                <input type="radio" name="html"></input>
+                                <input type="radio" name="html"></input>
+                                <input type="radio" name="html"></input>
+                                <input type="radio" name="html"></input>
+                            </div>
+                            <p>(200 đánh giá)</p>
+                        </div>
                     </div>
                     <h2>150.000 VND </h2>
                     <div className="detail_button_size">
                         <p>Kích thước</p>
                         <div className="button_size">
-                            <button>20-20-20 cm</button>
-                            <button>30-30-30 cm</button>
-                            <button>30-30-30 cm</button>
-                            <button>Khác</button>
+                            <button   style={style1}
+                            onMouseEnter={() => setStyle1(hoverStyle)}
+                            onMouseLeave={() => setStyle1(defaultStyle)}>20-20-20 cm</button>
+
+                            <button style={style2}
+                            onMouseEnter={() => setStyle2(hoverStyle)}
+                            onMouseLeave={() => setStyle2(defaultStyle)}>30-30-30 cm</button>
+                            <button style={style3}
+                            onMouseEnter={() => setStyle3(hoverStyle)}
+                            onMouseLeave={() => setStyle3(defaultStyle)}>30-30-30 cm</button>
+                            <button style={style4}
+                            onMouseEnter={() => setStyle4(hoverStyle)}
+                            onMouseLeave={() => setStyle4(defaultStyle)}>Khác</button>
                         </div>
 
                     </div>
                     <div className="detail_number">
                         <p>Số lượng: </p>
                         <div className="detail_number_button">
-                            <button> + </button>
-                            <h2>00</h2>
-                            <button> - </button>
+                            <button onClick={subtract} style={style6}
+                            onMouseEnter={() => setStyle6(hoverStyle_White)}
+                            onMouseLeave={() => setStyle6(defaultStyle)}> - </button>
+                            <h2>{count}</h2>
+                            <button onClick={add} style={style7}
+                            onMouseEnter={() => setStyle7(hoverStyle_White)}
+                            onMouseLeave={() => setStyle7(defaultStyle)}> + </button>
                         </div>
+                    </div>
+                    <div className="detail_buy">
+                        <button className="detail_addcart_button" style={style8}
+                            onMouseEnter={() => setStyle8(hoverStyle_White)}
+                            onMouseLeave={() => setStyle8(defaultStyle)}> Thêm vào giỏ hàng</button>
+
+                        <button className="detail_buy_button" style={style5}
+                            onMouseEnter={() => setStyle5(hoverStyle)}
+                            onMouseLeave={() => setStyle5(defaultStyle)}> Mua Ngay</button>
+
                     </div>
                 </div>
             </div>
@@ -86,7 +190,13 @@ function Detail_item(){
                 
                 <div className="detail_ChiTiet_div">
                     <div className="detail_ChiTiet">
-                        <h2>Chi tiết sản phẩm</h2>
+                        <div className="detail_ChiTiet_header">
+                            <div className="detail_header_img_div">
+                                <img className="detail_header_img" src={ic_banker}></img>
+                            </div>
+                            <h2>Chi tiết sản phẩm</h2>
+                        </div>
+                       
                         <p>Bánh được làm thủ công không chất bảo quản. Hương vị .....</p>
                         <p>saucbyjhcbWIBCSIALHCDSULACBIL</p>
                         <p>CDSULACBILdhcbaeudbibvdueaihbCDSULACBILdhcbaeudbibvdueaihb</p>
@@ -100,7 +210,13 @@ function Detail_item(){
                         <img className="detail_MoTa_img" src={banhkem1_2}></img>
                     </div>
                     <div className="detail_MoTa">
-                        <h2>Mô tả sản phẩm</h2>
+                        <div className="detail_MoTa_header">
+                            <h2>Mô tả sản phẩm</h2>
+                            <div className="detail_header_MoTa_img_div">
+                                <img className="detail_header_MoTa_img" src={ic_banker2}></img>
+                            </div>
+                        </div>
+                       
                         <p>Kích thước: 20-20-20 cm (dài- rộng - cao)</p>
                         <p>Khối lượng: 500g</p>
                         <p>Thành phần: Bột mì, trứng, dầu ô liu,.....</p>
