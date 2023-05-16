@@ -18,14 +18,7 @@ function Home() {
     <div className="home">
       <div >
         <img className ="home_img" src={home_img1}></img>
-        {/* <div className="headerContainer">
-          <h1> Pedro's Pizzeria </h1>
-          <p> PIZZA TO FIT ANY TASTE</p>
-          <Link to="/menu">
-            <button> ORDER NOW </button>
-          </Link>
-
-        </div> */}
+        <div></div>
       </div>
 
       <div className="home_sologan">

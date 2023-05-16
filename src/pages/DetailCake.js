@@ -7,12 +7,8 @@ import CardCake from "../components/CardCake";
 import banhkem1 from "../assets/BanhKem1.png";
 import banhkem1_1 from "../assets/BanhKem1_1.png";
 import banhkem1_2 from "../assets/BanhKem1_2.png";
-import star_yellow from "../assets/Star_Yellow.png";
-import star_while from "../assets/Star_While.png";
 import ic_banker from "../assets/ic_banker.png";
 import ic_banker2 from "../assets/ic_banker2.png";
-import ic_love_red from "../assets/love_red.png";
-import ic_love_white from "../assets/love_white.png";
 import "../styles/DetailCake.css"
 import {ListBestSeller} from "../helpers/ListBestSeller"
 import {ListFeedBack} from "../helpers/ListFeedBack"
