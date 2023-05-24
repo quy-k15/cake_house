@@ -12,8 +12,15 @@ function LikedProducts() {
             <div className="rightSide">
                 <div className="LikeProduct">
                     <ul className="ProductList">
+                    <div className="categories">
+                        <p className="spyt">Sản phẩm yêu thích</p>
+                        <p className="sl">Số lượng còn lại </p>
+                        <p className="dg">Đơn giá</p>
+                        <p className="tt">Thao tác</p>
+                    </div>
                         {LikedProductData.map((val, key) => {
                             return (
+                               
                                 <li
                                     className="row"
                                     key={key}
@@ -23,8 +30,13 @@ function LikedProducts() {
                                     }}
                                 >
                                     {""}
+
+                                    <div id="image">{val.image}</div>
+                                    <div id="name">{val.name}</div>
+                                    <div id="count">{val.count}</div>
+                                    <div id="price">{val.price}</div>
                                     <div id="icon">{val.icon}</div>
-                                    <div id="title">{val.title}</div>
+                                    <div id="icon1">{val.icon1}</div>
                                 </li>
                             );
                         })}

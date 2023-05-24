@@ -11,9 +11,21 @@ import MenuItem from "../components/MenuItem";
 // import "../styles/Menu.css";
 import "../styles/CardCake.css"
 import home_img1 from "../assets/img_home1.png";
-
+import { useState } from "react";
 
 function Home() {
+  const defaultStyle = {
+    backgroundColor: "",
+    color: ""
+  };
+  const hoverStyle = {
+    backgroundColor: "#8F3C02",
+    color: "white"
+  };
+
+
+  const [style1, setStyle1] = useState(defaultStyle);
+  const [style2, setStyle2] = useState(defaultStyle);
   return (
     <div className="home">
       <div >
@@ -54,14 +66,15 @@ function Home() {
                 key={key}
                 image={cardCategory.image}
                 name={cardCategory.name}
-
               />
             );
           })}
         </div>
         <div className="ViewMore">
           <Link to="/menu">
-            <button className="btn_ViewMore"> Xem thêm </button>
+            <button className="btn_ViewMore"style={style1}
+              onMouseEnter={() => setStyle1(hoverStyle)}
+              onMouseLeave={() => setStyle1(defaultStyle)}> Xem thêm </button>
           </Link>
         </div>
 
@@ -94,7 +107,9 @@ function Home() {
           </div>
           <div className="ViewMore">
           <Link to="/menu">
-            <button className="btn_ViewMore"> Xem thêm </button>
+            <button className="btn_ViewMore"style={style2}
+              onMouseEnter={() => setStyle2(hoverStyle)}
+              onMouseLeave={() => setStyle2(defaultStyle)}> Xem thêm </button>
           </Link>
         </div>
 

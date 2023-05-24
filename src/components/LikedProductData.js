@@ -1,18 +1,28 @@
 import React from "react";
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import PersonPinCircleIcon from '@material-ui/icons/PersonPinCircle';
-import ListAltIcon from '@material-ui/icons/ListAlt';
-import BookmarkBorderIcon from '@material-ui/icons/BookmarkBorder';
-import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import pizza from "../assets/pizza.jpeg";
+import tiramisu from "../assets/Tiramisu.png";
+import mochi from "../assets/MoChi.png";
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import "../styles/LikedProducts.css";
+
 export const LikedProductData = [
     {
-        title: "Sản phẩm yêu thích",
-        icon: <FavoriteBorderIcon/>,
+        image: <img src={mochi} />,
+        name: "Pizza",
+        count: 1,
+        price: 50 + " VND",
+        icon: <DeleteOutlineIcon/>, 
+        icon1:<AddShoppingCartIcon />,
         link:"/"
     },
     {
-        title: "Quản lý sổ địa chỉ",
-        icon: <i class="far fa-address-book fa-lg"></i>,
+        image: <img src={tiramisu} />,
+        name: "Tiramisu",
+        count: 10,
+        price: 50 + " VND",
+        icon: <DeleteOutlineIcon/>,
+        icon1:<AddShoppingCartIcon />,
         link:"/addressbook"
     },
     
