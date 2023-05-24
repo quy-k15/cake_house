@@ -31,8 +31,7 @@ function Footer() {
 
         <div class="box">
           <h3> opening hours</h3>
-          <a>Monday - Friday: 9:00 - 23:00</a>
-          <a> Saturday: 8:00 - 24:00 </a>
+          <p>Monday - Friday: 9:00 - 23:00 <br></br> Saturday: 8:00 - 24:00 </p>
         </div>
       </div>
 

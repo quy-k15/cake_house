@@ -1,6 +1,8 @@
 import React from "react";
 import Theme from "../assets/CoverPic.jpg";
 import Cake from "../assets/cakeab.jpg";
+import Baker1 from "../assets/bakerman.png";
+import Baker2 from "../assets/bakergirl.png";
 import NhanVien from "../assets/nhanvien.jpg";
 import "../styles/About.css";
 function About() {
@@ -31,23 +33,61 @@ function About() {
           </p>
         </div>
       </div>
-      <div className="tail">
-        <div className="leftTail">
-          <h3>Nhân sự</h3>
-          <p>
-          Chủ tiệm: Nguyễn thị Hồng
-          Ngày sinh:03/12/1996 
-          Quê quán: Thái Bình
-          Tốt nghiệp ngành bánh ngọt của trường Học viện Le Cordon Bleu tại Pháp. 
-          Trở về nước vào cuối năm 2016. Xây dựng tiệm bánh Cake House với mong muốn mọi người đều được thưởng thức các loại bánh ngon và chất lượng.
+      <div class="team" id="team">
 
-          Đội ngũ nhân viên chuyên nghiệp đã qua đào tạo.
-          </p>
+        <h1 class="heading">our  <span>team</span></h1>
+
+        <div class="box-container">
+
+            <div class="box">
+                <div class="image">
+                  <img src = {Baker1} />
+                </div>
+                <div class="content">
+                    <h3>erica lacy</h3>
+                    <p>CEO</p>
+                    <div class="share">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                  <img src = {Baker2} />
+                </div>
+                <div class="content">
+                    <h3>doe lacy</h3>
+                    <p>manager</p>
+                    <div class="share">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box">
+                <div class="image">
+                  <img src = {Baker2} />
+                </div>
+                <div class="content">
+                    <h3>john lacy</h3>
+                    <p>manager</p>
+                    <div class="share">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        <div className="rightTail">
-          <img src = {NhanVien} />
-        </div>
-      </div>
+
+    </div>
+
     </div>
   );
 }
