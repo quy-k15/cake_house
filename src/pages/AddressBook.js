@@ -1,6 +1,9 @@
 import React from "react";
 import "../styles/AddressBook.css";
 import SideMenu from "../components/SideMenu";
+import EditAddressForm from '../components/EditAddressForm';
+import CustomizedDialogs from '../components/dialog';
+
 
 function AddressBook() {
     return (
@@ -37,7 +40,10 @@ function AddressBook() {
                 </div>
 
                 <div className="btn_add_address">
-                    <button >Thêm địa chỉ mới</button>
+                    {/* <button >Thêm địa chỉ mới</button> */}
+                    <CustomizedDialogs title="Thêm địa chỉ mới">
+                        <EditAddressForm />
+                    </CustomizedDialogs>
                 </div>
             </div>
         </div>

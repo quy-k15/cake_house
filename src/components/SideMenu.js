@@ -8,7 +8,7 @@ function SideMenu() {
       <ul className="SideMenuList">
         <div className="title">
           <AccountCircleIcon className="accountCircleIcon" fontSize="large"/>
-          <div>
+          <div className="row">
             <h3>Xin chào Quý!</h3>
             <p>Chỉnh sửa thông tin</p>
           </div>
