@@ -138,17 +138,21 @@
   .btn_add_address button{
     background-color: #CD8042;
     color:#fff;
-    margin-left: 79%;
+    margin-left: 76%;
     border-radius: 10px;
     font-size: 15px;
     cursor: pointer;
-    width: 140px;
+    width: 180px;
     height: 40px;
     border: none;
   }
 
-  button:hover{
+  .btn_add_address button:hover{
     background-color: #8F3C02;
+  }
+
+  .MuiFormHelperText-root{
+    color:red !important;
   }
 
 
