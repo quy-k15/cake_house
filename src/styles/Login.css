@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap");
 
-* {
+.screen {
   margin-top: 60px;
   margin: 0;
   padding: 0;
@@ -61,7 +61,7 @@ form.sign-in-form {
   z-index: 2;
 }
 
-.title {
+.titlename {
   font-size: 2.2rem;
   color: #7a4010;
   margin-bottom: 10px;
