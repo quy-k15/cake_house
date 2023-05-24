@@ -3,7 +3,6 @@ import Theme from "../assets/CoverPic.jpg";
 import Cake from "../assets/cakeab.jpg";
 import Baker1 from "../assets/bakerman.png";
 import Baker2 from "../assets/bakergirl.png";
-import NhanVien from "../assets/nhanvien.jpg";
 import "../styles/About.css";
 function About() {
   return (
@@ -34,9 +33,7 @@ function About() {
         </div>
       </div>
       <div class="team" id="team">
-
         <h1 class="heading">our  <span>team</span></h1>
-
         <div class="box-container">
 
             <div class="box">
