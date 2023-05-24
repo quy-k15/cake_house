@@ -1,0 +1,161 @@
+.full {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-top: 60px;
+  margin-bottom: 17%;
+}
+
+.full .leftSide {
+  height: 100%;
+  flex: 27%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.full .rightSide {
+  height: 100%;
+  flex: 73%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 1.5% 4% 0 2%;
+  background-color: white;
+  border-radius: 3%;
+  color: #8F3C02;
+  padding: 20px 0;
+}
+
+.full .LikeProduct {
+  width: 100%;
+}
+
+.full .rightSide .row {
+  width: 93%;
+  height: 100px;
+  border-radius: 10px;
+  list-style-type: none;
+  margin: 2% 0;
+  display: flex;
+  flex-direction: row;
+  color: #8F3C02;
+  background-color: antiquewhite;
+  justify-content: left;
+  align-items: center;
+  padding: 10px;
+}
+
+.LikeProduct .categories {
+  display: flex;
+}
+
+
+.LikeProduct .categories .spyt {
+  flex: 28%;
+}
+
+.LikeProduct .categories .sl {
+  flex: 12%;
+  place-items: center;
+}
+
+.LikeProduct .categories .dg {
+  flex: 10%;
+  place-items: center;
+}
+
+.LikeProduct .categories .tt {
+  flex: 10%;
+  place-items: center;
+}
+
+.rightSide .row #image {
+  flex: 10%;
+  display: grid;
+  place-items: center;
+}
+
+.rightSide .row img {
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+
+}
+
+.rightSide #image:hover img {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+.rightSide .row #icon {
+  flex: 5%;
+  display: grid;
+  place-items: center;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 1s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.rightSide .row #icon:hover {
+  cursor: pointer;
+  color: #8F3C02;
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+.rightSide .row #icon1 {
+  flex: 5%;
+  display: grid;
+  place-items: center;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 1s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.rightSide .row #icon1:hover {
+  cursor: pointer;
+  color: #8F3C02;
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+  cursor: pointer;
+}
+
+.rightSide .row #name {
+  flex: 15%;
+  display: grid;
+  font-weight: bold;
+  place-items: left;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: .5s ease-in-out;
+  transition: .3s ease-in-out;
+}
+
+.rightSide .row #name:hover {
+  color: #8F3C02;
+  cursor: pointer;
+  -webkit-transform: scale(1.1);
+  transform: scale(1.15);
+}
+
+.rightSide .row #price {
+  flex: 15%;
+  display: grid;
+  place-items: center;
+}
+
+.rightSide .row #count {
+  flex: 15%;
+  display: grid;
+  place-items: center;
+}

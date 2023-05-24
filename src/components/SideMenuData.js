@@ -8,7 +8,7 @@ export const SideMenuData = [
     {
         title: "Sản phẩm yêu thích",
         icon: <FavoriteBorderIcon/>,
-        link:"/"
+        link:"/likedproducts"
     },
     {
         title: "Quản lý sổ địa chỉ",

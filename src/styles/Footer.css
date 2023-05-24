@@ -1,6 +1,7 @@
 .footer{
   background: #f2f1ec;
   text-align: center;
+  z-index: 3;
 }
 
 .footer .box-container{
@@ -33,25 +34,25 @@
   line-height: 4.5rem;
   border-radius: 10%;
   font-size: 1.5rem;
-  background: #c98d83;
+  background: #CD8042;
   color: #fff;
   margin-right: .3rem;
 }
 
 .footer .box-container .box .share i:hover{
-  background: #783b31;
+  background: #7a4010;
 }
 
 .footer .box-container .box .link{
   font-size: 1rem;
   line-height: 2;
-  color: #c98d83;
+  color: #CD8042;
   padding: .5rem 0;
   display: block;
 }
 
 .footer .box-container .box .link:hover{
-  color: #783b31;
+  color: #7a4010;
   text-decoration: underline;
 }
 
@@ -61,7 +62,7 @@
   padding-top: 3rem;
   font-size: 1.5rem;
   text-transform: capitalize;
-  color: #c98d83;
+  color: #CD8042;
   border-top: .1rem solid #783b31;
   padding-bottom: 1rem;
 }

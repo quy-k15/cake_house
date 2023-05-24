@@ -1,69 +1,113 @@
-// import React from "react";
-import CoverImg from "../assets/CoverImg.jpg";
-import GoogleIcon from "../assets/GoogleIcon.jpg"
+import React, { useState } from "react";
 import "../styles/Login.css";
-//<link ref="stylesheet" href="./build/tailwind.css"></link>
-const colors = {
-    primary: "#060606",
-    background: "#E0E0E0",
-    disabled: "#D9D9D9"
-}
+import Cake1 from "../assets/image1.svg";
+import Cake2 from "../assets/image2.svg";
+
 const Login= ()=> {
+  const [isSignUpMode, setIsSignUpMode] = useState(false);
+
+  const handleSignUpClick = () => {
+    setIsSignUpMode(true);
+  };
+
+  const handleSignInClick = () => {
+    setIsSignUpMode(false);
+  };
+
     return (
-        <div className="screen">
-            <div className="leftScreen">
-                <div className = "leftText">
-                    <h1>Let's shopping your favourite cake!</h1>
-                    <p>For our desserts we always use only the natural ingredients. Our production is 100% handmade</p>
-                </div>
-                <img src = {CoverImg} />
-            </div>
-
-            <div className="rightScreen">
-                <h1 className="header">Mom's Cake</h1>
-
-                <div className="loginField">
-                    <div className="loginHeader">
-                        <h3>Login</h3>
-                        <p>Welcome Back! Please enter your details.</p>
-                    </div>
-
-                    <form>
-                        <input placeholder="Email" type="email" />
-
-                        <input placeholder="Password" type="password" />
-                    </form>
-
-                    <div className="loginExten">
-                        <div className="loginExtenSub">
-                            <input type="checkbox" className="w-4 h-4 mr-2" />
-                            <p className='text-sm'>Remember me for 30 days</p>
-                        </div>
-
-                        <p className="forgot">Forgot Password?</p>
-                    </div>
-
-                    <div className="buttonField">
-                        <button className="btnlogin">Log in</button>
-                        <button className="btnregister">Register</button>
-                    </div>
-
-                    <div className="option2">
-                        <div className="line"></div>
-                        <p>or</p>
-                    </div>
-
-                    <div className="google">
-                        <img src={GoogleIcon} className="icon" />
-                        Sign in With Google
-                    </div>
-
-                    <div className="loginFooter">
-                        <p>Don't have account? <span>Sign up</span></p>
-                    </div>
-                </div>
-            </div>
+    <div className="screen">
+      <div className={`container ${isSignUpMode ? "sign-up-mode" : ""}`}>
+        <div class="forms-container">
+          <div class="signin-signup">
+            <form action="#" class="sign-in-form">
+              <h2 class="titlename">Đăng nhập</h2>
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Tên người dùng" />
+              </div>
+              <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Mật khẩu" />
+              </div>
+              <input type="submit" value="Login" class="btn solid" />
+              <p class="social-text">hoặc Đăng nhập qua các nền tảng sau</p>
+              <div class="social-media">
+                <a href="#" class="social-icon">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </form>
+            <form action="#" class="sign-up-form">
+              <h2 class="titlename">Đăng ký</h2>
+              <div class="input-field">
+                <i class="fas fa-user"></i>
+                <input type="text" placeholder="Tên người dùng" />
+              </div>
+              <div class="input-field">
+                <i class="fas fa-envelope"></i>
+                <input type="email" placeholder="Email" />
+              </div>
+              <div class="input-field">
+                <i class="fas fa-lock"></i>
+                <input type="password" placeholder="Mật khẩu" />
+              </div>
+              <input type="submit" class="btn" value="Đăng ký" />
+              <p class="social-text">hoặc Đăng ký qua các nền tảng sau</p>
+              <div class="social-media">
+                <a href="#" class="social-icon">
+                  <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-google"></i>
+                </a>
+                <a href="#" class="social-icon">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </form>
+          </div>
         </div>
+
+        <div class="panels-container">
+          <div class="panel left-panel">
+            <div class="content">
+              <h3>Bạn chưa có tài khoản?</h3>
+              <p>
+                Đăng ký ngay và cùng tham quan cùng Cake House!
+              </p>
+              <button class="btn transparent" id="sign-up-btn" onClick={handleSignUpClick}>
+                Đăng ký
+              </button>
+            </div>
+            <img src={Cake1} class="image" />
+          </div>
+          <div class="panel right-panel">
+            <div class="content">
+              <h3>Bạn đã có tài khoản?</h3>
+              <p>
+                Đăng nhập ngay và cùng khám phá với Cake House nào!
+              </p>
+              <button class="btn transparent" id="sign-in-btn" onClick={handleSignInClick}>
+                Đăng nhập
+              </button>
+            </div>
+            <img src = {Cake2} class="image"/>
+          </div>
+        </div>
+      </div>
+    </div>
     )
 }
 

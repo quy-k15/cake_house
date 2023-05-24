@@ -9,6 +9,7 @@ import Profile from "./pages/Profile";
 import Login from "./pages/Login";
 import AddressBook from "./pages/AddressBook";
 import Detail from "./pages/DetailCake";
+import LikedProducts from "./pages/LikedProducts";
 import MyCart from "./pages/MyCart"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -26,12 +27,15 @@ function App() {
           <Route path="/login" exact component={Login} />
           <Route path="/addressbook" exact component={AddressBook} />
           <Route path="/detail" exact component={Detail} />
+          <Route path="/likedproducts" exact component={LikedProducts} />
           <Route path="/myCart" exact component={MyCart} />
         </Switch>
         <Footer />
       </Router>
     </div>
   );
+
 }
+
 
 export default App;
