@@ -65,38 +65,6 @@
   }
 
 
-
-  /* form input {
-    height: 40px;
-    width: 80%;
-    border: none;
-    border-bottom: 1px solid #121619;
-    color: black;
-  }
-  
-  form textarea {
-    margin-top: 15px;
-    height: 70px;
-    width: 80%;
-    border: none;
-    border-bottom: 1px solid #121619;
-    color: black;
-  }
-  input::placeholder,
-  textarea::placeholder {
-    font-weight: bold;
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-  }
-  form input:focus,
-  textarea:focus {
-    outline: none;
-  }
-  
-  form label {
-    margin-top: 15px;
-    color: grey;
-  } */
   .user1{
     width: 50%;
   }
@@ -178,13 +146,13 @@
     align-items: center;
   }
 
-  .row #icon{
+  .SideMenu .row #icon{
     flex: 30%;
     display: grid;
     place-items: center;
   }
 
-  .row #title{
+  .SideMenu .row #title{
     flex: 70%;
   }
 

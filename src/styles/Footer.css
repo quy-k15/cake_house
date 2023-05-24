@@ -1,6 +1,7 @@
 .footer{
   background: #f2f1ec;
   text-align: center;
+  z-index: 3;
 }
 
 .footer .box-container{
