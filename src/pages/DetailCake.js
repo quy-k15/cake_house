@@ -83,10 +83,19 @@ function Detail_item(){
                 <div className="detail_group_img">
                     <div className="detail_img">
                         <div className="detail_secondary_img">
+                            {/* <div className="detail_secondary_img1">
+                                <img className="detail_img_1" src={banhkem1_1}></img>
+                            </div>
+                            <div className="detail_secondary_img1">
+                                <img className="detail_img_2" src={banhkem1_2}></img>
+                            </div> */}
                             <img className="detail_img_1" src={banhkem1_1}></img>
                             <img className="detail_img_2" src={banhkem1_2}></img>
                         </div>
-                        <img className="detail_img_center" src={banhkem1}></img>
+                        <div className="detail_img_center_div">
+                            <img className="detail_img_center" src={banhkem1}></img>
+                        </div>
+                        
                     </div>
                     <div className="detail_love_div">
                         <div className="detail_love">

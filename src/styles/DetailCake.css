@@ -14,7 +14,7 @@
 
 .detail_item_card{
     background-color: #F8E2CF;
-    height: 380px;
+    height: 410px;
     width:90%;
     margin-left: 5%;
     margin-top: 14vh;
@@ -24,41 +24,56 @@
   
 }
 .detail_group_img{
-  flex:45%
+  flex:40%
+}
+.detail_img_center_div{
+  width: 60%;
+  height: 100%;
 }
 .detail_img_center{
-    width: 305px;
-    height: 305px;
-    margin-top: 20px;
-    margin-left: 15px;
-    margin-bottom: 5px;
-    border-radius: 5px;
+  width: 350px;
+  height: 342px;
+  margin-top: 20px;
+  margin-left: 15px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+}
+.detail_img_center_div {
+  /* width: 60%; */
+  /* height: 100%; */
+  width: 100%;
+  height: 100%;
 }
 .detail_img_1{
-    width: 145px;
-    height: 145px;
+    /* width: 145px;
+    height: 145px; */
 
-    margin-left: 30px;
+    width: 160px;
+    height: 160px;
+    /* margin-left: 100%; */
     border-radius: 5px;
+    margin-left: 30px;
 }
 .detail_img_2{
-    width: 145px;
-    height: 145px;
-    margin-top: 15px;
-    border-radius: 5px;
-    margin-left: 30px;
+  width: 160px;
+  height: 160px;
+  margin-top: 15px;
+  border-radius: 5px;
+  margin-left: 30px;
 }
 
 .detail_secondary_img{
-    display: grid;
-    margin-top: 20px;
-    margin-left: 20px;
-    margin-bottom: 5px;
-    height: 300px;
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  /* height: 300px; */
+  display: grid;
+  flex: 40% 1;
 }
+
 .detail_info{
     margin-left: 40px;
-    flex:60%
+    flex:50%
 }
 
 .detail_info h1{
@@ -68,13 +83,11 @@
 .detail_info h2{
    /* margin-top: -20px; */
    font-size: 30px;
-  
 }
 .detail_info p{
     font-size: 20px;
     /* margin-top: -10px; */
  }
-
  .my-div {
     width: 90%;
     height: 80px;
@@ -261,12 +274,12 @@
     position: relative;
     display: flex;
     margin:10px 0;
+    flex: 60%;
     flex-direction: row-reverse;
   }
   .detail_rating_star input{
     position: relative;
-    width: 27px;
-    height: 27px;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -450,8 +463,6 @@
   /* margin-bottom: 7%; */
   margin-top: 11%;
 }
-
-
  .detail_MoTa{
   margin-left: 5%;
   margin-top: 20px;
@@ -483,7 +494,6 @@
  .detail_MoTa_div_img{
   width: 40%;
   height: 40%;
-  
  
  }
  .detail_MoTa_img{
@@ -512,8 +522,6 @@
 .detail_header_img{
   width: 92%;
   margin-top: -20%;
-
-
 }
 
 .detail_header_img_div{
