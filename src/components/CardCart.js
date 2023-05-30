@@ -39,6 +39,7 @@ function CardCake({ image, name, price, size }) {
     <div className="CardCart">
         <div className="CardCart_input">
             <input type="checkbox" id="myCheckbox"></input>
+            
         </div>
         <div className="CardCart_imgdiv"> 
             <img className ="CardCart_img" src={image}></img>
@@ -48,7 +49,7 @@ function CardCake({ image, name, price, size }) {
             <h3> {size} (cm) </h3>
         </div>
         <div className="CartPrice">
-            <h2>{price} .000(VND) </h2>
+            <h2>{price} (VND) </h2>
         </div>
        
         <div className="CartNum">
@@ -64,7 +65,7 @@ function CardCake({ image, name, price, size }) {
             onMouseLeave={() => setStyle2(defaultStyle)}> + </button>
         </div>
         <div className="CartAllPrice">
-            <h2>{AllpriceNum()}.000(VND)</h2>
+            <h2>{AllpriceNum()}(VND)</h2>
 
 
         </div>

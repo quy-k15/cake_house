@@ -13,7 +13,7 @@ function MyCart(){
     return(
         <div className="MyCart">
             <div className="MyCart_header">
-                <input type="radio" name="html"></input>
+                <input type="checkbox" id="myCheckbox"></input>
                 <h3 className="MyCart_header_sp">Sản phẩm</h3>
                 <h3 className="MyCart_header_pr">Đơn giá</h3>
                 <h3 className="MyCart_header_num">Số lượng</h3>

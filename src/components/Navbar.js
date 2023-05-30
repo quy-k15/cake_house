@@ -35,6 +35,22 @@ function Navbar() {
     }
   };
 
+  const defaultStyle = {
+    backgroundColor: "",
+    color: ""
+};
+const hoverStyle = {
+    backgroundColor: "white",
+    color: "#CD8042"
+};
+
+  const [style1, setStyle1] = useState(defaultStyle);
+  const [style2, setStyle2] = useState(defaultStyle);
+  const [style3, setStyle3] = useState(defaultStyle);
+  const [style4, setStyle4] = useState(defaultStyle);
+  const [style5, setStyle5] = useState(defaultStyle);
+
+  const [style6, setStyle6] = useState(defaultStyle);
 
   const [openLinks, setOpenLinks] = useState(false);
 
@@ -45,44 +61,78 @@ function Navbar() {
   return (
     <div className="navbar">
       <div className="leftSide" id={openLinks ? "open" : "close"}>
-        {/* <Link to="/" className="leftSide_home"> Trang chủ </Link>
-        <Link to="/menu"> Loại bánh </Link>
-        <Link to="/about"> Về chúng tôi </Link> */}
-       
-        {/* <div className="hiddenLinks">
-          <Link to="/"> Home </Link>
-          <Link to="/menu"> Menu </Link>
-          <Link to="/about"> About </Link>
-          <Link to="/contact"> Contact </Link>
-
-
-        </div> */}
          <div className="logo">
           <img src={Logo} />
         </div>
         <h1>CAKE HOUSE</h1>
        
-       
       </div>
       <div className="menu-icons">
         <i onClick={handleClick} className={getlayout()}></i>
+      </div>   
 
-      </div>
-      {/* <div className="menu-icons" onClick={this.handleClick}>
-        <i  className={this.state.clicked?"fas fa-times" : "fas fa-bars"}></i>
-
-      </div> */}
-      
       <div onClick={handleClick} className={getmenulayout()}>
-        <Link to="/" className="item_menu1"> Trang chủ </Link>
-        <Link to="/menu"className="item_menu1"> Loại bánh </Link>
-        <Link to="/about"className="item_menu1"> Về chúng tôi </Link>
-        <Link to="/myCart"className="item_menu2"> <AccountCircleIcon /> </Link>
-        <Link to="/profile"className="item_menu2"> <AccountCircleIcon /> </Link>
-        <Link to="/login"className="item_menu2"> <ExitToAppIcon /> </Link>
-        {/* <button onClick={toggleNavbar}>
-          <ReorderIcon />
-        </button> */}
+        {/* <div className="navbar_header">
+          <div className="Search-box">
+            <div className="Search-input">
+              <input type="text"className="Search-text"></input>
+            </div>
+            <button className="Search_btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+          </div>
+        </div> */}
+        
+        <div className="navbar_header" style={style1}
+                            onMouseEnter={() => setStyle1(hoverStyle)}
+                            onMouseLeave={() => setStyle1(defaultStyle)}>
+          <Link to="/" className="item_menu1"> 
+            <div className="icon"><i class="fa-solid fa-house"></i></div>
+            <div className="navbar_title">Trang chủ</div>
+          </Link>
+        </div>
+        <div className="navbar_header" style={style2}
+                            onMouseEnter={() => setStyle2(hoverStyle)}
+                            onMouseLeave={() => setStyle2(defaultStyle)}>
+          <Link to="/menu"className="item_menu1">
+            <div className="icon"><i class="fa-solid fa-cake-candles"></i></div>
+            <div className="navbar_title">Loại bánh </div>
+          </Link>
+        </div>
+    
+        <div className="navbar_header" style={style3}
+                            onMouseEnter={() => setStyle3(hoverStyle)}
+                            onMouseLeave={() => setStyle3(defaultStyle)}>
+          <Link to="/about"className="item_menu1">
+            <div className="icon"><i class="fa-solid fa-users"></i></div>
+            <div className="navbar_title"> Về chúng tôi</div>
+          </Link>
+          
+        </div>
+        
+        <div className="navbar_header" style={style4}
+                            onMouseEnter={() => setStyle4(hoverStyle)}
+                            onMouseLeave={() => setStyle4(defaultStyle)}>
+          <Link to="/myCart"className="item_menu1"> 
+            <div className="icon2"><i class="fa-solid fa-cart-shopping"></i></div>
+            <div className="navbar_title2"> Giỏ hàng</div>
+           </Link>
+        </div>
+        <div className="navbar_header" style={style5}
+                            onMouseEnter={() => setStyle5(hoverStyle)}
+                            onMouseLeave={() => setStyle5(defaultStyle)}>
+          <Link to="/profile"className="item_menu2">
+            <div className="icon2"><AccountCircleIcon /> </div> 
+            <div className="navbar_title2"> Trang cá nhân</div>
+          </Link>
+        </div>
+
+        <div className="navbar_header" style={style6}
+                            onMouseEnter={() => setStyle6(hoverStyle)}
+                            onMouseLeave={() => setStyle6(defaultStyle)}>
+          <Link to="/login"className="item_menu2">
+            <div className="icon2"><ExitToAppIcon /> </div> 
+            <div className="navbar_title2"> Đăng nhập</div>
+          </Link>
+        </div>
       </div>
     </div>
   );

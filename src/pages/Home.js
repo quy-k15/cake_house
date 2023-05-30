@@ -35,10 +35,12 @@ function Home() {
 
       <div className="home_sologan">
         <div className="home_sologan1">
+   
           <h1>Bánh nhà làm </h1>
           <h1>Hương vị mẹ yêu </h1>
         </div>
         <div className="home_sologan2">
+          
           <h3>Bánh được làm thủ công không chất bảo quản. Hương vị .....</h3>
           <h3>saucbyjhcbWIBCSIALHCDSULACBIL</h3>
           <h3>CDSULACBILdhcbaeudbibvdueaihbCDSULACBILdhcbaeudbibvdueaihb</h3>
@@ -66,6 +68,7 @@ function Home() {
                 key={key}
                 image={cardCategory.image}
                 name={cardCategory.name}
+                coler={cardCategory.coler}
               />
             );
           })}

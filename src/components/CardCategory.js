@@ -1,9 +1,11 @@
 import React from "react";
 
-function CardCategory({ image, name}) {
+function CardCategory({ image, name, coler}) {
   return (
-    <div className="menuCategory">
-      <div className="Category_img" style={{ backgroundImage: `url(${image})` }}> </div>
+    <div className="menuCategory" style={{ backgroundColor: `#${coler}` }}>
+      <div className="Category_img_div" >
+        <img className ="Category_img" src={image}></img>
+      </div>
       <h2> {name} </h2>
     </div>
   );

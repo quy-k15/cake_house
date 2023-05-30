@@ -41,15 +41,15 @@ function Detail_item(){
     const defaultStyle = {
         backgroundColor: "",
         color: ""
-      };
-      const hoverStyle = {
+    };
+    const hoverStyle = {
         backgroundColor: "white",
         color: "#CD8042"
-      };
-      const hoverStyle_White = {// Chuyển thành màu trắng
+    };
+    const hoverStyle_White = {// Chuyển thành màu trắng
         backgroundColor: "#CD8042",
         color: "white"
-      };
+    };
 
     
       const [style1, setStyle1] = useState(defaultStyle);
