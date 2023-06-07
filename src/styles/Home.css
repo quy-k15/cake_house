@@ -10,30 +10,71 @@
   background-size: cover;
   font-family: "Bellota";
   background-color: #FDF6F0;
+  color: #8F3C02;
+}
+.home_wellcome{
+  display: flex;
+  background-image: url('../assets/background.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+ 
+}
+.wellcome_img{
+  flex: 50% 1;
+  /* background-image: linear-gradient(-45deg, #FFCEAE 0%, #F2A06F 100%); */
+
+  /* border-radius: 0px 0px 0px 600px;
+  z-index: 6; */
+
 }
 
 .home_img{
-  width:86%;
-  height:40vh;
-  display: flex;
+  width: 78%;
+  height: 78%;
+  /* display: flex; */
   justify-content: center;
-  margin-left: 7%;
-  margin-top: 14vh;
+  padding-right: 10px;
+  margin-top: 20%;
+  margin-left: 30px;
+  margin-bottom: 6%;
 }
 
 .home_sologan{
-  width: 86%;
-  margin-top: 2%;
-  display: flex;
+  width: 50%;
+  margin-top: 7%;
+  /* display: flex; */
   font: Bellota;
   margin-left: 7%;
 }
 
-.home_sologan1 {
-  margin-left: 10%;
+
+.home h5{
+
+  font-size: 82px;
+  margin-left: 50px;
+  margin-top: 17%;
+  margin-bottom: 9%;
+  font-family: Quando;
 }
-.home_sologan2 {
-  margin-left: 12%;
+.home h6{
+
+  font-size: 31px;
+  margin-left: 50px;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  /* font-family: Quando; */
+}
+.home ul{
+
+  font-size: 20px;
+  margin-left: 50px;
+  margin-top: 25px;
+  margin-bottom: 20px;
+  /* font-family: Quando; */
+}
+.home li{
+  margin-top: 5px;
+
 }
 
 .headerContainer {
@@ -75,6 +116,80 @@
   background-color: #07090a;
   cursor: pointer;
   transition: 0.3s ease-in;
+}
+
+@media only screen and (max-width: 1250px) {
+  .home h5{
+
+    font-size: 75px;
+    margin-left: 30px;
+    margin-top: 17%;
+    margin-bottom: 9%;
+    font-family: Quando;
+  }
+  .home h6{
+
+    font-size: 28px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    /* font-family: Quando; */
+  }
+  .home ul{
+  
+    font-size: 18px;
+    margin-left: 30px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    /* font-family: Quando; */
+  }
+  .home li{
+    margin-top: 5px;
+  
+  }
+  
+}
+
+@media only screen and (max-width: 1150px) {
+  .home h5{
+
+    font-size: 65px;
+    margin-left: 30px;
+    margin-top: 17%;
+    margin-bottom: 9%;
+    font-family: Quando;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .home h5{
+
+    font-size: 55px;
+    margin-left: 30px;
+    margin-top: 17%;
+    margin-bottom: 9%;
+    font-family: Quando;
+  }
+  .home h6{
+
+    font-size: 24px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    /* font-family: Quando; */
+  }
+  .home ul{
+  
+    font-size: 17px;
+    margin-left: 30px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    /* font-family: Quando; */
+  }
+  .home li{
+    margin-top: 5px;
+  
+  }
+  
 }
 
 @media only screen and (max-width: 650px) {
@@ -128,22 +243,40 @@
   margin-left: 5%;
   margin-top: 2%;
 }
+
 .btn_ViewMore{
-  width: 130px;
-    height: 35px;
-    border-radius: 15px;
-    color: #8F3C02;
-    font-weight: bold;
-    /* size: 30px; */
-    margin-left: 46%;
-    margin-top: 2%;
-    margin-bottom: 3%;
-    border: 3px solid #8F3C02;
-    background-color: #FDF6F0;
-    font-family: 'Bellota';
-    font-size: 20px;
+  width: 160px;
+  height: 40px;
+  border-radius: 15px;
+  color: #8F3C02;
+  font-weight: bold;
+  /* size: 30px; */
+  margin-left: 45%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  border: 3px solid #8F3C02;
+  background-color: #FDF6F0;
+  font-family: 'Bellota';
+  font-size: 20px;
+}
+.btn_MuaNgay{
+  width: 160px;
+  height: 40px;
+  border-radius: 15px;
+  color: #8F3C02;
+  font-weight: bold;
+  margin-left: 31%;
+  margin-top: 2%;
+  margin-bottom: 3%;
+  border: 3px solid #8F3C02;
+  background-color: #FDF6F0;
+  font-family: 'Bellota';
+  font-size: 20px;
 }
 
+.Category{
+  background-color: white;
+}
 /* ========================================= */
 .menuPriceItem{
   display:flex;
@@ -175,14 +308,14 @@
   place-items: center;
 }
 
-.my-div {
+/* .my-div {
   width: 90%;
   height: 80px;
   display: flex;
 
-}
+} */
 
-.line1 {
+/* .line1 {
  
   margin-top: 3%;
   margin-left: 21%;
@@ -196,17 +329,60 @@
   width: 25%;
   height: 5px;
   background-color: #FCD8D4;
-}
-.BestSeller{
+} */
+/* .BestSeller{
   width: 20%;
   text-align: center;
   font-family: Bellota;
-}
+} */
 .BackgroundWhite{
   width: 100%;
   background-color: white;
 }
 
+/* =======================Vorcher===================== */
+.home_voucher{
+  width: 85%;
+  height: 30%;
+  margin-left: 8%;
+  margin-top: 2%;
+  border-radius: 10px;
+  color: white;
+}
+.home_voucher h5{
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding-top: 10px;
+  padding-left: 20px;
+  font-size: 35px;
+}
+.home_voucher h2{
+  margin-top: -20px;
+  margin-bottom: -20px;
+  font-size: 135px;
+  
+}
+.home_voucher_persen{
+  display: flex;
+  margin-left: 20%;
+}
+
+.home .home_voucher h7{
+  padding-top: 60px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  font-family: Quando;
+  margin-left: 7px;
+  font-size: 55px;
+}
+.home_voucher h4{
+  margin-top: 0px;
+  margin-bottom: 20px;
+  padding-left: 34%;
+  padding-bottom: 10px;
+  font-size: 40px;
+  font-family: Quando;
+}
 
 
 

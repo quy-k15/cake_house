@@ -1,0 +1,28 @@
+.my-div {
+    width: 90%;
+    height: 80px;
+    display: flex;
+  
+  }
+  .line1 {
+ 
+    margin-top: 3%;
+    margin-left: 21%;
+    width: 25%;
+    height: 5px;
+    background-color: #FCD8D4;
+  }
+  .line2 {
+  
+    margin-top: 3%;
+    width: 25%;
+    height: 5px;
+    background-color: #FCD8D4;
+  }
+  .header_name{
+    color: #8F3C02;
+    width: 20%;
+    text-align: center;
+    font-family: Bellota;
+    
+  }

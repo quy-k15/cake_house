@@ -420,9 +420,7 @@
     padding-left: 30px;
     
   }
-  .navbar_header :hover{
-    background-color:#FFFBEF
-  }
+
   .navbar_title{
     display: flex;
     margin-left: 5px;
@@ -436,7 +434,7 @@
     widows: 100%;
     padding: 3%;
     margin-left: 0px;
-
+    margin-top: 10px;
     margin-bottom: 10px;
     text-decoration: none;
     font-size: 20px;
@@ -446,6 +444,7 @@
     widows: 100%;
     /* padding: 2rem 0; */
     margin-bottom: 10px;
+    margin-top: 10px;
     padding: 3%;
     margin-left: 0px;
     text-decoration: none;

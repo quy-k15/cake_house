@@ -8,9 +8,20 @@ import {ListBestSeller} from "../helpers/ListBestSeller"
 import CardCategory from "../components/CardCategory";
 import CardCake from "../components/CardCake";
 import MenuItem from "../components/MenuItem";
+import header1 from "../components/header";
 // import "../styles/Menu.css";
 import "../styles/CardCake.css"
-import home_img1 from "../assets/img_home1.png";
+import "../styles/Header.css"
+import home_img from "../assets/img_home.png";
+import img_cakehome1 from "../assets/img_cakehome1.png"
+import img_cakehome2 from "../assets/img_cakehome2.png"
+import img_cakehome3 from "../assets/img_cakehome3.png"
+import img_cakehome4 from "../assets/img_cakehome4.png"
+import img_cakehome5 from "../assets/img_cakehome5.png"
+import img_cakehome6 from "../assets/img_cakehome6.png"
+import img_homevorcher from "../assets/img_HomeVorcher.png"
+import backgroudHome from "../assets/backgroundHome.png"
+import backgroud from "../assets/background.png"
 import { useState } from "react";
 
 function Home() {
@@ -23,29 +34,36 @@ function Home() {
     color: "white"
   };
 
+  const [style, setStyle] = useState(defaultStyle);
 
   const [style1, setStyle1] = useState(defaultStyle);
   const [style2, setStyle2] = useState(defaultStyle);
   return (
     <div className="home">
-      <div >
-        <img className ="home_img" src={home_img1}></img>
-        <div></div>
-      </div>
+      <div className="home_wellcome" >
+        <div className="home_sologan">
+          <h5>Cake House</h5>
+          <h6>Bánh nhà làm</h6>
+          <h6>Đặc biệt ngon như nhà làm!</h6>
+          <ul>
+            <li>Mua bánh online nhận ngay ưu đãi hấp dẫn</li>
+            <li>Bánh 100% được làm thủ công</li>
+            <li>Đảm bảo chất lượng an toàn thực phẩm</li>
+          </ul>
+          <div className="ViewMore">
+          <Link to="/menu">
+            <button className="btn_MuaNgay"style={style}
+              onMouseEnter={() => setStyle(hoverStyle)}
+              onMouseLeave={() => setStyle(defaultStyle)}> MUA NGAY </button>
+          </Link>
+          </div>
+        </div>
+        <div className ="wellcome_img" >
+          <img className ="home_img" src={img_cakehome5}></img>
+        </div>
 
-      <div className="home_sologan">
-        <div className="home_sologan1">
-   
-          <h1>Bánh nhà làm </h1>
-          <h1>Hương vị mẹ yêu </h1>
-        </div>
-        <div className="home_sologan2">
-          
-          <h3>Bánh được làm thủ công không chất bảo quản. Hương vị .....</h3>
-          <h3>saucbyjhcbWIBCSIALHCDSULACBIL</h3>
-          <h3>CDSULACBILdhcbaeudbibvdueaihbCDSULACBILdhcbaeudbibvdueaihb</h3>
-        </div>
       </div>
+  
 
       {/* <div className="HomeCategory">
         <div className="CakeCategory">
@@ -61,7 +79,21 @@ function Home() {
           })}
         </div>
       </div> */}
-      <div className="HomeCategory">
+      {/* <header1
+        name="Những loại bánh của Cake House"
+
+      /> */}
+    
+    <div className="Category">
+      <div class="my-div">
+            <div class="line1"></div>
+            <div class="BestSeller"> 
+              <h2>Những loại bánh của Cake House</h2>
+            </div>
+            <div class="line2"></div>
+
+        </div>
+        <div className="HomeCategory">
           {ListCategory.map((cardCategory, key) => {
             return (
               <CardCategory
@@ -74,49 +106,61 @@ function Home() {
           })}
         </div>
         <div className="ViewMore">
-          <Link to="/menu">
-            <button className="btn_ViewMore"style={style1}
-              onMouseEnter={() => setStyle1(hoverStyle)}
-              onMouseLeave={() => setStyle1(defaultStyle)}> Xem thêm </button>
-          </Link>
-        </div>
-
-        <div className="BackgroundWhite">
-          <div class="my-div">
-            <div class="line1"></div>
-            <div class="BestSeller"> 
-              <h2>Bánh bán chạy nhất</h2>
-            </div>
-            <div class="line2"></div>
-
+        <Link to="/menu">
+          <button className="btn_ViewMore"style={style1}
+            onMouseEnter={() => setStyle1(hoverStyle)}
+            onMouseLeave={() => setStyle1(defaultStyle)}> Xem thêm </button>
+        </Link>
+      </div>
+      <div className="home_voucher" style={{backgroundImage: `url(${img_homevorcher})`}}>
+          <h5>FLAT SALES</h5>
+          <div className="home_voucher_persen">
+            <h2>50</h2>
+            <h7>%</h7>
           </div>
-          <div className="HomeBestSeller">
-            {ListBestSeller.map((cardCake, key) => {
-              return (
-                <Link to="/detail">
-                  <CardCake
-                  key={key}
-                  image={cardCake.image}
-                  name={cardCake.name}
-                  price = {cardCake.price}
-                  size = {cardCake.size}
+          <h4>15/8 - 27/8</h4>
+      </div>
+    </div>
+     
 
-                />
-                
-                </Link>
-                
-              );
-            })}
+     
+
+      <div className="BackgroundWhite">
+        <div class="my-div">
+          <div class="line1"></div>
+          <div class="BestSeller"> 
+            <h2>Bánh bán chạy nhất</h2>
           </div>
-          <div className="ViewMore">
-          <Link to="/menu">
-            <button className="btn_ViewMore"style={style2}
-              onMouseEnter={() => setStyle2(hoverStyle)}
-              onMouseLeave={() => setStyle2(defaultStyle)}> Xem thêm </button>
-          </Link>
-        </div>
+          <div class="line2"></div>
 
         </div>
+        <div className="HomeBestSeller">
+          {ListBestSeller.map((cardCake, key) => {
+            return (
+              <Link to="/detail" className="BestSeller">
+                <CardCake
+                key={key}
+                image={cardCake.image}
+                name={cardCake.name}
+                price = {cardCake.price}
+                size = {cardCake.size}
+
+              />
+              
+              </Link>
+              
+            );
+          })}
+        </div>
+        <div className="ViewMore">
+        <Link to="/menu">
+          <button className="btn_ViewMore"style={style2}
+            onMouseEnter={() => setStyle2(hoverStyle)}
+            onMouseLeave={() => setStyle2(defaultStyle)}> Xem thêm </button>
+        </Link>
+      </div>
+
+      </div>
         
         
     </div>

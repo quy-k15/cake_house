@@ -5,11 +5,13 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     place-items: center;
+    text-decoration: none;
   }
   
   /* MENU ITEM STYLING */
   
   .CardCake {
+    text-decoration: none;
     border-radius: 15px;
     width: 250px;
     height: 350px;
@@ -35,6 +37,7 @@
   
   .CardCake h1,
   .CardCake p {
+    text-decoration: none;
     margin-left: 20px;
   }
   
@@ -73,6 +76,7 @@
     margin-left: 15px;
     width: 220px;
   }
+  
   .CakeName h2{
     width: 160px;
   }
@@ -80,7 +84,7 @@
     width: 60px;
     height: 30px;
     border-radius: 10px;
-
+  
     
     color: #8F3C02;
     font-weight: bold;
@@ -100,7 +104,10 @@
     margin-right: 15px;
     border-radius: 10px;
   }
-  
+  .BestSeller{
+    text-decoration: none;
+    color: #8F3C02;
+  }
   
   
 
@@ -128,7 +135,7 @@
 }
 
 .menuCategory {
-  border-radius: 15px;
+  border-radius: 10px;
   width: 250px;
   height: 270px;
   margin: 20px;
@@ -143,11 +150,12 @@
   margin-top: 15px;
   margin-left: 15px;
   margin-right: 15px;
-  border-radius: 15px;
+ 
 }
 .Category_img{
   width: 100%;
   height: 100%;
+  border-radius: 10px;
 }
 .ListCategory {
   width: 90%;
