@@ -87,8 +87,9 @@
 }
 .leftSide h1{
   /* margin-top: 50px; */
+  font-family: Quando;
   flex: 80% 1;
-  font-size: 30px;
+  font-size: 25px;
   color: #4B1D1D;
   font: optional;
   margin-left: 2%;

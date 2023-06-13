@@ -13,6 +13,8 @@ import header1 from "../components/header";
 // import "../styles/Menu.css";
 import "../styles/CardCake.css"
 import "../styles/Header.css"
+
+import logo from"../assets/Logo_Cake.png";
 import home_img from "../assets/img_home.png";
 import img_cakehome1 from "../assets/img_cakehome1.png"
 import img_cakehome2 from "../assets/img_cakehome2.png"
@@ -31,9 +33,15 @@ import img_HomeOareng from "../assets/img_HomeOreng.png";
 import img_HomePink from "../assets/img_HomePink.png";
 import backgroudHome from "../assets/backgroundHome.png"
 import backgroud from "../assets/background.png"
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import HomeSlide from "../components/HomeSlide";
+
+
 
 function Home() {
+
+
+
   const defaultStyle = {
     backgroundColor: "",
     color: ""
@@ -43,160 +51,164 @@ function Home() {
     color: "white"
   };
 
-  const [style, setStyle] = useState(defaultStyle);
+
+
+
+//   const [currentSlide, setCurrentSlide] = useState(0);
+//   const handleNextClick = () => {
+//     const nextSlide = currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
+//     setCurrentSlide(nextSlide);
+//  }
+ 
+//  const handlePreviousClick = () => {
+//     const previousSlide = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
+//     setCurrentSlide(previousSlide);
+//  }
+//  const slides = [
+//   require('../assets/img_homecake1.png'),
+//   require('../assets/img_homecake2.png'),
+//   require('../assets/img_homecake3.png'),
+//   require('../assets/img_homecake4.png'),
+//   require('../assets/img_homecake5.png')
+// ];
+  
+
 
   const [style1, setStyle1] = useState(defaultStyle);
   const [style2, setStyle2] = useState(defaultStyle);
   return (
     <div className="home">
       <div className="home_wellcome" >
-        <div className="home_sologan">
-          <h5>Cake House</h5>
-          <h6>Bánh nhà làm</h6>
-          <h6>Đặc biệt ngon như nhà làm!</h6>
-          <ul>
-            <li>Mua bánh online nhận ngay ưu đãi hấp dẫn</li>
-            <li>Bánh 100% được làm thủ công</li>
-            <li>Đảm bảo chất lượng an toàn thực phẩm</li>
-          </ul>
+        <div className="img_home_div">
+          <HomeSlide />
+        
+        </div>
+    
+        <div className="HomeName">
+       
+          <h1>Cake</h1>
+          <img src={logo}></img>
+          <h1>House</h1>
+          
+          {/* <div className="home_logo_div">
+            <img className ="home_logo" src={logo}></img>
+
+          </div> */}
+          {/* <h5>Bánh nhà làm. Đặc biệt ngon như nhà làm!</h5> */}
+
+        </div>
+      </div>
+      <div className="home_slogan">
+        <h2> Cake house</h2>
+        <img src={logo}></img>
+     
+        <h5>Bánh nhà làm. Đặc biệt ngon như nhà làm!</h5>
+      </div>
+
+       
+      <div className="Category">
+        <div class="my-div">
+              <div class="line1"></div>
+              <div class="BestSeller"> 
+                <h2>Những loại bánh của Cake House</h2>
+              </div>
+              <div class="line2"></div>
+
+          </div>
+          <div className="HomeCategory">
+            {ListCategory.map((cardCategory, key) => {
+              return (
+                <CardCategory
+                  key={key}
+                  image={cardCategory.image}
+                  name={cardCategory.name}
+                  coler={cardCategory.coler}
+                />
+              );
+            })}
+          </div>
           <div className="ViewMore">
           <Link to="/menu">
-            <button className="btn_MuaNgay"style={style}
-              onMouseEnter={() => setStyle(hoverStyle)}
-              onMouseLeave={() => setStyle(defaultStyle)}> MUA NGAY </button>
+            <button className="btn_ViewMore"style={style1}
+              onMouseEnter={() => setStyle1(hoverStyle)}
+              onMouseLeave={() => setStyle1(defaultStyle)}> Xem thêm </button>
           </Link>
-          </div>
         </div>
-        <div className ="wellcome_img" >
-          <img className ="home_img" src={img_cakehome5}></img>
-        </div>
-      
-
-      </div>
-  
-
-      {/* <div className="HomeCategory">
-        <div className="CakeCategory">
-          {ListCategory.map((cardCategory, key) => {
-            return (
-              <CardCategory
-                key={key}
-                image={cardCategory.image}
-                name={cardCategory.name}
-
-              />
-            );
-          })}
-        </div>
-      </div> */}
-      {/* <header1
-        name="Những loại bánh của Cake House"
-
-      /> */}
-    
-    <div className="Category">
-      <div class="my-div">
-            <div class="line1"></div>
-            <div class="BestSeller"> 
-              <h2>Những loại bánh của Cake House</h2>
+        <div className="home_voucher" style={{backgroundImage: `url(${img_homevorcher})`}}>
+            <h5>FLAT SALES</h5>
+            <div className="home_voucher_persen">
+              <h2>50</h2>
+              <h7>%</h7>
             </div>
-            <div class="line2"></div>
+            <h4>15/8 - 27/8</h4>
+        </div>
+      </div>
+
+      <div className="BackgroundBe">
+        <div class="my-div">
+          <div class="line1"></div>
+          <div class="BestSeller"> 
+            <h2>Bánh bán chạy nhất</h2>
+          </div>
+          <div class="line2"></div>
 
         </div>
-        <div className="HomeCategory">
-          {ListCategory.map((cardCategory, key) => {
+        <div className="HomeBestSeller">
+          {ListBestSeller.map((cardCake, key) => {
             return (
-              <CardCategory
+              <Link to="/detail" className="BestSeller">
+                <CardCake
                 key={key}
-                image={cardCategory.image}
-                name={cardCategory.name}
-                coler={cardCategory.coler}
-              />
+                image={cardCake.image}
+                name={cardCake.name}
+                price = {cardCake.price}
+                size = {cardCake.size}
+              />            
+              </Link>
+              
             );
           })}
         </div>
         <div className="ViewMore">
-        <Link to="/menu">
-          <button className="btn_ViewMore"style={style1}
-            onMouseEnter={() => setStyle1(hoverStyle)}
-            onMouseLeave={() => setStyle1(defaultStyle)}> Xem thêm </button>
-        </Link>
+          <Link to="/menu">
+            <button className="btn_ViewMore"style={style2}
+              onMouseEnter={() => setStyle2(hoverStyle)}
+              onMouseLeave={() => setStyle2(defaultStyle)}> Xem thêm </button>
+          </Link>
+        </div>
+
       </div>
-      <div className="home_voucher" style={{backgroundImage: `url(${img_homevorcher})`}}>
-          <h5>FLAT SALES</h5>
-          <div className="home_voucher_persen">
-            <h2>50</h2>
-            <h7>%</h7>
+      <div className ="Home_Introduce">
+        <div className="Home_Infomation">
+          <div className="Home_Infomation_Name">
+            <p>Cake House</p>
           </div>
-          <h4>15/8 - 27/8</h4>
-      </div>
-    </div>
-
-    <div className="BackgroundBe">
-      <div class="my-div">
-        <div class="line1"></div>
-        <div class="BestSeller"> 
-          <h2>Bánh bán chạy nhất</h2>
-        </div>
-        <div class="line2"></div>
-
-      </div>
-      <div className="HomeBestSeller">
-        {ListBestSeller.map((cardCake, key) => {
-          return (
-            <Link to="/detail" className="BestSeller">
-              <CardCake
-              key={key}
-              image={cardCake.image}
-              name={cardCake.name}
-              price = {cardCake.price}
-              size = {cardCake.size}
-            />            
-            </Link>
-            
-          );
-        })}
-      </div>
-      <div className="ViewMore">
-        <Link to="/menu">
-          <button className="btn_ViewMore"style={style2}
-            onMouseEnter={() => setStyle2(hoverStyle)}
-            onMouseLeave={() => setStyle2(defaultStyle)}> Xem thêm </button>
-        </Link>
-      </div>
-
-    </div>
-    <div className ="Home_Introduce">
-      <div className="Home_Infomation">
-        <div className="Home_Infomation_Name">
-          <p>Cake House</p>
-        </div>
-        <div className="Home_Infomation_1">
-          <p>Chuyên cung cấp những loại bánh cao cấp, được làm thủ công hoàn toàn bằng nguyên liệu chất lượng cao.</p>
-          <p>Hương vị ngọt ngào từ những miếng bánh đầu tiên. Chinh phục được cả những khách hàng khó tính nhất.</p>
-          <p>Phù hợp với các tiệc trà, buổi sinh nhật, bữa ăn thân mật,...</p>
-        </div>
-      </div>
-      <div className="Home_Introduce_Img">
-        <div className="Introduce_Img">
-          <div className="Intro_img_1_div">
-            <img className="Intro_img_1" src={img_HomeGreen}></img>
-          </div>
-          <div className="Intro_img_2_div">
-            <img className="Intro_img_2" src={img_HomeOareng}></img>
+          <div className="Home_Infomation_1">
+            <p>Chuyên cung cấp những loại bánh cao cấp, được làm thủ công hoàn toàn bằng nguyên liệu chất lượng cao.</p>
+            <p>Hương vị ngọt ngào từ những miếng bánh đầu tiên. Chinh phục được cả những khách hàng khó tính nhất.</p>
+            <p>Phù hợp với các tiệc trà, buổi sinh nhật, bữa ăn thân mật,...</p>
           </div>
         </div>
+        <div className="Home_Introduce_Img">
+          <div className="Introduce_Img">
+            <div className="Intro_img_1_div">
+              <img className="Intro_img_1" src={img_HomeGreen}></img>
+            </div>
+            <div className="Intro_img_2_div">
+              <img className="Intro_img_2" src={img_HomeOareng}></img>
+            </div>
+          </div>
 
-        <div className="Introduce_Img3">
-          <img className="Intro_img_3" src={img_HomePink}></img>
+          <div className="Introduce_Img3">
+            <img className="Intro_img_3" src={img_HomePink}></img>
+          </div>
+
         </div>
-
+        
       </div>
-      
-    </div>
         
         
-  </div>
+    </div>
     
     
   );

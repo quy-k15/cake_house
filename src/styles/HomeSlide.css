@@ -1,0 +1,38 @@
+/* ============================== */
+.Home_Slide{
+    width: 100%;
+    height: 100%;
+
+}
+.Home_Slide_img{
+width: 100%;
+height: 100%;
+}
+.slick-prev{
+    width: 30px !important;
+    height: 30px !important;
+    left: 0 !important;
+    /* position: relative !important; */
+    top: 50%;
+    z-index: 1;
+    margin-left: 20px;
+
+}
+.slick-next{
+   
+    right: 0 !important;
+    z-index: 1;
+    margin-right: 20px !important;
+   
+}
+
+.img-customize{
+    width: 100%;
+    height: 770px;
+}
+.img_slide{
+    width: 100%;
+    height: 100%;
+    /* object-fit: cover;
+    object-position: center;    */
+}

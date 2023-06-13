@@ -11,16 +11,115 @@
   font-family: "Bellota";
   /* background-color: #FDF6F0; */
     background-color: white;
-  color: #8F3C02;
+    color: #4B1D1D;
   
 
 }
+
+
+
+.list-image{
+  display: none;
+}
+.main-content{
+  width: 100%;
+}
+
+.carousel-inner{
+  display: flex;
+}
+.carousel-item1{
+  width: 100%;
+}
+/* .carousel-item {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.carousel-item.active {
+  opacity: 1;
+}
+.carousel{
+
+
+  margin-top: 5%;
+}
+.carousel-item img {
+  width: 300px;
+  height: 300px;
+} */
+
 .home_wellcome{
   display: flex;
-  background-image: url('../assets/background.png');
+  /* background-image: url('../assets/img_homecake1.png');
   background-size: 100%;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat; */
+  width: 100%;
+  height: 100%;
  
+}
+.img_home_div{
+  width: 100%;
+  height: 770px;
+  position: relative;
+}
+.img_home{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.control{
+  position: absolute;
+  top: 50%;
+  font-size: 65px;
+  color: white;
+  transform: translateY(-50%);
+}
+.prev{
+  left: 10px;
+}
+.next{
+  right: 10px;
+}
+.HomeName{
+  display: flex;
+  text-align:center;
+  color: #4B1D1D;
+  position: absolute; 
+  z-index: 1;
+
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.HomeName img{
+  width: 160px;
+  height: 160px;
+}
+.HomeName h1{
+  font-size: 60px;
+  font-family: Quando;
+  margin-bottom: 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  
+}
+
+.home_logo_div{
+  display: flex;
+  justify-content: center;
+}
+.home_logo{
+  width: 150px;
+  height: 150px;
+}
+.HomeName h5{
+  font-size: 35px;
+  font-family: Bellota;
+  margin-bottom: 10%;
+  margin-top: 10px;
+
 }
 .wellcome_img{
   flex: 50% 1;
@@ -31,54 +130,45 @@
 
 }
 
-.home_img{
-  width: 75%;
-  height: 75%;
-  /* display: flex; */
-  justify-content: center;
-  padding-right: 10px;
-  margin-top: 20%;
-  margin-left: 30px;
-  margin-bottom: 6%;
+
+/* ===============Slogan============================= */
+
+.home_slogan{
+  width: 100%;
+  background-color: #E6D6D6;
+  height: 500px;
+  position: relative;
+
+
 }
-
-.home_sologan{
-  width: 50%;
-  margin-top: 7%;
-  /* display: flex; */
-  font: Bellota;
-  margin-left: 7%;
-}
-
-
-.home h5{
-
-  font-size: 82px;
-  margin-left: 50px;
-  margin-top: 17%;
-  margin-bottom: 9%;
+.home_slogan h2 {
   font-family: Quando;
+  font-size: 75px;
+  margin-top: 80px;
+  margin-bottom: 30px;
+  text-align:center;
 }
-.home h6{
+.home_slogan h5 {
 
-  font-size: 31px;
-  margin-left: 50px;
-  margin-top: 10px;
-  margin-bottom: 0px;
-  /* font-family: Quando; */
+  font-size: 30px;
+  margin-top: 190px;
+  margin-bottom: 10px;
+  text-align:center;
 }
-.home ul{
 
-  font-size: 20px;
-  margin-left: 50px;
-  margin-top: 25px;
-  margin-bottom: 20px;
-  /* font-family: Quando; */
+.home_slogan img{
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.home li{
-  margin-top: 5px;
 
-}
+
+
+
+
 
 .headerContainer {
   width: auto;
@@ -121,79 +211,6 @@
   transition: 0.3s ease-in;
 }
 
-@media only screen and (max-width: 1250px) {
-  .home h5{
-
-    font-size: 75px;
-    margin-left: 30px;
-    margin-top: 17%;
-    margin-bottom: 9%;
-    font-family: Quando;
-  }
-  .home h6{
-
-    font-size: 28px;
-    margin-left: 30px;
-    margin-top: 10px;
-    margin-bottom: 0px;
-    /* font-family: Quando; */
-  }
-  .home ul{
-  
-    font-size: 18px;
-    margin-left: 30px;
-    margin-top: 25px;
-    margin-bottom: 20px;
-    /* font-family: Quando; */
-  }
-  .home li{
-    margin-top: 5px;
-  
-  }
-  
-}
-
-@media only screen and (max-width: 1150px) {
-  .home h5{
-
-    font-size: 65px;
-    margin-left: 30px;
-    margin-top: 17%;
-    margin-bottom: 9%;
-    font-family: Quando;
-  }
-}
-@media only screen and (max-width: 1000px) {
-  .home h5{
-
-    font-size: 55px;
-    margin-left: 30px;
-    margin-top: 17%;
-    margin-bottom: 9%;
-    font-family: Quando;
-  }
-  .home h6{
-
-    font-size: 24px;
-    margin-left: 30px;
-    margin-top: 10px;
-    margin-bottom: 0px;
-    /* font-family: Quando; */
-  }
-  .home ul{
-  
-    font-size: 17px;
-    margin-left: 30px;
-    margin-top: 25px;
-    margin-bottom: 20px;
-    /* font-family: Quando; */
-  }
-  .home li{
-    margin-top: 5px;
-  
-  }
-  
-}
 
 @media only screen and (max-width: 650px) {
 
@@ -354,6 +371,7 @@
   color: white;
   background-size: 100%;
   background-repeat: no-repeat;
+  font-family: Quando;
 }
 .home_voucher h5{
   margin-top: 10px;
