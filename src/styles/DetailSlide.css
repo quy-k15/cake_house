@@ -1,0 +1,47 @@
+.detail_img{
+    width: 500px;
+    height: 540px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.slick-prev{
+    width: 30px !important;
+    height: 30px !important;
+    left: 0 !important;
+    /* position: relative !important; */
+    top: 50%;
+    z-index: 1;
+    margin-left: 20px;
+
+}
+.slick-next{
+   
+    right: 0 !important;
+    z-index: 1;
+    margin-right: 20px !important;
+   
+}
+
+.detail_img_customize{
+    width: 450px;
+    height: 400px;
+}
+.img_detail_slide{
+    width: 100%;
+    border-radius: 10px;
+    height: 100%;
+    /* object-fit: cover;
+    object-position: center;    */
+}
+.detail_list_img{
+    width: 110px;
+    border-radius: 5px;
+    height: 110px;
+    object-fit: cover;
+
+}
+.custom-indicator li{
+    bottom: -100px;
+    width: 110px;
+    height: 110px;
+}

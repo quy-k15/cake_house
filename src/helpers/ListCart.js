@@ -9,7 +9,7 @@ export const ListCart = [
     name: "Bánh bông lan",
     image: BanhBongLan,
     price: 200.000,
-    size: 20-20-20,
+    size: "20-20-20",
   },
   {
     name: "Bánh kem",
