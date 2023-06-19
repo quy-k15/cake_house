@@ -10,7 +10,8 @@ import Login from "./pages/Login";
 import AddressBook from "./pages/AddressBook";
 import Detail from "./pages/DetailCake";
 import LikedProducts from "./pages/LikedProducts";
-import MyCart from "./pages/MyCart"
+import MyCart from "./pages/MyCart";
+import CategoryCake from "./pages/CategoryCake";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/menu" exact component={Menu} />
+          <Route path="/CategoryCake" exact component={CategoryCake} />
           <Route path="/about" exact component={About} />
           <Route path="/contact" exact component={Contact} />
           <Route path="/profile" exact component={Profile} />

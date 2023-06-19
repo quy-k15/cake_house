@@ -129,7 +129,7 @@ function Home() {
           </Link>
         </div>
         <div className="home_voucher" style={{backgroundImage: `url(${img_homevorcher})`}}>
-            <h5>FLAT SALES</h5>
+            <h5>FLASH SALES</h5>
             <div className="home_voucher_persen">
               <h2>50</h2>
               <h7>%</h7>

@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import "../styles/CardCart.css";
 
-function CardCake({ image, name, price, size }) {
+function CardCart({ image, name, price, size }) {
     //Tăng giảm số lượng
     
     const [count,setCount]=React.useState(1)
@@ -37,10 +38,13 @@ function CardCake({ image, name, price, size }) {
 
   return (
     <div className="CardCart">
-        <div className="CardCart_input">
-            <input type="checkbox" id="myCheckbox"></input>
-            
+        <div class="CardCart_input_div"> 
+            <label class="CardCart_input">
+                <input type="checkbox"/>
+                <span class="checkmark"></span>
+            </label>
         </div>
+
         <div className="CardCart_imgdiv"> 
             <img className ="CardCart_img" src={image}></img>
         </div>
@@ -74,4 +78,4 @@ function CardCake({ image, name, price, size }) {
   );
 }
 
-export default CardCake;
+export default CardCart;

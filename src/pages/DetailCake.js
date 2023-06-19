@@ -12,15 +12,10 @@ import ic_banker from "../assets/ic_banker.png";
 import ic_banker2 from "../assets/ic_banker2.png";
 import img_ChiTiet from "../assets/img_detail_ChiTiet.png";
 import img_MoTa from "../assets/img_detail_MoTa.png";
-
 import "../styles/DetailCake.css"
-
 import {ListBestSeller} from "../helpers/ListBestSeller"
 import {ListFeedBack} from "../helpers/ListFeedBack"
 import { useState } from "react";
-
-
-
 function Detail_item(){
     // Tăng giảm số lượng
     const [count,setCount]=React.useState(0)
@@ -55,8 +50,6 @@ function Detail_item(){
         backgroundColor: "#CD8042",
         color: "white"
     };
-
-    
       const [style1, setStyle1] = useState(defaultStyle);
       const [style2, setStyle2] = useState(defaultStyle);
       const [style3, setStyle3] = useState(defaultStyle);
@@ -81,7 +74,6 @@ function Detail_item(){
       return "var(--star-color)";
     }
   };
-
     return(
         <div className="detail">
             <div className="detail_item_card">
@@ -96,41 +88,41 @@ function Detail_item(){
                     
                 </div>
                 <div className="detail_info">
+                    <div className="detail_review">
+                        <div className="detail_rating_star">
+                            <input type="radio" name="html"></input>
+                            <input type="radio" name="html"></input>
+                            <input type="radio" name="html"></input>
+                            <input type="radio" name="html"></input>
+                            <input type="radio" name="html"></input>
+                        </div>
+                        <p>(200 đánh giá)</p>
+                    </div>
                     <div className="detail_name_review">
                         <h1>Bánh kem</h1>
-                        <div className="detail_review">
-                            <div className="detail_rating_star">
-                                <input type="radio" name="html"></input>
-                                <input type="radio" name="html"></input>
-                                <input type="radio" name="html"></input>
-                                <input type="radio" name="html"></input>
-                                <input type="radio" name="html"></input>
-                            </div>
-                            <p>(200 đánh giá)</p>
-                        </div>
                     </div>
                     <h2>150.000 VND </h2>
                     <div className="detail_button_size">
-                        <p>Kích thước</p>
+                        <p>Kích thước:</p>
                         <div className="button_size">
                             <button   style={style1}
                             onMouseEnter={() => setStyle1(hoverStyle)}
-                            onMouseLeave={() => setStyle1(defaultStyle)}>20-20-20 cm</button>
-
+                            onMouseLeave={() => setStyle1(defaultStyle)}>S</button>
                             <button style={style2}
                             onMouseEnter={() => setStyle2(hoverStyle)}
-                            onMouseLeave={() => setStyle2(defaultStyle)}>30-30-30 cm</button>
+                            onMouseLeave={() => setStyle2(defaultStyle)}>M</button>
                             <button style={style3}
                             onMouseEnter={() => setStyle3(hoverStyle)}
-                            onMouseLeave={() => setStyle3(defaultStyle)}>30-30-30 cm</button>
+                            onMouseLeave={() => setStyle3(defaultStyle)}>L</button>
                             <button style={style4}
                             onMouseEnter={() => setStyle4(hoverStyle)}
                             onMouseLeave={() => setStyle4(defaultStyle)}>Khác</button>
                         </div>
-
                     </div>
                     <div className="detail_number">
-                        <p>Số lượng: </p>
+                        <div className="detail_number_info">
+                            <p>Số lượng: </p>
+                        </div>
                         <div className="detail_number_button">
                             <button onClick={subtract} style={style6}
                             onMouseEnter={() => setStyle6(hoverStyle_White)}
@@ -142,14 +134,19 @@ function Detail_item(){
                         </div>
                     </div>
                     <div className="detail_buy">
-                        <button className="detail_addcart_button" style={style8}
+                        <button className="btn_addCart" style={style8}
                             onMouseEnter={() => setStyle8(hoverStyle_White)}
-                            onMouseLeave={() => setStyle8(defaultStyle)}> Thêm vào giỏ hàng</button>
-
+                            onMouseLeave={() => setStyle8(defaultStyle)}> 
+                            <div className="detail_addcart_button" style={style8}
+                            onMouseEnter={() => setStyle8(hoverStyle_White)}
+                            onMouseLeave={() => setStyle8(defaultStyle)}>Thêm vào giỏ hàng</div>
+                            <div className="btn_addCart_icon">
+                                <i class="fa-solid fa-cart-plus"></i>
+                            </div>  
+                        </button>
                         <button className="detail_buy_button" style={style5}
                             onMouseEnter={() => setStyle5(hoverStyle)}
                             onMouseLeave={() => setStyle5(defaultStyle)}> Mua Ngay</button>
-
                     </div>
                 </div>
             </div>
@@ -162,7 +159,6 @@ function Detail_item(){
             </div>
             <div className="HomeBestSeller">
                 {ListBestSeller.slice(0, 4).map((cardCake, key) => {
-   
                     return (
                         <CardCake
                         key={key}
@@ -195,18 +191,13 @@ function Detail_item(){
                             <p>Bánh được làm thủ công không chất bảo quản. Hương vị .....</p>
                             <p>saucbyjhcbWIBCSIALHCDSULACBIL</p>
                             <p>CDSULA CBILd hcbaeud bibvdu eaihbCDS ULACBI Ldhcbaeudbi bvdueaihb</p>
-
                         </div>
                     </div>
                     <div className="detail_ChiTiet_div_img">
                         <img className="detail_ChiTiet_img" src={img_ChiTiet}></img>
                     </div>
                 </div>
-
                 </div>
-         
-                
-               
                 <div className="detail_MoTa_div">
                     <div className="detail_Mota_div_img">
                         <img className="detail_MoTa_img" src={img_MoTa}></img>
@@ -218,14 +209,14 @@ function Detail_item(){
                                 <img className="detail_header_MoTa_img" src={ic_banker2}></img>
                             </div>
                         </div>
-                        <div className="detail_ChiTiet_info">
+                        <div className="detail_MoTa_info">
                             <ul>
                                 <li>Kích thước: 20-20-20 cm (dài- rộng - cao)</li>
                                 <li>Khối lượng: 500g</li>
                                 <li>Thành phần: Bột mì, trứng, dầu ô liu,.....</li>
-                                <li>Cách bảo quản: Bảo quản trong nhiệt độ 20-25 độ C aaaaa aaaaaaaa aaaaaa  aaaaaaaaaaaa aaaaaaa aaaaaa aaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaa</li>
+                                <li>Cách bảo quản: Bảo quản trong nhiệt độ 20-25 độ C</li>
+                                <li>aaaaa aaaaaaaa aaaaaa  aaaaaaaaaaaa aaaaaaa aaaaaa aaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaa</li>
                             </ul>
-
                         </div>
                     </div>
                 </div>
@@ -238,10 +229,8 @@ function Detail_item(){
                     </div>
                     <div class="line2_Chitiet"></div>
                 </div>
-
                 <div className="detai_item_FeedBack">
                     {ListFeedBack.slice(0, 2).map((cardFeedBack, key) => {
-    
                     return (
                         <CardFeedBack
                         key={key}
@@ -251,11 +240,8 @@ function Detail_item(){
                         />
                     );
                     })}
-
                 </div>
-                
             </div>
-
         </div>
     );
 }
