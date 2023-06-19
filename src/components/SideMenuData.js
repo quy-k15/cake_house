@@ -18,7 +18,7 @@ export const SideMenuData = [
     {
         title: "Đơn mua",
         icon: <ListAltIcon/>,
-        link:"/"
+        link:"/AllPurchase"
     },
     {
         title: "Thông báo",

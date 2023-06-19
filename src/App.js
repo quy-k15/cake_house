@@ -10,7 +10,8 @@ import Login from "./pages/Login";
 import AddressBook from "./pages/AddressBook";
 import Detail from "./pages/DetailCake";
 import LikedProducts from "./pages/LikedProducts";
-import MyCart from "./pages/MyCart";
+import MyCart from "./pages/MyCart"
+import AllPurchase from "./pages/AllPurchase"
 import CategoryCake from "./pages/CategoryCake";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/detail" exact component={Detail} />
           <Route path="/likedproducts" exact component={LikedProducts} />
           <Route path="/myCart" exact component={MyCart} />
+          <Route path="/AllPurchase" exact component={AllPurchase} />
         </Switch>
         <Footer />
       </Router>
