@@ -121,13 +121,13 @@
 
   }
 
-  .row #icon{
+  .SideMenuList .row #icon{
     flex: 30%;
     display: grid;
     place-items: center;
   }
 
-  .row #title{
+  .SideMenuList .row #title{
     flex: 70%;
   }
 

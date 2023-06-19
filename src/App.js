@@ -11,6 +11,7 @@ import AddressBook from "./pages/AddressBook";
 import Detail from "./pages/DetailCake";
 import LikedProducts from "./pages/LikedProducts";
 import MyCart from "./pages/MyCart"
+import AllPurchase from "./pages/AllPurchase"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
           <Route path="/detail" exact component={Detail} />
           <Route path="/likedproducts" exact component={LikedProducts} />
           <Route path="/myCart" exact component={MyCart} />
+          <Route path="/AllPurchase" exact component={AllPurchase} />
         </Switch>
         <Footer />
       </Router>
