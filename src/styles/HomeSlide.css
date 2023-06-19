@@ -29,10 +29,98 @@ height: 100%;
 .img-customize{
     width: 100%;
     height: 770px;
+    object-fit: cover;
+    object-position: center;
 }
 .img_slide{
     width: 100%;
-    height: 100%;
-    /* object-fit: cover;
-    object-position: center;    */
+    object-fit: cover;
+    object-position: center;   
+}
+
+@media only screen and (max-width: 1200px) {
+    .img-customize{
+        width: 100%;
+        height: 650px;
+        object-fit: cover;
+        object-position: center;
+    }
+    .img_slide{
+        height: 650px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;   
+    }
+
+}
+
+@media only screen and (max-width: 1000px) {
+    .img-customize{
+        width: 100%;
+        height: 600px;
+        object-fit: cover;
+        object-position: center;
+    }
+    .img_slide{
+        height: 600px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;   
+    }
+}
+@media only screen and (max-width: 1000px) {
+    .img-customize{
+        width: 100%;
+        height: 560px;
+        object-fit: cover;
+        object-position: center;
+    }
+    .img_slide{
+        height: 560px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;   
+    }
+}
+@media only screen and (max-width: 800px) {
+    .img-customize{
+        width: 100%;
+        height: 520px;
+        object-fit: cover;
+        object-position: center;
+    }
+    .img_slide{
+        height: 520px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;   
+    }
+}
+@media only screen and (max-width: 600px) {
+    .img-customize{
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        object-position: center;
+    }
+    .img_slide{
+        height: 500px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;   
+    }
+}
+@media only screen and (max-width: 400px) {
+    .img-customize{
+        width: 100%;
+        height: 660px;
+        object-fit: cover;
+        object-position: center;
+    }
+    .img_slide{
+        height: 660px;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;   
+    }
 }

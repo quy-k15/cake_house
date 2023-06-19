@@ -89,12 +89,6 @@ function Home() {
           <h1>Cake</h1>
           <img src={logo}></img>
           <h1>House</h1>
-          
-          {/* <div className="home_logo_div">
-            <img className ="home_logo" src={logo}></img>
-
-          </div> */}
-          {/* <h5>Bánh nhà làm. Đặc biệt ngon như nhà làm!</h5> */}
 
         </div>
       </div>
