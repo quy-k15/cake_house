@@ -12,6 +12,10 @@ import Detail from "./pages/DetailCake";
 import LikedProducts from "./pages/LikedProducts";
 import MyCart from "./pages/MyCart"
 import AllPurchase from "./pages/AllPurchase"
+import CancelledPurchase from "./pages/CancelledPurchase"
+import CompletedPurchase from "./pages/CompletedPurchase"
+import ReceivePurchase from "./pages/ReceivePurchase"
+import ConfirmPurchase from "./pages/ConfirmPurchase"
 import CategoryCake from "./pages/CategoryCake";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -32,6 +36,10 @@ function App() {
           <Route path="/likedproducts" exact component={LikedProducts} />
           <Route path="/myCart" exact component={MyCart} />
           <Route path="/AllPurchase" exact component={AllPurchase} />
+          <Route path="/ConfirmPurchase" exact component={ConfirmPurchase} />
+          <Route path="/ReceivePurchase" exact component={ReceivePurchase} />
+          <Route path="/CancelledPurchase" exact component={CancelledPurchase} />
+          <Route path="/CompletedPurchase" exact component={CompletedPurchase} />
         </Switch>
         <Footer />
       </Router>

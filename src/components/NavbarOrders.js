@@ -6,23 +6,23 @@ function NavbarOrders() {
     const NavbarData = [
         {
             title: "Tất cả",
-            link:"/"
+            link:"/AllPurchase"
         },
         {
             title: "Chờ xác nhận",
-            link:"/"
+            link:"/ConfirmPurchase"
         },
         {
             title: "Đang giao",
-            link:"/"
+            link:"/ReceivePurchase"
         },
         {
             title: "Hoàn thành",
-            link:"/"
+            link:"/CompletedPurchase"
         },
         {
             title: "Đã hủy",
-            link:"/"
+            link:"/CancelledPurchase"
         },
     ];
     return (

@@ -4,7 +4,7 @@ import SideMenu from "../components/SideMenu";
 import {OrdersData} from "../components/OrdersData";
 
 
-function All_Purchase() {
+function ReceivePurchase() {
     return (
         <div className="MyOrders">
             <div className="leftSide">
@@ -80,4 +80,4 @@ function All_Purchase() {
     );
 }
 
-export default All_Purchase;
+export default ReceivePurchase;
