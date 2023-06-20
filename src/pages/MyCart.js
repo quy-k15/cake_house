@@ -9,7 +9,7 @@ import {ListFeedBack} from "../helpers/ListFeedBack"
 import { useState } from "react";
 
 function MyCart(){
-    
+    const [isChecked, setIsChecked] = useState(false);
     return(
         <div className="MyCart">
             <div className="MyCart_header">
@@ -28,11 +28,18 @@ function MyCart(){
                 {ListCart .map((cardCart, key) => {
                 return (
                 <CardCart
+                    // key={key}
+                    // image={cardCart.image}
+                    // name={cardCart.name}
+                    // price ={cardCart.price}
+                    // size={cardCart.size}
                     key={key}
                     image={cardCart.image}
                     name={cardCart.name}
-                    price ={cardCart.price}
+                    price={cardCart.price}
                     size={cardCart.size}
+                    isChecked={isChecked}
+                    setIsChecked={setIsChecked}
             
                 />
                 );
