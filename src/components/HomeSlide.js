@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick-theme.css";
 import img_homecake1 from"../assets/img_homecake1.png";
 import img_homecake2 from"../assets/img_homecake11.png";
 import img_homecake4 from"../assets/img_homecake4.png";
-import img_homecake5 from"../assets/img_homecake10.jpg";
+import img_homecake5 from"../assets/img_homecake10.png";
 import img_homecake13 from"../assets/img_homecake13.png";
 import img_homecake15 from"../assets/img_homecake15.png";
 import img_homecake14 from"../assets/img_homecake14.png";

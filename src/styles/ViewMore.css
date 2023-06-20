@@ -1,0 +1,22 @@
+.ViewMore_cpn{
+    width: 30%;
+    height: 100px;
+    margin-left: 45%;
+   
+}
+.btn_ViewMore_cpn {
+    width: 160px;
+    height: 40px;
+    border-radius: 15px;
+    color: #8F3C02;
+    font-weight: bold;
+    /* size: 30px; */
+
+    margin-top: 2%;
+    margin-bottom: 3%;
+    border: 3px solid #8F3C02;
+    background-color: #FDF6F0;
+    font-family: 'Bellota';
+    font-size: 20px;
+    cursor: pointer;
+}

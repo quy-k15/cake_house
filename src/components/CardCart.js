@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import "../styles/CardCart.css";
 
-function CardCart({ image, name, price, size }) {
+function CardCart({ image, name, price, size,isChecked, setIsChecked }) {
     //Tăng giảm số lượng
     
     const [count,setCount]=React.useState(1)
@@ -40,7 +40,12 @@ function CardCart({ image, name, price, size }) {
     <div className="CardCart">
         <div class="CardCart_input_div"> 
             <label class="CardCart_input">
-                <input type="checkbox"/>
+                {/* <input type="checkbox"/> */}
+                <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={() => setIsChecked(!isChecked)}
+                />
                 <span class="checkmark"></span>
             </label>
         </div>
