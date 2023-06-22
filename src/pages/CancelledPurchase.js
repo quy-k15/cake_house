@@ -34,10 +34,7 @@ function CancelledPurchase() {
                                         {val.tradeDate}
                                         <div id="tradeDate_inf">12/06/2023</div>
                                     </div>
-                                    <div id="status">
-                                        {val.status}
-                                        <div id="status_inf">Còn hàng</div>
-                                    </div>
+                        
                                     <div >
                                         <button id="btn_detail">
                                             Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
@@ -62,9 +59,12 @@ function CancelledPurchase() {
                                         </div>
                                     </div>
                                     <div className="col3">
-                                        <div id="total_price">{val.total_price}</div>
-                                        <button className="buyagain">Mua lại</button>
-                                        <button className="rate">Đánh giá</button>
+                                        <div id="total_price">
+                                            {val.total_price}
+                                            <div id="total_price_inf">200.000 (VND)</div>
+                                        </div>
+                                        <button className="btn_purchase">Mua lại</button>
+                                        {/* <button className="rate">Đánh giá</button> */}
                                     </div>
                                     
                                 </div>
