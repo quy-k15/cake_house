@@ -35,8 +35,8 @@ function CompletedPurchase() {
                                         <div id="tradeDate_inf">12/06/2023</div>
                                     </div>
                                     <div id="status">
-                                        {val.status}
-                                        <div id="status_inf">Còn hàng</div>
+                                        {val.receivingdate}
+                                        <div id="status_inf">13/06/2023</div>
                                     </div>
                                     <div >
                                         <button id="btn_detail">
@@ -62,7 +62,10 @@ function CompletedPurchase() {
                                         </div>
                                     </div>
                                     <div className="col3">
-                                        <div id="total_price">{val.total_price}</div>
+                                        <div id="total_price">
+                                            {val.total_price}
+                                            <div id="total_price_inf">200.000 (VND)</div>
+                                        </div>
                                         <button className="buyagain">Mua lại</button>
                                         <button className="rate">Đánh giá</button>
                                     </div>

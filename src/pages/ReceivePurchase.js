@@ -36,7 +36,7 @@ function ReceivePurchase() {
                                     </div>
                                     <div id="status">
                                         {val.status}
-                                        <div id="status_inf">Còn hàng</div>
+                                        <div id="status_inf">Đã giao</div>
                                     </div>
                                     <div >
                                         <button id="btn_detail">
@@ -62,11 +62,14 @@ function ReceivePurchase() {
                                         </div>
                                     </div>
                                     <div className="col3">
-                                        <div id="total_price">{val.total_price}</div>
-                                        <button className="buyagain">Mua lại</button>
-                                        <button className="rate">Đánh giá</button>
+                                        <div id="total_price">
+                                            {val.total_price}
+                                            <div id="total_price_inf">200.000 (VND)</div>
+                                        </div>
+                                        <button className="btn_purchase">Đã nhận hàng</button>
+                                        {/* <button className="rate">Đánh giá</button> */}
                                     </div>
-                                    
+
                                 </div>
                                 
                             </div>
