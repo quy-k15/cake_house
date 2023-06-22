@@ -20,8 +20,12 @@ import ViewMore from "../components/ViewMore";
 import CategoryRight from "../components/CategoryRight";
 import SearchBox from "../components/SearchBox";
 import SearchResultsList from "../components/SearchResultsList";
+import { getDatabase, ref, onValue, child, get } from "firebase/database";
+import { database } from "../firebase";
 
 function CategoryCake() {
+
+
     const [results,setResults]=useState([]);
   return (
     <div className="CategoryCake">

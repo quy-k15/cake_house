@@ -22,7 +22,21 @@ import img_HomePink from "../assets/img_HomePink.png";
 import { useState, useEffect } from "react";
 import HomeSlide from "../components/HomeSlide";
 import ViewMore from "../components/ViewMore";
+// FireStore
+import { collection, getDocs } from 'firebase/firestore/lite';
+import { db } from "../firebase";
 function Home() {
+  const [cakes,setcakes]=useState([]);
+  async function getCakes(db) {
+    const cakesCol = collection(db, 'users');
+    const cakeSnapshot = await getDocs(cakesCol);
+    const cakeList = cakeSnapshot.docs.map(doc => doc.data());
+    console.log(cakeList);
+  }
+  useEffect(()=>{
+    getCakes(db);
+  })
+
   const defaultStyle = {
     backgroundColor: "",
     color: ""
@@ -71,6 +85,7 @@ function Home() {
                 />
               );
             })}
+      
           </div>
           <ViewMore Links="/CategoryCake"/>
         <div className="home_voucher" style={{backgroundImage: `url(${img_homevorcher})`}}>
@@ -93,7 +108,7 @@ function Home() {
 
         </div>
         <div className="HomeBestSeller">
-          {ListBestSeller.map((cardCake, key) => {
+          {/* {ListBestSeller.map((cardCake, key) => {
             return (
               <Link to="/detail" className="BestSeller">
                 <CardCake
@@ -106,7 +121,20 @@ function Home() {
               </Link>
               
             );
-          })}
+          })} */}
+           {/* {cakes.map((u) => {
+              return (
+                <CardCake
+                  key={u.idcake}
+                  image={u.img}
+                  name={u.name}
+                  price = {u.price}
+                 
+                />
+              );
+             
+            })} */}
+
         </div>
         <ViewMore Links="/CategoryCake"/>
 
