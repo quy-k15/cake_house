@@ -18,17 +18,17 @@ export const SideMenuData = [
     {
         title: "Đơn mua",
         icon: <ListAltIcon/>,
-        link:"/"
+        link:"/AllPurchase"
     },
     {
         title: "Thông báo",
         icon: <NotificationsNoneIcon/>,
-        link:"/"
+        link:"/Notifications"
     },
     {
         title: "Kho Voucher",
         icon: <BookmarkBorderIcon/>,
-        link:"/"
+        link:"/Voucher"
     },
 ];
     

@@ -10,11 +10,12 @@
     background-size: cover;
     font-family: "Bellota";
     background-color: #FDF6F0;
+    color: #4B1D1D;
 }
 
 .detail_item_card{
     background-color: #F8E2CF;
-    height: 410px;
+    height: 600px;
     width:90%;
     margin-left: 5%;
     margin-top: 14vh;
@@ -77,16 +78,17 @@
 }
 
 .detail_info h1{
-    font-size: 50px;
+    font-size: 70px;
 }
 
 .detail_info h2{
-   /* margin-top: -20px; */
-   font-size: 30px;
+  margin-bottom: 0px;
+  margin-top: 10px;
+  font-size: 45px;
 }
 .detail_info p{
-    font-size: 20px;
-    /* margin-top: -10px; */
+    font-size: 27px;
+    margin-bottom: 10px;
  }
  .my-div {
     width: 90%;
@@ -115,6 +117,7 @@
     width: 30%;
     text-align: center;
     font-family: Bellota;
+    color: #4B1D1D;
   }
 
   .button_size{
@@ -123,34 +126,35 @@
 
 
   .detail_button_size button{
+    font-size: 18px;
     margin-right: 3%;
     background-color: #CD8042;
     color: white;
-    width: 19%;
-    height: 30px;
+    width: 15%;
+    height: 35px;
     border-radius: 10px;
     border: 1px solid #CD8042;
  
   }
   .detail_number_button{
-    display: contents;
-    margin-left: 20px;
-    margin-top: 20px;
+    display: flex;
+    margin-left: 100px;
     width: 80%;
     height: 30px;
   }
   .detail_number_button h2{
     margin-bottom: 20px;
     margin-left: 20px;
+    margin-top: -10px;
 
   }
   .detail_number_button button{
+    font-size: 30px;
     color: #CD8042;
     margin-left: 20px;
     background-color: white;
     width: 15%;
-    height: 30px;
-    margin-top: 30px;
+    height: 35px;
     border-radius: 10px;
     border: 1px solid #CD8042;
   }
@@ -160,8 +164,7 @@
     cursor: pointer;
   } */
   .detail_number{
-    display: flex;
-    margin-top: 20px;
+    margin-top: 10px;
   }
   .detail_name_review{
     display: flex;
@@ -175,6 +178,8 @@
   }
   .detail_name_review h1{
     flex: 55%;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
   .detail_review_star{
     display: flex;
@@ -187,36 +192,35 @@
   }
 
   .detail_review {
+    margin-left: 40%;
     display: flex;
-    margin-top: 4%;
-    flex: 27%;}
+    margin-top: 2%;
+    height: 50px;
+  }
 
   .detail_review p{
+    font-size: 20px;
     flex: 60% 1;
-
-    margin-top: 7%;
     margin-left: 4%;
   }
   .detail_buy{
     display: flex;
+    margin-top: 50px;
   }
-  .detail_addcart_button{
-    flex: 30%;
+  .btn_addCart{
+    flex: 60%;
     margin-right: 5%;
     cursor: pointer;
+    display: flex;
   }
   
   .detail_buy_button{
-    margin-right: 40%;
-    cursor: pointer;
+
   }
   .detail_img_love{
     width: 30px;
     height: 30px;
     margin-left: 70%;
-  }
-  .detail_img{
-    display: flex;
   }
   .detail_love{
     display: flex;
@@ -231,22 +235,41 @@
   }
 
   .detail_addcart_button{
+    margin-top: 3px;
     color: #CD8042;
     background-color: white;
-    width: 15%;
-    height: 30px;
+    font-size: 22px;
+    border-radius: 10px;
+    border: none;
+    flex: 80%;
+  }
+  .btn_addCart{
+    color: #CD8042;
+    background-color: white;
+    height: 37px;
+    font-size: 22px;
     border-radius: 10px;
     border: 1px solid #CD8042;
+    flex: 50%;
+  }
+  .btn_addCart_icon{
+    flex:20%;
+  }
+  .fa-cart-plus{
+    margin-top: 8px;
   }
   .detail_buy_button{
-    
-
     background-color: #CD8042;
     color: white;
-    width: 19%;
-    height: 30px;
+    /* width: 19%; */
+    /* width: 300px; */
+    flex: 40%;
+    font-size: 22px;
+    height: 35px;
     border-radius: 10px;
     border: 1px solid #CD8042;
+    margin-right: 20%;
+    cursor: pointer;
   }
   /* =================Reposip=============== */
   /* @media screen and (max-width: 600px) {
@@ -274,7 +297,7 @@
     position: relative;
     display: flex;
     margin:10px 0;
-    flex: 60%;
+    flex: 40%;
     flex-direction: row-reverse;
   }
   .detail_rating_star input{
@@ -309,42 +332,6 @@
     color: var(--yellow);
   }
 
-  /* ==================Sản phẩm yêu thích============== */
-  /* .detail_love{
-    position: relative;
-    display: flex;
-    margin:10px 0;
-    flex-direction: row-reverse; 
-  }
-  .detail_love input{
-    position: relative;
-    width: 50px;
-    height: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    appearance: none;
-    overflow: hidden;
-    cursor: pointer;
-    margin: 0px 1px;
-  }
-  .detail_love input::before{
-    content: '\2665';
-    position: absolute;
-    font-family: Arial, sans-serif;
-    font-size: 50px;
-    position: absolute;
-
-    color: var(--star-color);
-    transition: all .3s;
-  }
-  
-  .detail_love input:hover ~input::before,
-  .detail_love input:hover::before,
-  .detail_love input:checked ~ input::before,
-  .detail_love input:checked::before{
-    color: var(--red);
-  } */
    .detail_love_div{
     display: flex;
     margin-left: 70%;
@@ -392,7 +379,6 @@
   background-color: #FCD8D4;
   width: 90%;
   margin-left: 5%;
-  margin-top: 5%;
   margin-bottom: 5%;
   border-radius: 10px;
 }
@@ -443,25 +429,44 @@
 
 .detail_ChiTiet_div{
   display: flex;
+  margin-top: -30px;
+
+}
+.chitiet_background{
+  background-color: #F8E2CF;
+  border-radius: 10px;
+
 }
 
 .detail_ChiTiet_MoTa{
-  background-color: #F8E2CF;
   width:90%;
   margin-left: 5%;
   margin-top: 5%;
   margin-bottom: 5%;
-  border-radius: 10px;
+  
  }
  .detail_ChiTiet{
   margin-left: 5%;
-  width: 50%;
+  flex:50%;
+  margin-top: 5%;
  }
-
- .detail_ChiTiet h2 {
-  font-size: 35px;
-  /* margin-bottom: 7%; */
-  margin-top: 11%;
+.detail_ChiTiet_info{
+  width: 100%;
+  font-size: 23px;
+  margin-top: 50px;
+}
+.detail_MoTa_info{
+  width: 100%;
+  font-size: 23px;
+  margin-top: 50px;
+}
+.detail_MoTa_info ul{
+  width: 100%;
+}
+.detail_MoTa_info li{
+  width: 100%;
+  margin-top: 15px;
+  word-break: break-word;
 }
  .detail_MoTa{
   margin-left: 5%;
@@ -476,8 +481,7 @@
   margin-top: 11%;
  }
  .detail_ChiTiet_div_img{
-  width: 40%;
-  height: 40%;
+  flex:50%;
  }
  .detail_ChiTiet_img{
   width: 100%;
@@ -486,9 +490,8 @@
  }
  .detail_MoTa_div{
   display: flex;
-  margin-bottom: 5%;
-  margin-left: 5%;
   margin-top: 5%;
+  background-color: #FDF6F0;
  }
  
  .detail_MoTa_div_img{
@@ -502,43 +505,261 @@
  
  }
  .detail_Mota_div_img{
-  width: 50%;
-  height: 50%;
+  flex:50%;
  }
  .detail_MoTa_img{
-  width: 85%;
-  height: 85%;
+  width: 100%;
+  height: 100%;
   border-radius: 10px;
  }
  
  .detail_ChiTiet_header{
   display: flex;
+  background-image: url('../assets/img_background_Name.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 420px;
+  height: 120px;
   /* margin-bottom: 5%; */
  }
  .detail_ChiTiet_header h2{
   flex: 60%;
+  font-size: 35px;
+  margin-top: 20px;
   /* margin-left: 2%; */
  }
-.detail_header_img{
-  width: 92%;
-  margin-top: -20%;
+ .detail_header_img {
+  width: 75%;
+  margin-top: 8%;
+  margin-left: 10px;
 }
 
 .detail_header_img_div{
   flex: 5%;
 }
 .detail_header_MoTa_img_div{
-  flex: 35%;
+  flex: 5%;
 }
 .detail_MoTa_header{
   display: flex;
+  background-image: url('../assets/img_background_Right.png');
   /* margin-bottom: 5%; */
+  background-size: 100%;
+  background-repeat: no-repeat;
+  width: 420px;
+  height: 120px;
+  margin-left: 32%;
  }
 .detail_MoTa_header h2{
-  flex: 25%;
+  flex: 55% 1;
+  margin-top: 20px;
+  padding-left: 30px;
 }
 .detail_header_MoTa_img{
-  width: 40%;
+  width: 75%;
   /* height: 100%; */
-  margin-top: -10%;
+  margin-top: 10%;
+}
+
+/* ==========================Reponsive====================== */
+@media only screen and (max-width: 1300px) {
+  .detail_addcart_button{
+    display: none;
+  }
+  .btn_addCart{
+    flex:20%;
+  }
+  .detail_buy_button{
+    margin-right: 30%;
+  }
+  .detail_MoTa_header{
+    margin-left: 19%;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .detail_love_div {
+    margin-left: 50%;
+  }
+  .detail_name_review h1 {
+    flex: 50% 1;
+  }
+
+  .detail_info h1 {
+    font-size: 60px;
+  }
+  .detail_review {
+    flex: 40% 1;
+  }
+  .detail_MoTa_header{
+    margin-left: 12%;
+  }
+  .detail_ChiTiet_header h2 {
+    font-size: 32px;
+  }
+  .detail_MoTa h2{
+    font-size: 32px;
+  }
+  .detail_ChiTiet_info {
+    font-size: 22px;
+    margin-top: 40px;
+    width: 95%;
+  }
+  .detail_MoTa_info {
+    width: 100%;
+    font-size: 22px;
+    margin-top: 50px;
+  }
+  .detail_MoTa_info ul {
+    width: 92%;
+    margin-right: 0px;
+  }
+  .detail_number_button button{
+    width: 20%;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .detail_MoTa_header{
+    margin-left: 3%;
+  }
+}
+@media only screen and (max-width: 1000px) {
+  .detail_item_card{
+    height: 560px;
+  }
+  .detail_review{
+    margin-left: 20%;
+
+  }
+  .detail_info h2{
+    font-size: 40px;
+  }
+  .detail_button_size p{
+    font-size: 24px;
+    margin-top: 13px;
+    margin-bottom: 13px;
+  }
+  .detail_number p{
+    font-size: 24px;
+  }
+  .detail_MoTa_header {
+    width: 350px;
+    height: 100px;
+    margin-left: 15%;
+   
+  }
+  
+  .detail_ChiTiet_header {
+    width: 350px;
+    height: 100px;
+  }
+  .detail_ChiTiet_info {
+    font-size: 20px;
+    margin-top: 30px;
+    width: 95%;
+  }
+  .detail_MoTa_info {
+    font-size: 20px;
+    margin-top: 30px;
+  }
+  .detail_MoTa h2 {
+    font-size: 29px;
+  }
+  .detail_ChiTiet_header h2 {
+    font-size: 29px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .detail_item_card{
+    height: 520px;
+  }
+  .detail_MoTa_header {
+    width: 300px;
+    margin-left: 15%;
+    height: 90px;
+  }
+  .detail_MoTa h2 {
+    font-size: 25px;
+}
+  .detail_ChiTiet_header {
+    width: 320px;
+  }
+  .detail_ChiTiet_header h2 {
+    font-size: 25px;
+  }
+  
+  .detail_ChiTiet_info {
+    font-size: 19px;
+    margin-top: 20px;
+  }
+  .detail_MoTa_info {
+    font-size: 19px;
+    margin-top: 20px;
+  }
+  .detail_MoTa_img {
+    height: 500px;
+  }
+  .detail_button_size button{
+    font-size: 16px;
+    width: 18%;
+  }
+  .detail_review {
+    margin-left: 10%;
+  }
+  .detail_number_button{
+    margin-left: 50px;
+  }
+  .detail_buy_button {
+    margin-right: 20%;
+    font-size: 18px;
+  }
+  .detail_review p {
+    font-size: 18px;
+}
+}
+@media only screen and (max-width: 800px) {
+  .detail_info h1 {
+    font-size: 52px;
+  }
+  .detail_info h2 {
+    font-size: 37px;
+  }
+  .detail_review {
+    margin-left: 0%;
+  }
+  .detail_buy_button {
+    margin-right: 15%;
+  }
+  .detail_info h2 {
+    margin-top: 0px;
+  }
+  .detail_button_size p {
+    font-size: 22px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .detail_number p {
+    font-size: 22px;
+    margin-top: 8px;
+  }
+  .detail_buy {
+    display: flex;
+    margin-top: 30px;
+  }
+  .detail_item_card {
+    height: 470px;
+  }
+  .detail_button_size button {
+    height: 29px;
+    border-radius: 7px;
+  }
+  .detail_info {
+    margin-left: 20px;
+  }
+  .detail_info h1 {
+    font-size: 42px;
+  }
+  .detail_info h2 {
+    font-size: 30px;
+  }
 }

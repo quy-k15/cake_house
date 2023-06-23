@@ -55,24 +55,94 @@
     background-color:#F8E2CF ;
     border-radius: 10px;
     margin-bottom: 12px;
-}
-.CardCart_input{
-    flex: 7%;
-    position: relative;
-    margin-bottom: 10px;
-}
-input[type="checkbox"] {
-    /* display: none; */
  }
 
- input[type="checkbox"]:checked :before {
-    border-color: #CD8042;
-    background-color: #CD8042;
- }
-
- input[type="checkbox"]:checked :after {
+/* ===================================================== */
+.CardCart_input_all_div{
+    flex: 5% 1;
+    margin-top: 20px;
+    margin-left: 30px;
+}
+.CardCart_input_all{
     display: block;
- }
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default checkbox */
+  .CardCart_input_all input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom checkbox */
+  .checkmark_all {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 25px;
+    width: 25px;
+    background-color: #FDF6F0;
+    border-radius: 4px;
+
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .CardCart_input_all:hover input ~ .checkmark_all {
+    background-color: #FDF6F0;
+  }
+  
+  /* When the checkbox is checked, add a blue background */
+  .CardCart_input_all input:checked ~ .checkmark_all {
+    background-color: #4B1D1D;
+  }
+  
+  
+  /* Create the checkmark/indicator (hidden when not checked) */
+  .checkmark_all:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the checkmark when checked */
+  .CardCart_input_all input:checked ~ .checkmark_all:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .CardCart_input_all .checkmark_all:after {
+    left: 9px;
+    top: 5px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+/* =============================================== */
+
+
+
+
+
+
+
+
+
+
 .CardCart_imgdiv{
     flex: 10%;
 }

@@ -9,11 +9,16 @@ import {ListFeedBack} from "../helpers/ListFeedBack"
 import { useState } from "react";
 
 function MyCart(){
-    
+    const [isChecked, setIsChecked] = useState(false);
     return(
         <div className="MyCart">
             <div className="MyCart_header">
-                <input type="checkbox" id="myCheckbox"></input>
+                <div className="CardCart_input_all_div"> 
+                    <label class="CardCart_input_all">
+                        <input type="checkbox"/>
+                        <span class="checkmark_all"></span>
+                    </label>
+                </div>
                 <h3 className="MyCart_header_sp">Sản phẩm</h3>
                 <h3 className="MyCart_header_pr">Đơn giá</h3>
                 <h3 className="MyCart_header_num">Số lượng</h3>
@@ -23,11 +28,18 @@ function MyCart(){
                 {ListCart .map((cardCart, key) => {
                 return (
                 <CardCart
+                    // key={key}
+                    // image={cardCart.image}
+                    // name={cardCart.name}
+                    // price ={cardCart.price}
+                    // size={cardCart.size}
                     key={key}
                     image={cardCart.image}
                     name={cardCart.name}
-                    price ={cardCart.price}
+                    price={cardCart.price}
                     size={cardCart.size}
+                    isChecked={isChecked}
+                    setIsChecked={setIsChecked}
             
                 />
                 );

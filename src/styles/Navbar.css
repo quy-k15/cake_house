@@ -172,7 +172,7 @@
     height: 100%;
    
 } */
-.Search-box:hover .Search_btn{
+/* .Search-box:hover .Search_btn{
   background-color: #FFCEAE;
   border-radius: 30px;
   color: white;
@@ -190,7 +190,7 @@
 
 .Search-box:hover + .navbar_title {
   display: none;
-}
+} */
 
 .navbar_title2{
   display: none;

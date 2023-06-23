@@ -11,7 +11,18 @@ import AddressBook from "./pages/AddressBook";
 import Detail from "./pages/DetailCake";
 import LikedProducts from "./pages/LikedProducts";
 import MyCart from "./pages/MyCart"
+import AllPurchase from "./pages/AllPurchase"
+import CancelledPurchase from "./pages/CancelledPurchase"
+import CompletedPurchase from "./pages/CompletedPurchase"
+import ReceivePurchase from "./pages/ReceivePurchase"
+import ConfirmPurchase from "./pages/ConfirmPurchase"
+import CategoryCake from "./pages/CategoryCake";
+import Notifications from "./pages/Notifications";
+import UnreadNotifications from "./pages/UnreadNotifications";
+import ReadNotifications from "./pages/ReadNotifications";
+import Voucher from "./pages/Voucher";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 
 function App() {
   return (
@@ -20,7 +31,7 @@ function App() {
         <Navbar />
         <Switch>
           <Route path="/" exact component={Home} />
-          <Route path="/menu" exact component={Menu} />
+          <Route path="/CategoryCake" exact component={CategoryCake} />
           <Route path="/about" exact component={About} />
           <Route path="/contact" exact component={Contact} />
           <Route path="/profile" exact component={Profile} />
@@ -29,6 +40,15 @@ function App() {
           <Route path="/detail" exact component={Detail} />
           <Route path="/likedproducts" exact component={LikedProducts} />
           <Route path="/myCart" exact component={MyCart} />
+          <Route path="/AllPurchase" exact component={AllPurchase} />
+          <Route path="/ConfirmPurchase" exact component={ConfirmPurchase} />
+          <Route path="/ReceivePurchase" exact component={ReceivePurchase} />
+          <Route path="/CancelledPurchase" exact component={CancelledPurchase} />
+          <Route path="/CompletedPurchase" exact component={CompletedPurchase} />
+          <Route path="/Notifications" exact component={Notifications} />
+          <Route path="/UnreadNotifications" exact component={UnreadNotifications} />
+          <Route path="/ReadNotifications" exact component={ReadNotifications} />
+          <Route path="/Voucher" exact component={Voucher} />
         </Switch>
         <Footer />
       </Router>

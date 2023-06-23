@@ -74,7 +74,7 @@
     width: 140px;
     height: 40px;
     border: none;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: #FCD8D4;
     color: #8F3C02;
     font-size: 15px;
@@ -106,7 +106,7 @@
     background-color: #F5C6AA;
     margin-left: 4%;
     margin-top: 1.5%;
-    border-radius: 7%;
+    border-radius: 10px;
     position: fixed;
     z-index: 2;
   }

@@ -92,12 +92,11 @@ const hoverStyle = {
         <div className="navbar_header" style={style2}
                             onMouseEnter={() => setStyle2(hoverStyle)}
                             onMouseLeave={() => setStyle2(defaultStyle)}>
-          <Link to="/menu"className="item_menu1">
+          <Link to="/CategoryCake" className="item_menu1">
             <div className="icon"><i class="fa-solid fa-cake-candles"></i></div>
             <div className="navbar_title">Loại bánh </div>
           </Link>
         </div>
-    
         <div className="navbar_header" style={style3}
                             onMouseEnter={() => setStyle3(hoverStyle)}
                             onMouseLeave={() => setStyle3(defaultStyle)}>
@@ -107,7 +106,6 @@ const hoverStyle = {
           </Link>
           
         </div>
-        
         <div className="navbar_header" style={style4}
                             onMouseEnter={() => setStyle4(hoverStyle)}
                             onMouseLeave={() => setStyle4(defaultStyle)}>

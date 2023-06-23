@@ -1,0 +1,174 @@
+.CategoryCake{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: left;
+    flex-direction: column;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: "Bellota";
+    background-color: white;
+    color: #4B1D1D;
+    position: relative;
+
+}
+.background_category{
+    width: 100%;
+    height: 720px;
+    margin-top: 3%;
+    background-image: url('../assets/img_background_category.png');
+    display: flex;
+ 
+}
+.background_category_info{
+    flex: 50%;
+   
+}
+.background_category_info h5{
+    margin-left: 20%;
+    font-size: 45px;
+    margin-top: 33%;
+    margin-bottom: 25px;
+
+}
+.background_category_info h1{
+    margin-left: 20%;
+    font-size: 90px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+   font-family: Quando;
+
+}
+.background_category_img{
+    flex: 50%;
+    margin-top: 3%;
+
+}
+.category_img{
+    width: 90%;
+
+}
+/* ===========================Search================================= */
+.category_search{
+    position: fixed;
+    top: 75px;
+
+    z-index: 999;
+    width: 100%;
+}
+
+
+/* ====================================================================== */
+.category_header{
+    width: 100%;
+    height: 300px;
+    margin-top: 30px;
+    display: flex;
+
+}
+.category_header_info{
+    margin-top: 5%;
+    flex:65%;
+
+}
+.category_header_img_div{
+    flex: 35%;
+
+}
+.category_header_img{
+    width: 100%;
+    margin-left: 7%;
+
+}
+.category_header_info p{
+    font-size: 25px;
+    margin-left: 3%;
+
+}
+/* ==============================Tiramisu============================ */
+.Category_Tiramisu{
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items: center;
+    text-decoration: none;
+
+}
+.btn_ViewMore_Category{
+    width: 100%;
+    height: 100px;
+
+}
+/* ==========================Banh Kem========================== */
+.Category_BanhKem{
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items: center;
+    text-decoration: none;
+
+}
+.Category_Cookies{
+    width: 90%;
+    margin-left: 5%;
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    place-items: center;
+    text-decoration: none;
+
+}
+/* ================Search===================== */
+/* .Search-box{
+    margin-top: 10%;
+  display: flex;
+  background-color: #F2A06F;
+  border-radius: 30px;
+} */
+/* .Search-box .Search-text{
+  border: none;
+  outline: none;
+  background: none;
+  width: 0;
+  font-size: 18px;
+}
+.Search-box .Search-btn{
+  background-color: #FDF6F0;
+  border: none;
+  outline: none;
+  background: none;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 50%;
+} */
+
+
+/* =======================Responsive=============== */
+/* .icon{
+    flex: 30% 1;
+    display: flex;
+    width: 100%;
+    height: 100%;
+   
+} */
+/* .Search-box:hover .Search_btn{
+    background-color: #FFCEAE;
+    border-radius: 30px;
+    color: white;
+  
+  } */
+  /* .Search-box:hover .Search-text{
+    width: 300px;
+    padding: 5px 10px;
+    background-color: #FDF6F0;
+    border-radius: 30px;
+  } */
+  /* .Search-box:hover{
+     background-color: #FDF6F0;
+  } */
+  

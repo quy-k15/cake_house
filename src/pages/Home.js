@@ -15,32 +15,27 @@ import "../styles/CardCake.css"
 import "../styles/Header.css"
 
 import logo from"../assets/Logo_Cake.png";
-import home_img from "../assets/img_home.png";
-import img_cakehome1 from "../assets/img_cakehome1.png"
-import img_cakehome2 from "../assets/img_cakehome2.png"
-import img_cakehome3 from "../assets/img_cakehome3.png"
-import img_cakehome4 from "../assets/img_cakehome4.png"
-import img_cakehome5 from "../assets/img_cakehome5.png"//*
-import img_cakehome6 from "../assets/img_cakehome6.png"
-import img_cakehome7 from "../assets/img_cakehome7.png"//*
-import img_cakehome8 from "../assets/img_cakehome8.png"
-import img_cakehome9 from "../assets/img_cakehome9.png"//*
-import img_cakehome10 from "../assets/img_cakehome10.png"//*
-import img_cakehome11 from "../assets/img_cakehome11.png"
 import img_homevorcher from "../assets/img_HomeVorcher.png"
 import img_HomeGreen from "../assets/img_HomeGreen.png";
 import img_HomeOareng from "../assets/img_HomeOreng.png";
 import img_HomePink from "../assets/img_HomePink.png";
-import backgroudHome from "../assets/backgroundHome.png"
-import backgroud from "../assets/background.png"
 import { useState, useEffect } from "react";
 import HomeSlide from "../components/HomeSlide";
-
-
-
+import ViewMore from "../components/ViewMore";
+// FireStore
+import { collection, getDocs } from 'firebase/firestore/lite';
+import { db } from "../firebase";
 function Home() {
-
-
+  const [cakes,setcakes]=useState([]);
+  async function getCakes(db) {
+    const cakesCol = collection(db, 'users');
+    const cakeSnapshot = await getDocs(cakesCol);
+    const cakeList = cakeSnapshot.docs.map(doc => doc.data());
+    console.log(cakeList);
+  }
+  useEffect(()=>{
+    getCakes(db);
+  })
 
   const defaultStyle = {
     backgroundColor: "",
@@ -50,30 +45,6 @@ function Home() {
     backgroundColor: "#8F3C02",
     color: "white"
   };
-
-
-
-
-//   const [currentSlide, setCurrentSlide] = useState(0);
-//   const handleNextClick = () => {
-//     const nextSlide = currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
-//     setCurrentSlide(nextSlide);
-//  }
- 
-//  const handlePreviousClick = () => {
-//     const previousSlide = currentSlide === 0 ? slides.length - 1 : currentSlide - 1;
-//     setCurrentSlide(previousSlide);
-//  }
-//  const slides = [
-//   require('../assets/img_homecake1.png'),
-//   require('../assets/img_homecake2.png'),
-//   require('../assets/img_homecake3.png'),
-//   require('../assets/img_homecake4.png'),
-//   require('../assets/img_homecake5.png')
-// ];
-  
-
-
   const [style1, setStyle1] = useState(defaultStyle);
   const [style2, setStyle2] = useState(defaultStyle);
   return (
@@ -81,21 +52,11 @@ function Home() {
       <div className="home_wellcome" >
         <div className="img_home_div">
           <HomeSlide />
-        
         </div>
-    
         <div className="HomeName">
-       
           <h1>Cake</h1>
           <img src={logo}></img>
           <h1>House</h1>
-          
-          {/* <div className="home_logo_div">
-            <img className ="home_logo" src={logo}></img>
-
-          </div> */}
-          {/* <h5>Bánh nhà làm. Đặc biệt ngon như nhà làm!</h5> */}
-
         </div>
       </div>
       <div className="home_slogan">
@@ -104,8 +65,6 @@ function Home() {
      
         <h5>Bánh nhà làm. Đặc biệt ngon như nhà làm!</h5>
       </div>
-
-       
       <div className="Category">
         <div class="my-div">
               <div class="line1"></div>
@@ -126,16 +85,11 @@ function Home() {
                 />
               );
             })}
+      
           </div>
-          <div className="ViewMore">
-          <Link to="/menu">
-            <button className="btn_ViewMore"style={style1}
-              onMouseEnter={() => setStyle1(hoverStyle)}
-              onMouseLeave={() => setStyle1(defaultStyle)}> Xem thêm </button>
-          </Link>
-        </div>
+          <ViewMore Links="/CategoryCake"/>
         <div className="home_voucher" style={{backgroundImage: `url(${img_homevorcher})`}}>
-            <h5>FLAT SALES</h5>
+            <h5>FLASH SALES</h5>
             <div className="home_voucher_persen">
               <h2>50</h2>
               <h7>%</h7>
@@ -154,7 +108,7 @@ function Home() {
 
         </div>
         <div className="HomeBestSeller">
-          {ListBestSeller.map((cardCake, key) => {
+          {/* {ListBestSeller.map((cardCake, key) => {
             return (
               <Link to="/detail" className="BestSeller">
                 <CardCake
@@ -167,15 +121,22 @@ function Home() {
               </Link>
               
             );
-          })}
+          })} */}
+           {/* {cakes.map((u) => {
+              return (
+                <CardCake
+                  key={u.idcake}
+                  image={u.img}
+                  name={u.name}
+                  price = {u.price}
+                 
+                />
+              );
+             
+            })} */}
+
         </div>
-        <div className="ViewMore">
-          <Link to="/menu">
-            <button className="btn_ViewMore"style={style2}
-              onMouseEnter={() => setStyle2(hoverStyle)}
-              onMouseLeave={() => setStyle2(defaultStyle)}> Xem thêm </button>
-          </Link>
-        </div>
+        <ViewMore Links="/CategoryCake"/>
 
       </div>
       <div className ="Home_Introduce">
@@ -202,16 +163,9 @@ function Home() {
           <div className="Introduce_Img3">
             <img className="Intro_img_3" src={img_HomePink}></img>
           </div>
-
-        </div>
-        
-      </div>
-        
-        
+        </div> 
+      </div>   
     </div>
-    
-    
   );
 }
-
 export default Home;

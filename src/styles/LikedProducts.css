@@ -48,6 +48,10 @@
 
 .LikeProduct .categories {
   display: flex;
+  background-color: antiquewhite;
+  border-radius: 10px;
+  padding: 0 10px;
+  margin-right: 4.5%;
 }
 
 
@@ -66,11 +70,11 @@
 }
 
 .LikeProduct .categories .tt {
-  flex: 10%;
+  flex: 3%;
   place-items: center;
 }
 
-.rightSide .row #image {
+.rightSide .LikeProduct .row #image {
   flex: 10%;
   display: grid;
   place-items: center;
@@ -87,7 +91,7 @@
 
 }
 
-.rightSide #image:hover img {
+.rightSide .LikeProduct .row #image:hover img {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
   cursor: pointer;
@@ -130,7 +134,7 @@
   cursor: pointer;
 }
 
-.rightSide .row #name {
+.rightSide .LikeProduct .row #name {
   flex: 15%;
   display: grid;
   font-weight: bold;
@@ -141,7 +145,7 @@
   transition: .3s ease-in-out;
 }
 
-.rightSide .row #name:hover {
+.rightSide .LikeProduct .row #name:hover {
   color: #8F3C02;
   cursor: pointer;
   -webkit-transform: scale(1.1);
