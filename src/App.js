@@ -17,14 +17,11 @@ import CompletedPurchase from "./pages/CompletedPurchase";
 import ReceivePurchase from "./pages/ReceivePurchase";
 import ConfirmPurchase from "./pages/ConfirmPurchase";
 import CategoryCake from "./pages/CategoryCake";
-<<<<<<< Updated upstream
 import Notifications from "./pages/Notifications";
 import UnreadNotifications from "./pages/UnreadNotifications";
 import ReadNotifications from "./pages/ReadNotifications";
 import Voucher from "./pages/Voucher";
-=======
 import AddCake from "./pages/AddCake";
->>>>>>> Stashed changes
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
