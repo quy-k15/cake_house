@@ -20,7 +20,9 @@ import CategoryCake from "./pages/CategoryCake";
 import Notifications from "./pages/Notifications";
 import UnreadNotifications from "./pages/UnreadNotifications";
 import ReadNotifications from "./pages/ReadNotifications";
+import Voucher from "./pages/Voucher";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 
 function App() {
   return (
@@ -46,6 +48,7 @@ function App() {
           <Route path="/Notifications" exact component={Notifications} />
           <Route path="/UnreadNotifications" exact component={UnreadNotifications} />
           <Route path="/ReadNotifications" exact component={ReadNotifications} />
+          <Route path="/Voucher" exact component={Voucher} />
         </Switch>
         <Footer />
       </Router>

@@ -28,7 +28,7 @@ export const SideMenuData = [
     {
         title: "Kho Voucher",
         icon: <BookmarkBorderIcon/>,
-        link:"/"
+        link:"/Voucher"
     },
 ];
     

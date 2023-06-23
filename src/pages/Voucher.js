@@ -1,23 +1,20 @@
 import React from "react";
-import NavbarNotification from "../components/NavbarNotification";
 import SideMenu from "../components/SideMenu";
-import "../styles/Notifications.css";
-import {NotificationData} from "../components/NotificationData";
+import "../styles/Voucher.css";
+import {VoucherData} from "../components/VoucherData";
 
-
-function Notifications() {
+function Voucher() {
     return (
-        <div className="Notification">
+        <div className="Voucher">
             <div className="leftSide">
                 <SideMenu />
             </div>
             <div className="rightSide">
-                <NavbarNotification/>
-                <div className="all_notification">
-                    {NotificationData.map((val, key) => {
+                <div className="all_voucher">
+                    {VoucherData.map((val, key) => {
                         return (
                             <div
-                                className="row_notification"
+                                className="row_voucher"
                                 key={key}
                                 // id={window.location.pathname == val.link ? "active" : ""}
                                 // onClick={() => {
@@ -26,7 +23,7 @@ function Notifications() {
                             >
                                 {""}
                                 
-                                <div className="detail_notification">
+                                <div className="detail_voucher">
                                     <div className="col1">
                                         <div id="image">{val.image}</div>
                                     </div>
@@ -36,9 +33,11 @@ function Notifications() {
                                         <div id="time">{val.time}</div>
                                     </div>
                                     <div className="col3">
-                                        <div id="btn_detail">
-                                            {val.btn_detail}
-                                        </div>
+                                        <button id="btn_use">
+                                            Dùng ngay
+                                            <div id="icon_btn">{val.icon_btn}</div>
+                                        </button>
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -51,4 +50,4 @@ function Notifications() {
     );
 }
 
-export default Notifications;
+export default Voucher;
