@@ -17,6 +17,9 @@ import CompletedPurchase from "./pages/CompletedPurchase"
 import ReceivePurchase from "./pages/ReceivePurchase"
 import ConfirmPurchase from "./pages/ConfirmPurchase"
 import CategoryCake from "./pages/CategoryCake";
+import Notifications from "./pages/Notifications";
+import UnreadNotifications from "./pages/UnreadNotifications";
+import ReadNotifications from "./pages/ReadNotifications";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
@@ -40,6 +43,9 @@ function App() {
           <Route path="/ReceivePurchase" exact component={ReceivePurchase} />
           <Route path="/CancelledPurchase" exact component={CancelledPurchase} />
           <Route path="/CompletedPurchase" exact component={CompletedPurchase} />
+          <Route path="/Notifications" exact component={Notifications} />
+          <Route path="/UnreadNotifications" exact component={UnreadNotifications} />
+          <Route path="/ReadNotifications" exact component={ReadNotifications} />
         </Switch>
         <Footer />
       </Router>

@@ -23,7 +23,7 @@ export const SideMenuData = [
     {
         title: "Thông báo",
         icon: <NotificationsNoneIcon/>,
-        link:"/"
+        link:"/Notifications"
     },
     {
         title: "Kho Voucher",

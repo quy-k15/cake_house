@@ -91,7 +91,7 @@
 
 }
 
-.rightSide #image:hover img {
+.rightSide .LikeProduct .row #image:hover img {
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
   cursor: pointer;
@@ -145,7 +145,7 @@
   transition: .3s ease-in-out;
 }
 
-.rightSide .row #name:hover {
+.rightSide .LikeProduct .row #name:hover {
   color: #8F3C02;
   cursor: pointer;
   -webkit-transform: scale(1.1);

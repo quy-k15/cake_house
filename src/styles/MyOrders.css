@@ -31,9 +31,6 @@
     margin-left: 0%;
     height: auto;
     background-color: #F8E2CF;
-    border-radius: 10px;
-    /*position: fixed;
-    z-index: 2; */
 }
 .NavbarOrders .List {
     display: flex;
