@@ -19,7 +19,7 @@ const Login= ()=> {
       <div className={`container ${isSignUpMode ? "sign-up-mode" : ""}`}>
         <div class="forms-container">
           <div class="signin-signup">
-            <form action="#" class="sign-in-form">
+            <form action="Login.java" class="sign-in-form">
               <h2 class="titlename">Đăng nhập</h2>
               <div class="input-field">
                 <i class="fas fa-user"></i>
@@ -29,7 +29,7 @@ const Login= ()=> {
                 <i class="fas fa-lock"></i>
                 <input type="password" placeholder="Mật khẩu" />
               </div>
-              <input type="submit" value="Login" class="btn solid" />
+              <input type="submit" value="Đăng nhập" class="btn solid" />
               <p class="social-text">hoặc Đăng nhập qua các nền tảng sau</p>
               <div class="social-media">
                 <a href="#" class="social-icon">
@@ -46,7 +46,7 @@ const Login= ()=> {
                 </a>
               </div>
             </form>
-            <form action="#" class="sign-up-form">
+            <form action="Login.java" class="sign-up-form">
               <h2 class="titlename">Đăng ký</h2>
               <div class="input-field">
                 <i class="fas fa-user"></i>
@@ -91,7 +91,7 @@ const Login= ()=> {
                 Đăng ký
               </button>
             </div>
-            <img src={Cake1} class="image" />
+            <img src={Cake1} class="image" alt=""/>
           </div>
           <div class="panel right-panel">
             <div class="content">
@@ -103,7 +103,7 @@ const Login= ()=> {
                 Đăng nhập
               </button>
             </div>
-            <img src = {Cake2} class="image"/>
+            <img src = {Cake2} class="image" alt=""/>
           </div>
         </div>
       </div>

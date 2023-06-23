@@ -41,7 +41,7 @@ function About() {
                   <img src = {Baker1} />
                 </div>
                 <div class="content">
-                    <h3 class="staffname">erica lacy</h3>
+                    <h3 class="staffname">tran van quy</h3>
                     <p class="position">CEO</p>
                     <div class="share">
                         <i class="fab fa-facebook-f"></i>
@@ -56,7 +56,7 @@ function About() {
                   <img src = {Baker2} />
                 </div>
                 <div class="content">
-                    <h3 class="staffname">doe lacy</h3>
+                    <h3 class="staffname">thai thi nhung</h3>
                     <p class="position">manager</p>
                     <div class="share">
                         <i class="fab fa-facebook-f"></i>
@@ -71,7 +71,7 @@ function About() {
                   <img src = {Baker2} />
                 </div>
                 <div class="content">
-                    <h3 class="staffname">john lacy</h3>
+                    <h3 class="staffname">nguyen thi kim thuy</h3>
                     <p class="position">manager</p>
                     <div class="share">
                         <i class="fab fa-facebook-f"></i>

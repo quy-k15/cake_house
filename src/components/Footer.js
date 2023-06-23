@@ -19,14 +19,14 @@ function Footer() {
         </div>
         <div class="box">
           <h3>E-mail</h3>
-          <a href="#" class="link">ninjashub4@gmail.com</a>
-          <a href="#" class="link">ninjashub4@gmail.com</a>
+          <a href="#" class="link">webcake@gmail.com</a>
+          <a href="#" class="link">webcake@gmail.com</a>
         </div>
 
         <div class="box">
           <h3>call us</h3>
-          <p>+61 (2) 1478 2369</p>
-          <p>+61 (2) 1478 2369</p>
+          <p>+84 (2) 1412 4869</p>
+          <p>+84 (2) 1412 4869</p>
         </div>
 
         <div class="box">
