@@ -14,8 +14,8 @@
   display: grid;
   text-decoration: none;
   border-radius: 15px;
-  width: 250px;
-  height: 350px;
+  width: 270px;
+  height: 360px;
   margin: 20px;
   background-color: #FCD8D4;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
@@ -63,24 +63,32 @@
 /* ========================================= */
 .CakePrice{
   display:flex;
-  margin-left: 15px;
+  margin-left: 20px;
   height: 40px;
-  width: 240px;
+  width: 85%;
   padding-bottom: 1px;
+  align-items: center;
+  margin-top: 5px;
 }
-
-.CakePrice h3{
-  margin-left: 78px;
-}
-.CakeName{
-  display:flex;
-  margin-left: 15px;
-  width: 220px;
+.CakePrice h2{
+  font-size: 25px;
+  flex: 70%;
+  margin-top: 0px;
+  margin-bottom: 10px;
 }
 
 .CakeName h2{
-  width: 160px;
+  font-size: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
+.CakeName{
+  display:flex;
+  margin-left: 20px;
+  width: 85%;
+
+}
+
 .bntCakeAdd{
   width: 60px;
   height: 30px;
@@ -90,7 +98,7 @@
   size: 30px;
   border: 3px solid #8F3C02;
   background-color: #FDF6F0;
-  margin-top: 20px;
+  cursor: pointer;
   
 }
 .bntCakeAdd:hover {
@@ -100,7 +108,7 @@
 
 
 .CardCake_img{
-  width: 220px;
+  width: 240px;
   height: 230px;
   margin-top: 15px;
   margin-left: 15px;

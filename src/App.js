@@ -10,17 +10,21 @@ import Login from "./pages/Login";
 import AddressBook from "./pages/AddressBook";
 import Detail from "./pages/DetailCake";
 import LikedProducts from "./pages/LikedProducts";
-import MyCart from "./pages/MyCart"
-import AllPurchase from "./pages/AllPurchase"
-import CancelledPurchase from "./pages/CancelledPurchase"
-import CompletedPurchase from "./pages/CompletedPurchase"
-import ReceivePurchase from "./pages/ReceivePurchase"
-import ConfirmPurchase from "./pages/ConfirmPurchase"
+import MyCart from "./pages/MyCart";
+import AllPurchase from "./pages/AllPurchase";
+import CancelledPurchase from "./pages/CancelledPurchase";
+import CompletedPurchase from "./pages/CompletedPurchase";
+import ReceivePurchase from "./pages/ReceivePurchase";
+import ConfirmPurchase from "./pages/ConfirmPurchase";
 import CategoryCake from "./pages/CategoryCake";
+<<<<<<< Updated upstream
 import Notifications from "./pages/Notifications";
 import UnreadNotifications from "./pages/UnreadNotifications";
 import ReadNotifications from "./pages/ReadNotifications";
 import Voucher from "./pages/Voucher";
+=======
+import AddCake from "./pages/AddCake";
+>>>>>>> Stashed changes
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 
@@ -32,6 +36,7 @@ function App() {
         <Switch>
           <Route path="/" exact component={Home} />
           <Route path="/CategoryCake" exact component={CategoryCake} />
+          <Route path="/AddCake" exact component={AddCake } />
           <Route path="/about" exact component={About} />
           <Route path="/contact" exact component={Contact} />
           <Route path="/profile" exact component={Profile} />

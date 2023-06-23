@@ -25,13 +25,14 @@ import ViewMore from "../components/ViewMore";
 // FireStore
 import { collection, getDocs } from 'firebase/firestore/lite';
 import { db } from "../firebase";
+import {storage}from "../firebase";
 function Home() {
   const [cakes,setcakes]=useState([]);
   async function getCakes(db) {
-    const cakesCol = collection(db, 'users');
+    const cakesCol = collection(db, 'cakes');
     const cakeSnapshot = await getDocs(cakesCol);
     const cakeList = cakeSnapshot.docs.map(doc => doc.data());
-    console.log(cakeList);
+    setcakes(cakeList);
   }
   useEffect(()=>{
     getCakes(db);
@@ -57,6 +58,8 @@ function Home() {
           <h1>Cake</h1>
           <img src={logo}></img>
           <h1>House</h1>
+          <Link to="/AddCake" className="item_menu1">up load img</Link>
+
         </div>
       </div>
       <div className="home_slogan">
@@ -122,18 +125,18 @@ function Home() {
               
             );
           })} */}
-           {/* {cakes.map((u) => {
+           {cakes.map((u) => {
               return (
                 <CardCake
                   key={u.idcake}
-                  image={u.img}
+                  image={u.img1}
                   name={u.name}
                   price = {u.price}
                  
                 />
               );
              
-            })} */}
+            })}
 
         </div>
         <ViewMore Links="/CategoryCake"/>
