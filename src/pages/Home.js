@@ -23,20 +23,36 @@ import { useState, useEffect } from "react";
 import HomeSlide from "../components/HomeSlide";
 import ViewMore from "../components/ViewMore";
 // FireStore
-import { collection, getDocs } from 'firebase/firestore/lite';
+import { collection, getDocs,doc,docs } from 'firebase/firestore/lite';
 import { db } from "../firebase";
 import {storage}from "../firebase";
 function Home() {
   const [cakes,setcakes]=useState([]);
-  async function getCakes(db) {
-    const cakesCol = collection(db, 'cakes');
-    const cakeSnapshot = await getDocs(cakesCol);
-    const cakeList = cakeSnapshot.docs.map(doc => doc.data());
-    setcakes(cakeList);
-  }
+  // async function getCakes(db) {
+  //   const cakesCol = collection(db, 'cakes');
+  //   const cakeSnapshot = await getDocs(cakesCol);
+  //   const cakeList = cakeSnapshot.docs.map(doc => doc.data());
+  //   setcakes(cakeList);
+  // }
+  // useEffect(()=>{
+  //   getCakes(db);
+  // })
+  const getCakes = async () => {
+    try {
+      const cakesSnapshot = await getDocs(collection(db, 'cakes'));
+      const cakesArray = cakesSnapshot.docs.map((doc) => ({
+        idcake: doc.id,
+        ...doc.data()
+      }));
+      setcakes(cakesArray);
+    } catch (error) {
+      console.error('Error fetching cakes:', error);
+    }
+  };
   useEffect(()=>{
-    getCakes(db);
-  })
+    getCakes();
+  },[]);
+
 
   const defaultStyle = {
     backgroundColor: "",
@@ -111,21 +127,9 @@ function Home() {
 
         </div>
         <div className="HomeBestSeller">
-          {/* {ListBestSeller.map((cardCake, key) => {
-            return (
-              <Link to="/detail" className="BestSeller">
-                <CardCake
-                key={key}
-                image={cardCake.image}
-                name={cardCake.name}
-                price = {cardCake.price}
-                size = {cardCake.size}
-              />            
-              </Link>
-              
-            );
-          })} */}
+
            {cakes.map((u) => {
+            console.log(u.img1, u.name, u.price); // Move this line before the return statement
               return (
                 <CardCake
                   key={u.idcake}
@@ -135,7 +139,6 @@ function Home() {
                  
                 />
               );
-             
             })}
 
         </div>

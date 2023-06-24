@@ -23,37 +23,41 @@ import ReadNotifications from "./pages/ReadNotifications";
 import Voucher from "./pages/Voucher";
 import AddCake from "./pages/AddCake";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-
+import { AuthContextProvider } from "./context/AuthContext";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/CategoryCake" exact component={CategoryCake} />
-          <Route path="/AddCake" exact component={AddCake } />
-          <Route path="/about" exact component={About} />
-          <Route path="/contact" exact component={Contact} />
-          <Route path="/profile" exact component={Profile} />
-          <Route path="/login" exact component={Login} />
-          <Route path="/addressbook" exact component={AddressBook} />
-          <Route path="/detail" exact component={Detail} />
-          <Route path="/likedproducts" exact component={LikedProducts} />
-          <Route path="/myCart" exact component={MyCart} />
-          <Route path="/AllPurchase" exact component={AllPurchase} />
-          <Route path="/ConfirmPurchase" exact component={ConfirmPurchase} />
-          <Route path="/ReceivePurchase" exact component={ReceivePurchase} />
-          <Route path="/CancelledPurchase" exact component={CancelledPurchase} />
-          <Route path="/CompletedPurchase" exact component={CompletedPurchase} />
-          <Route path="/Notifications" exact component={Notifications} />
-          <Route path="/UnreadNotifications" exact component={UnreadNotifications} />
-          <Route path="/ReadNotifications" exact component={ReadNotifications} />
-          <Route path="/Voucher" exact component={Voucher} />
-        </Switch>
-        <Footer />
-      </Router>
+      <AuthContextProvider>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/CategoryCake" exact component={CategoryCake} />
+            <Route path="/AddCake" exact component={AddCake } />
+            <Route path="/about" exact component={About} />
+            <Route path="/contact" exact component={Contact} />
+            <Route path="/profile" exact component={Profile} />
+            <Route path="/login" exact component={Login} />
+            <Route path="/addressbook" exact component={AddressBook} />
+            <Route path="/detail" exact component={Detail} />
+            <Route path="/likedproducts" exact component={LikedProducts} />
+            <Route path="/myCart" exact component={MyCart} />
+            <Route path="/AllPurchase" exact component={AllPurchase} />
+            <Route path="/ConfirmPurchase" exact component={ConfirmPurchase} />
+            <Route path="/ReceivePurchase" exact component={ReceivePurchase} />
+            <Route path="/CancelledPurchase" exact component={CancelledPurchase} />
+            <Route path="/CompletedPurchase" exact component={CompletedPurchase} />
+            <Route path="/Notifications" exact component={Notifications} />
+            <Route path="/UnreadNotifications" exact component={UnreadNotifications} />
+            <Route path="/ReadNotifications" exact component={ReadNotifications} />
+            <Route path="/Voucher" exact component={Voucher} />
+          </Switch>
+          <Footer />
+        </Router>
+
+      </AuthContextProvider>
+     
     </div>
   );
 

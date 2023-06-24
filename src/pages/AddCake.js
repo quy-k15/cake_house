@@ -4,7 +4,7 @@ import "../styles/AddCake.css"
 // import { collection, addDoc } from "firebase/firestore";
 import { collection,addDoc , getDocs,updateDoc, doc } from 'firebase/firestore/lite'; 
 import { storage, db } from "../firebase";
-// import Cakeserver from "../Server/CakesServer";
+
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import SideMenuAdmin from "../components/SideMenuAdmin";
 
@@ -268,16 +268,10 @@ function UploadImg() {
               img4: downloadURLs[3] || '',
             };
             
-
             const docRef = await addDoc(cakesCol, newCake);
             const generatedId = docRef.id;
-        
             await updateDoc(doc(cakesCol, generatedId), { idcake: generatedId });
-
-
-
-          
-            await addDoc(cakesCol, newCake);
+            // await addDoc(cakesCol, newCake);
             console.log(newCake);
             console.log("Images uploaded and URLs saved to Firestore successfully!");
           } catch (error) {
