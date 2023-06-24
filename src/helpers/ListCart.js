@@ -17,4 +17,10 @@ export const ListCart = [
     price: 15.000,
     size: 300.0,
   }, 
+  {
+    name: "Bánh kem",
+    image: BanhKem1,
+    price: 15.000,
+    size: 300.0,
+  }, 
 ];

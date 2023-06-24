@@ -9,6 +9,7 @@
     background-size: cover;
     font-family: "Bellota";
     background-color: #FDF6F0;
+    color: #8F3C02;
 }
 .MyCart_header{
     display: flex;
@@ -29,13 +30,13 @@
     flex: 30%;
 }
 .MyCart_header_pr{
-    flex: 20%;
+    flex: 27%;
 }
 .MyCart_header_num{
-    flex: 20%;
+    flex: 16%;
 }
 .MyCart_header_allpr{
-    flex: 20%;
+    flex: 17%;
 }
 
 /* ====================Card Cart================== */
@@ -190,4 +191,69 @@
     margin-top: 30px;
     border-radius: 10px;
     border: 1px solid #CD8042;
+  }
+
+  .MyCart .summary{
+    display: flex;
+    /* border-top: 2px solid rgb(200, 199, 199);  */
+    background-color: rgb(244, 242, 242);
+    position: sticky;
+    position: -webkit-sticky;
+    bottom: 0;
+    z-index: 3;
+    padding: 2% 5%;
+    box-shadow: 1px 2px 15px #999999;
+    font-size: large;
+  }
+
+  .MyCart #btn_delete{
+    background-color: #CD8042;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-family: Bellota ;
+    font-weight: bold;
+    font-size:1.2rem;
+  }
+
+  .MyCart #btn_buy{
+    background-color: #CD8042;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    font-family: Bellota ;
+    font-weight: bold;
+    font-size:1.2rem;
+  }
+
+  
+  .MyCart .summary .div_select{
+    flex: 50%;
+    display: flex;
+    align-items: center;
+  }
+
+  .MyCart .summary .div_total_price{
+    flex: 50%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+
+  /* .MyCart .summary #selected{
+    
+  } */
+
+  .MyCart .summary #select_number{
+    display: inline;
+    margin: 0 10% 0 1%;
+  }
+
+
+
+  .MyCart .summary #total_price_number{
+    display: inline;
+    margin: 0 10% 0 1%;
   }

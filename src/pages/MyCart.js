@@ -45,7 +45,21 @@ function MyCart(){
                 );
                 })}
             </div>
-            
+            <div className="summary">
+                <div className="div_select">
+                    <div id="selected">Đã chọn: </div>
+                    <div id="select_number">2</div>
+
+                    <button id="btn_delete">Xóa</button>
+                </div>
+                
+                <div className="div_total_price">
+                    <div id="total_price">Tổng thanh toán: </div>
+                    <div id="total_price_number">300.000</div>
+                    <button id="btn_buy">Mua hàng</button>
+                </div>
+                
+            </div>
 
         </div>
     );
