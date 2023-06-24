@@ -8,17 +8,24 @@
     background-repeat: no-repeat;
     background-size: cover;
     font-family: "Bellota";
-    /* background-color: #FDF6F0; */
     background-color: #FDF6F0;
     color: #4B1D1D;
     margin-top: 5%;
+
+
     
 }
 .SideMenu_Admin{
     flex: 27%;
+    width: 30%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 2%;
 }
 .Add_Cake_div{
     flex: 73%;
+    width: 70%;
 }
 .UploadImg_header{
     width: 80%;
@@ -74,11 +81,11 @@
     cursor: pointer;
 }
 .upload_imgs_div{
-    display: flex;
+    display: grid;
     width: 90%;
     height: 300px;
     margin-left: 5%;
-    
+    grid-template-columns: repeat(2,1fr);
 }
 .upload_imgs{
     flex: 10% !important;
@@ -93,4 +100,18 @@
     width: 100%;
     height: 85%;
     margin-top: 7%;
+}
+
+.SideMenuAdmin .SideMenuList .title{
+    display: flex;
+}
+.SideMenuAdmin .SideMenuList .accountCircleIcon{
+    transform: scale(1.7);
+    flex: 30%;
+    justify-content: right;
+
+  }
+
+  .SideMenuAdmin .SideMenuList .titleh3{
+    flex: 70%;
 }

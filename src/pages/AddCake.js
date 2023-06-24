@@ -6,6 +6,8 @@ import { collection,addDoc , getDocs,updateDoc, doc } from 'firebase/firestore/l
 import { storage, db } from "../firebase";
 // import Cakeserver from "../Server/CakesServer";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import SideMenuAdmin from "../components/SideMenuAdmin";
+
 function UploadImg() {
     const [name,setName]=useState("");
     const [category,setCategory]=useState("");
@@ -287,92 +289,92 @@ function UploadImg() {
     };
  
     return (
-    <div className="Add_Cake">
+      <div className="Add_Cake">
         <div className="SideMenu_Admin">
-            <p>Menu admin</p>
+          <SideMenuAdmin />
         </div>
         <div className="Add_Cake_div">
-            <div className="UploadImg_header">
-                <h1>Thêm sản phẩm</h1>
+          <div className="UploadImg_header">
+            <h1>Thêm sản phẩm</h1>
+          </div>
+          <div className="input_info">
+            <div className="input_Name_div">
+              <p>Tên bánh: </p>
+              <input className="input_Name" type="text"
+                value={name}
+                onChange={(e) => ChangeName(e.target.value)}></input>
+
             </div>
-            <div className="input_info">
-                <div className="input_Name_div">
-                    <p>Tên bánh: </p>
-                    <input className="input_Name" type="text" 
-                    value={name}
-                    onChange={(e)=>ChangeName(e.target.value)}></input>
+            <div className="input_Name_div">
+              <p>Giá: </p>
+              <input className="input_Price" value={price}
+                onChange={(e) => ChangePrice(e.target.value)}></input>
 
-                </div>
-                <div className="input_Name_div">
-                    <p>Giá: </p>
-                    <input className="input_Price" value={price}
-                    onChange={(e)=>ChangePrice(e.target.value)}></input>
+            </div>
+            <div className="input_Name_div">
+              <p>Thể loại: </p>
+              <input className="input_Category" value={category}
+                onChange={(e) => ChangeCategory(e.target.value)}></input>
 
-                </div>
-                <div className="input_Name_div">
-                    <p>Thể loại: </p>
-                    <input className="input_Category" value={category}
-                    onChange={(e)=>ChangeCategory(e.target.value)}></input>
+            </div>
+            <div className="input_Name_div">
+              <p>Mô tả sản phẩm: </p>
+              <input className="input_MoTa" value={describe}
+                onChange={(e) => ChangeDescribe(e.target.value)}></input>
 
-                </div>
-                <div className="input_Name_div">
-                    <p>Mô tả sản phẩm: </p>
-                    <input className="input_MoTa" value={describe}
-                    onChange={(e)=>ChangeDescribe(e.target.value)}></input>
-
-                </div>
-                <div className="input_Name_div">
-                    <p>Chi tiết sản phẩm: </p>
-                    <input className="input_ChiTiet" value={detail}
-                    onChange={(e)=>ChangeDetail(e.target.value)}></input>
-
-                </div>
-
+            </div>
+            <div className="input_Name_div">
+              <p>Chi tiết sản phẩm: </p>
+              <input className="input_ChiTiet" value={detail}
+                onChange={(e) => ChangeDetail(e.target.value)}></input>
 
             </div>
 
-            <div className="upload_imgs_div">
-                <div className="upload_imgs">
-                    <input type="file" onChange={handleChange} accept="image/*" />
-                    {imgs[0] && <img className="upload_img" src={imgs[0]} alt="Uploaded Image" />}
-                </div>
-                <div className="upload_imgs">
-                    <input type="file" onChange={handleChange1} accept="image/*" />
-                    {imgs[1] && <img className="upload_img" src={imgs[1]} alt="Uploaded Image" />}
-                </div>
-                <div className="upload_imgs">
-                    <input type="file" onChange={handleChange2} accept="image/*" />
-                    {imgs[2] && <img className="upload_img" src={imgs[2]} alt="Uploaded Image" />}
-                </div>
-                <div className="upload_imgs">
-                    <input type="file" onChange={handleChange3} accept="image/*" />
-                    {imgs[3] && <img className="upload_img" src={imgs[3]} alt="Uploaded Image" />}
-                </div>
 
+          </div>
+
+          <div className="upload_imgs_div">
+            <div className="upload_imgs">
+              <input type="file" onChange={handleChange} accept="image/*" />
+              {imgs[0] && <img className="upload_img" src={imgs[0]} alt="Uploaded Image" />}
             </div>
-    
-            <button onClick={handleUpload}>Lưu</button>
-            {/* {!isFormValid && (
+            <div className="upload_imgs">
+              <input type="file" onChange={handleChange1} accept="image/*" />
+              {imgs[1] && <img className="upload_img" src={imgs[1]} alt="Uploaded Image" />}
+            </div>
+            <div className="upload_imgs">
+              <input type="file" onChange={handleChange2} accept="image/*" />
+              {imgs[2] && <img className="upload_img" src={imgs[2]} alt="Uploaded Image" />}
+            </div>
+            <div className="upload_imgs">
+              <input type="file" onChange={handleChange3} accept="image/*" />
+              {imgs[3] && <img className="upload_img" src={imgs[3]} alt="Uploaded Image" />}
+            </div>
+
+          </div>
+
+          <button onClick={handleUpload}>Lưu</button>
+          {/* {!isFormValid && (
               <div className="message error">
                 <span className="message-text">Please fill in all fields.</span>
               </div>
             )} */}
 
-        {/* <input type="file" onChange={handleChange} value={img} accept="/image/*" />
+          {/* <input type="file" onChange={handleChange} value={img} accept="/image/*" />
             <button onClick={handleUpload}>Upload to Firebase</button> */}
-            <p>{percent} "% done"</p>
-            {message && (
-                <div className={`message ${message.error ? "error" : "success"}`}>
-                    <span className="message-text">{message.msg}</span>
-                    <button className="message-close" onClick={closeMessage}>
-                        X
-                    </button>
-                </div>
-            )}
+          <p>{percent} "% done"</p>
+          {message && (
+            <div className={`message ${message.error ? "error" : "success"}`}>
+              <span className="message-text">{message.msg}</span>
+              <button className="message-close" onClick={closeMessage}>
+                X
+              </button>
+            </div>
+          )}
         </div>
 
-    </div>
-       
+      </div>
+
 
     
   );
