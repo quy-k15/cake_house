@@ -6,7 +6,7 @@ import { collection,addDoc , getDocs,updateDoc, doc } from 'firebase/firestore/l
 import { storage, db } from "../firebase";
 
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import SideMenuAdmin from "../components/SideMenuAdmin";
+import SideMenuAdmin from "./SideMenuAdmin";
 
 function UploadImg() {
     const [name,setName]=useState("");
