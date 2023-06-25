@@ -28,11 +28,7 @@ import Dashboard from "./admin/Dashboard";
 import ProductList from "./admin/ProductList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
-<<<<<<< Updated upstream
-=======
 import ProtectedRoute from "./components/ProtectedRoute";
-
->>>>>>> Stashed changes
 
 function App() {
   return (
@@ -67,12 +63,12 @@ function App() {
               <Route path="/UnreadNotifications" exact component={UnreadNotifications} />
               <Route path="/ReadNotifications" exact component={ReadNotifications} />
               <Route path="/Voucher" exact component={Voucher} />
-
               <Route path="/profile" exact>
-              <ProtectedRoute>
-                <Profile />
-              </ProtectedRoute>
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
               </Route>
+              
             </Switch>
             <Footer />
           </Route>
