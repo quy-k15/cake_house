@@ -165,5 +165,11 @@
     background-color: #D77B44;
   }
 
-
+/* ==============LogOut===================== */
+.profile_Logout{
+  width: 100%;
+}
+.profile_Logout p{
+  margin-left: 70%;
+}
   

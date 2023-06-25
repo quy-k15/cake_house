@@ -26,6 +26,7 @@ import ViewMore from "../components/ViewMore";
 import { collection, getDocs,doc,docs } from 'firebase/firestore/lite';
 import { db } from "../firebase";
 import {storage}from "../firebase";
+import { UserAuth } from "../context/AuthContext";
 function Home() {
   const [cakes,setcakes]=useState([]);
   // async function getCakes(db) {

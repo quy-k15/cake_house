@@ -123,14 +123,14 @@ const hoverStyle = {
           </Link>
         </div>
 
-        <div className="navbar_header" style={style6}
+        {/* <div className="navbar_header" style={style6}
                             onMouseEnter={() => setStyle6(hoverStyle)}
                             onMouseLeave={() => setStyle6(defaultStyle)}>
           <Link to="/login"className="item_menu2">
             <div className="icon2"><ExitToAppIcon /> </div> 
             <div className="navbar_title2"> Đăng nhập</div>
           </Link>
-        </div>
+        </div> */}
       </div>
     </div>
   );
