@@ -77,4 +77,51 @@
     background-color: #fff;
     padding-right: 3%;
   }
+  /* Trong file ProductList.css */
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width: 300px;
+    align-items: center;
+  }
+  .popup-content .btn-fix{
+    margin-bottom: 20px;
+  }
+  .popup-content .btn-fix label{
+    width: 30px;
+  }
+  .popup-content .btn-fix input{
+    margin-left: 20px;
+    width: fit-content;
+  }
+  .popup-content .update-button {
+    margin-right: 2%;
+    border-radius: 5px;
+  }
+  .popup-content .close-button {
+    border-radius: 5px;
+  }
+  .popup-content button {
+    width: 75px;
+    padding: 4px;
+    background-color: #CD8042;
+  }
+  .popup-content button:hover{
+    background-color: #783b31;
+  }
+    
   
