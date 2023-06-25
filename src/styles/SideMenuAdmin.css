@@ -17,8 +17,6 @@
     color: var(--text-color);
 }
 
-
-
 ::selection{
     background-color: var(--primary-color);
     color: #fff;
@@ -37,7 +35,7 @@ img{
     height: 100%;
     width: 200px;
     padding: 10px 14px;
-    background: var(--sidebar-color);
+    background: #FCD8D4;
     transition: var(--tran-05);
     z-index: 100;  
 }
@@ -133,7 +131,6 @@ header .image-text .profession{
 }
 
 .sidebar li.search-box input{
-    height: 100%;
     width: 100%;
     outline: none;
     border: none;
@@ -194,13 +191,4 @@ header .image-text .profession{
     position: relative;
     transition: var(--tran-05);
 }
-/* .home{
-    position: absolute;
-    top: 0;
-    top: 0;
-    left: -5px;
-    height: 100vh;
-    width: calc(100% - 200px);
-    background-color: var(--body-color);
-    transition: var(--tran-05);
-} */
+

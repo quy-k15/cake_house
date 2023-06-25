@@ -11,7 +11,7 @@ import Cake1 from "../assets/Tiramisu_Category.png";
 import Cake2 from "../assets/img_Cake_Category.png";
 import Cake3 from "../assets/img_Cookies_Category.png";
 import Cake4 from "../assets/img_Mochi_Category.png";
-const List = () => {
+const Listy = () => {
   const rows = [
     {
       id: 1143155,
@@ -96,4 +96,4 @@ const List = () => {
   );
 };
 
-export default List;
+export default Listy;

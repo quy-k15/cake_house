@@ -25,10 +25,9 @@ import AddCake from "./admin/AddCake";
 import SideMenuAdmin from "./admin/SideMenuAdmin";
 import Order from "./admin/Order";
 import Dashboard from "./admin/Dashboard";
+import ProductList from "./admin/ProductList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
-
-
 
 function App() {
   return (
@@ -37,6 +36,7 @@ function App() {
       <Router>
         <Switch>
           <Route path="/SideMenuAdmin" component={SideMenuAdmin} />
+          <Route path="/productlist" component={ProductList} />
           <Route path="/addcake" component={AddCake} />
           <Route path="/order" component={Order} />
           <Route path="/dashboard" component={Dashboard} />

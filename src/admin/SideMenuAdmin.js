@@ -37,22 +37,15 @@ const SideMenuAdmin = () => {
               </li>
 
               <li className="nav-link">
-                <a href="addcake">
-                  <i className="bx bx-message-square-dots icone"></i>
+                <a href="ProductList">
+                <i className='bx bx-store icone'></i>
                   <span className="text nav-text">Sản phẩm</span>
-                </a>
-              </li>
-
-              <li className="nav-link">
-                <a href="#">
-                  <i className="bx bx-user-circle icone"></i>
-                  <span className="text nav-text">Người dùng</span>
                 </a>
               </li>
 
               <li className="nav-link active">
                 <a href="Order">
-                  <i className="bx bx-cog icone"></i>
+                <i className='bx bx-cart icone'></i>
                   <span className="text nav-text">Đơn đặt hàng</span>
                 </a>
               </li>
