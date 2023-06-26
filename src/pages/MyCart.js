@@ -37,6 +37,7 @@ function MyCart(){
                     image={cardCart.image}
                     name={cardCart.name}
                     price={cardCart.price}
+                    icon ={cardCart.icon}
                     size={cardCart.size}
                     isChecked={isChecked}
                     setIsChecked={setIsChecked}
