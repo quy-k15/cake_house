@@ -2,9 +2,26 @@ import React from "react";
 import user1 from "../assets/user1.png";
 import "../styles/Profile.css";
 import SideMenu from "../components/SideMenu";
-
+import { UserAuth } from "../context/AuthContext";
+import { useHistory } from "react-router-dom";
 
 function Profile() {
+    const {user,logout}=UserAuth();
+
+    const history = useHistory();
+
+    const handleLogout=async()=>{
+        try{
+            await logout();
+            history.push('/');
+            console.log('you are looged out');
+
+        }catch(e){
+            console.log(e.message);
+        }
+
+    }
+
     return (
         <div className="contact">
             <div className="leftSide">
@@ -17,7 +34,7 @@ function Profile() {
                         <div className="info-user">
                             <h2>Thông tin tài khoản</h2>
                             <p id="name">Trần Văn Quý</p>
-                            <p>Email: 20521818@gm.uit.edu.vn</p>
+                            <p>Email: {user&&user.email}</p>
                             <p>Số điện thoại: 0889201726</p>
                             <p>Giới tính: Nam</p>
                             <p>Ngày sinh: 08/01/2002</p>
@@ -27,8 +44,12 @@ function Profile() {
                             <button>
                                 Chọn ảnh
                             </button>
+                            <div className="profile_Logout">
+                                <button onClick={handleLogout} className="btn_LogOut">Đăng xuất</button>
+                            </div>
 
                         </div>
+                   
 
 
                         {/* <label htmlFor="name">Full Name</label>
