@@ -5,6 +5,8 @@ import Cake2 from "../assets/image2.svg";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { UserAuth } from "../context/AuthContext";
 import { useHistory } from "react-router-dom";
+import { collection,addDoc , getDocs,updateDoc, doc } from 'firebase/firestore/lite'; 
+import { storage, db, auth } from "../firebase";
 
 // import {useNavigate} from "react-router-dom";
 // import { useAuth } from "../components/AuthContext";
@@ -49,12 +51,40 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     }
 
     try{
-      await createUser(email,password)
+      // await createUser(email,password)
+      // history.push('/');
+      // setError("Đăng ký thành công!");
+
+      const user = await createUser(email, password); // Retrieve the user object after registration
+      setIdUser(user.uid); // Save the user ID
+  
       history.push('/');
       setError("Đăng ký thành công!");
+  
+      const newUser = {
+        idUser: user.uid, // Use the user ID obtained above
+        nameUser: "",
+        email: email,
+        sex: "",
+        address: "",
+        phoneNum: "",
+        isClient:true
+      };
+  
+      const userCol = collection(db, "users");
+      const docRef = await addDoc(userCol, newUser);
+      const Id = docRef.id;
+  
+      // Update the document with the correct data
+      await updateDoc(doc(userCol, Id), newUser);
+  
+      console.log(newUser);
 
     }catch(e){
       setError(e.message)
+      if (e.code === "auth/email-already-in-use") {
+        setError("Tài khoản đã tồn tại! Vui lòng tạo tài khoản khác!")
+      }
       console.log(e.message)
     }
 
@@ -64,17 +94,33 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [passwordDN,setPasswordDN]=useState('')
   const [errorDN,setErrorDN]=useState('')
   const {signIn}=UserAuth();
+
+
   const handlSubmitSignIn= async(e)=>{
     e.preventDefault();
-    setErrorDN('')
+    setErrorDN("");
+    if (!emailDN || !passwordDN ) {
+      setErrorDN("Vui lòng nhập đầy đủ thông tin!");
+      return;
+    }
     try{
       await signIn(emailDN,passwordDN)
       history.push('/');
     }catch(e){
       setErrorDN(e.message)
+      if(e.code==="auth/user-not-found"){
+        setErrorDN("Tài khoản không tồn tại! Vui lòng nhập lại!")
+      }
+      if(e.code==="auth/wrong-password"){
+        setErrorDN("Sai mật khẩu! Vui lòng nhập lại!")
+      }
       console.log(e.message)
     }
   }
+  //============== Lưu thông tin user vô firestore=================
+  const [idUser,setIdUser]=useState("");
+
+
 
   return (
     <div className="screen">
@@ -96,6 +142,7 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
                 ></i>
               </div>
               <input  type="submit" value="Đăng nhập" className="btn solid"  onClick={handlSubmitSignIn}/>
+              <p className="error-message">{errorDN}</p>
               <p className="social-text">Hoặc Đăng nhập qua các nền tảng sau</p>
               <div className="social-media">
                 <a href="#" className="social-icon">

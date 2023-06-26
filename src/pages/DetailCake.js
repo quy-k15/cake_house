@@ -5,9 +5,6 @@ import CardCategory from "../components/CardCategory";
 import CardFeedBack from "../components/CardFeedBack";
 import CardCake from "../components/CardCake";
 import DetailSlide from "../components/DetailSlide";
-import banhkem1 from "../assets/BanhKem1.png";
-import banhkem1_1 from "../assets/BanhKem1_1.png";
-import banhkem1_2 from "../assets/BanhKem1_2.png";
 import ic_banker from "../assets/ic_banker.png";
 import ic_banker2 from "../assets/ic_banker2.png";
 import img_ChiTiet from "../assets/img_detail_ChiTiet.png";
@@ -15,8 +12,37 @@ import img_MoTa from "../assets/img_detail_MoTa.png";
 import "../styles/DetailCake.css"
 import {ListBestSeller} from "../helpers/ListBestSeller"
 import {ListFeedBack} from "../helpers/ListFeedBack"
-import { useState } from "react";
+import { useState,useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { collection, doc, getDoc } from "firebase/firestore/lite";
+
+import { db } from "../firebase";
 function Detail_item(){
+
+    const { idcake } = useParams();
+    const [cakes,setCake]=useState([]);
+    
+    const getCake = async () => {
+        try {
+            const cakeRef = doc(collection(db, "cakes"), idcake);
+            const cakeSnapshot = await getDoc(cakeRef);
+          if (cakeSnapshot.exists()) {
+            const cakeData = cakeSnapshot.data();
+            setCake([cakeData]);
+            console.log(cakeData);
+          } else {
+            console.error("Cake not found.");
+          }
+        } catch (error) {
+          console.error("Error fetching cake:", error);
+        }
+    };
+    useEffect(()=>{
+       
+        getCake();
+    },[idcake])
+
+
     // Tăng giảm số lượng
     const [count,setCount]=React.useState(0)
     function add(){
@@ -78,7 +104,8 @@ function Detail_item(){
         <div className="detail">
             <div className="detail_item_card">
                 <div className="detail_group_img">
-                   <DetailSlide/>
+                   {/* <DetailSlide/> */}
+                   <DetailSlide cakes={cakes} />
                     <div className="detail_love_div">
                         <div className="detail_love">
                             <input type="radio" name="love" onClick={handleClick} style={{ color: getHeartColor() }}></input>
@@ -99,9 +126,19 @@ function Detail_item(){
                         <p>(200 đánh giá)</p>
                     </div>
                     <div className="detail_name_review">
-                        <h1>Bánh kem</h1>
+                        {cakes.length > 0 && cakes.map((cake) => (
+                            <div key={cake.idcake}>
+                                <h1>{cake.name}</h1>
+                            </div>
+                        ))}
+                        {/* <h1>Bánh kem</h1> */}
                     </div>
-                    <h2>150.000 VND </h2>
+                    {cakes.length > 0 && cakes.map((cake) => (
+                            <div key={cake.idcake}>
+                                <h2>{cake.price} VNĐ</h2>
+                            </div>
+                    ))}
+                  
                     <div className="detail_button_size">
                         <p>Kích thước:</p>
                         <div className="button_size">
@@ -188,9 +225,15 @@ function Detail_item(){
                             <h2>Chi tiết sản phẩm</h2>
                         </div>
                         <div className="detail_ChiTiet_info">
-                            <p>Bánh được làm thủ công không chất bảo quản. Hương vị .....</p>
+                            {cakes.length > 0 && cakes.map((cake) => (
+                                <div key={cake.idcake}>
+                                    <p>{cake.detail}</p>
+                                </div>
+                            ))}
+                           
+                            {/* <p>Bánh được làm thủ công không chất bảo quản. Hương vị .....</p>
                             <p>saucbyjhcbWIBCSIALHCDSULACBIL</p>
-                            <p>CDSULA CBILd hcbaeud bibvdu eaihbCDS ULACBI Ldhcbaeudbi bvdueaihb</p>
+                            <p>CDSULA CBILd hcbaeud bibvdu eaihbCDS ULACBI Ldhcbaeudbi bvdueaihb</p> */}
                         </div>
                     </div>
                     <div className="detail_ChiTiet_div_img">
@@ -210,13 +253,22 @@ function Detail_item(){
                             </div>
                         </div>
                         <div className="detail_MoTa_info">
-                            <ul>
+                            {cakes.length > 0 && cakes.map((cake) => (
+                                <div key={cake.idcake}>
+                                    <ul>
+                                        <li>
+                                            {cake.describe}
+                                        </li>
+                                    </ul>
+                                </div>
+                            ))}
+                            {/* <ul>
                                 <li>Kích thước: 20-20-20 cm (dài- rộng - cao)</li>
                                 <li>Khối lượng: 500g</li>
                                 <li>Thành phần: Bột mì, trứng, dầu ô liu,.....</li>
                                 <li>Cách bảo quản: Bảo quản trong nhiệt độ 20-25 độ C</li>
                                 <li>aaaaa aaaaaaaa aaaaaa  aaaaaaaaaaaa aaaaaaa aaaaaa aaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaa</li>
-                            </ul>
+                            </ul> */}
                         </div>
                     </div>
                 </div>

@@ -12,7 +12,12 @@ const UserContext=createContext();
 export const AuthContextProvider =({children})=>{
     const [user,setUser]=useState({})
     const createUser=(email,password)=>{
-        return createUserWithEmailAndPassword(auth, email, password);
+        // return createUserWithEmailAndPassword(auth, email, password);
+        return createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
+          return user; // Return the user object
+        });
     };
 
     const signIn=(email,password)=>{
@@ -22,6 +27,7 @@ export const AuthContextProvider =({children})=>{
     const logout=()=>{
         return signOut(auth);
     }
+
     useEffect(()=>{
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{
             console.log(currentUser);

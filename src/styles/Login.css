@@ -97,6 +97,7 @@ form.sign-in-form {
   font-size: 1.1rem;
   color: #333;
   margin-top: 8px;
+  width: 100%;
 }
 
 .input-field input::placeholder {

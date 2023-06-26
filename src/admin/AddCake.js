@@ -328,22 +328,37 @@ function UploadImg() {
           </div>
 
           <div className="upload_imgs_div">
-            <div className="upload_imgs">
-              <input type="file" onChange={handleChange} accept="image/*" />
-              {imgs[0] && <img className="upload_img" src={imgs[0]} alt="Uploaded Image" />}
+            <div className="upload_imgs_Top">
+              <div className="upload_imgs">
+                <div className="upload_imgs_btn">
+                  <input type="file" onChange={handleChange} accept="image/*" />
+                </div>
+                {imgs[0] && <img className="upload_img" src={imgs[0]} alt="Uploaded Image" />}
+              </div>
+              <div className="upload_imgs">
+                <div className="upload_imgs_btn">
+                  <input type="file" onChange={handleChange1} accept="image/*" />
+                </div>
+                {imgs[1] && <img className="upload_img" src={imgs[1]} alt="Uploaded Image" />}
+              </div>
             </div>
-            <div className="upload_imgs">
-              <input type="file" onChange={handleChange1} accept="image/*" />
-              {imgs[1] && <img className="upload_img" src={imgs[1]} alt="Uploaded Image" />}
+            <div className="upload_imgs_Bot">
+              <div className="upload_imgs">
+                <div className="upload_imgs_btn">
+                  <input type="file" onChange={handleChange2} accept="image/*" />
+                </div>
+                {imgs[2] && <img className="upload_img" src={imgs[2]} alt="Uploaded Image" />}
+              </div>
+              <div className="upload_imgs">
+                <div className="upload_imgs_btn">
+                  <input type="file" onChange={handleChange3} accept="image/*" />
+                </div>
+                {imgs[3] && <img className="upload_img" src={imgs[3]} alt="Uploaded Image" />}
+              </div>
+
             </div>
-            <div className="upload_imgs">
-              <input type="file" onChange={handleChange2} accept="image/*" />
-              {imgs[2] && <img className="upload_img" src={imgs[2]} alt="Uploaded Image" />}
-            </div>
-            <div className="upload_imgs">
-              <input type="file" onChange={handleChange3} accept="image/*" />
-              {imgs[3] && <img className="upload_img" src={imgs[3]} alt="Uploaded Image" />}
-            </div>
+        
+      
 
           </div>
 

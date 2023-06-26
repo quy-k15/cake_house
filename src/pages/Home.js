@@ -38,6 +38,7 @@ function Home() {
   // useEffect(()=>{
   //   getCakes(db);
   // })
+  // const [selectedCakeId, setSelectedCakeId] = useState(null);// lấy id cake để sang trang detail
   const getCakes = async () => {
     try {
       const cakesSnapshot = await getDocs(collection(db, 'cakes'));
@@ -129,17 +130,31 @@ function Home() {
         </div>
         <div className="HomeBestSeller">
 
-           {cakes.map((u) => {
-            console.log(u.img1, u.name, u.price); // Move this line before the return statement
+           {/* {cakes.map((u) => {
               return (
+                <Link to="/detail">
                 <CardCake
                   key={u.idcake}
                   image={u.img1}
                   name={u.name}
                   price = {u.price}
-                 
                 />
+                 </Link>
               );
+
+            })} */}
+             {cakes.map((u) => {
+               return (
+                <Link to={`/detail/${u.idcake}`}>
+                  <CardCake
+                    key={u.idcake}
+                    image={u.img1}
+                    name={u.name}
+                    price={u.price}
+                  />
+                </Link>
+              );
+
             })}
 
         </div>

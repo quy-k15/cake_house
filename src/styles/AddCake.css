@@ -76,27 +76,51 @@
     cursor: pointer;
 }
 .upload_imgs_div{
-    display: grid;
+    /* display: grid; */
     width: 90%;
-    height: 300px;
+   
     margin-left: 5%;
-    grid-template-columns: repeat(2,1fr);
+    /* grid-template-columns: repeat(2,1fr); */
+}
+.upload_imgs_Top{
+    margin-left: 5%;
+    display: flex;
+    width: 90%;
+    height: 450px;
+ 
+}
+.upload_imgs_Bot{
+    margin-left: 5%;
+    display: flex;
+    width: 90%;
+    height: 450px;
+
 }
 .upload_imgs{
-    flex: 10% !important;
+    flex: 40% !important;
  
-    margin: 5px;
+    margin: 20px;
     border-color: #721c24!important;
     border-width: 2px!important;
     border-style: solid;
     background-color: white;
+    border-radius: 10px;
 }
+
 .upload_img{
     width: 100%;
-    height: 85%;
-    margin-top: 7%;
+    height: 87%;
+    margin-top: 10px;
 }
 
 .SideMenuAdmin .SideMenuList .title{
     display: flex;
+}
+.upload_imgs_btn {
+    width: 100%;
+    margin-top: 10px;
+    
+    display: flex;
+    align-items: center;
+	justify-content: center;
 }

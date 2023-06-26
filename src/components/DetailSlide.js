@@ -12,7 +12,7 @@ import {ListBestSeller} from "../helpers/ListBestSeller";
 
 import {ListCategory} from "../helpers/ListCategory"
 
-function DetailSlide() {
+function DetailSlide({ cakes }) {
     var img_Home_Slide ={
         
         dots:true,
@@ -21,23 +21,30 @@ function DetailSlide() {
         slidesToShow:1,
         slidesToScroll:1, 
     };
+
+    const slideImages = cakes.map(cake => cake.image);
   return (
     <div className="detail_img" >
         <Slider {...img_Home_Slide} 
         customPaging={(i)=>{
             return(
                 <div>
-                    <img className="detail_list_img" src={ListCategory[i].image} alt=""></img>
+                     <img className="detail_list_img" src={cakes[i].image} alt=""></img>
                 </div>//list lựa chọn dưới img center
             )
         }}
         dotsClass="slick-dots custom-indicator"
         >
-            {ListCategory.map((item)=>(
+            {/* {ListCategory.map((item)=>(
                 <div className="detail_img_customize">
                     <img className="img_detail_slide" src={item.image} alt=""></img>
                 </div>
-            ))}
+            ))} */}
+                {cakes.map((item) => (
+                    <div className="detail_img_customize">
+                        <img className="img_detail_slide" src={item.image} alt=""></img>
+                    </div>
+                ))}
             </Slider>     
         
     </div>

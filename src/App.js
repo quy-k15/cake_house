@@ -51,7 +51,8 @@ function App() {
               {/* <Route path="/profile" exact component={Profile} /> */}
               <Route path="/login" exact component={Login} />
               <Route path="/addressbook" exact component={AddressBook} />
-              <Route path="/detail" exact component={Detail} />
+              {/* <Route path="/detail" exact component={Detail} /> */}
+              <Route path="/detail/:idcake" exact component={Detail} />
               <Route path="/likedproducts" exact component={LikedProducts} />
               <Route path="/myCart" exact component={MyCart} />
               <Route path="/AllPurchase" exact component={AllPurchase} />
