@@ -41,9 +41,9 @@
 
   .cover-address{
     background-color: #FCD8D4;
-    /* padding: 0; */
+    padding: 0 3%;
     border-radius: 10px;
-    margin: 20px 30px;
+    margin: 2% 30px;
     display: flex;
   }
   .cover-address .address-info{
@@ -54,14 +54,16 @@
 
   .edit{
     flex: 15%;
+    justify-content: right;
+    display: flex;
   }
 
   .edit .fas{
     padding: 20px 10px;
     -webkit-transform: scale(1);
-	transform: scale(1);
-	-webkit-transition: 1s ease-in-out;
-	transition: .3s ease-in-out;
+    transform: scale(1);
+    -webkit-transition: 1s ease-in-out;
+    transition: .3s ease-in-out;
 
   }
 

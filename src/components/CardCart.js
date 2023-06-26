@@ -75,8 +75,6 @@ function CardCart({ image, name, price, size,isChecked, setIsChecked }) {
         </div>
         <div className="CartAllPrice">
             <h2>{AllpriceNum()}(VND)</h2>
-
-
         </div>
       
     </div>
