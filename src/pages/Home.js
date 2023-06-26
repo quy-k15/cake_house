@@ -128,7 +128,7 @@ function Home() {
           <div class="line2"></div>
 
         </div>
-        <div className="HomeBestSeller">
+        <div className="HomeBestSeller" >
 
            {/* {cakes.map((u) => {
               return (
@@ -145,7 +145,7 @@ function Home() {
             })} */}
              {cakes.map((u) => {
                return (
-                <Link to={`/detail/${u.idcake}`}>
+                <Link to={`/detail/${u.idcake}`} style={{ textDecoration: 'none' }}>
                   <CardCake
                     key={u.idcake}
                     image={u.img1}

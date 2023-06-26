@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 
 import "../styles/SideMenuAdmin.css";
+import { Link } from "react-router-dom";
 
 const SideMenuAdmin = () => {
   const [sidebarClosed, setSidebarClosed] = useState(false);
@@ -29,36 +30,54 @@ const SideMenuAdmin = () => {
             </li>
 
             <ul className="menu-links">
-              <li className="nav-link">
+              <Link to="/Dashboard" className="nav-link">
+               <i className="bx bx-home-alt icone"></i>
+               <span className="text nav-text">Trang chủ</span>
+                </Link>
+              {/* <li className="nav-link">
                 <a href="Dashboard">
                   <i className="bx bx-home-alt icone"></i>
                   <span className="text nav-text">Trang chủ</span>
                 </a>
-              </li>
-
+              </li> */}
+              
+              <Link to="/ProductList" className="nav-link">
+                <i className='bx bx-store icone'></i>
+                  <span className="text nav-text">Sản phẩm</span>
+              </Link>
+{/* 
               <li className="nav-link">
                 <a href="ProductList">
                 <i className='bx bx-store icone'></i>
                   <span className="text nav-text">Sản phẩm</span>
                 </a>
-              </li>
+              </li> */}
 
-              <li className="nav-link active">
+              <Link to="/Order" className="nav-link">
+                <i className='bx bx-cart icone'></i>
+                <span className="text nav-text">Đơn đặt hàng</span>
+              </Link>
+
+              {/* <li className="nav-link active">
                 <a href="Order">
                 <i className='bx bx-cart icone'></i>
                   <span className="text nav-text">Đơn đặt hàng</span>
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
 
           <div className="bottom-content">
-            <li className="">
+              <Link to="/login" className="nav-link">
+              <i className="bx bx-log-out icon"></i>
+                <span className="text nav-text">Đăng xuất</span>
+              </Link>
+            {/* <li className="">
               <a href="#">
                 <i className="bx bx-log-out icon"></i>
                 <span className="text nav-text">Đăng xuất</span>
               </a>
-            </li>
+            </li> */}
           </div>
         </div>
       </nav>

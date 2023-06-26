@@ -2,6 +2,7 @@ import React from "react";
 import "../styles/Profile.css";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import {SideMenuData} from "./SideMenuData";
+import { Link } from "react-router-dom";
 function SideMenu() {
   return (
     <div className="SideMenu"> 
@@ -15,17 +16,21 @@ function SideMenu() {
         </div>
         {SideMenuData.map((val,key) => {
           return (
-            <li 
-            className="row" 
-            key = {key}
-            id={window.location.pathname == val.link ? "active":""} 
-            onClick={() => {window.location.pathname = val.link;
-            }}
-            >
-              {""}
-              <div id="icon">{val.icon}</div>
-              <div id="title">{val.title}</div>
-            </li>
+            <Link to = {val.link} style={{ textDecoration: 'none' }}>
+              <li 
+              className="row" 
+              key = {key}
+              id={window.location.pathname == val.link ? "active":""} 
+              // onClick={() => {window.location.pathname = val.link;
+              // }}
+              >
+                
+                {""}
+                <div id="icon">{val.icon}</div>
+                <div id="title">{val.title}</div>
+              </li>
+            </Link>
+            
           );
         })}
       </ul>

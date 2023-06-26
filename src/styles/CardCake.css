@@ -6,6 +6,7 @@
   grid-template-columns: 1fr 1fr 1fr 1fr;
   place-items: center;
   text-decoration: none;
+  color: #8F3C02;
 }
 
 /* MENU ITEM STYLING */
@@ -69,23 +70,27 @@
   padding-bottom: 1px;
   align-items: center;
   margin-top: 5px;
+  color: #8F3C02;
 }
 .CakePrice h2{
   font-size: 25px;
   flex: 70%;
   margin-top: 0px;
   margin-bottom: 10px;
+  color: #8F3C02;
 }
 
 .CakeName h2{
   font-size: 25px;
   margin-top: 10px;
   margin-bottom: 10px;
+  color: #8F3C02;
 }
 .CakeName{
   display:flex;
   margin-left: 20px;
   width: 85%;
+  color: #8F3C02;
 
 }
 
