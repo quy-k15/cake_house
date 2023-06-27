@@ -5,7 +5,7 @@ import Cake2 from "../assets/image2.svg";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { UserAuth } from "../context/AuthContext";
 import { useHistory } from "react-router-dom";
-import { collection,addDoc , getDocs,updateDoc, doc } from 'firebase/firestore/lite'; 
+import { collection, addDoc, getDocs, updateDoc, doc } from 'firebase/firestore/lite'; 
 import { storage, db, auth } from "../firebase";
 
 // import {useNavigate} from "react-router-dom";
@@ -120,8 +120,6 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   //============== Lưu thông tin user vô firestore=================
   const [idUser,setIdUser]=useState("");
 
-
-
   return (
     <div className="screen">
       <div className={`container ${isSignUpMode ? "sign-up-mode" : ""}`}>
@@ -131,7 +129,7 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
               <h2 className="titlename">Đăng nhập</h2>
               <div className="input-field">
                 <i className="fas fa-user"></i>
-                <input type="text" placeholder="email"onChange={(e)=>setEmailDN(e.target.value)} />
+                <input type="text" placeholder="Email"onChange={(e)=>setEmailDN(e.target.value)} />
               </div>
               <div className="input-field">
                 <i className="fas fa-lock"></i>

@@ -9,6 +9,8 @@ export default function ProductList() {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState("");
   const [status, setStatus] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [statusOptions, setStatusOptions] = useState(["Còn hàng", "Hết hàng"]);
 
   const handleDelete = (id) => {
     const updatedRows = productRows.filter((product) => product.id !== id);
@@ -20,20 +22,35 @@ export default function ProductList() {
     setSelectedProduct(product);
     setQuantity(product.stock);
     setStatus(product.status);
+    //"0" thì cập nhật trạng thái
+    if (product.stock === 0) {
+    setStatus("Hết hàng");
+  }
+  
+  // "hết hàng" thì cập nhật số lượng
+  if (product.status === "Hết hàng") {
+    setQuantity(0);
+  }
+    setIsModalOpen(true);
   };
-
-  const handleUpdate = () => {
-    // Thực hiện cập nhật thông tin sản phẩm
-    // ...
-    // Đóng popup
-    handleClosePopup();
-  };
-
+  
   const handleClosePopup = () => {
     setSelectedProduct(null);
     setQuantity("");
     setStatus("");
+    setIsModalOpen(false);
   };
+  
+
+  const handleUpdate = () => {
+    // Thực hiện cập nhật thông tin sản phẩm
+    if (status === "Hết hàng") {
+      setQuantity(0);
+    }
+    // Đóng popup
+    handleClosePopup();
+  };
+
 
   return (
     <>
@@ -54,6 +71,7 @@ export default function ProductList() {
               <th className="table-header">Số lượng</th>
               <th className="table-header">Trạng thái</th>
               <th className="table-header">Giá</th>
+              <th className="table-header">Phân loại</th>
               <th className="table-header">Hành động</th>
             </tr>
           </thead>
@@ -62,12 +80,15 @@ export default function ProductList() {
               <tr key={product.id}>
                 <td className="table-cell">{product.id}</td>
                 <td className="table-cell">
-                  <img src={product.img} alt="" className="product-image" />
-                  {product.name}
+                  <div className="table-cell_name">
+                    <img src={product.img} alt="" className="product-image" />
+                    {product.name}
+                  </div>
                 </td>
                 <td className="table-cell">{product.stock}</td>
                 <td className="table-cell">{product.status}</td>
                 <td className="table-cell">{product.price}</td>
+                <td className="table-cell">{product.category}</td>
                 <td className="table-cell">
                   <Link
                     to="#"
@@ -86,27 +107,32 @@ export default function ProductList() {
           </tbody>
         </table>
       </div>
-      {selectedProduct && (
-        <div className="popup">
-          <div className="popup-content">
+      {isModalOpen && (
+        <div className="modal">
+          <div className="modal-content">
             <h2>Chỉnh sửa sản phẩm</h2>
             <div className="btn-fix">
-                <label htmlFor="quantity">Số lượng:</label>
-                <input
+              <label htmlFor="quantity">Số lượng:</label>
+              <input
                 type="text"
                 id="quantity"
                 value={quantity}
                 onChange={(e) => setQuantity(e.target.value)}
-                />
+              />
             </div>
             <div className="btn-fix">
-                <label htmlFor="status">Trạng thái:</label>
-                <input
-                type="text"
+              <label htmlFor="status">Trạng thái:</label>
+              <select className="combobox"
                 id="status"
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
-                />
+              >
+                {statusOptions.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
             </div>
             <button className="update-button" onClick={handleUpdate}>
               Cập nhật

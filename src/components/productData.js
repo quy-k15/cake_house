@@ -12,6 +12,7 @@ export const productRows = [
       stock: 123,
       status: "Còn hàng",
       price: "$120.00",
+      category: "Mochi"
     },
     {
       id: 2,
@@ -21,6 +22,7 @@ export const productRows = [
       stock: 123,
       status: "Còn hàng",
       price: "$120.00",
+      category: "Mochi"
     },
     {
       id: 3,
@@ -30,6 +32,7 @@ export const productRows = [
       stock: 123,
       status: "Còn hàng",
       price: "$120.00",
+      category: "Mochi"
     },
     {
       id: 4,
@@ -39,6 +42,7 @@ export const productRows = [
       stock: 0,
       status: "Hết hàng",
       price: "$120.00",
+      category: "Mochi"
     },
     {
       id: 5,
@@ -48,6 +52,7 @@ export const productRows = [
       stock: 0,
       status: "Hết hàng",
       price: "$120.00",
+      category: "Mochi"
     },
     {
       id: 6,
@@ -57,6 +62,7 @@ export const productRows = [
       stock: 123,
       status: "Còn hàng",
       price: "$120.00",
+      category: "Mochi"
     },
 
   ];
