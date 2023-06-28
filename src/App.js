@@ -6,6 +6,7 @@ import Menu from "./pages/Menu";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Profile from "./pages/Profile";
+import EditProfile from "./pages/EditProfile";
 import Login from "./pages/Login";
 import AddressBook from "./pages/AddressBook";
 import Detail from "./pages/DetailCake";
@@ -29,6 +30,7 @@ import ProductList from "./admin/ProductList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+
 
 function App() {
   return (
@@ -64,6 +66,7 @@ function App() {
               <Route path="/UnreadNotifications" exact component={UnreadNotifications} />
               <Route path="/ReadNotifications" exact component={ReadNotifications} />
               <Route path="/Voucher" exact component={Voucher} />
+              <Route path="/EditProfile" exact component={EditProfile} />
               <Route path="/profile" exact>
                 <ProtectedRoute>
                   <Profile />

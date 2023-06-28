@@ -1,0 +1,105 @@
+.edit_profile {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    margin-top: 60px;
+    margin-bottom: 17%;
+  }
+  
+  .edit_profile .leftSide {
+    height: 100%;
+    flex: 27%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  .edit_profile .rightSide {
+    height: 100%;
+    flex: 73%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 1.5% 4% 1.5% 2%;
+    background-color: white;
+    border-radius: 10px;
+    color: #8F3C02;
+    padding: 20px 50px;
+  }
+
+  .edit_profile .title_edit{
+    display: flex;
+    justify-content: center;
+    border-bottom: 2px solid #D77B44;
+  }
+
+  .edit_profile .info-user{
+    height: 100%;
+    flex: 70%;
+    padding-left: 8%;
+  }
+
+  .edit_profile .avarta{
+    height: 100%;
+    flex: 30%;
+    display: flex;
+    flex-direction: column;
+    padding: 2% 0;
+
+  }
+
+  .edit_profile .user1{
+    width: 50%;
+  }
+
+  .edit_profile .infomation{
+      display: flex ;
+      margin-top: 3%;
+  }
+
+  .edit_profile .avarta button {
+    margin: 40px 0 0 5%;
+    padding: 5% 10%;
+    width: fit-content;
+    border: none;
+    border-radius: 10px;
+    background-color: #FCD8D4;
+    color: #8F3C02;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .edit_profile .info-user button {
+    margin-top: 40px;
+    padding: 2% 6%;
+    border: none;
+    border-radius: 10px;
+    background-color: #FCD8D4;
+    color: #8F3C02;
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .edit_profile table{
+    height: 200px;
+  }
+
+  .edit_profile input{
+    width: 300px;
+    color: #8F3C02;
+    font-family: Bellota ;
+    font-weight: bold;
+    height: 23px;
+  }
+
+  .edit_profile select{
+    height: 26px;
+    color: #8F3C02;
+    font-family: Bellota ;
+    font-weight: bold;
+  }
+
+  .edit_profile button:hover{
+    background-color: #D77B44;
+  }
+  

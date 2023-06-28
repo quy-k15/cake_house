@@ -41,9 +41,6 @@ function Profile() {
                         </div>
                         <div className="avarta" >
                             <img className ="user1" src={user1}></img>
-                            <button>
-                                Chọn ảnh
-                            </button>
                             <div className="profile_Logout">
                                 <button onClick={handleLogout} className="btn_LogOut">Đăng xuất</button>
                             </div>
