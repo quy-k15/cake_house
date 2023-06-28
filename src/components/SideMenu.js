@@ -11,7 +11,9 @@ function SideMenu() {
           <AccountCircleIcon className="accountCircleIcon" fontSize="large"/>
           <div className="titleh3">
             <h3>Xin chào Quý!</h3>
-            <p>Chỉnh sửa thông tin</p>
+            <Link to = "/EditProfile" className = "link_edit_profile">
+              <p>Chỉnh sửa thông tin <i class="fas fa-edit"></i></p>
+            </Link>
           </div>
         </div>
         {SideMenuData.map((val,key) => {

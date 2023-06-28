@@ -22,7 +22,7 @@
     justify-content: center;
     margin: 1.5% 4% 0 2%;
     background-color: white;
-    border-radius: 3%;
+    border-radius: 10px;
     color: #8F3C02;
     padding: 20px 50px;
   }
@@ -51,6 +51,7 @@
     flex: 85%;
     padding: 2px 7px;
   }
+
 
   .edit{
     flex: 15%;
@@ -102,7 +103,15 @@
   }
 
   .SideMenuList .title p{
-    color: #8F3C02;
+    color: #9b643e;
+  }
+
+  .SideMenuList .link_edit_profile{
+    text-decoration: none;
+  }
+  .SideMenuList .title p:hover{
+    color: #793302;
+    transition: color .1s cubic-bezier(.4,0,.2,1);
   }
   .accountCircleIcon{
     transform: scale(1.7);
