@@ -6,8 +6,8 @@ import SideMenuAdmin from "./SideMenuAdmin";
 const Dashboard = () => {
   return (
     <div className="home">
-      <div className="homeContainer">
       <SideMenuAdmin />
+      <div className="homeContainer">
         <div className="widgets">
           <Widget type="order" />
           <Widget type="earning" />
