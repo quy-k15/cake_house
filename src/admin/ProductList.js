@@ -4,6 +4,13 @@ import "../styles/ProductList.css";
 import { Link } from "react-router-dom";
 import { DeleteOutline, Edit } from "@material-ui/icons";
 import SideMenuAdmin from "./SideMenuAdmin";
+import TableCell from "@mui/material/TableCell";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 
 export default function ProductList() {
   const [selectedProduct, setSelectedProduct] = useState(null);
@@ -59,53 +66,56 @@ export default function ProductList() {
           Thêm sản phẩm
         </Link>
       </div>
-      <div className="product-list-container">
-        <div className="side-menu">
-          <SideMenuAdmin />
-        </div>
-        <table className="product-table">
-          <thead>
-            <tr>
-              <th className="table-header">ID</th>
-              <th className="table-header">Sản phẩm</th>
-              <th className="table-header">Số lượng</th>
-              <th className="table-header">Trạng thái</th>
-              <th className="table-header">Giá</th>
-              <th className="table-header">Phân loại</th>
-              <th className="table-header">Hành động</th>
-            </tr>
-          </thead>
-          <tbody>
-            {productRows.map((product) => (
-              <tr key={product.id}>
-                <td className="table-cell">{product.id}</td>
-                <td className="table-cell">
-                  <div className="table-cell_name">
-                    <img src={product.img} alt="" className="product-image" />
-                    {product.name}
-                  </div>
-                </td>
-                <td className="table-cell">{product.stock}</td>
-                <td className="table-cell">{product.status}</td>
-                <td className="table-cell">{product.price}</td>
-                <td className="table-cell">{product.category}</td>
-                <td className="table-cell">
+      <div className="side-menu">
+        <SideMenuAdmin />
+      </div>
+      <div className="listcontainer">
+        <p className="product_title">Quản lý sản phẩm</p>
+        <TableContainer component={Paper} className="table">
+          <Table sx={{ minWidth: 650 }} aria-label="simple table">
+            <TableHead>
+              <TableRow>
+                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>ID</TableCell>
+                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Sản phẩm</TableCell>
+                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Số lượng</TableCell>
+                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Trạng thái</TableCell>
+                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Giá</TableCell>
+                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Phân loại</TableCell>
+                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Hành động</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {productRows.map((product) => (
+                <TableRow key={product.id}>
+                  <TableCell className="tableCell">{product.id}</TableCell>
+                  <TableCell className="tableCell">
+                    <div className="cellWrapper">
+                      <img src={product.img} alt="" className="image" />
+                      {product.name}
+                    </div>
+                  </TableCell>
+                  <TableCell className="tableCell">{product.stock}</TableCell>
+                  <TableCell className="tableCell">{product.status}</TableCell>
+                  <TableCell className="tableCell">{product.price}</TableCell>
+                  <TableCell className="tableCell">{product.category}</TableCell>
+                  <TableCell className="tableCell">
                   <Link
-                    to="#"
-                    className="action-link"
-                    onClick={() => handleEdit(product)}
-                  >
-                    <Edit className="action-icon" />
-                  </Link>
-                  <DeleteOutline
-                    className="action-icon"
-                    onClick={() => handleDelete(product.id)}
-                  />
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+                        to="#"
+                        className="action-link"
+                        onClick={() => handleEdit(product)}
+                      >
+                        <Edit className="action-icon" />
+                      </Link>
+                      <DeleteOutline
+                        className="action-icon"
+                        onClick={() => handleDelete(product.id)}
+                      />
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       </div>
       {isModalOpen && (
         <div className="modal">
