@@ -118,7 +118,7 @@
 }
 
 .modal input[type="text"] {
-  width: 50%;
+  width: 80%;
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
@@ -150,7 +150,7 @@
   background-color: #999;
 }
 .combobox{
-  width: 25%;
+  width: 30%;
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #ccc;
