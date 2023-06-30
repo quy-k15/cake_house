@@ -560,7 +560,11 @@
   /* height: 100%; */
   margin-top: 10%;
 }
-
+.Cake_LienQuan{
+  width: 90%;
+  height: 400px;
+  margin-left: 5%;
+}
 /* ==========================Reponsive====================== */
 @media only screen and (max-width: 1300px) {
   .detail_addcart_button{

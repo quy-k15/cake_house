@@ -5,6 +5,7 @@ import CardCategory from "../components/CardCategory";
 import CardFeedBack from "../components/CardFeedBack";
 import CardCake from "../components/CardCake";
 import DetailSlide from "../components/DetailSlide";
+import Cake_category_slide from "../components/Cake_Category_Slide";
 import ic_banker from "../assets/ic_banker.png";
 import ic_banker2 from "../assets/ic_banker2.png";
 import img_ChiTiet from "../assets/img_detail_ChiTiet.png";
@@ -19,16 +20,41 @@ import { collection, doc, getDoc } from "firebase/firestore/lite";
 import { db } from "../firebase";
 function Detail_item(){
 
-    const { idcake } = useParams();
-    const [cakes,setCake]=useState([]);
+    const { idcake } = useParams();// Lấy id cake từ home page
+    const [cake,setCake]=useState([]);
+    const[category, setCategory]=useState('');// gửi category qua qua cake_category_slide
+
     
+    // const getCake = async () => {
+    //     try {
+    //         const cakeRef = doc(collection(db, "cakes"), idcake);
+    //         const cakeSnapshot = await getDoc(cakeRef);
+    //       if (cakeSnapshot.exists()) {
+    //         const cakeData = cakeSnapshot.data();
+    //         setCake([cakeData]);
+    //         console.log(cakeData);
+    //       } else {
+    //         console.error("Cake not found.");
+    //       }
+    //     } catch (error) {
+    //       console.error("Error fetching cake:", error);
+    //     }
+    // };
+    // useEffect(()=>{
+       
+    //     getCake();
+        
+    // },[idcake])
+
     const getCake = async () => {
         try {
-            const cakeRef = doc(collection(db, "cakes"), idcake);
-            const cakeSnapshot = await getDoc(cakeRef);
+          const cakeRef = doc(collection(db, "cakes"), idcake);
+          const cakeSnapshot = await getDoc(cakeRef);
           if (cakeSnapshot.exists()) {
             const cakeData = cakeSnapshot.data();
-            setCake([cakeData]);
+            // setCake([cakeData]);
+            setCake(cakeData);
+            setCategory(cakeData.Category); // Update the category state
             console.log(cakeData);
           } else {
             console.error("Cake not found.");
@@ -36,12 +62,22 @@ function Detail_item(){
         } catch (error) {
           console.error("Error fetching cake:", error);
         }
-    };
-    useEffect(()=>{
-       
+      };
+      
+      useEffect(() => {
         getCake();
-    },[idcake])
+      }, [idcake]);
 
+      useEffect(() => {
+        if (cake) {
+          setCategory(cake.category);
+          console.log("category_detail", cake.category);
+          
+        }
+        else{
+            console.log("có có bất kì dữ liệu bánh nào!");
+        }
+      }, [cake]);
 
     // Tăng giảm số lượng
     const [count,setCount]=React.useState(0)
@@ -105,7 +141,8 @@ function Detail_item(){
             <div className="detail_item_card">
                 <div className="detail_group_img">
                    {/* <DetailSlide/> */}
-                   <DetailSlide cakes={cakes} />
+                   <DetailSlide dataFromParent={ idcake} />
+                    
                     <div className="detail_love_div">
                         <div className="detail_love">
                             <input type="radio" name="love" onClick={handleClick} style={{ color: getHeartColor() }}></input>
@@ -126,18 +163,26 @@ function Detail_item(){
                         <p>(200 đánh giá)</p>
                     </div>
                     <div className="detail_name_review">
-                        {cakes.length > 0 && cakes.map((cake) => (
+                        {/* {cake.length > 0 && cake.map((cake) => (
                             <div key={cake.idcake}>
                                 <h1>{cake.name}</h1>
                             </div>
-                        ))}
-                        {/* <h1>Bánh kem</h1> */}
+                        ))} */}
+                        <div key={cake.idcake}>
+                            <h1>{cake.name}</h1>
+                        </div>
+                      
                     </div>
-                    {cakes.length > 0 && cakes.map((cake) => (
+                        {/* {cake.length > 0 && cake.map((cake) => (
                             <div key={cake.idcake}>
                                 <h2>{cake.price} VNĐ</h2>
                             </div>
-                    ))}
+                        ))} */}
+
+                     
+                    <div key={cake.idcake}>
+                        <h2>{cake.price} VNĐ</h2>
+                    </div>
                   
                     <div className="detail_button_size">
                         <p>Kích thước:</p>
@@ -194,8 +239,8 @@ function Detail_item(){
                 </div>
                 <div class="line2_LienQuan"></div>
             </div>
-            <div className="HomeBestSeller">
-                {ListBestSeller.slice(0, 4).map((cardCake, key) => {
+            <div className="Cake_LienQuan">
+                {/* {ListBestSeller.slice(0, 4).map((cardCake, key) => {
                     return (
                         <CardCake
                         key={key}
@@ -205,7 +250,10 @@ function Detail_item(){
                         size = {cardCake.size}
                         />
                     );
-                })}
+                })} */}
+             
+                {/* <Cake_category_slide dataFromParent={ category} /> */}
+                <Cake_category_slide dataFromParent={category || ""} />
             </div>
             <div className="detail_ChiTiet_MoTa">
                 <div className="chitiet_background">
@@ -225,11 +273,10 @@ function Detail_item(){
                             <h2>Chi tiết sản phẩm</h2>
                         </div>
                         <div className="detail_ChiTiet_info">
-                            {cakes.length > 0 && cakes.map((cake) => (
-                                <div key={cake.idcake}>
-                                    <p>{cake.detail}</p>
-                                </div>
-                            ))}
+                            <div key={cake.idcake}>
+                                <p>{cake.detail}</p>
+                            </div>
+                    
                            
                             {/* <p>Bánh được làm thủ công không chất bảo quản. Hương vị .....</p>
                             <p>saucbyjhcbWIBCSIALHCDSULACBIL</p>
@@ -253,15 +300,13 @@ function Detail_item(){
                             </div>
                         </div>
                         <div className="detail_MoTa_info">
-                            {cakes.length > 0 && cakes.map((cake) => (
-                                <div key={cake.idcake}>
+                        <div key={cake.idcake}>
                                     <ul>
                                         <li>
                                             {cake.describe}
                                         </li>
                                     </ul>
                                 </div>
-                            ))}
                             {/* <ul>
                                 <li>Kích thước: 20-20-20 cm (dài- rộng - cao)</li>
                                 <li>Khối lượng: 500g</li>

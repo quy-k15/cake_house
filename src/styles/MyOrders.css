@@ -23,7 +23,7 @@
     margin: 0 4% 0 2%;
     border-radius: 3%;
     color: #8F3C02;
-    padding: 20px 50px;
+    padding: 20px 0;
   }
 
 .NavbarOrders {
@@ -87,6 +87,8 @@
   .all_purchase .detail_purchase .col3{
     flex: 30%;
     padding-top: 7%;
+    display: flex;
+    justify-content: right;
   }
 
   .all_purchase .detail_purchase .buyagain{
@@ -124,7 +126,6 @@
     font-weight: bold;
     font-size:1rem;
     margin-left: 40%;
-
   }
 
   .all_purchase #id{
@@ -178,3 +179,25 @@
   .all_purchase #quantity_inf{
     display: inline;
   }
+
+  
+@media screen and (max-width:1095px) {
+  .MyOrders .rightSide {
+    flex: 90%;
+  }
+
+  .MyOrders .leftSide {
+    flex: 10%;
+  }
+}
+
+@media screen and (max-width:850px) {
+  .MyOrders .rightSide {
+    flex: 90%;
+  }
+
+  .MyOrders .leftSide {
+    flex: 10%;
+  }
+
+}

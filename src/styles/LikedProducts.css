@@ -22,7 +22,7 @@
   justify-content: center;
   margin: 1.5% 4% 0 2%;
   background-color: white;
-  border-radius: 3%;
+  border-radius: 10px;
   color: #8F3C02;
   padding: 20px 0;
 }
@@ -162,4 +162,25 @@
   flex: 15%;
   display: grid;
   place-items: center;
+}
+
+@media screen and (max-width:1089px) {
+  .full .rightSide {
+    flex: 90%;
+  }
+
+  .full .leftSide {
+    flex: 10%;
+  }
+}
+
+@media screen and (max-width:850px) {
+  .full .rightSide {
+    flex: 90%;
+  }
+
+  .full .leftSide {
+    flex: 10%;
+  }
+
 }
