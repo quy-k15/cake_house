@@ -24,7 +24,7 @@
     background-color: white;
     border-radius: 10px;
     color: #8F3C02;
-    padding: 20px 50px;
+    padding: 2% 0;
   }
   
   .contact .rightSide h1 {
@@ -35,15 +35,14 @@
   }
 
 
-  .addr{
-    margin-top: 3%;
+  .addr h2{
+    margin-left: 2%;
   }
-
   .cover-address{
     background-color: #FCD8D4;
     padding: 0 3%;
     border-radius: 10px;
-    margin: 2% 30px;
+    margin: 2% 2%;
     display: flex;
   }
   .cover-address .address-info{
@@ -86,6 +85,9 @@
     border-radius: 20px;
     position: fixed;
     z-index: 2;
+    /* position: sticky;
+    position: -webkit-sticky;
+    top: 0; */
   }
   
   .SideMenuList{
@@ -154,13 +156,13 @@
   .btn_add_address button{
     background-color: #CD8042;
     color:#fff;
-    margin-left: 76%;
+    margin-left: 70%;
     border-radius: 10px;
     font-size: 15px;
     cursor: pointer;
-    width: 180px;
-    height: 40px;
+    width: 24%;
     border: none;
+
   }
 
   .btn_add_address button:hover{
@@ -171,6 +173,82 @@
     color:red !important;
   }
 
+  .sidemenu_icon #open_sidemenu{
+    display: none;
+  }
 
+
+
+  @media screen and (max-width:1089px) {
+    .sidemenu_icon #open_sidemenu{
+      display: block;
+    }
+    .SideMenu_default{
+      display: none;
+    }
+
+    .contact .rightSide {
+      flex: 90%;
+    }
+
+    .contact .leftSide {
+      flex: 10%;
+    }
+
+    .sidemenu_icon .fa-times{
+      margin: 30px 4% 0 260px;
+    }
+  }
+  
+  @media screen and (max-width:850px) {
+    .sidemenu_icon #open_sidemenu{
+      display: block;
+    }
+    .SideMenu_default{
+      display: none;
+    }
+
+    .contact .rightSide {
+      flex: 90%;
+    }
+
+    .contact .leftSide {
+      flex: 10%;
+    }
+
+    .sidemenu_icon .fa-times{
+      margin: 30px 4% 0 250px;
+    }
+  }
+
+  @media screen and (max-width:712px) {
+    .sidemenu_icon .fa-times{
+      margin: 30px 4% 0 240px;
+    }
+  }
+
+  #open_sidemenu{
+    /* margin: 2% 4% 0 4%; */
+    /* background-color: #D77B44; */
+    
+    position: fixed;
+    z-index: 3;
+  }
+
+  .sidemenu_icon .fa-times{
+    font-size: 20px;
+    width: fit-content;
+    height: fit-content;
+    /* margin: 4% 4% 0 240px; */
+  }
+
+  .sidemenu_icon .fa-ellipsis-v{
+    font-size: 20px;
+    width: fit-content;
+    margin: 2% 0 0 4%;
+    background-color: #CD8042;
+    padding: 2%;
+    border-radius: 10px;
+  }
 
   
