@@ -19,8 +19,9 @@ import { collection, doc, getDoc } from "firebase/firestore/lite";
 import { db } from "../firebase";
 function Detail_item(){
 
-    const { idcake } = useParams();
+    const { idcake } = useParams();// Lấy id cake từ home page
     const [cakes,setCake]=useState([]);
+    // const[id_cake, setIDcake]=useState('');// gửi idcake qua detailslide
     
     const getCake = async () => {
         try {
@@ -105,7 +106,8 @@ function Detail_item(){
             <div className="detail_item_card">
                 <div className="detail_group_img">
                    {/* <DetailSlide/> */}
-                   <DetailSlide cakes={cakes} />
+                   <DetailSlide dataFromParent={ idcake} />
+                    
                     <div className="detail_love_div">
                         <div className="detail_love">
                             <input type="radio" name="love" onClick={handleClick} style={{ color: getHeartColor() }}></input>
@@ -134,9 +136,9 @@ function Detail_item(){
                         {/* <h1>Bánh kem</h1> */}
                     </div>
                     {cakes.length > 0 && cakes.map((cake) => (
-                            <div key={cake.idcake}>
-                                <h2>{cake.price} VNĐ</h2>
-                            </div>
+                        <div key={cake.idcake}>
+                            <h2>{cake.price} VNĐ</h2>
+                        </div>
                     ))}
                   
                     <div className="detail_button_size">

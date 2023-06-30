@@ -8,7 +8,7 @@ const Order = () => {
       <div className="homeContainer">
         <SideMenuAdmin />
         <div className="listContainer">
-          <div className="listTitle">Quản lý đơn hàng</div>
+        <div className="listTitle">Quản lý đơn hàng</div>
           <Table />
         </div>
       </div>

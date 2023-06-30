@@ -64,12 +64,12 @@ const Listy = () => {
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell className="tableCell">ID Đơn hàng</TableCell>
-            <TableCell className="tableCell">Sản phẩm</TableCell>
-            <TableCell className="tableCell">Khách hàng</TableCell>
-            <TableCell className="tableCell">Ngày</TableCell>
-            <TableCell className="tableCell">Số lượng</TableCell>
-            <TableCell className="tableCell">Trạng thái</TableCell>
+            <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>ID Đơn hàng</TableCell>
+            <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Sản phẩm</TableCell>
+            <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Khách hàng</TableCell>
+            <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Ngày</TableCell>
+            <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Số lượng</TableCell>
+            <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Trạng thái</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
