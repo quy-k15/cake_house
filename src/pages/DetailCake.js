@@ -15,9 +15,10 @@ import {ListBestSeller} from "../helpers/ListBestSeller"
 import {ListFeedBack} from "../helpers/ListFeedBack"
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { collection, doc, getDoc } from "firebase/firestore/lite";
-
+import { collection,addDoc , getDocs,getDoc,updateDoc, doc } from 'firebase/firestore/lite'; 
+import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase";
+import Noti_Success from "../components/Noti_Success";
 function Detail_item(){
 
     const { idcake } = useParams();// Lấy id cake từ home page
@@ -25,37 +26,17 @@ function Detail_item(){
     const[category, setCategory]=useState('');// gửi category qua qua cake_category_slide
 
     
-    // const getCake = async () => {
-    //     try {
-    //         const cakeRef = doc(collection(db, "cakes"), idcake);
-    //         const cakeSnapshot = await getDoc(cakeRef);
-    //       if (cakeSnapshot.exists()) {
-    //         const cakeData = cakeSnapshot.data();
-    //         setCake([cakeData]);
-    //         console.log(cakeData);
-    //       } else {
-    //         console.error("Cake not found.");
-    //       }
-    //     } catch (error) {
-    //       console.error("Error fetching cake:", error);
-    //     }
-    // };
-    // useEffect(()=>{
-       
-    //     getCake();
-        
-    // },[idcake])
-
+  
     const getCake = async () => {
         try {
           const cakeRef = doc(collection(db, "cakes"), idcake);
-          const cakeSnapshot = await getDoc(cakeRef);
+          const cakeSnapshot = await  getDoc(cakeRef);
           if (cakeSnapshot.exists()) {
             const cakeData = cakeSnapshot.data();
             // setCake([cakeData]);
             setCake(cakeData);
-            setCategory(cakeData.Category); // Update the category state
-            console.log(cakeData);
+            setCategory(cakeData.category); // Update the category state
+            console.log("cakeData.category",cakeData.category);
           } else {
             console.error("Cake not found.");
           }
@@ -63,21 +44,11 @@ function Detail_item(){
           console.error("Error fetching cake:", error);
         }
       };
-      
+
       useEffect(() => {
         getCake();
       }, [idcake]);
 
-      useEffect(() => {
-        if (cake) {
-          setCategory(cake.category);
-          console.log("category_detail", cake.category);
-          
-        }
-        else{
-            console.log("có có bất kì dữ liệu bánh nào!");
-        }
-      }, [cake]);
 
     // Tăng giảm số lượng
     const [count,setCount]=React.useState(0)
@@ -87,35 +58,26 @@ function Detail_item(){
     function subtract(){
         setCount(prevCount => prevCount - 1)
     }
-    // Thay đổi màu button từ cam => trắng
-    // const [bgColor, setBgColor] = useState("");
-    // const [textColor, setTextColor] = useState("");
-    // const handleMouseEnter = () => {
-    //     setBgColor("white");
-    //     setTextColor("#CD8042");
-    //   };
-    
-    //   const handleMouseLeave = () => {
-    //     setBgColor("");
-    //     setTextColor("");
-    //   };
-
     const defaultStyle = {
         backgroundColor: "",
         color: ""
     };
-    const hoverStyle = {
+    // const hoverStyle = {
+    //     backgroundColor: "white",
+    //     color: "#CD8042"
+    // };
+
+
+    const selectedStyle = {
         backgroundColor: "white",
         color: "#CD8042"
     };
+
     const hoverStyle_White = {// Chuyển thành màu trắng
         backgroundColor: "#CD8042",
         color: "white"
     };
-      const [style1, setStyle1] = useState(defaultStyle);
-      const [style2, setStyle2] = useState(defaultStyle);
-      const [style3, setStyle3] = useState(defaultStyle);
-      const [style4, setStyle4] = useState(defaultStyle);
+  
       const [style5, setStyle5] = useState(defaultStyle);
 
       const [style6, setStyle6] = useState(defaultStyle);
@@ -136,6 +98,61 @@ function Detail_item(){
       return "var(--star-color)";
     }
   };
+//    Lấy dữ liệu chọn size
+    const [selectedSize, setSelectedSize] = useState('');
+    const handleClickSize = (size) => {
+        setSelectedSize(size);
+    };
+
+
+// Hiển thị thông báo khi add vô giỏ hàng thàng công
+const [showNoti, setShowNoti] = useState(false);
+
+// Thêm sản phẩm vô giỏ hàng
+const uploadTasks = []; 
+
+    const { user } = UserAuth();
+    const [idUser, setIdUser] = useState('');
+    // console.log("user_id",user&&user.idUser);
+    // console.log("user_email",user&&user.email);
+    useEffect(() => {
+      if (user) {
+        setIdUser(user&&user.idUser);
+        console.log("user id: ", idUser);
+      }
+    }, [user]);
+
+
+    
+    const handleOrder = async () => {
+        try {
+            if (!idUser) {
+                console.error("Error creating order: Invalid user ID");
+                return;
+              }
+          const newOrder = {
+            idcake: idcake,
+            idcart: "",
+            iduser: idUser,
+            num: count,
+            size: selectedSize
+          };
+            const CartCol = collection(db, "carts");
+            const docRef = await addDoc( CartCol, newOrder);
+            const generatedId = docRef.id;
+            await updateDoc(doc(db, "carts", generatedId), {  idcart: generatedId });
+
+            console.log("Order created successfully!");
+            } catch (error) {
+            console.error("Error creating order:", error);
+            }
+            setShowNoti(true);
+            setTimeout(() => {
+                setShowNoti(false);
+              }, 3000);
+      };
+
+    
     return(
         <div className="detail">
             <div className="detail_item_card">
@@ -163,11 +180,7 @@ function Detail_item(){
                         <p>(200 đánh giá)</p>
                     </div>
                     <div className="detail_name_review">
-                        {/* {cake.length > 0 && cake.map((cake) => (
-                            <div key={cake.idcake}>
-                                <h1>{cake.name}</h1>
-                            </div>
-                        ))} */}
+                   
                         <div key={cake.idcake}>
                             <h1>{cake.name}</h1>
                         </div>
@@ -178,8 +191,6 @@ function Detail_item(){
                                 <h2>{cake.price} VNĐ</h2>
                             </div>
                         ))} */}
-
-                     
                     <div key={cake.idcake}>
                         <h2>{cake.price} VNĐ</h2>
                     </div>
@@ -187,18 +198,14 @@ function Detail_item(){
                     <div className="detail_button_size">
                         <p>Kích thước:</p>
                         <div className="button_size">
-                            <button   style={style1}
-                            onMouseEnter={() => setStyle1(hoverStyle)}
-                            onMouseLeave={() => setStyle1(defaultStyle)}>S</button>
-                            <button style={style2}
-                            onMouseEnter={() => setStyle2(hoverStyle)}
-                            onMouseLeave={() => setStyle2(defaultStyle)}>M</button>
-                            <button style={style3}
-                            onMouseEnter={() => setStyle3(hoverStyle)}
-                            onMouseLeave={() => setStyle3(defaultStyle)}>L</button>
-                            <button style={style4}
-                            onMouseEnter={() => setStyle4(hoverStyle)}
-                            onMouseLeave={() => setStyle4(defaultStyle)}>Khác</button>
+                            <button    style={selectedSize === "S" ? selectedStyle : defaultStyle}
+                                onClick={() => handleClickSize("S")}>S</button>
+                            <button style={selectedSize === "M" ? selectedStyle : defaultStyle}
+                                onClick={() => handleClickSize("M")}>M</button>
+                            <button style={selectedSize === "L" ? selectedStyle : defaultStyle}
+                                onClick={() => handleClickSize("L")}>L</button>
+                            <button style={selectedSize === "XL" ? selectedStyle : defaultStyle}
+                                onClick={() => handleClickSize("XL")}>XL</button>
                         </div>
                     </div>
                     <div className="detail_number">
@@ -219,15 +226,17 @@ function Detail_item(){
                         <button className="btn_addCart" style={style8}
                             onMouseEnter={() => setStyle8(hoverStyle_White)}
                             onMouseLeave={() => setStyle8(defaultStyle)}> 
-                            <div className="detail_addcart_button" style={style8}
-                            onMouseEnter={() => setStyle8(hoverStyle_White)}
-                            onMouseLeave={() => setStyle8(defaultStyle)}>Thêm vào giỏ hàng</div>
+                            <div className="detail_addcart_button" 
+                                style={style8}
+                                onMouseEnter={() => setStyle8(hoverStyle_White)}
+                                onMouseLeave={() => setStyle8(defaultStyle)}
+                                onClick={handleOrder}>Thêm vào giỏ hàng</div>
                             <div className="btn_addCart_icon">
                                 <i class="fa-solid fa-cart-plus"></i>
                             </div>  
                         </button>
                         <button className="detail_buy_button" style={style5}
-                            onMouseEnter={() => setStyle5(hoverStyle)}
+                            onMouseEnter={() => setStyle5(selectedStyle )}
                             onMouseLeave={() => setStyle5(defaultStyle)}> Mua Ngay</button>
                     </div>
                 </div>
@@ -240,19 +249,6 @@ function Detail_item(){
                 <div class="line2_LienQuan"></div>
             </div>
             <div className="Cake_LienQuan">
-                {/* {ListBestSeller.slice(0, 4).map((cardCake, key) => {
-                    return (
-                        <CardCake
-                        key={key}
-                        image={cardCake.image}
-                        name={cardCake.name}
-                        price = {cardCake.price}
-                        size = {cardCake.size}
-                        />
-                    );
-                })} */}
-             
-                {/* <Cake_category_slide dataFromParent={ category} /> */}
                 <Cake_category_slide dataFromParent={category || ""} />
             </div>
             <div className="detail_ChiTiet_MoTa">
@@ -276,11 +272,6 @@ function Detail_item(){
                             <div key={cake.idcake}>
                                 <p>{cake.detail}</p>
                             </div>
-                    
-                           
-                            {/* <p>Bánh được làm thủ công không chất bảo quản. Hương vị .....</p>
-                            <p>saucbyjhcbWIBCSIALHCDSULACBIL</p>
-                            <p>CDSULA CBILd hcbaeud bibvdu eaihbCDS ULACBI Ldhcbaeudbi bvdueaihb</p> */}
                         </div>
                     </div>
                     <div className="detail_ChiTiet_div_img">
@@ -307,13 +298,6 @@ function Detail_item(){
                                         </li>
                                     </ul>
                                 </div>
-                            {/* <ul>
-                                <li>Kích thước: 20-20-20 cm (dài- rộng - cao)</li>
-                                <li>Khối lượng: 500g</li>
-                                <li>Thành phần: Bột mì, trứng, dầu ô liu,.....</li>
-                                <li>Cách bảo quản: Bảo quản trong nhiệt độ 20-25 độ C</li>
-                                <li>aaaaa aaaaaaaa aaaaaa  aaaaaaaaaaaa aaaaaaa aaaaaa aaaaaaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaa</li>
-                            </ul> */}
                         </div>
                     </div>
                 </div>
@@ -339,6 +323,7 @@ function Detail_item(){
                     })}
                 </div>
             </div>
+            {showNoti && <Noti_Success onClose={() => setShowNoti(false)} />}
         </div>
     );
 }
