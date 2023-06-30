@@ -218,7 +218,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
-
+.Home_BestSeller{
+  width: 90%;
+  margin-left: 5%;
+}
 @media only screen and (max-width: 1200px) {
 
 

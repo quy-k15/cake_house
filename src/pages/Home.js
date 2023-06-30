@@ -27,6 +27,7 @@ import { collection, getDocs,doc,docs } from 'firebase/firestore/lite';
 import { db } from "../firebase";
 import {storage}from "../firebase";
 import { UserAuth } from "../context/AuthContext";
+import BestSeller_Slide from "../components/BestSeller_Slide";
 function Home() {
   const [cakes,setcakes]=useState([]);
   // async function getCakes(db) {
@@ -128,22 +129,8 @@ function Home() {
           <div class="line2"></div>
 
         </div>
-        <div className="HomeBestSeller" >
-
-           {/* {cakes.map((u) => {
-              return (
-                <Link to="/detail">
-                <CardCake
-                  key={u.idcake}
-                  image={u.img1}
-                  name={u.name}
-                  price = {u.price}
-                />
-                 </Link>
-              );
-
-            })} */}
-             {cakes.map((u) => {
+        <div className="Home_BestSeller" >
+             {/* {cakes.map((u) => {
                return (
                 <Link to={`/detail/${u.idcake}`} style={{ textDecoration: 'none' }}>
                   <CardCake
@@ -154,8 +141,9 @@ function Home() {
                   />
                 </Link>
               );
+            })} */}
+            <BestSeller_Slide/>
 
-            })}
 
         </div>
         <ViewMore Links="/CategoryCake"/>
