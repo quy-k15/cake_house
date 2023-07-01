@@ -22,7 +22,7 @@ import SearchBox from "../components/SearchBox";
 import SearchResultsList from "../components/SearchResultsList";
 import { getDatabase, ref, onValue, child, get } from "firebase/database";
 import { database } from "../firebase";
-
+import Cake_category_slide from "../components/Cake_Category_Slide";
 function CategoryCake() {
 
 
@@ -57,7 +57,11 @@ function CategoryCake() {
             num={1}
         />
         <div className="Category_Tiramisu">
-            {ListBestSeller.slice(0, 4).map((cardCake, key) => {
+
+            <Cake_category_slide dataFromParent={"Tiramisu"} />
+
+
+            {/* {ListBestSeller.slice(0, 4).map((cardCake, key) => {
                 return (
                     <CardCake
                     key={key}
@@ -67,7 +71,7 @@ function CategoryCake() {
                     size = {cardCake.size}
                     />
                 );
-            })}
+            })} */}
         </div>
 
         <ViewMore Links="/CategoryCake"/>
@@ -77,7 +81,10 @@ function CategoryCake() {
             num={2}
         />
          <div className="Category_BanhKem">
-            {ListBestSeller.slice(0, 4).map((cardCake, key) => {
+
+            <Cake_category_slide dataFromParent={"Cake"} />
+
+            {/* {ListBestSeller.slice(0, 4).map((cardCake, key) => {
                 return (
                     <CardCake
                     key={key}
@@ -87,7 +94,7 @@ function CategoryCake() {
                     size = {cardCake.size}
                     />
                 );
-            })}
+            })} */}
         </div>
         <ViewMore Links="/CategoryCake"/>
 
@@ -97,7 +104,7 @@ function CategoryCake() {
             num={3}
         />
         <div className="Category_Cookies">
-            {ListBestSeller.slice(0, 4).map((cardCake, key) => {
+            {/* {ListBestSeller.slice(0, 4).map((cardCake, key) => {
                 return (
                     <CardCake
                     key={key}
@@ -107,7 +114,8 @@ function CategoryCake() {
                     size = {cardCake.size}
                     />
                 );
-            })}
+            })} */}
+             <Cake_category_slide dataFromParent={"Cookies"} />
         </div>
         <ViewMore Links="/CategoryCake"/>
 
@@ -117,7 +125,7 @@ function CategoryCake() {
             num={4}
         />
          <div className="Category_BanhKem">
-            {ListBestSeller.slice(0, 4).map((cardCake, key) => {
+            {/* {ListBestSeller.slice(0, 4).map((cardCake, key) => {
                 return (
                     <CardCake
                     key={key}
@@ -127,7 +135,8 @@ function CategoryCake() {
                     size = {cardCake.size}
                     />
                 );
-            })}
+            })} */}
+             <Cake_category_slide dataFromParent={"Mochi"} />
         </div>
         <ViewMore Links="/CategoryCake"/>
 

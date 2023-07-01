@@ -6,63 +6,75 @@ import Cake4 from "../assets/img_Mochi_Category.png";
 export const productRows = [
     {
       id: 1,
-      name: "Bánh táo",
+      pdname: "Bánh táo",
       img:
         Cake,
       stock: 123,
       status: "Còn hàng",
       price: "$120.00",
-      category: "Mochi"
+      category: "Mochi",
+      describe: "Bánh tiramisu chocolate",
+      detail: "Được làm từ...."
     },
     {
       id: 2,
-      name: "Mochi Dâu",
+      pdname: "Mochi Dâu",
       img:
         Cake1,
       stock: 123,
       status: "Còn hàng",
       price: "$120.00",
-      category: "Mochi"
+      category: "Mochi",
+      describe: "Bánh tiramisu chocolate",
+      detail: "Được làm từ...."
     },
     {
       id: 3,
-      name: "Bánh kem",
+      pdname: "Bánh kem",
       img:
         Cake2,
       stock: 123,
       status: "Còn hàng",
       price: "$120.00",
-      category: "Mochi"
+      category: "Mochi",
+      describe: "Bánh tiramisu chocolate",
+      detail: "Được làm từ...."
     },
     {
       id: 4,
-      name: "Donut",
+      pdname: "Donut",
       img:
         Cake3,
       stock: 0,
       status: "Hết hàng",
       price: "$120.00",
-      category: "Mochi"
+      category: "Mochi",
+      describe: "Bánh tiramisu chocolate",
+      detail: "Được làm từ...."
     },
     {
       id: 5,
-      name: "Cookie",
+      pdname: "Cookie",
       img:
         Cake4,
       stock: 0,
       status: "Hết hàng",
       price: "$120.00",
-      category: "Mochi"
+      category: "Mochi",
+      describe: "Bánh tiramisu chocolate",
+      detail: "Được làm từ...."
     },
     {
       id: 6,
-      name: "Tiramisu",
+      pdname: "Tiramisu",
       img:
         Cake1,
       stock: 123,
       status: "Còn hàng",
       price: "$120.00",
-      category: "Mochi"
+      category: "Mochi",
+      describe: "Bánh tiramisu chocolate",
+      detail: "Được làm từ...."
     },
 
   ];

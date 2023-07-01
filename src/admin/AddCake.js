@@ -14,6 +14,7 @@ function UploadImg() {
     const [price,setPrice]=useState("");
     const [describe,setDescribe]=useState("");
     const [detail,setDetail]=useState("");
+    const [sole,setSole]=useState("");
     const [imgs, setImgs] = useState([]);
     const [file, setFile] = useState("");
     const [file1, setFile1] = useState("");
@@ -262,6 +263,7 @@ function UploadImg() {
               price: parseFloat(price),
               describe,
               detail,
+              sole:0,
               img1: downloadURLs[0] || '',
               img2: downloadURLs[1] || '',
               img3: downloadURLs[2] || '',

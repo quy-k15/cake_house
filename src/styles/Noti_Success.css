@@ -1,0 +1,32 @@
+
+.Noti_Success {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    color: #4B1D1D;
+    width: 500px;
+    height: 100px;
+  }
+  
+  .Noti_Success .Noti_Sucess_icon {
+   margin-left: 10px;
+    flex: 8%;
+    
+  }
+  .Noti_Success .fa-regular{
+    font-size: 58px;
+  
+  }
+  
+  .Noti_Success .Noti_Sucess_info {
+    font-size: 19px;
+    flex: 75%;
+  }

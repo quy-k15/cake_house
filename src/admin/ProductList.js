@@ -17,7 +17,12 @@ export default function ProductList() {
   const [quantity, setQuantity] = useState("");
   const [status, setStatus] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [statusOptions, setStatusOptions] = useState(["Còn hàng", "Hết hàng"]);
+  const [categoryOptions, setCategoryOptions] = useState(["Tiramisu", "Bánh kem", "Cookie", "Mochi"]);
+  const [category, setCategory] = useState("");
+  const [pdname, setName]=useState("");
+  const [price, setPrice]=useState("");
+  const [describe, setDescribe]=useState("");
+  const [detail, setDetail]=useState("");
 
   const handleDelete = (id) => {
     const updatedRows = productRows.filter((product) => product.id !== id);
@@ -28,23 +33,29 @@ export default function ProductList() {
   const handleEdit = (product) => {
     setSelectedProduct(product);
     setQuantity(product.stock);
+    setCategory(product.category);
+    setName(product.pdname);
+    setDescribe(product.describe);
+    setDetail(product.detail);
+    setPrice(product.price);
     setStatus(product.status);
     //"0" thì cập nhật trạng thái
     if (product.stock === 0) {
     setStatus("Hết hàng");
   }
   
-  // "hết hàng" thì cập nhật số lượng
-  if (product.status === "Hết hàng") {
-    setQuantity(0);
-  }
     setIsModalOpen(true);
   };
   
   const handleClosePopup = () => {
     setSelectedProduct(null);
+    setName("");
+    setDescribe("");
+    setDetail("");
+    setPrice("");
     setQuantity("");
     setStatus("");
+    setCategory("");
     setIsModalOpen(false);
   };
   
@@ -77,6 +88,8 @@ export default function ProductList() {
               <TableRow>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>ID</TableCell>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Sản phẩm</TableCell>
+                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Mô tả</TableCell>
+                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Chi tiết</TableCell>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Số lượng</TableCell>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Trạng thái</TableCell>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Giá</TableCell>
@@ -91,9 +104,11 @@ export default function ProductList() {
                   <TableCell className="tableCell">
                     <div className="cellWrapper">
                       <img src={product.img} alt="" className="image" />
-                      {product.name}
+                      {product.pdname}
                     </div>
                   </TableCell>
+                  <TableCell className="tableCell">{product.describe}</TableCell>
+                  <TableCell className="tableCell">{product.detail}</TableCell>
                   <TableCell className="tableCell">{product.stock}</TableCell>
                   <TableCell className="tableCell">{product.status}</TableCell>
                   <TableCell className="tableCell">{product.price}</TableCell>
@@ -122,6 +137,33 @@ export default function ProductList() {
           <div className="modal-content">
             <h2>Chỉnh sửa sản phẩm</h2>
             <div className="btn-fix">
+              <label htmlFor="pdname">Tên sản phẩm:</label>
+              <input
+                type="text"
+                id="pdname"
+                value={pdname}
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
+            <div className="btn-fix">
+              <label htmlFor="describe">Mô tả:</label>
+              <input
+                type="text"
+                id="describe"
+                value={describe}
+                onChange={(e) => setDescribe(e.target.value)}
+              />
+            </div>
+            <div className="btn-fix">
+              <label htmlFor="detail">Chi tiết:</label>
+              <input
+                type="text"
+                id="detail"
+                value={detail}
+                onChange={(e) => setDetail(e.target.value)}
+              />
+            </div>
+            <div className="btn-fix">
               <label htmlFor="quantity">Số lượng:</label>
               <input
                 type="text"
@@ -131,13 +173,22 @@ export default function ProductList() {
               />
             </div>
             <div className="btn-fix">
-              <label htmlFor="status">Trạng thái:</label>
+              <label htmlFor="price">Giá:</label>
+              <input
+                type="text"
+                id="price"
+                value={price}
+                onChange={(e) => setPrice(e.target.value)}
+              />
+            </div>
+            <div className="btn-fix">
+              <label htmlFor="category">Phân loại</label>
               <select className="combobox"
-                id="status"
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
+                id="category"
+                value={category}
+                onChange={(e) => setCategory(e.target.value)}
               >
-                {statusOptions.map((option) => (
+                {categoryOptions.map((option) => (
                   <option key={option} value={option}>
                     {option}
                   </option>

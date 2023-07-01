@@ -70,45 +70,25 @@ function DetailSlide({dataFromParent}) {
   return (
     <div className="detail_img" >
         <Slider {...img_Home_Slide} 
-        customPaging={(i) => {
-            // const slideIndex = document.querySelector(".slick-current").getAttribute("data-index");
-    return (
-      <div>
-        <img className="detail_list_img" src={imgs[i]} alt=""></img>
-
-
-
-        {/* <img className="detail_list_img" src={img[slideIndex]} alt=""></img> */}
-      </div>
-    )
-  }}
-        dotsClass="slick-dots custom-indicator"
-        >
-            {/* {ListCategory.map((item)=>(
-                <div className="detail_img_customize">
-                    <img className="img_detail_slide" src={item.image} alt=""></img>
-                </div>
-            ))} */}
-            
-                {/* {cakes.map((item) => {
-                console.log("Image img1:", item.img1);
-                return (
-                    <div className="detail_img_customize">
-                    <img className="img_detail_slide" src={item.img1} alt=""></img>
-                    </div>
-                );
-                })} */}
-
-
-
-                {imgs.map((item, index) => (
-                  <div className="detail_img_customize" key={index}>
-                    <img className="img_detail_slide" src={item} alt=""></img>
-                  </div>
-                ))}
+          customPaging={(i) => {
+              // const slideIndex = document.querySelector(".slick-current").getAttribute("data-index");
+            return (
+              <div>
+                <img className="detail_list_img" src={imgs[i]} alt=""></img>
+                {/* <img className="detail_list_img" src={img[slideIndex]} alt=""></img> */}
+              </div>
+            )
+          }}
+          dotsClass="slick-dots custom-indicator"
+          >
+          {imgs.map((item, index) => (
+            <div className="detail_img_customize" key={index}>
+              <img className="img_detail_slide" src={item} alt=""></img>
+            </div>
+          ))}
          
             
-            </Slider>     
+        </Slider>     
     </div>
   );
 }
