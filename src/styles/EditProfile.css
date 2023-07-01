@@ -50,6 +50,7 @@
 
   .edit_profile .user1{
     width: 50%;
+    margin-left: 7%;
   }
 
   .edit_profile .infomation{
@@ -67,6 +68,8 @@
     color: #8F3C02;
     font-size: 15px;
     cursor: pointer;
+    font-family: Bellota ;
+    font-weight: bold;
   }
 
   .edit_profile .info-user button {
@@ -78,6 +81,8 @@
     color: #8F3C02;
     font-size: 15px;
     cursor: pointer;
+    font-family: Bellota ;
+    font-weight: bold;
   }
 
   .edit_profile table{
@@ -103,3 +108,24 @@
     background-color: #D77B44;
   }
   
+  
+@media screen and (max-width:1095px) {
+  .edit_profile .rightSide {
+    flex: 90%;
+  }
+
+  .edit_profile .leftSide {
+    flex: 10%;
+  }
+}
+
+@media screen and (max-width:850px) {
+  .edit_profile .rightSide {
+    flex: 90%;
+  }
+
+  .edit_profile .leftSide {
+    flex: 10%;
+  }
+
+}

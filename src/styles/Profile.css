@@ -68,6 +68,7 @@
 
   .user1{
     width: 50%;
+    margin-left: 2%;
   }
 
   .contact .avarta button {
@@ -79,6 +80,8 @@
     color: #8F3C02;
     font-size: 15px;
     cursor: pointer;
+    font-family: Bellota ;
+    font-weight: bold;
   }
 
   .contact .avarta button:hover{

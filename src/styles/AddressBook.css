@@ -60,10 +60,10 @@
 
   .edit .fas{
     padding: 20px 10px;
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    -webkit-transition: 1s ease-in-out;
-    transition: .3s ease-in-out;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+  -webkit-transition: 1s ease-in-out;
+  transition: .3s ease-in-out;
 
   }
 
@@ -162,6 +162,8 @@
     cursor: pointer;
     width: 24%;
     border: none;
+    font-family: Bellota ;
+    font-weight: bold;
 
   }
 
