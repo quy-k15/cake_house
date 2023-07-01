@@ -87,8 +87,6 @@
   .all_purchase .detail_purchase .col3{
     flex: 30%;
     padding-top: 7%;
-    display: flex;
-    justify-content: right;
   }
 
   .all_purchase .detail_purchase .buyagain{
