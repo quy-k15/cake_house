@@ -15,10 +15,11 @@ import {ListBestSeller} from "../helpers/ListBestSeller"
 import {ListFeedBack} from "../helpers/ListFeedBack"
 import { useState,useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { collection,addDoc , getDocs,getDoc,updateDoc, doc } from 'firebase/firestore/lite'; 
+import { collection,addDoc , getDocs,getDoc,updateDoc, doc,query, where, } from 'firebase/firestore/lite'; 
 import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase";
 import Noti_Success from "../components/Noti_Success";
+import Error_Need_Login from "../components/Error_Need_Login";
 function Detail_item(){
 
     const { idcake } = useParams();// Lấy id cake từ home page
@@ -107,6 +108,8 @@ function Detail_item(){
 
 // Hiển thị thông báo khi add vô giỏ hàng thàng công
 const [showNoti, setShowNoti] = useState(false);
+const [showNotiLogin, setShowNotiLogin] = useState(false);
+
 
 // Thêm sản phẩm vô giỏ hàng
 const uploadTasks = []; 
@@ -114,42 +117,77 @@ const uploadTasks = [];
     const { user } = UserAuth();
     const [idUser, setIdUser] = useState('');
     // console.log("user_id",user&&user.idUser);
-    // console.log("user_email",user&&user.email);
+    const [email,setEmail]  = useState('');
+    const [userinfo,setUser]  = useState();
+
+    // const SetEmails = () => {
+    //     setEmail(user&&user.idUser);
+    // };
+   
     useEffect(() => {
-      if (user) {
-        setIdUser(user&&user.idUser);
-        console.log("user id: ", idUser);
-      }
-    }, [user]);
+        if (user) {
+          setEmail(user.email);
+        }
+      }, [user]);
+    
+    const UserQuery = async () => {
+      
+        const q = query(collection(db, "users"), where("email", "==", email));
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+            const doc = querySnapshot.docs[0];
+            setUser(doc.data());
+            console.log("user: ", userinfo);
+        }
+    };
+    useEffect(() => {
+        if (email) {
+          UserQuery();
+        }
+      }, [email]);
+    
+    // console.log("user_email",user&&user.email);
+
+    // useEffect(() => {
+    //   if (user) {
+    //     setIdUser(user&&user.idUser);
+    //     console.log("user id: ", idUser);
+    //   }
+    // }, [user]);
 
 
     
-    const handleOrder = async () => {
+    const handleAddCart = async () => {
         try {
-            if (!idUser) {
-                console.error("Error creating order: Invalid user ID");
+            // UserQuery();
+            if (!userinfo) {
+                setShowNotiLogin(true);
+                setTimeout(() => {
+                    setShowNotiLogin(false);
+                }, 3000);
                 return;
               }
-          const newOrder = {
+
+          const newCart = {
             idcake: idcake,
             idcart: "",
-            iduser: idUser,
+            iduser: userinfo.idUser,
             num: count,
             size: selectedSize
           };
             const CartCol = collection(db, "carts");
-            const docRef = await addDoc( CartCol, newOrder);
+            const docRef = await addDoc( CartCol, newCart);
             const generatedId = docRef.id;
             await updateDoc(doc(db, "carts", generatedId), {  idcart: generatedId });
 
-            console.log("Order created successfully!");
+            console.log("cart created successfully!");
             } catch (error) {
             console.error("Error creating order:", error);
             }
             setShowNoti(true);
             setTimeout(() => {
                 setShowNoti(false);
-              }, 3000);
+            }, 3000);
       };
 
     
@@ -230,7 +268,7 @@ const uploadTasks = [];
                                 style={style8}
                                 onMouseEnter={() => setStyle8(hoverStyle_White)}
                                 onMouseLeave={() => setStyle8(defaultStyle)}
-                                onClick={handleOrder}>Thêm vào giỏ hàng</div>
+                                onClick={handleAddCart}>Thêm vào giỏ hàng</div>
                             <div className="btn_addCart_icon">
                                 <i class="fa-solid fa-cart-plus"></i>
                             </div>  
@@ -324,6 +362,7 @@ const uploadTasks = [];
                 </div>
             </div>
             {showNoti && <Noti_Success onClose={() => setShowNoti(false)} />}
+            {showNotiLogin && <Error_Need_Login onClose={() => setShowNotiLogin(false)} />}
         </div>
     );
 }

@@ -52,7 +52,6 @@ function Cake_category_slide({dataFromParent}) {
     <div className="CartCake_Slide">
       <div className="CartCake_Slide_item">
         <Slider {...img_Category_Slide} > 
-
           {cakes.map((u) => (
             <div key={u.idcake} className="img-customize">
               <Link to={`/detail/${u.idcake}`} style={{ textDecoration: "none" }}>
