@@ -1,18 +1,38 @@
 import React from "react";
 import { useState } from "react";
 import "../styles/CardCart.css";
+import { collection,addDoc , getDocs,getDoc,updateDoc, doc,query, where, } from 'firebase/firestore/lite'; 
+import { db } from "../firebase";
 
-function CardCart({ image, name, price, size,isChecked, setIsChecked }) {
+function CardCart({ image, name, price, size,num,isChecked, onCheckboxChange,onNumChange,cartId}) {
     //Tăng giảm số lượng
     
-    const [count,setCount]=React.useState(1)
+    const [count,setCount]=React.useState(num)
     function add(){
         setCount(prevCount => prevCount + 1)
     }
     function subtract(){
         setCount(prevCount => prevCount - 1)
     }
-  
+    const handleIncrement = () => {
+        const updatedNum = count + 1;
+        setCount(updatedNum);
+        onNumChange(updatedNum);
+        updateNumOnFirebase(cartId, updatedNum);
+      };
+      
+      const handleDecrement = () => {
+        if (count > 1) {
+          const updatedNum = count - 1;
+          setCount(updatedNum);
+          onNumChange(updatedNum);
+          updateNumOnFirebase(cartId, updatedNum);
+        }
+      };
+      const updateNumOnFirebase = async (cartId, updatedNum) => {
+        const cartRef = doc(db, 'carts', cartId);
+        await updateDoc(cartRef, { num: updatedNum });
+      };
     // Đổi màu button
     const defaultStyle = {
         backgroundColor: "",
@@ -34,17 +54,26 @@ function CardCart({ image, name, price, size,isChecked, setIsChecked }) {
 
     const [style1, setStyle1] = useState(defaultStyle);
     const [style2, setStyle2] = useState(defaultStyle);
-  
+   
+    const handleCheckboxChange = () => {
+        onCheckboxChange(!isChecked);
+      };
+    
 
   return (
     <div className="CardCart">
         <div class="CardCart_input_div"> 
             <label class="CardCart_input">
                 {/* <input type="checkbox"/> */}
-                <input
+                {/* <input
                     type="checkbox"
                     checked={isChecked}
                     onChange={() => setIsChecked(!isChecked)}
+                /> */}
+                <input
+                    type="checkbox"
+                    checked={isChecked}
+                    onChange={handleCheckboxChange}
                 />
                 <span class="checkmark"></span>
             </label>
@@ -55,7 +84,7 @@ function CardCart({ image, name, price, size,isChecked, setIsChecked }) {
         </div>
         <div className="Cartinfo"> 
             <h2> {name} </h2>
-            <h3> {size} (cm) </h3>
+            <h3> size: {size} </h3>
         </div>
         <div className="CartPrice">
             <h2>{price} (VND) </h2>
