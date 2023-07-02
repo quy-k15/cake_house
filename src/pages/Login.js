@@ -51,10 +51,6 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     }
 
     try{
-      // await createUser(email,password)
-      // history.push('/');
-      // setError("Đăng ký thành công!");
-
       const user = await createUser(email, password); // Retrieve the user object after registration
       setIdUser(user.uid); // Save the user ID
   
@@ -70,13 +66,17 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
         phoneNum: "",
         isClient:true
       };
+
   
       const userCol = collection(db, "users");
       const docRef = await addDoc(userCol, newUser);
       const Id = docRef.id;
   
       // Update the document with the correct data
-      await updateDoc(doc(userCol, Id), newUser);
+      // await updateDoc(doc(userCol, Id), newUser);
+      const userDocRef = doc(userCol, Id);
+      await updateDoc(userDocRef, { ...newUser, idUser: Id });
+  
   
       console.log(newUser);
 
