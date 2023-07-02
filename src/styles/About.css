@@ -7,12 +7,12 @@
 }
 
 .aboutTop {
+  padding-top: 4%;
   width: 100%;
   height: 45%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .aboutTop img{
   margin-top: 7%;
@@ -93,19 +93,6 @@
   font-size: 1.15rem;
 }
 
-/* .tail {
-  padding-left: 5%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-  gap: 1rem;
-}
-
-.rightTail img {
-  width: 50%;
-  height: 100%;
-  object-fit: cover;
-} */
-/* ------------OUR TEAM--------------- */
 .team{
   width: 100%;
   height: 100%;

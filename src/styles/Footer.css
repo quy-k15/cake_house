@@ -26,6 +26,12 @@
 
 .footer .box-container .box .share{
   margin-top: 1rem;
+  /* margin-left: 5px; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-between;
 }
 
 .footer .box-container .box .share i{
@@ -36,7 +42,9 @@
   font-size: 1.5rem;
   background: #CD8042;
   color: #fff;
-  margin-right: .3rem;
+  /* margin-right: .3rem; */
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 .footer .box-container .box .share i:hover{
