@@ -1,13 +1,13 @@
-import BanhMi from "../assets/BanhMi.png";
-import BanhBongLan from "../assets/BanhBongLan.png";
+import BanhMi from "../assets/img_Mochi_Category.png";
 import BanhKem from "../assets/BanhKem.png";
-import Cookies from "../assets/Cookies.png";
+import Cookies from "../assets/img_Cookies_Category.png";
+import Tiramisu from "../assets/Tiramisu_Category.png";
 
 
 export const ListCategory = [
   {
-    name: "Bánh bông lan",
-    image: BanhBongLan,
+    name: "Tiramisu",
+    image: Tiramisu,
     coler:"FCD8D4",
   
   },
@@ -22,7 +22,7 @@ export const ListCategory = [
     coler:"DDEBC7",
   },
   {
-    name: "Bánh mì",
+    name: "Mochi",
     image: BanhMi,
     coler:"C6DEE8",
   },

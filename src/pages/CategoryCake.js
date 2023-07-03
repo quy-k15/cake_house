@@ -25,8 +25,8 @@ import { database } from "../firebase";
 import Cake_category_slide from "../components/Cake_Category_Slide";
 function CategoryCake() {
 
-
     const [results,setResults]=useState([]);
+    const[category, setCategory]=useState('');
   return (
     <div className="CategoryCake">
         <div className="category_search">
@@ -73,8 +73,9 @@ function CategoryCake() {
                 );
             })} */}
         </div>
-
-        <ViewMore Links="/CategoryCake"/>
+        <ViewMore Links="/ViewMoreCategory" dataFromParent={"Tiramisu"}/>
+        
+        
         <CategoryRight
             image={img_Category_Cake}
             name=" Bánh kem"
@@ -96,8 +97,7 @@ function CategoryCake() {
                 );
             })} */}
         </div>
-        <ViewMore Links="/CategoryCake"/>
-
+        <ViewMore Links="/ViewMoreCategory" dataFromParent={"Cake"}/>
         <CategoryLeft
             image={img_Cookies_Category}
             name="Cookies"
@@ -117,7 +117,7 @@ function CategoryCake() {
             })} */}
              <Cake_category_slide dataFromParent={"Cookies"} />
         </div>
-        <ViewMore Links="/CategoryCake"/>
+        <ViewMore Links="/ViewMoreCategory" dataFromParent={"Cookies"}/>
 
         <CategoryRight
             image={img_Mochi_Category}
@@ -138,7 +138,7 @@ function CategoryCake() {
             })} */}
              <Cake_category_slide dataFromParent={"Mochi"} />
         </div>
-        <ViewMore Links="/CategoryCake"/>
+        <ViewMore Links="/ViewMoreCategory" dataFromParent={"Mochi"}/>
 
     </div> 
   );

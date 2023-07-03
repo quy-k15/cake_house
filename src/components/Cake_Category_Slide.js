@@ -19,7 +19,7 @@ import CardCake from "../components/CardCake";
 // import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 function Cake_category_slide({dataFromParent}) {
-    console.log("Category:", dataFromParent);
+    // console.log("Category:", dataFromParent);
   
     var img_Category_Slide ={
         

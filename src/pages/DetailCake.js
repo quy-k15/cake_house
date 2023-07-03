@@ -288,6 +288,7 @@ const uploadTasks = [];
             </div>
             <div className="Cake_LienQuan">
                 <Cake_category_slide dataFromParent={category || ""} />
+                
             </div>
             <div className="detail_ChiTiet_MoTa">
                 <div className="chitiet_background">

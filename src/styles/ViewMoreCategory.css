@@ -1,0 +1,14 @@
+.ViewMoreCategory {
+    margin-top: 7%;
+}
+.ViewMoreCategory .ListCake{
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+}
+
+.ViewMoreCategory .ListCake .img-customize {
+    width: 100%;
+    height:fit-content;
+    object-fit: cover;
+    object-position: center;
+}
