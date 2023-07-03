@@ -52,13 +52,13 @@
   
   .contact-form .info-user{
     height: 100%;
-    flex: 70%;
+    flex: 60%;
     padding-left: 8%;
   }
 
   .contact-form .avarta{
     height: 100%;
-    flex: 30%;
+    flex: 40%;
     display: flex;
     flex-direction: column;
     padding: 2% 0;
@@ -67,7 +67,7 @@
 
 
   .user1{
-    width: 50%;
+    width: 70%;
     margin-left: 2%;
   }
 
@@ -82,6 +82,7 @@
     cursor: pointer;
     font-family: Bellota ;
     font-weight: bold;
+    margin-left: 17%;
   }
 
   .contact .avarta button:hover{

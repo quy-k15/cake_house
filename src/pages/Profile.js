@@ -6,13 +6,39 @@ import { UserAuth } from "../context/AuthContext";
 import { useHistory } from "react-router-dom";
 import { useState,useEffect } from "react";
 import Noti_LogOut from "../components/NoTi_LogOut";
+import { collection,addDoc , getDocs,getDoc,updateDoc, doc,query, where, } from 'firebase/firestore/lite'; 
+import { db } from "../firebase";
 
 function Profile() {
     const {user,logout}=UserAuth();
+    const [userinfo,setUser]  = useState();
+    const [email,setEmail]  = useState('');
 
     const history = useHistory();
     // Hiển thị thông báo khi add vô giỏ hàng thàng công
     const [showNoti, setShowNoti] = useState(false);
+    useEffect(() => {
+        if (user) {
+          setEmail(user.email);
+        }
+      }, [user]);
+    
+    const UserQuery = async () => {
+      
+        const q = query(collection(db, "users"), where("email", "==", email));
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+            const doc = querySnapshot.docs[0];
+            setUser(doc.data());
+            console.log("user: ", userinfo);
+        }
+    };
+    useEffect(() => {
+        if (email) {
+          UserQuery();
+        }
+      }, [email]);
+
 
     const handleLogout=async()=>{
         try{
@@ -43,14 +69,15 @@ function Profile() {
                     <div className="contact-form" method="POST">
                         <div className="info-user">
                             <h2>Thông tin tài khoản</h2>
-                            <p id="name">{user&&user.name}</p>
+                            <h3 id="name">Họ và tên: {userinfo&&userinfo.nameUser}</h3>
                             <p>Email: {user&&user.email}</p>
-                            <p>Số điện thoại: 0889201726</p>
-                            <p>Giới tính: Nam</p>
-                            <p>Ngày sinh: 08/01/2002</p>
+                            <p>Số điện thoại: {userinfo&&userinfo.phoneNum}</p>
+                            <p>Giới tính: {userinfo&&userinfo.sex}</p>
+                            {/* <p>Ngày sinh: 08/01/2002</p> */}
                         </div>
                         <div className="avarta" >
-                            <img className ="user1" src={user1} alt="User Avatar"></img>
+                            {/* <img className ="user1" src={userinfo.avatarURL} alt="User Avatar"></img> */}
+                            {userinfo && userinfo.avatarURL && <img className="user1" src={userinfo.avatarURL} alt="User Avatar" />}
                             <div className="profile_Logout"> 
                                 <button onClick={handleLogout} className="btn_LogOut">Đăng xuất</button>
                             </div>
