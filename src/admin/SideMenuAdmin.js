@@ -1,10 +1,28 @@
-import React, { useState } from "react";
+import React, { useState,useEffect  } from "react";
 
 import "../styles/SideMenuAdmin.css";
 import { Link } from "react-router-dom";
+import { UserAuth } from "../context/AuthContext";
+import { useHistory } from "react-router-dom";
+import { collection,addDoc , getDocs,getDoc,updateDoc, doc,query, where, } from 'firebase/firestore/lite'; 
+import { db } from "../firebase";
 
 const SideMenuAdmin = () => {
   const [sidebarClosed, setSidebarClosed] = useState(false);
+  const history = useHistory();
+  const {user,logout}=UserAuth();
+  const handleLogout=async()=>{
+    try{
+        
+        await logout();
+        history.push('/login');
+        console.log('you are looged out');
+
+  
+    }catch(e){
+        console.log(e.message);
+    }
+}
 
   return (
     <>
@@ -48,11 +66,11 @@ const SideMenuAdmin = () => {
             </ul>
           </div>
 
-          <div className="bottom-content">
-              <Link to="/login" className="nav-link">
+          <div className="bottom-content"  onClick={handleLogout} >
+             
               <i className="bx bx-log-out icon"></i>
                 <span className="text nav-text">Đăng xuất</span>
-              </Link>
+             
           </div>
         </div>
       </nav>

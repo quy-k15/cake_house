@@ -109,7 +109,7 @@ const handleAllCheckedChange = () => {
         setcarts(updatedCarts);
       };
 // Thay đổi số lượng cập nhật lên firebase
-const handleNumChange = (cartId, newNum) => {
+  const handleNumChange = (cartId, newNum) => {
     const updatedCarts = carts.map((cart) => {
       if (cart.idcart === cartId) {
         // Update the cart's num property
@@ -124,6 +124,8 @@ const handleNumChange = (cartId, newNum) => {
     updateDoc(cartRef, { num: newNum });
   };
     
+// Gửi các cardcart đã tich sang trang payment
+  const selectedCarts = filteredCarts.filter((cart) => cart.isChecked);
     return(
         <div className="MyCart">
             <div className="MyCart_header">
@@ -232,7 +234,10 @@ const handleNumChange = (cartId, newNum) => {
                         return total;
                     }, 0)}
                     </div>
-                    <Link to ="/payment">
+                    <Link to ={{
+                      pathname: '/payment',
+                      state: { selectedCarts }
+                    }}>
                       <button id="btn_buy">Mua hàng</button>
                     </Link>
                     

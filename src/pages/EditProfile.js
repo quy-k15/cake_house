@@ -8,6 +8,7 @@ import { collection,addDoc , getDocs,getDoc,updateDoc, doc,query, where, } from 
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { UserAuth } from "../context/AuthContext";
 import { db, auth,storage } from "../firebase";
+import Noti_Update from "../components/Noti_Update";
 function EditProfile() {
     const [updatedUser, setUpdatedUser] = useState({
         nameUser: "",
@@ -111,13 +112,6 @@ function EditProfile() {
                 sex: sex
             });
 
-///
-
-
-
-
-
-
             if (file) {
                 const storageRef = ref(storage, `/files/${file.name}`);
                 const uploadTask = uploadBytesResumable(storageRef, file);
@@ -148,11 +142,6 @@ function EditProfile() {
             } else {
                 console.log("No avatar image selected");
             }
-
-
-
-
-
                     // Update email in Firebase Authentication
             // const user = auth.currentUser;
             // await user.updateEmail(email);
@@ -165,7 +154,14 @@ function EditProfile() {
         } else {
             console.log("User or user.idUser is undefined");
         }
+        setShowNoti(true);
+        setTimeout(() => {
+            setShowNoti(false);
+        }, 3000);
         };
+    // Hiển thị thông báo khi add vô giỏ hàng thàng công
+    const [showNoti, setShowNoti] = useState(false);
+  
 
     return (
         <div className="edit_profile">
@@ -266,6 +262,7 @@ function EditProfile() {
                     </div>
                 </div>
             </div>
+            {showNoti && <Noti_Update onClose={() => setShowNoti(false)} />}
         </div>
     );
 }

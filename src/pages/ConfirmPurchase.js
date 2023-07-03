@@ -29,6 +29,11 @@ function ConfirmPurchase() {
                                         {val.id}
                                         <div id="id_inf">123456789</div>
                                     </div>
+
+                                    <div id="Status">
+                                        {val.status}
+                                        <div id="Status_inf">12/06/2023</div>
+                                    </div>
                                     
                                     <div id="tradeDate">
                                         {val.tradeDate}

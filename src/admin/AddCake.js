@@ -377,14 +377,6 @@ function UploadImg() {
           {/* <input type="file" onChange={handleChange} value={img} accept="/image/*" />
             <button onClick={handleUpload}>Upload to Firebase</button> */}
           <p>{percent} "% done"</p>
-          {message && (
-            <div className={`message ${message.error ? "error" : "success"}`}>
-              <span className="message-text">{message.msg}</span>
-              <button className="message-close" onClick={closeMessage}>
-                X
-              </button>
-            </div>
-          )}
         </div>
 
       </div>

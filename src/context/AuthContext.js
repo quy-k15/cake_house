@@ -41,44 +41,6 @@ export const AuthContextProvider =({children})=>{
         return signOut(auth);
     }
 
-
-    
-    // useEffect(() => {
-    //     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-    //       console.log(currentUser);
-      
-    //       setUser(
-    //         currentUser
-    //           ? {
-    //               idUser: currentUser.uid,
-    //               email: currentUser.email,
-    //               nameUser: currentUser.nameUser,
-    //               phone: "",
-    //               isClient: false,
-    //               idAddress: "",
-    //               phoneNum: "",
-    //               sex: "",
-    //             }
-    //           : {
-    //               idUser: null,
-    //               name: "",
-    //               phone: "",
-    //               isClient: null,
-    //               idAddress: null,
-    //               phoneNum: "",
-    //               sex: "",
-    //             }
-    //       );
-    //     });
-      
-    //     return () => {
-    //       unsubscribe();
-    //     };
-    //   }, []);
-
-
-
-
       useEffect(()=>{
 
         const unsubscribe = onAuthStateChanged(auth, (currentUser)=>{

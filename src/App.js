@@ -32,6 +32,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Payment from "./pages/Payment";
+import { Redirect } from 'react-router-dom';
 
 
 function App() {

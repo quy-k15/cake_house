@@ -1,30 +1,46 @@
 
-import React, { useEffect } from "react";
+import React, {  useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { UserAuth } from "../context/AuthContext";
-
+import { collection,addDoc , getDocs,getDoc,updateDoc, doc,query, where, } from 'firebase/firestore/lite'; 
+import { db } from "../firebase";
 const ProtectedRoute = ({ children }) => {
   const history = useHistory();
   const { user } = UserAuth();
-
-
-  if (!user) {
-    // history.replace("/login");
-    history.push("/login"); // Điều hướng đến trang login
-    return null; // Trả về null để không hiển thị bất kỳ gì trong khi đợi chuyển hướng
-  }
-
+  // const [userinfo, setUser] = useState();
+  // const [email, setEmail] = useState('');
 
   // useEffect(() => {
-  //   if (!user) {
-  //     history.push("/login"); // Điều hướng đến trang login
+  //   if (user) {
+  //     setEmail(user.email);
   //   }
-  // }, [user, history]);
+  // }, [user]);
 
-  // if (!user) {
-  //   return null; // Trả về null để không hiển thị bất kỳ gì trong khi đợi chuyển hướng
+  // const UserQuery = async () => {
+  //   const q = query(collection(db, "users"), where("email", "==", email));
+  //   const querySnapshot = await getDocs(q);
+  //   if (!querySnapshot.empty) {
+  //     const doc = querySnapshot.docs[0];
+  //     setUser(doc.data());
+  //     console.log("user: ", userinfo);
+  //   }
+  // };
+
+  // useEffect(() => {
+  //   if (email) {
+  //     UserQuery();
+  //   }
+  // }, [email]);
+
+  if (!user) {
+    history.push("/login");
+    return null;
+  }
+  // if (userinfo && userinfo.isClient === false) {
+  //   history.replace("/dashboard");
+  //   return children;
   // }
-
+  
   return children;
 };
 

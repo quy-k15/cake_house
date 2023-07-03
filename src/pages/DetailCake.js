@@ -189,29 +189,27 @@ const uploadTasks = [];
                 setShowNoti(false);
             }, 3000);
       };
-      const handleAddLoveCake = async () => {
-        setIsClicked(!isClicked);
-        try {
-            // UserQuery();
-          const newLove = {
-            idcake: idcake,
-            idlove: "",
-            iduser: userinfo.idUser,
+    const handleAddLoveCake = async () => {
+    setIsClicked(!isClicked);
+    try {
+        // UserQuery();
+        const newLove = {
+        idcake: idcake,
+        idlove: "",
+        iduser: userinfo.idUser,
 
-          };
-            const CartCol = collection(db, "loves");
-            const docRef = await addDoc( CartCol, newLove);
-            const generatedId = docRef.id;
-            await updateDoc(doc(db, "loves", generatedId), {  idlove: generatedId });
+        };
+        const CartCol = collection(db, "loves");
+        const docRef = await addDoc( CartCol, newLove);
+        const generatedId = docRef.id;
+        await updateDoc(doc(db, "loves", generatedId), {  idlove: generatedId });
 
-            console.log("loves created successfully!");
-            } catch (error) {
-            console.error("Error loving:", error);
-            }
-       
-      };
+        console.log("loves created successfully!");
+        } catch (error) {
+        console.error("Error loving:", error);
+        }
+    };
 
-    
     return(
         <div className="detail">
             <div className="detail_item_card">

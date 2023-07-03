@@ -1,11 +1,11 @@
-import React, { useState,useRef } from "react";
+import React, { useState,useRef,useEffect } from "react";
 import "../styles/Login.css";
 import Cake1 from "../assets/image1.svg";
 import Cake2 from "../assets/image2.svg";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { UserAuth } from "../context/AuthContext";
 import { useHistory } from "react-router-dom";
-import { collection, addDoc, getDocs, updateDoc, doc } from 'firebase/firestore/lite'; 
+import { collection,addDoc , getDocs,getDoc,updateDoc, doc,query, where, } from 'firebase/firestore/lite'; 
 import { storage, db, auth } from "../firebase";
 
 // import {useNavigate} from "react-router-dom";
@@ -94,6 +94,29 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [passwordDN,setPasswordDN]=useState('')
   const [errorDN,setErrorDN]=useState('')
   const {signIn}=UserAuth();
+  // const [userinfo,setUser]  = useState();
+
+  const [isClient, setIsClient] = useState(true);
+
+  useEffect(() => {
+    if (email) {
+      UserQuery();
+    }
+  }, [email]);
+  
+  const UserQuery = async () => {
+    const q = query(collection(db, "users"), where("email", "==", email));
+    const querySnapshot = await getDocs(q);
+    if (!querySnapshot.empty) {
+      const doc = querySnapshot.docs[0];
+      const userData = doc.data();
+      // setUser(userData);
+      if (userData.isClient === false) {
+        setIsClient(false);
+      }
+
+    }
+  };
 
 
   const handlSubmitSignIn= async(e)=>{
@@ -104,8 +127,14 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
       return;
     }
     try{
-      await signIn(emailDN,passwordDN)
-      history.push('/');
+      await signIn(emailDN, passwordDN);
+      if (isClient) {
+        history.push('/');
+       
+      } else {
+        history.push('/dashboard');
+        
+      }
     }catch(e){
       setErrorDN(e.message)
       if(e.code==="auth/user-not-found"){
