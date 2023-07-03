@@ -189,6 +189,27 @@ const uploadTasks = [];
                 setShowNoti(false);
             }, 3000);
       };
+      const handleAddLoveCake = async () => {
+        setIsClicked(!isClicked);
+        try {
+            // UserQuery();
+          const newLove = {
+            idcake: idcake,
+            idlove: "",
+            iduser: userinfo.idUser,
+
+          };
+            const CartCol = collection(db, "loves");
+            const docRef = await addDoc( CartCol, newLove);
+            const generatedId = docRef.id;
+            await updateDoc(doc(db, "loves", generatedId), {  idlove: generatedId });
+
+            console.log("loves created successfully!");
+            } catch (error) {
+            console.error("Error loving:", error);
+            }
+       
+      };
 
     
     return(
@@ -200,7 +221,7 @@ const uploadTasks = [];
                     
                     <div className="detail_love_div">
                         <div className="detail_love">
-                            <input type="radio" name="love" onClick={handleClick} style={{ color: getHeartColor() }}></input>
+                            <input type="radio" name="love" onClick={handleAddLoveCake} style={{ color: getHeartColor() }}></input>
                         </div>
                         <p>700 lượt thích</p>
                     </div>

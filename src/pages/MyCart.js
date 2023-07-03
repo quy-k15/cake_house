@@ -32,20 +32,6 @@ function MyCart(){
       useEffect(()=>{
         getcarts();
       },[]);
-    // const getcake =async () => {
-    //     const q = query(collection(db, "cakes"), where("idcake", "==", carts.idcake));
-    //     const querySnapshot = await getDocs(q);
-    //     if (!querySnapshot.empty) {
-    //         const doc = querySnapshot.docs[0];
-    //         setcake(doc.data());
-           
-    //     }
-    // }
-    // useEffect(() => {
-    //     if (carts.idcake) {
-    //         getcake();
-    //     }
-    //   }, [carts.idcake]);
 
     useEffect(() => {
         const getCakeData = async () => {
