@@ -9,7 +9,7 @@ function Footer() {
 
         <div class="box">
           <h3>address</h3>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias sit debitis.</p>
+          <p>Trường Đại học Công nghệ Thông tin<br></br> Đại học quốc gia thành phố Hồ Chí Minh </p>
           <div class="share">
             <i class='bx bxl-facebook' ></i>
             <i class='bx bxl-twitter' ></i>

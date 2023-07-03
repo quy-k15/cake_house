@@ -35,13 +35,13 @@
 
   .edit_profile .info-user{
     height: 100%;
-    flex: 70%;
+    flex: 65%;
     padding-left: 8%;
   }
 
   .edit_profile .avarta{
     height: 100%;
-    flex: 30%;
+    flex: 35%;
     display: flex;
     flex-direction: column;
     padding: 2% 0;
@@ -59,7 +59,7 @@
   }
 
   .edit_profile .avarta button {
-    margin: 40px 0 0 5%;
+    margin: 40px 0 0 12%;
     padding: 5% 10%;
     width: fit-content;
     border: none;

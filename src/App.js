@@ -31,6 +31,7 @@ import ProductList from "./admin/ProductList";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { AuthContextProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
+import Payment from "./pages/Payment";
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
               <Route path="/detail/:idcake" exact component={Detail} />
               <Route path="/likedproducts" exact component={LikedProducts} />
               <Route path="/myCart" exact component={MyCart} />
+              <Route path="/Payment" exact component={Payment} />
               <Route path="/AllPurchase" exact component={AllPurchase} />
               <Route path="/ConfirmPurchase" exact component={ConfirmPurchase} />
               <Route path="/ReceivePurchase" exact component={ReceivePurchase} />

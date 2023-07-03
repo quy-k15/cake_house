@@ -1,0 +1,135 @@
+.payment_body{
+    width: 100%;
+    float: left;
+    overflow: visible;
+    padding-top: 7%;
+    display: flex;
+}
+.payment_body h3{
+    color: #CD8042;
+}
+@media (max-width: 650px) {
+    .payment_body {
+      display: grid;
+    }
+  }
+/* ===============LEFT========== */
+
+.payment_body_left{
+    flex: 1;
+    float: left;
+    padding: 20px;
+    background: #fff;
+    box-sizing: border-box;
+    padding-right: 20px;
+}
+.address_info, .shipping_method, .checkout_method
+{
+    width: 100%;
+    float: left;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.49);
+    
+}
+.address_info p{
+    padding-left: 30px;
+}
+.checkout_method p{
+    padding-left: 30px;
+}
+.width_common {
+    width: 100%;
+    float: left;
+}
+.left{
+    float: left;
+}
+.right{
+    float: right;
+}
+.choose{
+    padding-left: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* =============RIGHT=========== */
+.payment_body_right{
+    flex: 1;
+    float: right;
+    padding: 20px;
+    background: #fff;
+}
+.block_check_donhang{
+    width: 100%;
+    float: right;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,0.49);
+}
+.relative{
+    display: flex;
+    gap: 1rem;
+    padding-top: 10px;
+    width: 100%;
+    float: left;
+    justify-content: end;
+}
+
+.donhang_tamtinh{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    float: left;
+}
+.form-control{
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 40px;
+    line-height: 1.42857;
+    padding: 6px 40px 6px 12px;
+    width: 60%;
+}
+.btn_chuasudung, .btn_site_2{
+    width: 25%;
+    height: 50px;
+    background: #CD8042;
+    color: #fff;
+    border: 0;
+    position: relative;
+    right: 1px;
+    top: 1px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.btn_dathang{
+    display: flex;
+    justify-content: end;
+}
+.btn_chuasudung:hover, .btn_site_2:hover{
+    background: #783b31
+}
+/* ======đơn hàng====== */
+.list_donhang .thumb_donhang{
+    width: 12%;
+    padding: 0 10px;
+    float: left;
+    margin: 0;
+}
+
+.list_donhang{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    float: left;
+    border-bottom: 1px dotted #eaeaea;
+    display: flex;
+}
+.info_donhang{
+    width: 70%;
+    float: left;
+}
