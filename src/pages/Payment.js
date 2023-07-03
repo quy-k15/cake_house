@@ -70,8 +70,8 @@ const Payment = () => {
                 <div>
                 <div class="block_total_order width_common ">
                   <div class="thanhtien width_common space_bottom_10">
-                    <div class="tamtinh_left left">Thành tiền:</div>
-                    <div class="tamtinh_right right txt_color_2">1.063.000đ</div>
+                    <div class="tamtinh_left left"><h3>Thành tiền:</h3></div>
+                    <div class="tamtinh_right right txt_color_2"><h3>1.063.000đ</h3></div>
                   </div>
                   <div class="btn_dathang width_common space_bottom_10">
                     <button type="submit" class="btn_site_2">Đặt Hàng</button>

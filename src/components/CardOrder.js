@@ -10,7 +10,7 @@ const CardOrder = () => {
       {products.map((product, index) => (
         <div className="list_donhang" key={index}>
           <div className="thumb_donhang">
-            <img src={product.image} alt="" />
+            <img className="product_img" src={product.image} alt="" />
           </div>
           <div className="info_donhang">
             <div className="title_sanpham">
