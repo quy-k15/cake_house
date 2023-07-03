@@ -246,7 +246,10 @@ const handleNumChange = (cartId, newNum) => {
                         return total;
                     }, 0)}
                     </div>
-                    <button id="btn_buy">Mua hàng</button>
+                    <Link to ="/payment">
+                      <button id="btn_buy">Mua hàng</button>
+                    </Link>
+                    
                 </div>
                 
             </div>

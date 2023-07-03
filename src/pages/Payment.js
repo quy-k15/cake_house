@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../styles/Payment.css";
 import Cake1 from "../assets/Tiramisu_Category.png";
-
+import CardOrder from "../components/CardOrder";
+import OrderDetail from "../components/OrderDetail";
 const Payment = () => {
   const ShippingMethod = () => {
     const [selectedOption, setSelectedOption] = useState("");
@@ -18,7 +19,7 @@ const Payment = () => {
               <h3 className="width_common left">Thông tin nhận hàng</h3>
               <p>Customer name</p>
               <p>Customer phone</p>
-              <span className="width_common" style={{ paddingBottom: '20px' }}>Address Info</span>
+              <p>Address Info</p>
             </div>
           </div>
           <div className="shipping_method">
@@ -57,23 +58,7 @@ const Payment = () => {
           <div className="block_check_donhang">
             <div style={{ padding: '20px' }}>
               <h3>Đơn hàng</h3>
-              <div className="list_donhang">
-                <div className="thumb_donhang">
-                  <img src={Cake1} alt="" />
-                </div>
-                <div className="info_donhang">
-                  <div className="title_sanpham">
-                    <strong>I'm from</strong>
-                  </div>
-                  <div className="mota_donhang">
-                    Bánh kem sinh nhật vị dứa size M
-                  </div>
-                  <div className="detail_donhang">
-                    <p className="left">SL: product.quantity</p>
-                    <p className="right">Giá: product.price</p>
-                  </div>
-                </div>
-              </div>
+              <CardOrder product={OrderDetail()} />
               <div className="donhang_tamtinh">
                 <div className="tamtinh_price">
                   <h3>Tạm tính: allorder_price</h3>
