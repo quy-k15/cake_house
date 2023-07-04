@@ -15,9 +15,10 @@ function ConfirmPurchase() {
     const { user } = UserAuth();
     const [email,setEmail]  = useState('');
     // const [userinfo,setUser]  = useState();
-    const [cartData, setCartData] = useState([]);
+    const [cart, setCart] = useState([]);
     const [cake,setcake]=useState();
     const [userinfo,setUser]  = useState();
+
 
     // const SetEmails = () => {
     //     setEmail(user&&user.idUser);
@@ -31,66 +32,45 @@ function ConfirmPurchase() {
       }, [user]);
     
       useEffect(() => {
-        const UserQuery = async () => {
+        const getUserData = async () => {
           if (email) {
             const q = query(collection(db, "users"), where("email", "==", email));
             const querySnapshot = await getDocs(q);
             if (!querySnapshot.empty) {
               const doc = querySnapshot.docs[0];
               setUser(doc.data());
-              console.log("user: ", userinfo);
+              console.log("user: ", doc.data());
+              console.log("email: ", email);
             }
           }
         };
     
-        UserQuery();
+        getUserData();
       }, [email]);
     
       useEffect(() => {
         const getOrders = async () => {
-            try {
-              if (userinfo && userinfo.idUser) {
-                const ordersSnapshot = await getDocs(collection(db, 'orders', where("iduser", "==", userinfo.idUser)));
-                console.log("ordersSnapshot:", ordersSnapshot);
-                console.log("docs:", ordersSnapshot.docs);
-                const ordersArray = ordersSnapshot.docs.map((doc) => ({
-                  idcart: doc.id,
-                  ...doc.data()
-                }));
-                console.log("ordersArray:", ordersArray);
-                setOrders(ordersArray);
-              }
-            } catch (error) {
-              console.error('Error fetching carts:', error);
+          try {
+            if (userinfo) {
+              const q = query(collection(db, "orders"), where("iduser", "==", userinfo.idUser));
+              const querySnapshot = await getDocs(q);
+              const ordersArray = querySnapshot.docs.map((doc) => ({
+                idorder: doc.id,
+                ...doc.data()
+              }));
+              setOrders(ordersArray);
+              console.log("ordersArray", ordersArray);
+              console.log("orders", orders);
             }
-          };
-        getOrders();
-      }, [userinfo]);
-    
-      useEffect(() => {
-        const fetchCartData = async () => {
-          let cartPromises = [];
-    
-          if (orders.length > 0) {
-            cartPromises = orders.map(async (order) => {
-              const cartData = await getCartData(order.idcart[0]);
-              if (cartData) {
-                const cakeData = await getCakeData(cartData.idcake);
-                return {
-                  ...cartData,
-                  cake: cakeData,
-                };
-              }
-              return null;
-            });
+          } catch (error) {
+            console.error('Error fetching orders:', error);
           }
-    
-          const cartDataArray = await Promise.all(cartPromises);
-          setCartData(cartDataArray);
         };
     
-        fetchCartData();
-      }, [orders]);
+        if (userinfo) {
+          getOrders();
+        }
+      }, [userinfo]);
     
       const getCartData = async (idcart) => {
         const q = query(collection(db, "carts"), where("idcart", "==", idcart));
@@ -98,89 +78,41 @@ function ConfirmPurchase() {
         if (!querySnapshot.empty) {
           const doc = querySnapshot.docs[0];
           const cartData = doc.data();
-          console.log("cartData", cartData);
-          return cartData;
+          return cartData; // Return the cart data
         }
+    
         return null;
       };
     
-      const getCakeData = async (idcake) => {
-        const q = query(collection(db, "cakes"), where("idcake", "==", idcake));
-        const querySnapshot = await getDocs(q);
-        if (!querySnapshot.empty) {
-          const doc = querySnapshot.docs[0];
-          const cakeData = doc.data();
-          console.log("cakeData", cakeData);
-          return cakeData;
-        }
-        return null;
-      };
+      useEffect(() => {
+        const getCartDataArray = async () => {
+          const cartDataPromises = orders.flatMap(order => order.idcart.map(getCartData));
+          const cartDataArray = await Promise.all(cartDataPromises);
+          setCart(cartDataArray.filter(Boolean));
+        };
     
-    // const UserQuery = async () => {
-    //     if (email) {
-    //         const q = query(collection(db, "users"), where("email", "==", email));
-    //         const querySnapshot = await getDocs(q);
-    //         if (!querySnapshot.empty) {
-    //             const doc = querySnapshot.docs[0];
-    //             setUser(doc.data());
-    //             console.log("user: ", userinfo);
-    //         }
+        if (orders.length > 0) {
+          getCartDataArray();
+        }
+      }, [orders]);
 
-    //     }
-    // };
-    // useEffect(() => {
-    //       UserQuery();
-    //   }, [email]);
 
-    // const getorders = async () => {
-    // try {
-    //     const ordersSnapshot = await getDocs(collection(db, 'orders'));
-    //     const ordersArray = ordersSnapshot.docs.map((doc) => ({
-    //     idcart: doc.id,
-    //     ...doc.data()
-    //     }));
-    //     setorders(ordersArray );
-    // } catch (error) {
-    //     console.error('Error fetching carts:', error);
-    // }
-    // };
-    // useEffect(()=>{
-    //     getorders();
-    // },[]);
-    // const getcart = async (idcart) => {
-    //     const q = query(collection(db, "carts"), where("idcart", "==", idcart));
-    //     const querySnapshot = await getDocs(q);
-    //     if (!querySnapshot.empty) {
-    //       const doc = querySnapshot.docs[0];
-    //       const cartData = doc.data();
-    //       return cartData; // Return the cake data
-    //     }
 
-    //     return null;
-    // };
-    // useEffect(() => {
-    //     const getCartData = async () => {
-    //       const cartPromises = orders.map(async (order) => {
-    //         const cartData = await getcart(order.idcart);
-    //         return cartData !== null ? cartData : null;
-    //       });
-    //       const cartDataArray = await Promise.all(cartPromises);
-    //       setcart(cartDataArray);
-    //     };
+      // Tính tổng tiền:
+      const calculateTotalPrice = () => {
+        let totalPrice = 0;
       
-    //     getCartData();
-    // }, [orders]);
-    // const getcake = async (idcake) => {
-    //     const q = query(collection(db, "cakes"), where("idcake", "==", idcake));
-    //     const querySnapshot = await getDocs(q);
-    //     if (!querySnapshot.empty) {
-    //       const doc = querySnapshot.docs[0];
-    //       const cakeData = doc.data();
-    //       return cakeData; // Return the cake data
-    //     }
-
-    //     return null;
-    //   };
+        orders.forEach((order) => {
+          const orderCarts = cart.filter((c) => order.idcart.includes(c.idcart));
+          orderCarts.forEach((cart) => {
+            const cartPrice = parseFloat(cart.price);
+            const cartNum = parseInt(cart.num);
+            totalPrice += cartPrice * cartNum;
+          });
+        });
+      
+        return totalPrice;
+      };
 
     return (
         <div className="MyOrders">
@@ -191,6 +123,7 @@ function ConfirmPurchase() {
                 <NavbarOrders/>
                 <div className="all_purchase">
                 {orders.map((order) => {
+                  const orderCarts = cart.filter((c) => order.idcart.includes(c.idcart));
                         return (
                             <div
                                 className="row"
@@ -208,7 +141,7 @@ function ConfirmPurchase() {
                                     
                                     <div id="tradeDate">
                                        
-                                        <div id="tradeDate_inf"> {order.date}</div>
+                                        <div id="tradeDate_inf"> Ngày đặt hàng: {order.date.formattedDate}</div>
                                     </div>
                                     
                                     <div >
@@ -220,41 +153,22 @@ function ConfirmPurchase() {
                                 </div>
                                 
                                 <div className="detail_purchase">
-                                {cartData
-                                    .filter((cart) => cart.idcart === order.idcart)
-                                    .map((cart) => (
-                                    <CardOrder
-                                        key={cart.idcart}
-                                        image={cart.image}
-                                        name={cart.name}
-                                        price={cart.price}
-                                        size={cart.size}
-                                        num={cart.num}
-                                        idcake={cart.idcake}
-                                    />
-                                ))}
-                                    {/* <div className="col1">
-                                        <div id="image">{val.image}</div>
-                                    </div>
-                                    <div className="col2">
-                                        <div id="name">{val.name}</div>
-                                        <div id="unit_price">
-                                            {val.unit_price}
-                                            <div id="unit_price_inf">100.000 (VND)</div>
-                                        </div>
-                                        <div id="quantity">
-                                            {val.quantity}
-                                            <div id="quantity_inf">02</div>
-                                        </div>
-                                    </div>
+                                {orderCarts.map((cart) => (
+                                <CardOrder
+                                  key={cart.idcart}
+                                  image={cart.image}
+                                  name={cart.name}
+                                  price={cart.price}
+                                  size={cart.size}
+                                  num={cart.num}
+                                  idcake={cart.idcake}
+                                />
+                              ))}
+                                   
                                     <div className="col3">
-                                        <div id="total_price">
-                                            {val.total_price}
-                                            <div id="total_price_inf">200.000 (VND)</div>
-                                        </div>
-                                        <button className="btn_purchase">Hủy đơn hàng</button>
-                                       
-                                    </div> */}
+                                      <div className="AllPrice"> Tổng giá đơn hàng: {order.allPrice} (VND)</div>
+                                      <button className="btn_purchase">Hủy đơn hàng</button>
+                                    </div>
                                     
                                 </div>
                                 

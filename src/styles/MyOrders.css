@@ -71,9 +71,10 @@
   }
 
   .all_purchase .detail_purchase{
-    display: flex;
+    display: grid;
     background-color: #FCD8D4;
     padding: 1% 2% 0 2%;
+    margin-left: 5%;
   }
 
   .all_purchase .detail_purchase .col1{
@@ -86,7 +87,13 @@
 
   .all_purchase .detail_purchase .col3{
     flex: 30%;
-    padding-top: 7%;
+    padding-top: 5%;
+    display: flex;
+    margin-bottom: 2%;
+  }
+  .AllPrice{
+    margin-left: 2%;
+    font-size: 20px
   }
 
   .all_purchase .detail_purchase .buyagain{
@@ -123,7 +130,7 @@
     font-family: Bellota ;
     font-weight: bold;
     font-size:1rem;
-    margin-left: 40%;
+    margin-left: 33%;
   }
 
   .all_purchase #id{

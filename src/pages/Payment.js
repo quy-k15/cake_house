@@ -27,6 +27,7 @@ const Payment = () => {
     const {user}=UserAuth();
     const [userinfo,setUser]  = useState();
     const [email,setEmail]  = useState('');
+    const[allPrice,setAllPrice]=useState('');
     useEffect(() => {
         if (user) {
           setEmail(user.email);
@@ -82,18 +83,21 @@ const calculateTotalPrice = () => {
   }, 0);
 
   return totalPrice;
+
 };
 // thêm order lên firebase
 const currentDate = new Date();
 const formattedDate = new Intl.DateTimeFormat("en-GB").format(currentDate);
 const handleAddOrder = async () => {
   try {
+    const totalPrice = calculateTotalPrice();
 
     const newOrder = {
       idorder: "",
       iduser: userinfo.idUser,
       idcart: selectedCarts.map((cart) => cart.idcart),
-      date:{formattedDate}
+      date:{formattedDate},
+      allPrice: totalPrice,
  
     };
       const CartCol = collection(db, "orders");
