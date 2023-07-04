@@ -13,6 +13,8 @@ const Payment = () => {
   const location = useLocation();
   const selectedCarts = location.state.selectedCarts;
   console.log("selectedCarts",selectedCarts);
+
+
   
   const ShippingMethod = () => {
     const [cakes,setCakes]=useState([]);
@@ -46,23 +48,23 @@ const Payment = () => {
           UserQuery();
         }
       }, [email]);
-// Tính tổng tiền
-useEffect(() => {
-  const fetchCakes = async () => {
-    const cakeIds = selectedCarts.map((cart) => cart.idcake);
-    const q = query(collection(db, "cakes"), where("idcake", "in", cakeIds));
-    const querySnapshot = await getDocs(q);
-    const cakesArray = querySnapshot.docs.map((doc) => ({
-      idcake: doc.id,
-      ...doc.data()
-    }));
-    setCakes(cakesArray);
-  };
+  // Tính tổng tiền
+  useEffect(() => {
+    const fetchCakes = async () => {
+      const cakeIds = selectedCarts.map((cart) => cart.idcake);
+      const q = query(collection(db, "cakes"), where("idcake", "in", cakeIds));
+      const querySnapshot = await getDocs(q);
+      const cakesArray = querySnapshot.docs.map((doc) => ({
+        idcake: doc.id,
+        ...doc.data()
+      }));
+      setCakes(cakesArray);
+    };
 
-  if (selectedCarts.length > 0) {
-    fetchCakes();
-  }
-}, [selectedCarts]);
+    if (selectedCarts.length > 0) {
+      fetchCakes();
+    }
+  }, [selectedCarts]);
 
 
  
@@ -82,6 +84,8 @@ const calculateTotalPrice = () => {
   return totalPrice;
 };
 // thêm order lên firebase
+const currentDate = new Date();
+const formattedDate = new Intl.DateTimeFormat("en-GB").format(currentDate);
 const handleAddOrder = async () => {
   try {
 
@@ -89,6 +93,7 @@ const handleAddOrder = async () => {
       idorder: "",
       iduser: userinfo.idUser,
       idcart: selectedCarts.map((cart) => cart.idcart),
+      date:{formattedDate}
  
     };
       const CartCol = collection(db, "orders");

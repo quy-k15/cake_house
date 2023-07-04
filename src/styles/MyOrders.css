@@ -127,7 +127,7 @@
   }
 
   .all_purchase #id{
-    flex: 25%;
+    flex: 35%;
   }
 
   .all_purchase #id_inf{
@@ -143,7 +143,7 @@
   }
 
   .all_purchase #tradeDate{
-    flex: 25%;
+    flex: 10%;
   }
 
   .all_purchase #status{
