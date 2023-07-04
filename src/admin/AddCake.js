@@ -10,6 +10,7 @@ import SideMenuAdmin from "./SideMenuAdmin";
 
 function UploadImg() {
     const [name,setName]=useState("");
+    const  [status,setStatus]=useState("");
     const [category,setCategory]=useState("");
     const [price,setPrice]=useState("");
     const [describe,setDescribe]=useState("");
@@ -261,6 +262,7 @@ function UploadImg() {
               name,
               category,
               price: parseFloat(price),
+              status:"Còn hàng",
               describe,
               detail,
               sole:0,
@@ -313,6 +315,7 @@ function UploadImg() {
                 onChange={(e) => ChangeCategory(e.target.value)}></input>
 
             </div>
+
             <div className="input_Name_div">
               <p>Mô tả sản phẩm: </p>
               <input className="input_MoTa" value={describe}
@@ -374,14 +377,6 @@ function UploadImg() {
           {/* <input type="file" onChange={handleChange} value={img} accept="/image/*" />
             <button onClick={handleUpload}>Upload to Firebase</button> */}
           <p>{percent} "% done"</p>
-          {message && (
-            <div className={`message ${message.error ? "error" : "success"}`}>
-              <span className="message-text">{message.msg}</span>
-              <button className="message-close" onClick={closeMessage}>
-                X
-              </button>
-            </div>
-          )}
         </div>
 
       </div>

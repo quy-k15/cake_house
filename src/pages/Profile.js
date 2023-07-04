@@ -53,11 +53,6 @@ function Profile() {
             console.log(e.message);
         }
     }
-
- 
-    
-
-
     return (
         <div className="contact">
             <div className="leftSide">

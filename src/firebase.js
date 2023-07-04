@@ -4,6 +4,7 @@ import { getStorage } from "firebase/storage";
 import { getFirestore, collection, getDocs } from 'firebase/firestore/lite';
 import { getAnalytics } from "firebase/analytics";
 import {getAuth,connectAuthEmulator,signInWithEmailAndPassword }from 'firebase/auth';
+
 import "firebase/auth"
 
 // import firebase from 'firebase';

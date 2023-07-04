@@ -44,6 +44,10 @@
 .left{
     float: left;
 }
+.left2{
+    float: left;
+    margin-left: 5%;
+}
 .right{
     float: right;
 }
@@ -119,6 +123,9 @@
     padding: 0 10px;
     float: left;
     margin: 0;
+}
+.list_donhang .thumb_donhang img{
+    border-radius: 5px;
 }
 
 .list_donhang{

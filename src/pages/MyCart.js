@@ -32,20 +32,6 @@ function MyCart(){
       useEffect(()=>{
         getcarts();
       },[]);
-    // const getcake =async () => {
-    //     const q = query(collection(db, "cakes"), where("idcake", "==", carts.idcake));
-    //     const querySnapshot = await getDocs(q);
-    //     if (!querySnapshot.empty) {
-    //         const doc = querySnapshot.docs[0];
-    //         setcake(doc.data());
-           
-    //     }
-    // }
-    // useEffect(() => {
-    //     if (carts.idcake) {
-    //         getcake();
-    //     }
-    //   }, [carts.idcake]);
 
     useEffect(() => {
         const getCakeData = async () => {
@@ -123,7 +109,7 @@ const handleAllCheckedChange = () => {
         setcarts(updatedCarts);
       };
 // Thay đổi số lượng cập nhật lên firebase
-const handleNumChange = (cartId, newNum) => {
+  const handleNumChange = (cartId, newNum) => {
     const updatedCarts = carts.map((cart) => {
       if (cart.idcart === cartId) {
         // Update the cart's num property
@@ -138,6 +124,8 @@ const handleNumChange = (cartId, newNum) => {
     updateDoc(cartRef, { num: newNum });
   };
     
+// Gửi các cardcart đã tich sang trang payment
+  const selectedCarts = filteredCarts.filter((cart) => cart.isChecked);
     return(
         <div className="MyCart">
             <div className="MyCart_header">
@@ -246,7 +234,10 @@ const handleNumChange = (cartId, newNum) => {
                         return total;
                     }, 0)}
                     </div>
-                    <Link to ="/payment">
+                    <Link to ={{
+                      pathname: '/payment',
+                      state: { selectedCarts }
+                    }}>
                       <button id="btn_buy">Mua hàng</button>
                     </Link>
                     

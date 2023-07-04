@@ -8,6 +8,7 @@ function SearchResultsList({results}) {
           {
             results.map((result,id)=>{
                 return <SearchResult result={result} key={id}/>
+              
             })
           }
         </div>
