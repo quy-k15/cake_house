@@ -98,14 +98,9 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [isClient, setIsClient] = useState(true);
 
-  useEffect(() => {
-    if (email) {
-      UserQuery();
-    }
-  }, [email]);
   
   const UserQuery = async () => {
-    const q = query(collection(db, "users"), where("email", "==", email));
+    const q = query(collection(db, "users"), where("email", "==", emailDN));
     const querySnapshot = await getDocs(q);
     if (!querySnapshot.empty) {
       const doc = querySnapshot.docs[0];
@@ -114,9 +109,16 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
       if (userData.isClient === false) {
         setIsClient(false);
       }
+      console.log("isclient", isClient);
+      console.log("userData",userData);
 
     }
   };
+  useEffect(() => {
+    if (emailDN) {
+      UserQuery();
+    }
+  }, [emailDN]);
 
 
   const handlSubmitSignIn= async(e)=>{
@@ -128,11 +130,12 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
     }
     try{
       await signIn(emailDN, passwordDN);
-      if (isClient) {
-        history.push('/');
+      if (isClient===false) {
+        history.push('/dashboard');
        
       } else {
-        history.push('/dashboard');
+        
+        history.push('/');
         
       }
     }catch(e){
