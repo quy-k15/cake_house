@@ -9,7 +9,7 @@ function CardCake({ image, name, price, onclick }) {
       </div>
       <div className="CakePrice">
         <h2> {price}đ </h2>
-        <button className="bntCakeAdd"> add</button>
+        <button className="bntCakeAdd"> <i class="fa-solid fa-cart-plus"></i></button>
       </div>
       
     </div>

@@ -69,14 +69,12 @@
   width: 85%;
   padding-bottom: 1px;
   align-items: center;
-  margin-top: 5px;
   color: #8F3C02;
+  align-items: bottom;
 }
 .CakePrice h2{
   font-size: 25px;
   flex: 70%;
-  margin-top: 0px;
-  margin-bottom: 10px;
   color: #8F3C02;
 }
 
@@ -95,13 +93,13 @@
 }
 
 .bntCakeAdd{
-  width: 60px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
   border-radius: 10px;
+  border: 1px;
+  font-size: 20px;
   color: #8F3C02;
   font-weight: bold;
-  size: 30px;
-  border: 3px solid #8F3C02;
   background-color: #FDF6F0;
   cursor: pointer;
   
