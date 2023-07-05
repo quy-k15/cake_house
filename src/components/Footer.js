@@ -8,8 +8,8 @@ function Footer() {
       <div class="box-container">
 
         <div class="box">
-          <h3>address</h3>
-          <p>Trường Đại học Công nghệ Thông tin<br></br> Đại học quốc gia thành phố Hồ Chí Minh </p>
+          <h3>Địa chỉ</h3>
+          <p>Cửa hàng bánh ngọt CakeHouse <br></br> Đường Hàn Thuyên, khu phố 6, Thủ Đức, Thành phố Hồ Chí Minh</p>
           <div class="share">
             <i class='bx bxl-facebook' ></i>
             <i class='bx bxl-twitter' ></i>
@@ -24,18 +24,18 @@ function Footer() {
         </div>
 
         <div class="box">
-          <h3>call us</h3>
-          <p>+84 (2) 1412 4869</p>
-          <p>+84 (2) 1412 4869</p>
+          <h3>Số điện thoại</h3>
+          <p>09 1412 4869</p>
+          <p>09 1412 4869</p>
         </div>
 
         <div class="box">
-          <h3> opening hours</h3>
-          <p>Monday - Friday: 9:00 - 23:00 <br></br> Saturday: 8:00 - 24:00 </p>
+          <h3> Thời gian mở cửa</h3>
+          <p>Thứ 2 - Thứ 6: 9:00 - 23:00 <br></br> Thứ 7: 8:00 - 24:00 </p>
         </div>
       </div>
 
-    <div class="credit">created by <span>group cake</span> all rights reserved! </div>
+    <div class="credit">Đặt hàng ngay để thưởng thức những chiếc bánh chất lượng từ <span>CakeHouse</span></div>
 
     </div>
   </>
