@@ -173,9 +173,10 @@
   
   .sidebar .menu-bar .bottom-content {
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    /* flex-direction: column;
+    justify-content: space-between; */
     align-items: center;
+    cursor: pointer;
   }
   
   .sidebar .menu-bar .mode {

@@ -77,6 +77,7 @@ function Home() {
           <h1>Cake</h1>
           <img src={logo}></img>
           <h1>House</h1>
+          <Link to="/dashboard" className="item_menu1">up load img</Link>
 
         </div>
       </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { productRows } from "../components/productData";
 import "../styles/ProductList.css";
 import { Link } from "react-router-dom";
@@ -11,39 +11,61 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { collection, getDocs,doc,docs,updateDoc,deleteDoc } from 'firebase/firestore/lite';
+import { db } from "../firebase";
+import Noti_Success from "../components/Noti_Success";
 
-export default function ProductList() {
+function ProductList() {
+  const [cakes,setcakes]=useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState("");
   const [status, setStatus] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [categoryOptions, setCategoryOptions] = useState(["Tiramisu", "Bánh kem", "Cookie", "Mochi"]);
   const [category, setCategory] = useState("");
-  const [pdname, setName]=useState("");
+  const [name, setName] = useState("");
   const [price, setPrice]=useState("");
   const [describe, setDescribe]=useState("");
   const [detail, setDetail]=useState("");
 
-  const handleDelete = (id) => {
-    const updatedRows = productRows.filter((product) => product.id !== id);
+ 
+  const handleDelete = async (id) => {
+    // const updatedRows = productRows.filter((product) => product.id !== id);
     // Cập nhật danh sách sản phẩm sau khi xóa
     // ...
+    // Cập nhật danh sách sản phẩm sau khi cập nhật
+    try {
+      // Delete the order from Firestore
+      await deleteDoc(doc(db, 'cakes', id));
+
+
+       // Update the product list after deleting the product
+      const updatedCakes = cakes.filter((cake) => cake.idcake !== id);
+      setcakes(updatedCakes);
+
+      
+  
+      // Update the state or perform any additional actions as needed
+      setShowNotiDelete(true);
+      setTimeout(() => {
+        setShowNotiDelete(false);
+      }, 3000);
+  
+    } catch (error) {
+      console.error('Error deleting cake:', error);
+    }
+
   };
 
   const handleEdit = (product) => {
     setSelectedProduct(product);
     setQuantity(product.stock);
     setCategory(product.category);
-    setName(product.pdname);
+    setName(product.name);
     setDescribe(product.describe);
     setDetail(product.detail);
     setPrice(product.price);
     setStatus(product.status);
-    //"0" thì cập nhật trạng thái
-    if (product.stock === 0) {
-    setStatus("Hết hàng");
-  }
-  
     setIsModalOpen(true);
   };
   
@@ -58,16 +80,68 @@ export default function ProductList() {
     setCategory("");
     setIsModalOpen(false);
   };
-  
 
-  const handleUpdate = () => {
+
+  const handleUpdate = async (event) => {
+    event.preventDefault();
+
     // Thực hiện cập nhật thông tin sản phẩm
-    if (status === "Hết hàng") {
-      setQuantity(0);
+    const updatedProduct = {
+      ...selectedProduct,
+      name: name,
+      describe: describe,
+      detail: detail,
+      status: status,
+      price: price,
+      category: category,
+    };
+    console.log("selectedProduct",selectedProduct)
+
+    try {
+      // Update the product in Firestore
+      if (selectedProduct && selectedProduct.idcake) {
+        const cakeDocRef = doc(db, "cakes", selectedProduct.idcake);
+        await updateDoc(cakeDocRef, updatedProduct);
+        console.log("selectedProduct",selectedProduct)
+      }
+
+      // Cập nhật danh sách sản phẩm sau khi cập nhật
+      const updatedCakes = cakes.map((cake) =>
+        cake.idcake === selectedProduct.idcake ? updatedProduct : cake
+      );
+      setcakes(updatedCakes);
+
+      // Đóng popup
+      handleClosePopup();
+      setShowNotiUpdate(true);
+      setTimeout(() => {
+        setShowNotiUpdate(false);
+      }, 3000);
+    } catch (error) {
+      console.error("Lỗi khi cập nhật sản phẩm:", error);
     }
-    // Đóng popup
-    handleClosePopup();
+
   };
+  const getCakes = async () => {
+    try {
+      const cakesSnapshot = await getDocs(collection(db, 'cakes'));
+      const cakesArray = cakesSnapshot.docs.map((doc) => ({
+        idcake: doc.id,
+        ...doc.data()
+      }));
+      setcakes(cakesArray);
+    } catch (error) {
+      console.error('Error fetching cakes:', error);
+    }
+  };
+
+  useEffect(()=>{
+    getCakes();
+  },[]);
+
+  // Hiển thị thông báo 
+const [showNotiUpdate, setShowNotiUpdate] = useState(false);
+const [showNotiDelete, setShowNotiDelete] = useState(false);
 
 
   return (
@@ -88,9 +162,9 @@ export default function ProductList() {
               <TableRow>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>ID</TableCell>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Sản phẩm</TableCell>
-                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Mô tả</TableCell>
-                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Chi tiết</TableCell>
-                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Số lượng</TableCell>
+                {/* <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Mô tả</TableCell>
+                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Chi tiết</TableCell> */}
+                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Đã bán</TableCell>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Trạng thái</TableCell>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Giá</TableCell>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Phân loại</TableCell>
@@ -98,32 +172,32 @@ export default function ProductList() {
               </TableRow>
             </TableHead>
             <TableBody>
-              {productRows.map((product) => (
-                <TableRow key={product.id}>
-                  <TableCell className="tableCell">{product.id}</TableCell>
+              {cakes.map((product) => (
+                <TableRow key={product.idcake}>
+                  <TableCell className="tableCell">{product.idcake}</TableCell>
                   <TableCell className="tableCell">
                     <div className="cellWrapper">
-                      <img src={product.img} alt="" className="image" />
-                      {product.pdname}
+                      <img src={product.img1} alt="" className="image" />
+                      {product.name}
                     </div>
                   </TableCell>
-                  <TableCell className="tableCell">{product.describe}</TableCell>
-                  <TableCell className="tableCell">{product.detail}</TableCell>
-                  <TableCell className="tableCell">{product.stock}</TableCell>
+                  {/* <TableCell className="tableCell">{product.describe}</TableCell>
+                  <TableCell className="tableCell">{product.detail}</TableCell> */}
+                  <TableCell className="tableCell">{product.sole}</TableCell>
                   <TableCell className="tableCell">{product.status}</TableCell>
                   <TableCell className="tableCell">{product.price}</TableCell>
                   <TableCell className="tableCell">{product.category}</TableCell>
                   <TableCell className="tableCell">
-                  <Link
+                    <Link
                         to="#"
                         className="action-link"
                         onClick={() => handleEdit(product)}
                       >
                         <Edit className="action-icon" />
-                      </Link>
-                      <DeleteOutline
+                    </Link>
+                    <DeleteOutline
                         className="action-icon"
-                        onClick={() => handleDelete(product.id)}
+                        onClick={() => handleDelete(product.idcake)}
                       />
                   </TableCell>
                 </TableRow>
@@ -137,14 +211,14 @@ export default function ProductList() {
           <div className="modal-content">
             <h2>Chỉnh sửa sản phẩm</h2>
             <div className="btn-fix">
-              <label htmlFor="pdname">Tên sản phẩm:</label>
+              <label htmlFor="name">Tên sản phẩm:</label>
               <input
                 type="text"
-                id="pdname"
-                value={pdname}
+                id="name"
+                value={name}
                 onChange={(e) => setName(e.target.value)}
-              />
-            </div>
+            />
+          </div>
             <div className="btn-fix">
               <label htmlFor="describe">Mô tả:</label>
               <input
@@ -164,12 +238,12 @@ export default function ProductList() {
               />
             </div>
             <div className="btn-fix">
-              <label htmlFor="quantity">Số lượng:</label>
+              <label htmlFor="status">Trạng thái:</label>
               <input
                 type="text"
-                id="quantity"
-                value={quantity}
-                onChange={(e) => setQuantity(e.target.value)}
+                id="status"
+                value={status}
+                onChange={(e) => setStatus(e.target.value)}
               />
             </div>
             <div className="btn-fix">
@@ -204,6 +278,9 @@ export default function ProductList() {
           </div>
         </div>
       )}
+       {showNotiUpdate && <Noti_Success onClose={() => setShowNotiUpdate(false)}  status="Cập nhật sản phẩm thành công!"/>}
+       {showNotiDelete && <Noti_Success onClose={() => setShowNotiDelete(false)}  status="Xóa sản phẩm thành công!"/>}
     </>
   );
 }
+export default ProductList;
