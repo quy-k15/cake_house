@@ -20,14 +20,32 @@ import CardCake from "../components/CardCake";
 
 function Cake_category_slide({dataFromParent}) {
     // console.log("Category:", dataFromParent);
+    const [slidesToShow, setSlidesToShow] = useState(4);
+    useEffect(() => {
+      const handleResize = () => {
+        if (window.innerWidth < 610) {
+          setSlidesToShow(1);
+        } else if (window.innerWidth < 900) {
+          setSlidesToShow(2);
+        } else if (window.innerWidth < 1250) {
+          setSlidesToShow(3);
+        } else {
+          setSlidesToShow(4);
+        }
+      };
   
-    var img_Category_Slide ={
-        
-        dots:false,
-        infinite:true,
-        speed:500,
-        slidesToShow:4,
-        slidesToScroll:1
+      window.addEventListener("resize", handleResize);
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
+    }, []);
+  
+    var img_Category_Slide = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: slidesToShow,
+      slidesToScroll: 1
     };
 
     const [cakes, setCakes] = useState([]);

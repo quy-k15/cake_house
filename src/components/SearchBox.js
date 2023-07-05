@@ -106,7 +106,7 @@ function SearchBox({setResults}) {
                  <input
                     type="text"
                     className="Search-text"
-                    placeholder="Type to search..."
+                    placeholder="Nhập để tìm kiếm..."
                     value={input}
                     onChange={(e) => handleChange(e.target.value)}
                     />

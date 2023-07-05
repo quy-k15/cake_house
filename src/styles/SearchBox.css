@@ -15,8 +15,6 @@
     align-items: center;
     top: 80px;
     margin-left: 70%;
- 
-
 }
 .Search-text {
     background-color: transparent;
@@ -26,6 +24,7 @@
     width: 100%;
     margin-left: 5px;
     color: #4B1D1D;
+
 }
 .Search-text:focus {
     outline:none;
@@ -40,4 +39,15 @@ color: #4B1D1D;
 }
 .search_icon{
     width: 100%;
+}
+
+@media only screen and (max-width: 1160px) {
+    .input-wrapper {
+        margin-left: 60%;
+    }
+}
+@media only screen and (max-width: 860px) {
+    .input-wrapper {
+        margin-left: 50%;
+    }
 }
