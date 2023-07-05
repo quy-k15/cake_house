@@ -168,27 +168,27 @@ const uploadTasks = [];
                 return;
               }
 
-          const newCart = {
-            idcake: idcake,
-            idcart: "",
-            iduser: userinfo.idUser,
-            num: count,
-            size: selectedSize
-          };
-            const CartCol = collection(db, "carts");
-            const docRef = await addDoc( CartCol, newCart);
-            const generatedId = docRef.id;
-            await updateDoc(doc(db, "carts", generatedId), {  idcart: generatedId });
+            const newCart = {
+                idcake: idcake,
+                idcart: "",
+                iduser: userinfo.idUser,
+                num: count,
+                size: selectedSize
+            };
+                const CartCol = collection(db, "carts");
+                const docRef = await addDoc( CartCol, newCart);
+                const generatedId = docRef.id;
+                await updateDoc(doc(db, "carts", generatedId), {  idcart: generatedId });
 
-            console.log("cart created successfully!");
-            } catch (error) {
+                console.log("cart created successfully!");
+        } catch (error) {
             console.error("Error creating order:", error);
-            }
-            setShowNoti(true);
-            setTimeout(() => {
-                setShowNoti(false);
-            }, 3000);
-      };
+        }
+        setShowNoti(true);
+        setTimeout(() => {
+            setShowNoti(false);
+        }, 3000);
+    };
     const handleAddLoveCake = async () => {
     setIsClicked(!isClicked);
     try {
@@ -381,7 +381,7 @@ const uploadTasks = [];
                     })}
                 </div>
             </div>
-            {showNoti && <Noti_Success onClose={() => setShowNoti(false)} />}
+            {showNoti && <Noti_Success onClose={() => setShowNoti(false)}  status="Thêm vô giỏ hàng thành công!"/>}
             {showNotiLogin && <Error_Need_Login onClose={() => setShowNotiLogin(false)} />}
         </div>
     );

@@ -113,6 +113,9 @@ function ConfirmPurchase() {
       
         return totalPrice;
       };
+// Trước khi render component
+// const filteredCartIds = Array.from(new Set(cart.map(c => c.idcart))); // Lọc các idcart duy nhất
+// const filteredOrderCarts = cart.filter(c => filteredCartIds.includes(c.idcart)); // Lọc các cart dựa trên idcart duy nhất
 
     return (
         <div className="MyOrders">
@@ -153,17 +156,18 @@ function ConfirmPurchase() {
                                 </div>
                                 
                                 <div className="detail_purchase">
-                                {orderCarts.map((cart) => (
-                                <CardOrder
-                                  key={cart.idcart}
-                                  image={cart.image}
-                                  name={cart.name}
-                                  price={cart.price}
-                                  size={cart.size}
-                                  num={cart.num}
-                                  idcake={cart.idcake}
-                                />
-                              ))}
+                                  {orderCarts.map((cart) => (
+                                    <CardOrder
+                                      key={cart.idcart}
+                                      image={cart.image}
+                                      name={cart.name}
+                                      price={cart.price}
+                                      size={cart.size}
+                                      num={cart.num}
+                                      idcake={cart.idcake}
+                                    />
+                                  ))}
+                    
                                    
                                     <div className="col3">
                                       <div className="AllPrice"> Tổng giá đơn hàng: {order.allPrice} (VND)</div>

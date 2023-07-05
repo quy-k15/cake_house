@@ -105,51 +105,51 @@ function EditProfile() {
             const userRef = doc(db, "users", userinfo.idUser);
         
             try {
-            await updateDoc(userRef, {
-                nameUser: nameUser,
-                email: email,
-                phoneNum: phoneNum,
-                sex: sex
-            });
+                await updateDoc(userRef, {
+                    nameUser: nameUser,
+                    email: email,
+                    phoneNum: phoneNum,
+                    sex: sex
+                });
 
-            if (file) {
-                const storageRef = ref(storage, `/files/${file.name}`);
-                const uploadTask = uploadBytesResumable(storageRef, file);
+                if (file) {
+                    const storageRef = ref(storage, `/files/${file.name}`);
+                    const uploadTask = uploadBytesResumable(storageRef, file);
 
-                uploadTask.on(
-                "state_changed",
-                (snapshot) => {
-                    const percent = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
-                    setPercent(percent);
-                },
-                (error) => {
-                    console.error("Error uploading file:", error);
-                },
-                () => {
-                    getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-                    updateDoc(userRef, {
-                        avatarURL: downloadURL,
-                    })
-                        .then(() => {
-                        console.log("Avatar image uploaded successfully!");
+                    uploadTask.on(
+                    "state_changed",
+                    (snapshot) => {
+                        const percent = Math.round((snapshot.bytesTransferred / snapshot.totalBytes) * 100);
+                        setPercent(percent);
+                    },
+                    (error) => {
+                        console.error("Error uploading file:", error);
+                    },
+                    () => {
+                        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                        updateDoc(userRef, {
+                            avatarURL: downloadURL,
                         })
-                        .catch((error) => {
-                        console.error("Error updating avatar image URL:", error);
+                            .then(() => {
+                            console.log("Avatar image uploaded successfully!");
+                            })
+                            .catch((error) => {
+                            console.error("Error updating avatar image URL:", error);
+                            });
                         });
-                    });
+                    }
+                    );
+                } else {
+                    console.log("No avatar image selected");
                 }
-                );
-            } else {
-                console.log("No avatar image selected");
-            }
                     // Update email in Firebase Authentication
-            // const user = auth.currentUser;
-            // await user.updateEmail(email);
-            console.log("User information updated successfully!");
-            // Perform additional actions here, such as displaying a success message or redirecting the user
-            } catch (error) {
-            console.error("Error updating user information:", error);
-            // Handle the error, display an error message, or perform any necessary actions
+                // const user = auth.currentUser;
+                // await user.updateEmail(email);
+                console.log("User information updated successfully!");
+                // Perform additional actions here, such as displaying a success message or redirecting the user
+                } catch (error) {
+                console.error("Error updating user information:", error);
+                // Handle the error, display an error message, or perform any necessary actions
             }
         } else {
             console.log("User or user.idUser is undefined");
