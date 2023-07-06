@@ -25,6 +25,7 @@ function Detail_item(){
     const { idcake } = useParams();// Lấy id cake từ home page
     const [cake,setCake]=useState([]);
     const[category, setCategory]=useState('');// gửi category qua qua cake_category_slide
+    const[loves,setLoves]=useState([]);
 
     
   
@@ -85,20 +86,7 @@ function Detail_item(){
       const [style7, setStyle7] = useState(defaultStyle);
       const [style8, setStyle8] = useState(defaultStyle);
 
-    // Chuyển màu click Tim
-    const [isClicked, setIsClicked] = useState(false);
 
-  const handleClick = () => {
-    setIsClicked(!isClicked);
-  };
-
-  const getHeartColor = () => {
-    if (isClicked) {
-      return "var(--red)";
-    } else {
-      return "var(--star-color)";
-    }
-  };
 //    Lấy dữ liệu chọn size
     const [selectedSize, setSelectedSize] = useState('');
     const handleClickSize = (size) => {
@@ -137,7 +125,7 @@ const uploadTasks = [];
         if (!querySnapshot.empty) {
             const doc = querySnapshot.docs[0];
             setUser(doc.data());
-            console.log("user: ", userinfo);
+            console.log("userinfo: ", userinfo);
         }
     };
     useEffect(() => {
@@ -189,26 +177,98 @@ const uploadTasks = [];
             setShowNoti(false);
         }, 3000);
     };
-    const handleAddLoveCake = async () => {
-    setIsClicked(!isClicked);
-    try {
-        // UserQuery();
-        const newLove = {
-        idcake: idcake,
-        idlove: "",
-        iduser: userinfo.idUser,
+        // Chuyển màu click Tim
+        const [isClicked, setIsClicked] = useState(false);
+        const [inputKey, setInputKey] = useState(0);
 
-        };
-        const CartCol = collection(db, "loves");
-        const docRef = await addDoc( CartCol, newLove);
-        const generatedId = docRef.id;
-        await updateDoc(doc(db, "loves", generatedId), {  idlove: generatedId });
+        //   const handleClick = () => {
+        //     setIsClicked(!isClicked);
+        //   };
+        
+        //   const getHeartColor = () => {
+        //     if (isClicked) {
+        //       return "var(--red)";
+        //     } else {
+        //       return "var(--star-color)";
+        //     }
+        //   };
+            const getloves = async () => {
+                try {
+                const lovesSnapshot = await getDocs(collection(db, 'loves'));
+                const lovesArray = lovesSnapshot.docs.map((doc) => ({
+                    idlove: doc.id,
+                    ...doc.data()
+                }));
+                setLoves(lovesArray);
+                console.log("lovesArray",lovesArray);
+                } catch (error) {
+                console.error('Error fetching carts:', error);
+                }
+            };
+            useEffect(()=>{
+                getloves();
+            },[]);
+            useEffect(() => {
+                const checkLikedStatus = () => {
+                  const foundLike = loves.find(
+                    (like) => like.idcake === idcake && like.iduser === userinfo?.idUser
+                  );
+                  setIsClicked(foundLike !== undefined);
+                };
+            
+                checkLikedStatus();
+                console.log("isClicked", isClicked);
+              }, [loves, idcake, userinfo]);
+            
+              const handleAddLoveCake = async () => {
+                try {
+                  const newLove = {
+                    idcake: idcake,
+                    idlove: "",
+                    iduser: userinfo?.idUser,
+                  };
+                  const docRef = await addDoc(collection(db, "loves"), newLove);
+                  const generatedId = docRef.id;
+                  await updateDoc(doc(db, "loves", generatedId), { idlove: generatedId });
+                  setIsClicked(true);
+                  console.log("Love entry added successfully!");
+                  setInputKey((prevKey) => prevKey + 1);
+                } catch (error) {
+                  console.error("Error adding love entry:", error);
+                }
+              };
+            
+              const getHeartColor = () => {
+                return isClicked ? "var(--red)" : "var(--star-color)";
+              
+        
+              };
+            
+            //   useEffect(() => {
+            //     getHeartColor();
+            //     console.log("red");
+            //   }, []);
 
-        console.log("loves created successfully!");
-        } catch (error) {
-        console.error("Error loving:", error);
-        }
-    };
+    // const handleAddLoveCake = async () => {
+    // setIsClicked(!isClicked);
+    // try {
+    //     // UserQuery();
+    //     const newLove = {
+    //     idcake: idcake,
+    //     idlove: "",
+    //     iduser: userinfo.idUser,
+
+    //     };
+    //     const CartCol = collection(db, "loves");
+    //     const docRef = await addDoc( CartCol, newLove);
+    //     const generatedId = docRef.id;
+    //     await updateDoc(doc(db, "loves", generatedId), {  idlove: generatedId });
+
+    //     console.log("loves created successfully!");
+    //     } catch (error) {
+    //     console.error("Error loving:", error);
+    //     }
+    // };
 
     return(
         <div className="detail">
@@ -219,7 +279,13 @@ const uploadTasks = [];
                     
                     <div className="detail_love_div">
                         <div className="detail_love">
-                            <input type="radio" name="love" onClick={handleAddLoveCake} style={{ color: getHeartColor() }}></input>
+                            {/* <input type="radio" name="love" onClick={handleAddLoveCake} style={{ color: getHeartColor() }}key={inputKey}></input> */}
+                            <input
+                                type="radio"
+                                name="love"
+                                onClick={handleAddLoveCake}
+                                style={{ color: getHeartColor() }}
+                            />
                         </div>
                         <p>700 lượt thích</p>
                     </div>
@@ -282,12 +348,12 @@ const uploadTasks = [];
                     <div className="detail_buy">
                         <button className="btn_addCart" style={style8}
                             onMouseEnter={() => setStyle8(hoverStyle_White)}
-                            onMouseLeave={() => setStyle8(defaultStyle)}> 
+                            onMouseLeave={() => setStyle8(defaultStyle)}  onClick={handleAddCart}> 
                             <div className="detail_addcart_button" 
                                 style={style8}
                                 onMouseEnter={() => setStyle8(hoverStyle_White)}
                                 onMouseLeave={() => setStyle8(defaultStyle)}
-                                onClick={handleAddCart}>Thêm vào giỏ hàng</div>
+                               >Thêm vào giỏ hàng</div>
                             <div className="btn_addCart_icon">
                                 <i class="fa-solid fa-cart-plus"></i>
                             </div>  

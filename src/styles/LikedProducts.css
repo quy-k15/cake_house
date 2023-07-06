@@ -78,6 +78,7 @@
   flex: 10%;
   display: grid;
   place-items: center;
+  margin-bottom: 10px;
 }
 
 .rightSide .row img {
