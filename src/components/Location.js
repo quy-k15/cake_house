@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Input } from '@material-ui/core';
+import { TextField, Field} from '@material-ui/core';
+import "../styles/AddressBook.css";
+
+
 
 const Location = ({ values, setFieldValue }) => {
   const [provinces, setProvinces] = useState([]);
   const [districts, setDistricts] = useState([]);
   const [wards, setWards] = useState([]);
+  
 
   useEffect(() => {
     fetchProvinces();
@@ -75,38 +81,51 @@ const Location = ({ values, setFieldValue }) => {
   };
 
   return (
-    <div>
-      <label htmlFor="province">Province:</label>
-      <select
-        id="province"
-        value={values.province}
-        onChange={handleProvinceChange}
-      >
-        <option value="">Select</option>
-        {provinces.map((province) => (
-          <option key={province.code} value={province.code}>
-            {province.name}
-          </option>
-        ))}
-      </select>
+    <div className='location_div'>
+      <div className='general_div'>
+        <label className='label_input' htmlFor="province">Tỉnh/Thành phố:</label>
+        <select
+          id="province"
+          value={values.province}
+          onChange={handleProvinceChange}
+        >
+          <option value="">Chọn</option>
+          {provinces.map((province) => (
+            <option key={province.code} value={province.code}>
+              {province.name}
+            </option>
+          ))}
+        </select>
+        <br></br>
+      </div>
+      
+      <div className='general_div'>
+        <label className='label_input' htmlFor="district">Quận/Huyện/Thị xã/Thành phố:</label>
+        <select
+          id="district"
+          value={values.district}
+          onChange={handleDistrictChange}
+          disabled={!values.province}
+        >
+          <option value="">Chọn</option>
+          {districts.map((district) => (
+            <option key={district.code} value={district.code}>
+              {district.name}
+            </option>
+          ))}
+        </select>
+        <br></br>
+      </div>
+      
+      <div>
+        <label htmlFor="ward">Địa chỉ cụ thể (Đường, số nhà, thôn, Xã/Phường/Thị trấn):</label>
+        <TextField className='TextFieldWard' variant='outlined' multiline rows={3}></TextField>
+      </div>
 
-      <label htmlFor="district">District:</label>
-      <select
-        id="district"
-        value={values.district}
-        onChange={handleDistrictChange}
-        disabled={!values.province}
-      >
-        <option value="">Select</option>
-        {districts.map((district) => (
-          <option key={district.code} value={district.code}>
-            {district.name}
-          </option>
-        ))}
-      </select>
-
-      <label htmlFor="ward">Ward:</label>
-      <select
+      {/* <Field as={TextField} name='ward' variant='outlined' /> */}
+                {/* // error={props.errors.name && props.touched.name}
+                // helperText={<ErrorMessage name='name' />} required /> */}
+      {/* <select
         id="ward"
         value={values.ward}
         onChange={handleWardChange}
@@ -118,14 +137,7 @@ const Location = ({ values, setFieldValue }) => {
             {ward.name}
           </option>
         ))}
-      </select>
-
-      <div>
-        <h3>Selected Location:</h3>
-        <p>Province: {values.province}</p>
-        <p>District: {values.district}</p>
-        <p>Ward: {values.ward}</p>
-      </div>
+      </select> */}
     </div>
   );
 };
