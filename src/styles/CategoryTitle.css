@@ -28,3 +28,33 @@
     margin-left: 5%;
     font-size: 120px;
 }
+
+@media only screen and (max-width: 1260px){
+    .CategoryTitle_info_cpn h2{
+        font-size: 100px;
+    }
+}
+
+@media only screen and (max-width: 1050px){
+    .CategoryTitle_info_cpn h2{
+        font-size: 80px;
+    }
+}
+
+@media only screen and (max-width: 850px){
+    .CategoryTitle_info_cpn h2{
+        font-size: 60px;
+    }
+    .CategoryTitle_img_cpn {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 650px){
+.CategoryTitle_img_cpn {
+    width: 80%;
+}
+.CategoryTitle_info_cpn h2{
+    font-size: 50px;
+}
+}

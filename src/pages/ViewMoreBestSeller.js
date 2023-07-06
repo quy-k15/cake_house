@@ -50,7 +50,7 @@ function ViewMoreBestSeller() {
       <div className="ViewMoreCategory" >
         <CategoryTitle
           image={Tiramisu_Category}
-          name="Bánh bán chạy nhất"
+          name="Bán chạy nhất"
         />
         <div className="ListCake">
 
