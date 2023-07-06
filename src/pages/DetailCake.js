@@ -53,11 +53,15 @@ function Detail_item(){
 
 
     // Tăng giảm số lượng
-    const [count,setCount]=React.useState(0)
+    const [count,setCount]=React.useState(1)
     function add(){
         setCount(prevCount => prevCount + 1)
     }
     function subtract(){
+        if (count === 1) {
+            // Prevent decrementing below 1
+            return;
+        }
         setCount(prevCount => prevCount - 1)
     }
     const defaultStyle = {
@@ -321,13 +325,13 @@ const uploadTasks = [];
                     <div className="detail_button_size">
                         <p>Kích thước:</p>
                         <div className="button_size">
-                            <button    style={selectedSize === "S" ? selectedStyle : defaultStyle}
+                            <button    style={selectedSize === "S" ? defaultStyle : selectedStyle}
                                 onClick={() => handleClickSize("S")}>S</button>
-                            <button style={selectedSize === "M" ? selectedStyle : defaultStyle}
+                            <button style={selectedSize === "M" ? defaultStyle : selectedStyle}
                                 onClick={() => handleClickSize("M")}>M</button>
-                            <button style={selectedSize === "L" ? selectedStyle : defaultStyle}
+                            <button style={selectedSize === "L" ? defaultStyle : selectedStyle}
                                 onClick={() => handleClickSize("L")}>L</button>
-                            <button style={selectedSize === "XL" ? selectedStyle : defaultStyle}
+                            <button style={selectedSize === "XL" ? defaultStyle : selectedStyle}
                                 onClick={() => handleClickSize("XL")}>XL</button>
                         </div>
                     </div>

@@ -145,7 +145,7 @@ function Home() {
 
 
         </div>
-        <ViewMore Links="/CategoryCake"/>
+        <ViewMore Links="/ViewMoreBestSeller"/>
 
       </div>
       <div className ="Home_Introduce">

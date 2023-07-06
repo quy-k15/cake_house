@@ -1,0 +1,16 @@
+.ViewMoreBestSeller .CategoryTitle_info_cpn h2 {
+    margin-left: 5%;
+    font-size: 80px;
+}
+
+.ViewMoreBestSeller .CategoryTitle_img_div_cpn {
+    flex: 30%;
+}
+
+.ViewMoreBestSeller .CategoryTitle_info_cpn {
+    flex: 70%;
+}
+
+.ViewMoreBestSeller .CategoryTitle_img_cpn {
+    width: 90%;
+}

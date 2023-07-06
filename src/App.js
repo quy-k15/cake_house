@@ -23,6 +23,7 @@ import UnreadNotifications from "./pages/UnreadNotifications";
 import ReadNotifications from "./pages/ReadNotifications";
 import Voucher from "./pages/Voucher";
 import ViewMoreCategory from "./pages/ViewMoreCategory";
+import ViewMoreBestSeller from "./pages/ViewMoreBestSeller";
 import AddCake from "./admin/AddCake";
 import SideMenuAdmin from "./admin/SideMenuAdmin";
 import Order from "./admin/Order";
@@ -71,6 +72,7 @@ function App() {
               <Route path="/ReadNotifications" exact component={ReadNotifications} />
               <Route path="/Voucher" exact component={Voucher} />
               <Route path="/ViewMoreCategory" exact component={ViewMoreCategory} />
+              <Route path="/ViewMoreBestSeller" exact component={ViewMoreBestSeller} />
               <Route path="/EditProfile" exact component={EditProfile} />
               <Route path="/profile" exact>
                 <ProtectedRoute>
