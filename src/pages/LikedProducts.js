@@ -7,6 +7,9 @@ import { collection, getDocs,doc,docs ,query, where,updateDoc} from 'firebase/fi
 import { db } from "../firebase";
 import { UserAuth } from "../context/AuthContext";
 import { useState, useEffect } from "react";
+import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
+import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
+import { Link } from "react-router-dom";
 function LikedProducts() {
     const [loves,setloves]=useState([]);
     const [cake,setcake]=useState();
@@ -19,6 +22,7 @@ function LikedProducts() {
             ...doc.data()
           }));
           setloves(lovesArray);
+          console.log("lovesArray",lovesArray);
         } catch (error) {
           console.error('Error fetching carts:', error);
         }
@@ -96,52 +100,44 @@ function LikedProducts() {
                     <ul className="ProductList">
                     <div className="categories">
                         <p className="spyt">Sản phẩm yêu thích</p>
-                        <p className="sl">Số lượng còn lại </p>
+                        <p className="sl">Trạng thái</p>
                         <p className="dg">Đơn giá</p>
                         <p className="tt">Thao tác</p>
                     </div>
-                        {LikedProductData.map((val, key) => {
-                            return (
-                               
-                                <li
-                                    className="row"
-                                    key={key}
-                                    id={window.location.pathname == val.link ? "active" : ""}
-                                    onClick={() => {
-                                        window.location.pathname = val.link;
-                                    }}
-                                >
-                                    {""}
-
-                                    <div id="image">{val.image}</div>
-                                    <div id="name">{val.name}</div>
-                                    <div id="count">{val.count}</div>
-                                    <div id="price">{val.price}</div>
-                                    <div id="icon">{val.icon}</div>
-                                    <div id="icon1">{val.icon1}</div>
-                                </li>
-                            );
-                        })}
-                         {/* {filteredCarts.map((LikedProductData, key) => {
-                            const loveIndex = loves.findIndex((love) => love.idcart === LikedProductData.idlove);
+                      
+                         {filteredCarts.map((LikedProduct, key) => {
+                            const loveIndex = loves.findIndex((love) => love.idlove === LikedProduct.idlove);
                             const cakeData = cake[loveIndex];
-            
+
                             if (cakeData) {
                                 return (
-                                <LikedProductData
-                                    key={key}
-                                    image={cakeData.img1}
-                                    name={cakeData.name}
-                                    price={cakeData.price}
-              
+                                  <Link to={`/detail/${cakeData.idcake}`} style={{ textDecoration: "none" }}>
 
-                                    
-                                />
+                                  <li
+                                      className="row"
+                                      key={key}
+                                      // id={window.location.pathname == cakeData.link ? "active" : ""}
+                                      // onClick={() => {
+                                      //     window.location.pathname = cakeData.link;
+                                      // }}
+                                  >
+                                      {""}
+
+                                      <div id="image"><img className ="CardCart_img" src={cakeData.img1}></img></div>
+                                      <div id="name">{cakeData.name}</div>
+                                      <div id="count">{cakeData.status}</div>
+                                      <div id="price">{cakeData.price}</div>
+                                      <div id="icon"><DeleteOutlineIcon/></div>
+                                      <div id="icon1"><AddShoppingCartIcon /></div>
+                                  </li>
+
+                                  </Link>
+                               
                                 );
                             } else {
                                 return null;
                             }
-                        })} */}
+                        })}
                     </ul>
                 </div>
             </div >

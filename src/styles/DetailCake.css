@@ -356,7 +356,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: var(--star-color);
+    /* color: var(--star-color); */
     transition: all 0.3s;
 }
 
