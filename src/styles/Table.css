@@ -26,4 +26,19 @@
     color: goldenrod;
     background-color: rgba(189, 189, 3, 0.103);
   }
-  
+.tableCell-id{
+  cursor: pointer;
+}
+.tableCell-id:hover{
+  color: #8F3C02;
+}
+.productImage{
+  width: 7%;
+  border-radius: 50%;
+}
+.productDetails{
+  padding-left: 14%;
+}
+.productInfo{
+  display: flex;
+}
