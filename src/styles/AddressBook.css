@@ -164,6 +164,7 @@
     border: none;
     font-family: Bellota ;
     font-weight: bold;
+    text-decoration: none;
 
   }
 
@@ -253,4 +254,51 @@
     border-radius: 10px;
   }
 
+  .location_div{
+    justify-content: center;
+  }
+
+  .EditAddress .field{
+    display: inline;
+    padding-top: 3%;
+    flex: 60%;
+  }
   
+
+  .EditAddress .general_div{
+    display: flex;
+    padding-bottom: 2%;
+  }
+
+  .EditAddress form{
+    align-items:flex-start;
+    padding: 0;
+  }
+
+  .EditAddress .general_div .MuiOutlinedInput-input {
+    padding: 5px 5px;
+}
+.location_div .TextFieldWard .MuiOutlinedInput-input {
+  padding: 5px 5px;
+  height: 50px;
+}
+
+.location_div .TextFieldWard .MuiInputBase-input {
+  width: 200%;
+}
+.location_div .general_div{
+  display: flex;
+  padding-bottom: 2%;
+}
+
+.location_div .TextFieldWard{
+  margin-top: 2%;
+}
+
+.EditAddress {
+  width: 400px;
+}
+
+.location_div .MuiOutlinedInput-multiline {
+  padding: 0;
+}

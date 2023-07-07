@@ -1,0 +1,45 @@
+.ViewMoreBestSeller .CategoryTitle_info_cpn h2 {
+    margin-left: 5%;
+    font-size: 80px;
+}
+
+.ViewMoreBestSeller .CategoryTitle_img_div_cpn {
+    flex: 30%;
+}
+
+.ViewMoreBestSeller .CategoryTitle_info_cpn {
+    flex: 70%;
+}
+
+.ViewMoreBestSeller .CategoryTitle_img_cpn {
+    width: 90%;
+}
+@media only screen and (max-width: 1260px){
+    .ViewMoreBestSeller .CategoryTitle_info_cpn h2{
+        font-size: 80px;
+    }
+}
+
+@media only screen and (max-width: 1050px){
+    .ViewMoreBestSeller .CategoryTitle_info_cpn h2{
+        font-size: 70px;
+    }
+}
+
+@media only screen and (max-width: 850px){
+    .ViewMoreBestSeller .CategoryTitle_info_cpn h2{
+        font-size: 60px;
+    }
+    .ViewMoreBestSeller .CategoryTitle_img_cpn {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 650px){
+    .ViewMoreBestSeller .CategoryTitle_img_cpn {
+    width: 80%;
+}
+.ViewMoreBestSeller .CategoryTitle_info_cpn h2{
+    font-size: 50px;
+}
+}

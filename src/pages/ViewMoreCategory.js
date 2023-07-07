@@ -9,14 +9,13 @@ import Slider from "react-slick";
 import "../styles/CardCake.css";
 import "../styles/Cake_Category_Slide.css";
 import "../styles/ViewMoreCategory.css";
+import CategoryTitle from "../components/CategoryTitle";
+import Tiramisu_Category from "../assets/image1.svg";
 
 function ViewMoreCategory({dataFromParent}) {
   const location = useLocation();
   const params = new URLSearchParams(location.search);
   const category = params.get("Category");
-//   console.log(dataFromParent);
-  
-
 
   var img_Category_Slide = {
     dots: false,
@@ -45,6 +44,10 @@ function ViewMoreCategory({dataFromParent}) {
 
   return (
     <div className="ViewMoreCategory" >
+      <CategoryTitle
+            image={Tiramisu_Category}
+            name={category}
+        />
       <div className="ListCake">
         
           {cakes.map((u) => (

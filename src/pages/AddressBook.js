@@ -40,7 +40,6 @@ function AddressBook() {
                 </div>
 
                 <div className="btn_add_address">
-                    {/* <button >Thêm địa chỉ mới</button> */}
                     <CustomizedDialogs title="Thêm địa chỉ mới">
                         <EditAddressForm />
                     </CustomizedDialogs>

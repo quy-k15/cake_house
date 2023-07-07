@@ -12,6 +12,10 @@ function CardCart({ image, name, price, size,num,isChecked, onCheckboxChange,onN
         setCount(prevCount => prevCount + 1)
     }
     function subtract(){
+        if (count === 1) {
+            // Prevent decrementing below 1
+            return;
+          }
         setCount(prevCount => prevCount - 1)
     }
     const handleIncrement = () => {
