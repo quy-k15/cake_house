@@ -71,7 +71,7 @@
 
 .LikeProduct .categories .tt {
   flex: 3%;
-  place-items: center;
+  place-items: left;
 }
 
 .rightSide .LikeProduct .row #image {
@@ -137,13 +137,16 @@
 
 .rightSide .LikeProduct .row #name {
   flex: 15%;
+  padding: 20px;
   display: grid;
   font-weight: bold;
-  place-items: left;
+  place-items: left ;
   -webkit-transform: scale(1);
   transform: scale(1);
   -webkit-transition: .5s ease-in-out;
   transition: .3s ease-in-out;
+  color: #8F3C02;
+
 }
 
 .rightSide .LikeProduct .row #name:hover {

@@ -111,7 +111,7 @@ function LikedProducts() {
 
                             if (cakeData) {
                                 return (
-                                  <Link to={`/detail/${cakeData.idcake}`} style={{ textDecoration: "none" }}>
+                                  
 
                                   <li
                                       className="row"
@@ -122,16 +122,20 @@ function LikedProducts() {
                                       // }}
                                   >
                                       {""}
-
+                                      
+                                      <Link to={`/detail/${cakeData.idcake}`} style={{ textDecoration: "none" }}>
                                       <div id="image"><img className ="CardCart_img" src={cakeData.img1}></img></div>
+                                      </Link>
+                                      <Link to={`/detail/${cakeData.idcake}`} style={{ textDecoration: "none" }}>
                                       <div id="name">{cakeData.name}</div>
+                                      </Link>
                                       <div id="count">{cakeData.status}</div>
                                       <div id="price">{cakeData.price}</div>
                                       <div id="icon"><DeleteOutlineIcon/></div>
                                       <div id="icon1"><AddShoppingCartIcon /></div>
                                   </li>
 
-                                  </Link>
+                                  
                                
                                 );
                             } else {
