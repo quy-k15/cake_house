@@ -80,6 +80,9 @@ const Location = ({ values, setFieldValue }) => {
     setFieldValue('ward', selectedWardId);
   };
 
+  // Gửa địa chia qua conponent  EditAddressForm:
+  
+
   return (
     <div className='location_div'>
       <div className='general_div'>
@@ -138,6 +141,7 @@ const Location = ({ values, setFieldValue }) => {
           </option>
         ))}
       </select> */}
+
     </div>
   );
 };

@@ -28,6 +28,7 @@ const Payment = () => {
     const [userinfo,setUser]  = useState();
     const [email,setEmail]  = useState('');
     const[allPrice,setAllPrice]=useState('');
+  
     useEffect(() => {
         if (user) {
           setEmail(user.email);
@@ -98,6 +99,7 @@ const handleAddOrder = async () => {
       idcart: selectedCarts.map((cart) => cart.idcart),
       date:{formattedDate},
       allPrice: totalPrice,
+      status:"Chờ xác nhận",
  
     };
       const CartCol = collection(db, "orders");

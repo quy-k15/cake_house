@@ -52,7 +52,7 @@ function ConfirmPurchase() {
         const getOrders = async () => {
           try {
             if (userinfo) {
-              const q = query(collection(db, "orders"), where("iduser", "==", userinfo.idUser));
+              const q = query(collection(db, "orders"), where("iduser", "==", userinfo.idUser),where("status","==","Chờ xác nhận"));
               const querySnapshot = await getDocs(q);
               const ordersArray = querySnapshot.docs.map((doc) => ({
                 idorder: doc.id,

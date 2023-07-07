@@ -15,8 +15,6 @@ const EditAddressForm = () => {
   const initialValues = {
     name: '',
     phoneNumber: '',
-    password: '',
-    confirmPassword: ''
   };
   const validationSchema = Yup.object().shape({
     name: Yup.string().min(3, "It's too short").required("Required"),
