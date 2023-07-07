@@ -3,8 +3,6 @@ import "../styles/AddressBook.css";
 import SideMenu from "../components/SideMenu";
 import EditAddressForm from '../components/EditAddressForm';
 import CustomizedDialogs from '../components/dialog';
-
-
 function AddressBook() {
     return (
         <div className="contact">

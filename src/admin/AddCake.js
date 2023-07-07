@@ -310,7 +310,7 @@ function UploadImg() {
 
             </div>
             <div className="input_Name_div">
-              <p>Thể loại: </p>
+              <p>Phân loại: </p>
               <input className="input_Category" value={category}
                 onChange={(e) => ChangeCategory(e.target.value)}></input>
 

@@ -33,12 +33,52 @@
   color: #8F3C02;
 }
 .productImage{
-  width: 7%;
+  width: 80%;
   border-radius: 50%;
 }
 .productDetails{
-  padding-left: 14%;
+  /* padding-left: 7%; */
+  flex: 55%;
 }
 .productInfo{
   display: flex;
+}
+.productInfo_div {
+  flex: 25%;
+  margin-left: 10%;
+ 
+  justify-content: center;
+}
+productInfo_btn{
+  display: flex; 
+}
+
+.productInfo_btn .btn_XacNhan{
+  background-color: #CD8042;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-family: Bellota;
+  font-weight: bold;
+  font-size: 1.2rem;
+  height: 37px;
+  margin-top: 2%;
+}
+.productInfo_btn .btn_Huy{
+  background-color: #CD8042;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-family: Bellota;
+  font-weight: bold;
+  font-size: 1.2rem;
+  height: 37px;
+  margin-left: 10%;
+  margin-top: 2%;
+}
+.productInfo_img{
+  flex: 10%;
+  margin-left: 5%;
 }

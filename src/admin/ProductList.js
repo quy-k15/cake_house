@@ -30,21 +30,12 @@ function ProductList() {
 
  
   const handleDelete = async (id) => {
-    // const updatedRows = productRows.filter((product) => product.id !== id);
-    // Cập nhật danh sách sản phẩm sau khi xóa
-    // ...
-    // Cập nhật danh sách sản phẩm sau khi cập nhật
     try {
       // Delete the order from Firestore
       await deleteDoc(doc(db, 'cakes', id));
-
-
        // Update the product list after deleting the product
       const updatedCakes = cakes.filter((cake) => cake.idcake !== id);
       setcakes(updatedCakes);
-
-      
-  
       // Update the state or perform any additional actions as needed
       setShowNotiDelete(true);
       setTimeout(() => {
@@ -142,6 +133,7 @@ function ProductList() {
   // Hiển thị thông báo 
 const [showNotiUpdate, setShowNotiUpdate] = useState(false);
 const [showNotiDelete, setShowNotiDelete] = useState(false);
+
 
 
   return (

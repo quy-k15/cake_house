@@ -1,9 +1,8 @@
-.Add_Cake{
+.Add_Cake {
     width: 100%;
-    /* height: 500px; */
     display: flex;
-    justify-content: center;
-    align-items: left;
+    justify-content: flex-start;
+    align-items: flex-start;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -11,43 +10,49 @@
     background-color: #FDF6F0;
     color: #4B1D1D;
 }
-.SideMenu_Admin{
+
+.SideMenu_Admin {
     flex: 20%;
     width: 30%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     padding-top: 2%;
 }
-.Add_Cake_div{
-    flex: 80%;
-    /* width: 70%; */
-}
-.UploadImg_header{
+
+.Add_Cake_div {
     width: 80%;
-    margin-left: 70px;
+    padding-left: 5%;
 }
-.UploadImg_header h1{
+
+.UploadImg_header {
+    width: 70%;
+    margin-left: 30px;
+}
+
+.UploadImg_header h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 40px;
+    font-size: 30px;
+    padding-left: 3%;
 }
-.input_info{
+
+.input_info {
     width: 80%;
     margin-left: 130px;
     margin-bottom: 5%;
 }
-.input_Name_div{
+
+.input_Name_div {
     display: flex;
-    width: 100%;
-    height: 50px;
+    width: 80%;
+    height: 45px;
     margin-top: 20px;
 }
-.input_Name_div p{
-    flex:30%;
+
+.input_Name_div p {
+    flex: 20%;
 }
-.input_Name_div input{
+
+.input_Name_div input {
     flex: 70%;
 }
 
@@ -74,52 +79,40 @@
     font-weight: bold;
     cursor: pointer;
 }
-.upload_imgs_div{
-    /* display: grid; */
-    width: 90%;
-   
-    margin-left: 50px;
-    /* grid-template-columns: repeat(2,1fr); */
-}
-.upload_imgs_Top{
-    margin-left: 50px;
-    display: flex;
-    width: 90%;
-    height: 450px;
- 
-}
-.upload_imgs_Bot{
-    margin-left: 50px;
-    display: flex;
-    width: 90%;
-    height: 450px;
 
+.upload_imgs_div {
+    width: 90%;
+    margin-left: 50px;
 }
-.upload_imgs{
-    flex: 40% !important;
- 
+
+.upload_imgs_Top {
+    margin-left: 10%;
+    display: flex;
+    width: 70%;
+    height: 400px;
+}
+
+.upload_imgs_Bot {
+    margin-left: 10%;
+    display: flex;
+    width: 70%;
+    height: 400px;
+}
+
+.upload_imgs {
+    flex: 40%;
     margin: 20px;
-    border-color: #721c24!important;
-    border-width: 2px!important;
+    border-color: #721c24;
+    border-width: 2px;
     border-style: solid;
     background-color: white;
     border-radius: 10px;
 }
 
-.upload_img{
-    width: 100%;
-    height: 87%;
-    margin-top: 10px;
-}
-
-.SideMenuAdmin .SideMenuList .title{
-    display: flex;
-}
 .upload_imgs_btn {
     width: 100%;
     margin-top: 10px;
-    
     display: flex;
     align-items: center;
-	justify-content: center;
+    justify-content: center;
 }

@@ -6,10 +6,11 @@ import "../styles/MyCart.css"
 
 import {ListBestSeller} from "../helpers/ListBestSeller"
 import {ListFeedBack} from "../helpers/ListFeedBack"
-import { collection, getDocs,doc,docs ,query, where,updateDoc} from 'firebase/firestore/lite';
+import { collection, getDocs,doc,docs ,query, where,updateDoc,deleteDoc} from 'firebase/firestore/lite';
 import { db } from "../firebase";
 import { UserAuth } from "../context/AuthContext";
 import { useState, useEffect } from "react";
+import Noti_Success from "../components/Noti_Success";
 
 function MyCart(){
     const [isAllChecked, setIsAllChecked] = useState(false);
@@ -99,15 +100,15 @@ const handleAllCheckedChange = () => {
     setIsAllChecked(!isAllChecked);
   };
     
-      const handleCheckboxChange = (idcart, isChecked) => {
-        const updatedCarts = carts.map((cart) => {
-          if (cart.idcart === idcart) {
-            return { ...cart, isChecked };
-          }
-          return cart;
-        });
-        setcarts(updatedCarts);
-      };
+  const handleCheckboxChange = (idcart, isChecked) => {
+    const updatedCarts = carts.map((cart) => {
+      if (cart.idcart === idcart) {
+        return { ...cart, isChecked };
+      }
+      return cart;
+    });
+    setcarts(updatedCarts);
+  };
 // Thay đổi số lượng cập nhật lên firebase
   const handleNumChange = (cartId, newNum) => {
     const updatedCarts = carts.map((cart) => {
@@ -123,6 +124,58 @@ const handleAllCheckedChange = () => {
     const cartRef = doc(db, 'carts', cartId);
     updateDoc(cartRef, { num: newNum });
   };
+  // Xóa sản phẩm khỏi giỏ hàng
+  const [showNotiDelete, setShowNotiDelete] = useState(false);
+  const handleDelete = async (id) => {
+    try {
+      // Delete the order from Firestore
+      await deleteDoc(doc(db, 'carts', id));
+      // Update the product list after deleting the product
+      const updatedCarts = carts.filter((cart) => cart.idcart !== id);
+      setcarts(updatedCarts);
+    } catch (error) {
+      console.error('Error deleting cart:', error);
+    }
+  };
+  
+  // ...
+  
+  const handleDeleteSelected = async () => {
+    const selectedCartIds = filteredCarts
+      .filter((cart) => cart.isChecked)
+      .map((cart) => cart.idcart);
+  
+    try {
+      // Delete selected carts from Firestore
+      const deletePromises = selectedCartIds.map((id) =>
+        deleteDoc(doc(db, 'carts', id))
+      );
+      await Promise.all(deletePromises);
+  
+      // Update the cart list after deleting the selected carts
+      const updatedCarts = carts.filter(
+        (cart) => !selectedCartIds.includes(cart.idcart)
+      );
+      setcarts(updatedCarts);
+      setShowNotiDelete(true);
+      setTimeout(() => {
+        setShowNotiDelete(false);
+      }, 3000);
+    } catch (error) {
+      console.error('Error deleting carts:', error);
+    }
+  };
+  //CSS cho button
+  const defaultStyle = {
+    backgroundColor: "",
+    color: ""
+  };
+  const hoverStyle = {
+    backgroundColor: "#8F3C02",
+    color: "white"
+  };
+  const [style1, setStyle1] = useState(defaultStyle);
+  const [style2, setStyle2] = useState(defaultStyle);
     
 // Gửi các cardcart đã tich sang trang payment
   const selectedCarts = filteredCarts.filter((cart) => cart.isChecked);
@@ -163,17 +216,6 @@ const handleAllCheckedChange = () => {
                 {filteredCarts.map((cardCart, key) => {
                     const cartIndex = carts.findIndex((cart) => cart.idcart === cardCart.idcart);
                     const cakeData = cake[cartIndex];
-                    // return (
-                    //     <CardCart
-                    //     key={key}
-                    //     image={cakeData?.img1}
-                    //     name={cakeData?.name}
-                    //     price={cakeData?.price}
-                    //     size={cardCart.size}
-                    //     isChecked={isChecked}
-                    //     setIsChecked={setIsChecked}
-                    //     />
-                    // );
                     if (cakeData) {
                         return (
                           <CardCart
@@ -214,7 +256,9 @@ const handleAllCheckedChange = () => {
                     }, 0)}
                     </div>
 
-                    <button id="btn_delete">Xóa</button>
+                    <button id="btn_delete" onClick={handleDeleteSelected} style={style1}
+                      onMouseEnter={() => setStyle1(hoverStyle)}
+                      onMouseLeave={() => setStyle1(defaultStyle)}>Xóa</button>
                 </div>
                 
                 <div className="div_total_price">
@@ -238,12 +282,15 @@ const handleAllCheckedChange = () => {
                       pathname: '/payment',
                       state: { selectedCarts }
                     }}>
-                      <button id="btn_buy">Mua hàng</button>
+                      <button id="btn_buy" style={style2}
+                      onMouseEnter={() => setStyle2(hoverStyle)}
+                      onMouseLeave={() => setStyle2(defaultStyle)}>Mua hàng</button>
                     </Link>
                     
                 </div>
                 
             </div>
+            {showNotiDelete && <Noti_Success onClose={() => setShowNotiDelete(false)}  status="Xóa giỏ hàng thành công!"/>}
 
         </div>
     );

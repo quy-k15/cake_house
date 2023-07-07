@@ -216,6 +216,10 @@
     font-family: Bellota ;
     font-weight: bold;
     font-size:1.2rem;
+
+  }
+  .MyCart #btn_delete:hover{
+    cursor: pointer;
   }
 
   .MyCart #btn_buy{
@@ -228,7 +232,9 @@
     font-weight: bold;
     font-size:1.2rem;
   }
-
+  .MyCart #btn_buy:hover{
+    cursor: pointer;
+  }
   
   .MyCart .summary .div_select{
     flex: 50%;
