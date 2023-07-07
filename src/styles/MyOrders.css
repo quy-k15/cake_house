@@ -68,6 +68,7 @@
     border-bottom: 2px solid #FDF6F0;
     display: flex;
     padding-bottom: 0.5%;
+    font-size: 15px;
   }
 
   .all_purchase .detail_purchase{
@@ -93,7 +94,8 @@
   }
   .AllPrice{
     margin-left: 2%;
-    font-size: 20px
+    font-size: 20px;
+    flex: 50%
   }
 
   .all_purchase .detail_purchase .buyagain{
@@ -105,9 +107,10 @@
     font-family: Bellota ;
     font-weight: bold;
     font-size:1rem;
-    margin-right: 5%;
+    /* margin-right: 30%; */
     margin-left: 16%;
-
+    width: 100%;
+    flex: 25%;
   }
 
   .all_purchase .detail_purchase .rate{
@@ -119,6 +122,9 @@
     font-family: Bellota ;
     font-weight: bold;
     font-size:1rem;
+    flex: 25%;
+    margin-left: 10%;
+    width: 50%;
   }
 
   .all_purchase .detail_purchase .btn_purchase{
@@ -131,10 +137,12 @@
     font-weight: bold;
     font-size:1rem;
     margin-left: 33%;
+    /* border: 1.5px solid #CD8042; */
+    
   }
 
   .all_purchase #id{
-    flex: 35%;
+    flex: 30%;
   }
 
   .all_purchase #id_inf{
@@ -150,11 +158,11 @@
   }
 
   .all_purchase #tradeDate{
-    flex: 10%;
+    flex: 15%;
   }
 
   .all_purchase #status{
-    flex: 25%;
+    flex: 15%;
   }
   .all_purchase #btn_detail{
     flex: 17%;
@@ -205,4 +213,9 @@
     flex: 10%;
   }
 
+}
+
+.all_purchase .detail_purchase .btn_purchase:hover{
+  color:#8F3C02;
+  background-color: white;
 }

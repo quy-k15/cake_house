@@ -213,13 +213,13 @@ const Listy = () => {
                               className="btn_XacNhan"
                               style={style1}
                               onMouseEnter={() => setStyle1(hoverStyle)}
-                              onMouseLeave={() => setStyle1(defaultStyle)} onClick={(event) => handleUpdatestatus(event, "Xác nhận")}>Xác nhận</button>
+                              onMouseLeave={() => setStyle1(defaultStyle)} onClick={(event) => handleUpdatestatus(event, "Đang giao")}>Xác nhận</button>
 
                             <button
                               className="btn_Huy"
                               style={style2}
                               onMouseEnter={() => setStyle2(hoverStyle)}
-                              onMouseLeave={() => setStyle2(defaultStyle)}  onClick={(event) => handleUpdatestatus(event, "Không xác nhận")}>Hủy</button>
+                              onMouseLeave={() => setStyle2(defaultStyle)}  onClick={(event) => handleUpdatestatus(event, "Đã hủy")}>Hủy</button>
                           </div>
                         </div>
                       </div>
