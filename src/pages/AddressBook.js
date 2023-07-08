@@ -73,9 +73,9 @@ function AddressBook() {
                 return (
                   <CardAddress
                     key={key}
-                    nameUser={cardAddress.name}
-                    phoneNumber={cardAddress.phoneNumber}
-                    address={cardAddress.province + cardAddress.district + cardAddress.ward}
+                    name={cardAddress.name}
+                    phonenum={cardAddress.phoneNumber}
+                    address={cardAddress.province +" , " + cardAddress.district+" , " + cardAddress.ward}
                   />
                 );
               })}
