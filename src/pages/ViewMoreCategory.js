@@ -57,7 +57,6 @@ function ViewMoreCategory({dataFromParent}) {
               </Link>
             </div>
           ))}
-        
       </div>
     </div>
   );

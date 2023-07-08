@@ -100,13 +100,13 @@ function CategoryCake() {
         <ViewMore Links="/ViewMoreCategory" dataFromParent={"Cake"}/>
         <CategoryLeft
             image={img_Cookies_Category}
-            name="Cookies"
+            name="Cookie"
             num={3}
         />
         <div className="Category_Cookies">
              <Cake_category_slide dataFromParent={"Cookie"} />
         </div>
-        <ViewMore Links="/ViewMoreCategory" dataFromParent={"Cookies"}/>
+        <ViewMore Links="/ViewMoreCategory" dataFromParent={"Cookie"}/>
 
         <CategoryRight
             image={img_Mochi_Category}
