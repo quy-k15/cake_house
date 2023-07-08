@@ -152,7 +152,7 @@ function LikedProducts() {
       {showConfirmDialog && (
         <div className="confirm_dialog">
           <div className="confirm_dialog-content">
-            <h3>Xác nhận</h3>
+            <h3>Xác nhận!</h3>
             <p>Bạn có chắc chắn muốn xóa sản phẩm này?</p>
             <div className="confirm_buttons">
               <button onClick={() => deleteProduct(productToDelete)}>Xóa</button>
