@@ -47,13 +47,13 @@
   }
   .cover-address .address-info{
     
-    flex: 85%;
+    flex: 70%;
     padding: 2px 7px;
   }
 
 
   .edit{
-    flex: 15%;
+    flex: 30%;
     justify-content: right;
     display: flex;
   }
@@ -64,6 +64,8 @@
   transform: scale(1);
   -webkit-transition: 1s ease-in-out;
   transition: .3s ease-in-out;
+  margin-top: 20px;
+  margin-left: 3px;
 
   }
 
@@ -301,4 +303,16 @@
 
 .location_div .MuiOutlinedInput-multiline {
   padding: 0;
+}
+.edit #btn_ApDung {
+  background-color: #CD8042;
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-family: Bellota;
+  font-weight: bold;
+  font-size: 1.2rem;
+  height: 40px;
+  margin-top: 27px;
 }

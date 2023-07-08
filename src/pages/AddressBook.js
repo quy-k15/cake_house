@@ -62,6 +62,7 @@ function AddressBook() {
     const currentUserid = userinfo?.idUser; 
     const filteredAddresses = Address.filter((address) => address.iduser === currentUserid);
     console.log('filteredAddresses:', filteredAddresses);
+  
     return (
         <div className="contact">
             <div className="leftSide">
@@ -76,6 +77,9 @@ function AddressBook() {
                     name={cardAddress.name}
                     phonenum={cardAddress.phoneNumber}
                     address={cardAddress.province +" , " + cardAddress.district+" , " + cardAddress.ward}
+                    id={cardAddress.idAddress}
+                    currentUserid={currentUserid}
+                    isused={cardAddress.used}
                   />
                 );
               })}
