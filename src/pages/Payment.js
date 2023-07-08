@@ -9,6 +9,7 @@ import { collection, addDoc, getDocs, getDoc, updateDoc, doc, query, where, } fr
 import { db } from "../firebase";
 import Noti_Order from "../components/Noti_Order";
 import { VoucherData } from "../components/VoucherData";
+import CardAddressUsed from "../components/CardAddressUsed";
 
 
 const Payment = () => {
@@ -34,6 +35,7 @@ const Payment = () => {
     const [email, setEmail] = useState('');
     const [allPrice, setAllPrice] = useState('');
     const [voucher,setvoucher]=useState([]);
+    const [usedAddresses, setUsedAddresses] = useState([]);
     useEffect(() => {
       if (user) {
         setEmail(user.email);
@@ -55,6 +57,24 @@ const Payment = () => {
         UserQuery();
       }
     }, [email]);
+    const getAddress = async () => {
+      try {
+        const addressSnapshot = await getDocs(collection(db, 'Address'));
+        const addressArray = addressSnapshot.docs.map((doc) => ({
+          idAddress: doc.id,
+          ...doc.data()
+        }));
+  
+        const currentUserid = userinfo?.idUser; 
+        const usedAddresses = addressArray.filter((address) => address.used === true&& address.iduser === currentUserid);
+        setUsedAddresses(usedAddresses);
+        console.log("currentUserid", currentUserid);
+  
+        console.log("usedAddresses", usedAddresses);
+      } catch (error) {
+        console.error('Error fetching addresses:', error);
+      }
+    };
     // Tính tổng tiền
     useEffect(() => {
       const fetchCakes = async () => {
@@ -105,6 +125,7 @@ const Payment = () => {
           date: { formattedDate },
           allPrice: totalPrice,
           status: "Chờ xác nhận",
+          address:usedAddresses
 
         };
         const CartCol = collection(db, "orders");
@@ -150,6 +171,11 @@ const Payment = () => {
     const handleCloseModal = async () => {
       setIsModalOpen(false);
     }
+    useEffect(() => {
+      if (userinfo) {
+        getAddress();
+      }
+    }, [userinfo]);
     return (
       <>
         <div className="payment_body">
@@ -160,6 +186,15 @@ const Payment = () => {
                 <p>Họ và tên:  {userinfo && userinfo.nameUser}</p>
                 <p>Số điện thoại: {userinfo && userinfo.phoneNum}</p>
                 <p>Địa chỉ nhận hàng:</p>
+                {usedAddresses.map((address) => (
+                        <CardAddressUsed
+                        key={address.idAddress}
+                        name={address.name}
+                        phonenum={address.phoneNumber}
+                        address={`${address.province}, ${address.district}, ${address.ward}`}
+                        isused={address.used}
+                        />
+                    ))}
               </div>
             </div>
             <div className="shipping_method">
