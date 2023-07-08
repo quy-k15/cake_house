@@ -26,13 +26,14 @@ import "firebase/auth"
 // };
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCIVLZPDTsZzn3XOXYqlil4X0gTiTj_f_c",
-  authDomain: "cake-house-ad4d6.firebaseapp.com",
-  projectId: "cake-house-ad4d6",
-  storageBucket: "cake-house-ad4d6.appspot.com",
-  messagingSenderId: "468563004121",
-  appId: "1:468563004121:web:474f621de71bb0488c0cc8",
-  measurementId: "G-N4HHTNHFPX"
+  apiKey: "AIzaSyBDzzKQhvy0LuNB3rBTxdvSs70IdZp_jew",
+  authDomain: "cakehouse-18ae5.firebaseapp.com",
+  databaseURL: "https://cakehouse-18ae5-default-rtdb.firebaseio.com",
+  projectId: "cakehouse-18ae5",
+  storageBucket: "cakehouse-18ae5.appspot.com",
+  messagingSenderId: "439841265200",
+  appId: "1:439841265200:web:8905ac5945e5957a95fff5",
+  measurementId: "G-FD7Z90K6Y8"
 };
 
 // Initialize Firebase

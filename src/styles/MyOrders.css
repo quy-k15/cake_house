@@ -112,6 +112,10 @@
     width: 70%;
     flex: 25%;
   }
+  .all_purchase .detail_purchase a{
+    flex: 5%;
+    width: 50%;
+  }
 
   .all_purchase .detail_purchase .rate{
     background-color: white;
