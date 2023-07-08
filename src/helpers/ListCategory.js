@@ -9,21 +9,25 @@ export const ListCategory = [
     name: "Tiramisu",
     image: Tiramisu,
     coler:"FCD8D4",
+    category: "Tiramisu",
   
   },
   {
     name: "Bánh kem",
     image: BanhKem,
     coler:"FEDCAC",
+    category: "Cake",
   },
   {
     name: "Cookie",
     image: Cookies,
     coler:"DDEBC7",
+    category: "Cookie",
   },
   {
     name: "Mochi",
     image: BanhMi,
     coler:"C6DEE8",
+    category: "Mochi",
   },
 ];

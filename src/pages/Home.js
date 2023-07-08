@@ -98,12 +98,14 @@ function Home() {
           <div className="HomeCategory">
             {ListCategory.map((cardCategory, key) => {
               return (
+                <Link to={`${"/ViewMoreCategory"}?Category=${cardCategory.category}`} style={{ textDecoration: 'none' }}>
                 <CardCategory
                   key={key}
                   image={cardCategory.image}
                   name={cardCategory.name}
                   coler={cardCategory.coler}
                 />
+                </Link>
               );
             })}
       
