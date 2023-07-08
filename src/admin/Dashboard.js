@@ -10,7 +10,7 @@ const Dashboard = () => {
       <div className="homeContainer">
         <div className="widgets">
           <Widget type="order" />
-          <Widget type="earning" />
+          <Widget type="productlist" />
         </div>
         <div className="charts">
           <Featured />
