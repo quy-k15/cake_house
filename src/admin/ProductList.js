@@ -11,12 +11,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { collection, getDocs,doc,docs,updateDoc,deleteDoc } from 'firebase/firestore/lite';
+import { collection, getDocs, doc, docs, updateDoc, deleteDoc } from 'firebase/firestore/lite';
 import { db } from "../firebase";
 import Noti_Success from "../components/Noti_Success";
 
 function ProductList() {
-  const [cakes,setcakes]=useState([]);
+  const [cakes, setcakes] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [quantity, setQuantity] = useState("");
   const [status, setStatus] = useState("");
@@ -134,8 +134,6 @@ function ProductList() {
 const [showNotiUpdate, setShowNotiUpdate] = useState(false);
 const [showNotiDelete, setShowNotiDelete] = useState(false);
 
-
-
   return (
     <>
       <div className="add-product-container">
@@ -154,8 +152,6 @@ const [showNotiDelete, setShowNotiDelete] = useState(false);
               <TableRow>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>ID</TableCell>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Sản phẩm</TableCell>
-                {/* <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Mô tả</TableCell>
-                <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Chi tiết</TableCell> */}
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Đã bán</TableCell>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Trạng thái</TableCell>
                 <TableCell className="tableCell" style={{ fontWeight: 'bold' }}>Giá</TableCell>
@@ -173,8 +169,6 @@ const [showNotiDelete, setShowNotiDelete] = useState(false);
                       {product.name}
                     </div>
                   </TableCell>
-                  {/* <TableCell className="tableCell">{product.describe}</TableCell>
-                  <TableCell className="tableCell">{product.detail}</TableCell> */}
                   <TableCell className="tableCell">{product.sole}</TableCell>
                   <TableCell className="tableCell">{product.status}</TableCell>
                   <TableCell className="tableCell">{product.price}</TableCell>

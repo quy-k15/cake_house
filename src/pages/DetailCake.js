@@ -451,7 +451,7 @@ const uploadTasks = [];
                     })}
                 </div>
             </div>
-            {showNoti && <Noti_Success onClose={() => setShowNoti(false)}  status="Thêm vô giỏ hàng thành công!"/>}
+            {showNoti && <Noti_Success onClose={() => setShowNoti(false)}  status="Thêm vào giỏ hàng thành công!"/>}
             {showNotiLogin && <Error_Need_Login onClose={() => setShowNotiLogin(false)} />}
         </div>
     );
