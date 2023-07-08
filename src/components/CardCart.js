@@ -91,7 +91,7 @@ function CardCart({ image, name, price, size,num,isChecked, onCheckboxChange,onN
             <h3> size: {size} </h3>
         </div>
         <div className="CartPrice">
-            <h2>{price} (VND) </h2>
+            <h2>{price/1000}.000 (VND) </h2>
         </div>
        
         <div className="CartNum">
@@ -107,7 +107,7 @@ function CardCart({ image, name, price, size,num,isChecked, onCheckboxChange,onN
             onMouseLeave={() => setStyle2(defaultStyle)}> + </button>
         </div>
         <div className="CartAllPrice">
-            <h2>{AllpriceNum()}(VND)</h2>
+            <h2>{AllpriceNum()/1000}.000(VND)</h2>
         </div>
       
     </div>

@@ -367,7 +367,7 @@ function UploadImg() {
 
           </div>
 
-          <button onClick={handleUpload}>Lưu</button>
+          <button className="save_btn" onClick={handleUpload}>Lưu</button>
           {/* {!isFormValid && (
               <div className="message error">
                 <span className="message-text">Please fill in all fields.</span>
@@ -376,7 +376,7 @@ function UploadImg() {
 
           {/* <input type="file" onChange={handleChange} value={img} accept="/image/*" />
             <button onClick={handleUpload}>Upload to Firebase</button> */}
-          <p>{percent} "% done"</p>
+          <p>{percent} "% hoàn thành"</p>
         </div>
 
       </div>
