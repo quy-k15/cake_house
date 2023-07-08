@@ -115,60 +115,12 @@
     width: 90%;
     margin-left: 5%;
     height: auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr; */
     place-items: center;
     text-decoration: none;
 
 }
-/* ================Search===================== */
-/* .Search-box{
-    margin-top: 10%;
-  display: flex;
-  background-color: #F2A06F;
-  border-radius: 30px;
-} */
-/* .Search-box .Search-text{
-  border: none;
-  outline: none;
-  background: none;
-  width: 0;
-  font-size: 18px;
-}
-.Search-box .Search-btn{
-  background-color: #FDF6F0;
-  border: none;
-  outline: none;
-  background: none;
-  padding: 15px;
-  font-size: 18px;
-  border-radius: 50%;
-} */
-
-
-/* =======================Responsive=============== */
-/* .icon{
-    flex: 30% 1;
-    display: flex;
-    width: 100%;
-    height: 100%;
-   
-} */
-/* .Search-box:hover .Search_btn{
-    background-color: #FFCEAE;
-    border-radius: 30px;
-    color: white;
-  
-  } */
-  /* .Search-box:hover .Search-text{
-    width: 300px;
-    padding: 5px 10px;
-    background-color: #FDF6F0;
-    border-radius: 30px;
-  } */
-  /* .Search-box:hover{
-     background-color: #FDF6F0;
-  } */
   
   @media only screen and (max-width: 1460px) {
     .background_category_info h1 {

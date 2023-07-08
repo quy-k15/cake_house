@@ -14,9 +14,13 @@ function ViewMore({ Links, dataFromParent }) {
     color: "white"
   };
   const [style1, setStyle1] = useState(defaultStyle);
+  const handleClick = () => {
+    window.scrollTo(0, 0); // Di chuyển đến đầu trang
+    // Tiếp tục chuyển hướng đến trang khác
+  };
   return (
     <div className="ViewMore_cpn">
-      <Link to={`${Links}?Category=${dataFromParent}`}>
+      <Link to={`${Links}?Category=${dataFromParent}`} onClick={handleClick}>
           <button className="btn_ViewMore_cpn"style={style1}
             onMouseEnter={() => setStyle1(hoverStyle)}
             onMouseLeave={() => setStyle1(defaultStyle)}> Xem thêm </button>
