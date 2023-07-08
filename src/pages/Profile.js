@@ -8,11 +8,13 @@ import { useState,useEffect } from "react";
 import Noti_LogOut from "../components/NoTi_LogOut";
 import { collection,addDoc , getDocs,getDoc,updateDoc, doc,query, where, } from 'firebase/firestore/lite'; 
 import { db } from "../firebase";
+import CardAddressUsed from "../components/CardAddressUsed";
 
 function Profile() {
     const {user,logout}=UserAuth();
     const [userinfo,setUser]  = useState();
     const [email,setEmail]  = useState('');
+    const [usedAddresses, setUsedAddresses] = useState([]);
 
     const history = useHistory();
     // Hiển thị thông báo khi add vô giỏ hàng thàng công
@@ -36,9 +38,25 @@ function Profile() {
     useEffect(() => {
         if (email) {
           UserQuery();
+          getAddress();
         }
       }, [email]);
-
+      const getAddress = async () => {
+        try {
+          const addressSnapshot = await getDocs(collection(db, 'Address'));
+          const addressArray = addressSnapshot.docs.map((doc) => ({
+            idAddress: doc.id,
+            ...doc.data()
+          }));
+    
+          const usedAddresses = addressArray.filter((address) => address.used === true);
+          setUsedAddresses(usedAddresses);
+    
+          console.log("usedAddresses", usedAddresses);
+        } catch (error) {
+          console.error('Error fetching addresses:', error);
+        }
+      };
 
     const handleLogout=async()=>{
         try{
@@ -97,18 +115,16 @@ function Profile() {
                 </div>
 
                 <div className="address">
-                    <h2>Sổ địa chỉ</h2>
-                    <div className="address-info">
-                    <p id="name">Trần Văn Quý - 0889201726</p>
-                    <p>Trường Đại học Công nghệ Thông tin - ĐHQG TP.HCM,
-                     Phường Linh Trung, Quận Thủ Đức, Hồ Chí Minh</p>
-                    </div>
-                    
-                    <div className="address-info">
-                    <p id="name">Trần Văn Quý - 0889201726</p>
-                    <p>Trường Đại học Công nghệ Thông tin - ĐHQG TP.HCM,
-                     Phường Linh Trung, Quận Thủ Đức, Hồ Chí Minh</p>
-                    </div>
+                    <h2>Địa chỉ đang sử dụng</h2>
+                    {usedAddresses.map((address) => (
+                        <CardAddressUsed
+                        key={address.idAddress}
+                        name={address.name}
+                        phonenum={address.phoneNumber}
+                        address={`${address.province}, ${address.district}, ${address.ward}`}
+                        isused={address.used}
+                        />
+                    ))}
 
                 </div>
 

@@ -36,6 +36,7 @@ const EditAddressForm = () => {
   const onSubmit = (values, props) => {
     alert(JSON.stringify(values, null, 2));
     props.resetForm();
+    
   };
   // const handleLocationChange = (values, setFieldValue) => {
   //   // Update the state with the selected location values
@@ -123,6 +124,8 @@ const { user } = UserAuth();
         //     setShowNoti(false);
         // }, 3000);
     };
+
+    
   
   return (
     <Grid className='EditAddress'>

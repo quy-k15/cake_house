@@ -328,8 +328,6 @@ function UploadImg() {
                 onChange={(e) => ChangeDetail(e.target.value)}></input>
 
             </div>
-
-
           </div>
 
           <div className="upload_imgs_div">
@@ -347,6 +345,7 @@ function UploadImg() {
                 {imgs[1] && <img className="upload_img" src={imgs[1]} alt="Uploaded Image" />}
               </div>
             </div>
+
             <div className="upload_imgs_Bot">
               <div className="upload_imgs">
                 <div className="upload_imgs_btn">
@@ -354,17 +353,14 @@ function UploadImg() {
                 </div>
                 {imgs[2] && <img className="upload_img" src={imgs[2]} alt="Uploaded Image" />}
               </div>
+              
               <div className="upload_imgs">
                 <div className="upload_imgs_btn">
                   <input type="file" onChange={handleChange3} accept="image/*" />
                 </div>
                 {imgs[3] && <img className="upload_img" src={imgs[3]} alt="Uploaded Image" />}
               </div>
-
             </div>
-        
-      
-
           </div>
 
           <button className="save_btn" onClick={handleUpload}>Lưu</button>
@@ -380,9 +376,6 @@ function UploadImg() {
         </div>
 
       </div>
-
-
-    
   );
 }
 export default UploadImg;
