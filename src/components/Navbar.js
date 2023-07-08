@@ -58,6 +58,10 @@ const hoverStyle = {
     setOpenLinks(!openLinks);
   };
  
+  const handleScrollToTop = () => {
+    window.scrollTo(0, 0); // Di chuyển đến đầu trang
+    // Tiếp tục chuyển hướng đến trang khác
+  };
   return (
     <div className="navbar">
       <div className="leftSide" id={openLinks ? "open" : "close"}>
@@ -84,7 +88,7 @@ const hoverStyle = {
         <div className="navbar_header" style={style1}
                             onMouseEnter={() => setStyle1(hoverStyle)}
                             onMouseLeave={() => setStyle1(defaultStyle)}>
-          <Link to="/" className="item_menu1"> 
+          <Link to="/" className="item_menu1" onClick={handleScrollToTop}> 
             <div className="icon"><i class="fa-solid fa-house"></i></div>
             <div className="navbar_title">Trang chủ</div>
           </Link>
@@ -92,7 +96,7 @@ const hoverStyle = {
         <div className="navbar_header" style={style2}
                             onMouseEnter={() => setStyle2(hoverStyle)}
                             onMouseLeave={() => setStyle2(defaultStyle)}>
-          <Link to="/CategoryCake" className="item_menu1">
+          <Link to="/CategoryCake" className="item_menu1" onClick={handleScrollToTop}>
             <div className="icon"><i class="fa-solid fa-cake-candles"></i></div>
             <div className="navbar_title">Loại bánh </div>
           </Link>
@@ -100,7 +104,7 @@ const hoverStyle = {
         <div className="navbar_header" style={style3}
                             onMouseEnter={() => setStyle3(hoverStyle)}
                             onMouseLeave={() => setStyle3(defaultStyle)}>
-          <Link to="/about"className="item_menu1">
+          <Link to="/about"className="item_menu1" onClick={handleScrollToTop}>
             <div className="icon"><i class="fa-solid fa-users"></i></div>
             <div className="navbar_title"> Về chúng tôi</div>
           </Link>
@@ -109,7 +113,7 @@ const hoverStyle = {
         <div className="navbar_header" style={style4}
                             onMouseEnter={() => setStyle4(hoverStyle)}
                             onMouseLeave={() => setStyle4(defaultStyle)}>
-          <Link to="/myCart"className="item_menu1"> 
+          <Link to="/myCart"className="item_menu1" onClick={handleScrollToTop}> 
             <div className="icon2"><i class="fa-solid fa-cart-shopping"></i></div>
             <div className="navbar_title2"> Giỏ hàng</div>
            </Link>
@@ -117,7 +121,7 @@ const hoverStyle = {
         <div className="navbar_header" style={style5}
                             onMouseEnter={() => setStyle5(hoverStyle)}
                             onMouseLeave={() => setStyle5(defaultStyle)}>
-          <Link to="/profile"className="item_menu2">
+          <Link to="/profile"className="item_menu2" onClick={handleScrollToTop}>
             <div className="icon2"><AccountCircleIcon /> </div> 
             <div className="navbar_title2"> Trang cá nhân</div>
           </Link>

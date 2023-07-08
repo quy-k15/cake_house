@@ -104,18 +104,7 @@ function CategoryCake() {
             num={3}
         />
         <div className="Category_Cookies">
-            {/* {ListBestSeller.slice(0, 4).map((cardCake, key) => {
-                return (
-                    <CardCake
-                    key={key}
-                    image={cardCake.image}
-                    name={cardCake.name}
-                    price = {cardCake.price}
-                    size = {cardCake.size}
-                    />
-                );
-            })} */}
-             <Cake_category_slide dataFromParent={"Cookies"} />
+             <Cake_category_slide dataFromParent={"Cookie"} />
         </div>
         <ViewMore Links="/ViewMoreCategory" dataFromParent={"Cookies"}/>
 
