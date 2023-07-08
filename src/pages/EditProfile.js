@@ -69,24 +69,49 @@ function EditProfile() {
 
             }));
         };
+        // const handleFileChange = (event) => {
+        //     const file = event.target.files[0];
+        //     setFile(file);
+        //      // Show the selected image immediately after choosing it
+        //     if (file) {
+        //         const reader = new FileReader();
+        //         reader.onloadend = () => {
+        //         setUserAvatarURL(reader.result);
+        //         };
+        //         reader.readAsDataURL(file);
+        //     } else {
+        //         setUserAvatarURL(null);
+        //     }
+        // };
+        // const handleAvatarButtonClick = () => {
+        // document.getElementById("avatar-input").click();
+        // };
+        const [userAvatarURL, setUserAvatarURL] = useState(userinfo?.avatarURL || null);
+
+        
         const handleFileChange = (event) => {
             const file = event.target.files[0];
             setFile(file);
-             // Show the selected image immediately after choosing it
+          
             if (file) {
-                const reader = new FileReader();
-                reader.onloadend = () => {
+              const reader = new FileReader();
+              reader.onloadend = () => {
+                setImgs([file]);
                 setUserAvatarURL(reader.result);
-                };
-                reader.readAsDataURL(file);
+              };
+              reader.readAsDataURL(file);
             } else {
-                setUserAvatarURL(null);
+              setImgs([]);
+              setUserAvatarURL(null);
             }
-        };
-        const handleAvatarButtonClick = () => {
-        document.getElementById("avatar-input").click();
-        };
-        const [userAvatarURL, setUserAvatarURL] = useState(userinfo?.avatarURL || null);
+          };
+          
+          const handleAvatarButtonClick = () => {
+            document.getElementById("avatar-input").click();
+          };
+          
+
+        
     const updateUser = async () => {
         console.log("updatedUser", updatedUser);
         console.log("userinfo", userinfo);
@@ -249,7 +274,8 @@ function EditProfile() {
 
                     </div>
                     <div className="avarta" >
-                        <img className="user1" src={userinfo?.avatarURL} alt="User Avatar"></img>
+                        <img className="user1" src={userAvatarURL || userinfo?.avatarURL} alt="User Avatar" />
+                        {/* <img className="user1" src={userinfo?.avatarURL} alt="User Avatar"></img> */}
                         {/* <input type="file" accept="image/*" onChange={handleFileChange} /> */}
                         <input
                             id="avatar-input"
