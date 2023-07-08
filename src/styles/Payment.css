@@ -140,3 +140,37 @@
     width: 70%;
     float: left;
 }
+
+.modalvoucher{
+    position: fixed;
+    top: 20%;
+    left: 40%;
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(244, 232, 213);
+  z-index: 999;
+  padding: 2% 0;
+  border-radius: 10px;
+  
+}
+
+.modalvoucher .all_voucher{
+    /* display: flex; */
+    justify-items: center;
+}
+.modalvoucher #btn_close{
+    background-color: #CD8042;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 15px;
+    justify-items: center;
+}
+
+.modalvoucher #btn_close:hover{
+    color:#783b31;
+    background-color: #fff;
+}

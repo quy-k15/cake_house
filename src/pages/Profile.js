@@ -41,6 +41,7 @@ function Profile() {
           getAddress();
         }
       }, [email]);
+     
       const getAddress = async () => {
         try {
           const addressSnapshot = await getDocs(collection(db, 'Address'));
@@ -48,8 +49,8 @@ function Profile() {
             idAddress: doc.id,
             ...doc.data()
           }));
-    
-          const usedAddresses = addressArray.filter((address) => address.used === true);
+          const currentUserid = userinfo?.idUser; 
+          const usedAddresses = addressArray.filter((address) => address.used === true&& address.iduser === currentUserid);
           setUsedAddresses(usedAddresses);
     
           console.log("usedAddresses", usedAddresses);
@@ -64,8 +65,6 @@ function Profile() {
             await logout();
             history.push('/');
             console.log('you are looged out');
-
-       
 
         }catch(e){
             console.log(e.message);
@@ -96,9 +95,6 @@ function Profile() {
                             </div>
 
                         </div>
-                   
-
-
                         {/* <label htmlFor="name">Full Name</label>
                   <input name="name" placeholder="Enter full name..." type="text" />
                   <label htmlFor="email">Email</label>
@@ -125,16 +121,11 @@ function Profile() {
                         isused={address.used}
                         />
                     ))}
-
                 </div>
-
-
-
             </div>
             {/* {showNoti && <Noti_LogOut onClose={() => setShowNoti(false)} />} */}
             {showNoti && <Noti_LogOut />}
         </div>
-
     );
 }
 

@@ -109,7 +109,7 @@
     font-size:1rem;
     /* margin-right: 30%; */
     margin-left: 16%;
-    width: 100%;
+    width: 70%;
     flex: 25%;
   }
 
@@ -137,7 +137,7 @@
     font-weight: bold;
     font-size:1rem;
     margin-left: 33%;
-    /* border: 1.5px solid #CD8042; */
+    width: 20%;
     
   }
 
@@ -218,4 +218,17 @@
 .all_purchase .detail_purchase .btn_purchase:hover{
   color:#8F3C02;
   background-color: white;
+}
+
+/* đơn đã hủy */
+.cancelledPurchase .all_purchase .detail_purchase .btn_purchase{
+  width: 30%;
+  
+}
+.cancelledPurchase .all_purchase .detail_purchase a{
+  flex: 50%;
+}
+
+.completedpurchase .all_purchase .detail_purchase a{
+  flex: 25%;
 }

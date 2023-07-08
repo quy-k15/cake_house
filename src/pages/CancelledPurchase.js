@@ -166,69 +166,70 @@ function CancelledPurchase() {
       </div>
       <div className="rightSide">
         <NavbarOrders />
-        <div className="all_purchase">
-          {orders.map((order) => {
-            const orderCarts = cart.filter((c) => order.idcart.includes(c.idcart));
-            return (
-              <div
-                className="row"
+        <div className="cancelledPurchase">
+          <div className="all_purchase">
+            {orders.map((order) => {
+              const orderCarts = cart.filter((c) => order.idcart.includes(c.idcart));
+              return (
+                <div
+                  className="row"
 
-              // id={window.location.pathname == val.link ? "active" : ""}
-              // onClick={() => {
-              //     window.location.pathname = val.link;
-              // }}
-              >
-                {""}
-                <div className="ruler_status">
-                  <div id="id">
-                    <div id="id_inf">Mã số đơn hàng: {order.idorder} </div>
+                // id={window.location.pathname == val.link ? "active" : ""}
+                // onClick={() => {
+                //     window.location.pathname = val.link;
+                // }}
+                >
+                  {""}
+                  <div className="ruler_status">
+                    <div id="id">
+                      <div id="id_inf">Mã số đơn hàng: {order.idorder} </div>
+                    </div>
+
+                    <div id="tradeDate">
+
+                      <div id="tradeDate_inf"> Ngày đặt hàng: {order.date.formattedDate}</div>
+                    </div>
+
+                    <div >
+                      <button id="btn_detail">
+                        Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
+                      </button>
+                    </div>
+
                   </div>
 
-                  <div id="tradeDate">
-
-                    <div id="tradeDate_inf"> Ngày đặt hàng: {order.date.formattedDate}</div>
-                  </div>
-
-                  <div >
-                    <button id="btn_detail">
-                      Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                  </div>
-
-                </div>
-
-                <div className="detail_purchase">
-                  {orderCarts.map((cart) => (
-                    <CardOrder
-                      key={cart.idcart}
-                      image={cart.image}
-                      name={cart.name}
-                      price={cart.price}
-                      size={cart.size}
-                      num={cart.num}
-                      idcake={cart.idcake}
-                    />
-                  ))}
-
-
-                  <div className="col3">
-                    <div className="AllPrice"> Tổng giá đơn hàng: {order.allPrice} (VND)</div>
+                  <div className="detail_purchase">
                     {orderCarts.map((cart) => (
-                      <Link to={`/detail/${cart.idcake}`} style={{ textDecoration: "none" }}>
-                        <button className="btn_purchase">Mua lại</button>
-                      </Link>
+                      <CardOrder
+                        key={cart.idcart}
+                        image={cart.image}
+                        name={cart.name}
+                        price={cart.price}
+                        size={cart.size}
+                        num={cart.num}
+                        idcake={cart.idcake}
+                      />
                     ))}
+
+
+                    <div className="col3">
+                      <div className="AllPrice"> Tổng giá đơn hàng: {order.allPrice} (VND)</div>
+                      {orderCarts.map((cart) => (
+                        <Link to={`/detail/${cart.idcake}`} style={{ textDecoration: "none" }}>
+                          <button className="btn_purchase">Mua lại</button>
+                        </Link>
+                      ))}
+                    </div>
+
                   </div>
 
                 </div>
+              );
+            })}
 
-              </div>
-            );
-          })}
-
+          </div>
         </div>
       </div>
-
     </div>
   );
 }
