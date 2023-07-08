@@ -67,6 +67,10 @@ function Home() {
   };
   const [style1, setStyle1] = useState(defaultStyle);
   const [style2, setStyle2] = useState(defaultStyle);
+  const handleClick = () => {
+    window.scrollTo(0, 0); // Di chuyển đến đầu trang
+    // Tiếp tục chuyển hướng đến trang khác
+  };
   return (
     <div className="home">
       <div className="home_wellcome" >
@@ -98,7 +102,7 @@ function Home() {
           <div className="HomeCategory">
             {ListCategory.map((cardCategory, key) => {
               return (
-                <Link to={`${"/ViewMoreCategory"}?Category=${cardCategory.category}`} style={{ textDecoration: 'none' }}>
+                <Link to={`${"/ViewMoreCategory"}?Category=${cardCategory.category}`} style={{ textDecoration: 'none' }} onClick={handleClick}>
                 <CardCategory
                   key={key}
                   image={cardCategory.image}
