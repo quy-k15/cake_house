@@ -23,7 +23,10 @@
     color: #fff;
   }
   
-
+  img {
+    display: block;
+    width: 100%;
+  }
   
   .sidebar {
     position: fixed;

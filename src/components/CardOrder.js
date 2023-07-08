@@ -39,7 +39,7 @@ const CardOrder = ({  size, num,idcake }) => {
           <div className="detail_donhang">
             <p className="left">SL: {num}</p>
             <p className="left2">Size: {size}</p>
-            <p className="right">Giá: {cakes[0].price * num} đ</p>
+            <p className="right">Giá: {cakes[0].price * num/1000}.000 đ</p>
           </div>
         </div>
       </div>

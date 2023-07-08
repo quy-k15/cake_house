@@ -64,7 +64,8 @@ const [showConfirmPassword, setShowConfirmPassword] = useState(false);
         sex: "",
         address: "",
         phoneNum: "",
-        isClient:true
+        isClient:true,
+     
       };
 
   

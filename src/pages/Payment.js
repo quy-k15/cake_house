@@ -177,7 +177,7 @@ const handleAddOrder = async () => {
             ))}
               <div className="donhang_tamtinh">
                 <div className="tamtinh_price">
-                  <h3>Tạm tính: {calculateTotalPrice()} VNĐ</h3>
+                  <h3>Tạm tính: {calculateTotalPrice()/1000}.000 VNĐ</h3>
                 </div>
                 <div className="relative">
                   <input className="form-control" type="text" name="tmpVoucherCode" placeholder="Nhập mã Voucher" data-gtm-form-interact-field-id="0" />
@@ -187,7 +187,7 @@ const handleAddOrder = async () => {
                 <div class="block_total_order width_common ">
                   <div class="thanhtien width_common space_bottom_10">
                     <div class="tamtinh_left left"><h3>Thành tiền:</h3></div>
-                    <div class="tamtinh_right right txt_color_2"><h3>{calculateTotalPrice()} VNĐ</h3></div>
+                    <div class="tamtinh_right right txt_color_2"><h3>{calculateTotalPrice()/1000}.000 VNĐ</h3></div>
                   </div>
                   <div class="btn_dathang width_common space_bottom_10">
                     <button type="submit" class="btn_site_2" onClick={handleAddOrder}>Đặt Hàng</button>

@@ -115,9 +115,24 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    padding: 8px 16px;
 }
 img.upload_img{
     width: 100%;
     height: 90%;
     object-fit: cover;
+}
+.save_btn{
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: #CD8042;
+}
+.save_btn:hover{
+    background-color: #721c24;
 }

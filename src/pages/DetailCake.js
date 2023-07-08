@@ -319,7 +319,7 @@ const uploadTasks = [];
                             </div>
                         ))} */}
                     <div key={cake.idcake}>
-                        <h2>{cake.price} VNĐ</h2>
+                        <h2>{cake.price/1000}.000 VNĐ</h2>
                     </div>
                   
                     <div className="detail_button_size">
