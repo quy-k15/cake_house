@@ -36,6 +36,7 @@ const EditAddressForm = () => {
   const onSubmit = (values, props) => {
     alert(JSON.stringify(values, null, 2));
     props.resetForm();
+    
   };
   // const handleLocationChange = (values, setFieldValue) => {
   //   // Update the state with the selected location values

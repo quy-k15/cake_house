@@ -78,6 +78,8 @@ function AddressBook() {
                     phonenum={cardAddress.phoneNumber}
                     address={cardAddress.province +" , " + cardAddress.district+" , " + cardAddress.ward}
                     id={cardAddress.idAddress}
+                    currentUserid={currentUserid}
+                    isused={cardAddress.used}
                   />
                 );
               })}
