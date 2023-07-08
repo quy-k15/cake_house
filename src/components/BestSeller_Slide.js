@@ -65,13 +65,18 @@ function BestSeller_Slide() {
     slidesToScroll: 1
   };
 
+
+  const handleScrollToTop = () => {
+    window.scrollTo(0, 0); // Di chuyển đến đầu trang
+    // Tiếp tục chuyển hướng đến trang khác
+  };
   return (
     <div className="CartCake_Slide">
       <div className="CartCake_Slide_item">
         <Slider {...img_Category_Slide}>
           {cakes.map((u) => (
             <div key={u.idcake} className="img-customize">
-              <Link to={`/detail/${u.idcake}`} style={{ textDecoration: "none" }}>
+              <Link to={`/detail/${u.idcake}`} style={{ textDecoration: "none" }} onClick={handleScrollToTop}>
                 <CardCake key={u.idcake} image={u.img1} name={u.name} price={u.price} />
               </Link>
             </div>
