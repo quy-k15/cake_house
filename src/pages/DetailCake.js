@@ -20,12 +20,16 @@ import { UserAuth } from "../context/AuthContext";
 import { db } from "../firebase";
 import Noti_Success from "../components/Noti_Success";
 import Error_Need_Login from "../components/Error_Need_Login";
+import { useHistory } from "react-router-dom";
 function Detail_item(){
 
     const { idcake } = useParams();// Lấy id cake từ home page
     const [cake,setCake]=useState([]);
     const[category, setCategory]=useState('');// gửi category qua qua cake_category_slide
     const[loves,setLoves]=useState([]);
+
+
+    const history = useHistory();
 
     
   
@@ -181,6 +185,24 @@ const uploadTasks = [];
             setShowNoti(false);
         }, 3000);
     };
+
+
+    const handleBuynow= async () => {
+        // ... your existing code ...
+      
+        const orderData = {
+          idcake: idcake,
+          num: count,
+          size: selectedSize
+        };
+      
+        history.push({
+          pathname: "/Payment_BuyNow",
+          state: {
+            selectedCarts: [orderData]
+          }
+        });
+      };
         // Chuyển màu click Tim
         const [isClicked, setIsClicked] = useState(false);
         const [inputKey, setInputKey] = useState(0);
@@ -364,7 +386,7 @@ const uploadTasks = [];
                         </button>
                         <button className="detail_buy_button" style={style5}
                             onMouseEnter={() => setStyle5(selectedStyle )}
-                            onMouseLeave={() => setStyle5(defaultStyle)}> Mua Ngay</button>
+                            onMouseLeave={() => setStyle5(defaultStyle)}  onClick={handleBuynow}> Mua Ngay</button>
                     </div>
                 </div>
             </div>

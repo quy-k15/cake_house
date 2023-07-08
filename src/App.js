@@ -34,6 +34,7 @@ import { AuthContextProvider } from "./context/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Payment from "./pages/Payment";
 import { Redirect } from 'react-router-dom';
+import Payment_BuyNow from "./pages/Payment_BuyNow";
 
 
 function App() {
@@ -62,6 +63,7 @@ function App() {
               <Route path="/likedproducts" exact component={LikedProducts} />
               <Route path="/myCart" exact component={MyCart} />
               <Route path="/Payment" exact component={Payment} />
+              <Route path="/Payment_BuyNow" exact component={Payment_BuyNow} />
               <Route path="/AllPurchase" exact component={AllPurchase} />
               <Route path="/ConfirmPurchase" exact component={ConfirmPurchase} />
               <Route path="/ReceivePurchase" exact component={ReceivePurchase} />

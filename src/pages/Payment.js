@@ -8,9 +8,13 @@ import { UserAuth } from "../context/AuthContext";
 import { collection, addDoc, getDocs, getDoc, updateDoc, doc, query, where, } from 'firebase/firestore/lite';
 import { db } from "../firebase";
 import Noti_Order from "../components/Noti_Order";
+<<<<<<< Updated upstream
 import { VoucherData } from "../components/VoucherData";
 
 
+=======
+import CardAddressUsed from "../components/CardAddressUsed";
+>>>>>>> Stashed changes
 const Payment = () => {
   const [inputValue, setInputValue] = useState('');
   const [selectedVoucher, setSelectedVoucher] = useState(null);
@@ -21,12 +25,18 @@ const Payment = () => {
 
 
 
+<<<<<<< Updated upstream
+=======
+
+  
+>>>>>>> Stashed changes
   const ShippingMethod = () => {
     const [cakes, setCakes] = useState([]);
     const [selectedOption, setSelectedOption] = useState("");// Lấy những sản phẩm đã chọn bên giỏ hàng.
     const handleOptionSelect = (event) => {
       setSelectedOption(event.target.value);
     };
+<<<<<<< Updated upstream
 
     // Lấy thông tin user
     const { user } = UserAuth();
@@ -37,6 +47,125 @@ const Payment = () => {
     useEffect(() => {
       if (user) {
         setEmail(user.email);
+=======
+    const [usedAddresses, setUsedAddresses] = useState([]);
+    
+    // Lấy thông tin user
+    const {user}=UserAuth();
+    const [userinfo,setUser]  = useState();
+    const [email,setEmail]  = useState('');
+    const[allPrice,setAllPrice]=useState('');
+   
+    
+  
+    useEffect(() => {
+        if (user) {
+          setEmail(user.email);
+        }
+      }, [user]);
+    
+    const UserQuery = async () => {
+      
+        const q = query(collection(db, "users"), where("email", "==", email));
+        const querySnapshot = await getDocs(q);
+        if (!querySnapshot.empty) {
+            const doc = querySnapshot.docs[0];
+            setUser(doc.data());
+            console.log("user: ", userinfo);
+        }
+    };
+    const getAddress = async () => {
+      try {
+        const addressSnapshot = await getDocs(collection(db, 'Address'));
+        const addressArray = addressSnapshot.docs.map((doc) => ({
+          idAddress: doc.id,
+          ...doc.data()
+        }));
+  
+        const currentUserid = userinfo?.idUser; 
+        const usedAddresses = addressArray.filter((address) => address.used === true&& address.iduser === currentUserid);
+        setUsedAddresses(usedAddresses);
+        console.log("currentUserid", currentUserid);
+  
+        console.log("usedAddresses", usedAddresses);
+      } catch (error) {
+        console.error('Error fetching addresses:', error);
+      }
+    };
+    useEffect(() => {
+        if (email) {
+          UserQuery();
+        
+        }
+      }, [email]);
+    useEffect(() => {
+      if (userinfo) {
+        getAddress();
+      }
+    }, [userinfo]);
+  // Tính tổng tiền
+  useEffect(() => {
+    const fetchCakes = async () => {
+      const cakeIds = selectedCarts.map((cart) => cart.idcake);
+      const q = query(collection(db, "cakes"), where("idcake", "in", cakeIds));
+      const querySnapshot = await getDocs(q);
+      const cakesArray = querySnapshot.docs.map((doc) => ({
+        idcake: doc.id,
+        ...doc.data()
+      }));
+      setCakes(cakesArray);
+    };
+
+    if (selectedCarts.length > 0) {
+      fetchCakes();
+    }
+  }, [selectedCarts]);
+
+
+ 
+const calculateTotalPrice = () => {
+  if (selectedCarts.length === 0) {
+    return 0;
+  }
+
+  const totalPrice = selectedCarts.reduce((total, cart) => {
+    if (cart.isChecked) {
+      const cakePrice = cakes.find((cake) => cake.idcake === cart.idcake)?.price || 0;
+      return total + (cakePrice * cart.num);
+    }
+    return total;
+  }, 0);
+
+  return totalPrice;
+
+};
+// thêm order lên firebase
+const currentDate = new Date();
+const formattedDate = new Intl.DateTimeFormat("en-GB").format(currentDate);
+const handleAddOrder = async () => {
+  try {
+    const totalPrice = calculateTotalPrice();
+
+    const newOrder = {
+      idorder: "",
+      iduser: userinfo.idUser,
+      idcart: selectedCarts.map((cart) => cart.idcart),
+      date:{formattedDate},
+      allPrice: totalPrice,
+      status:"Chờ xác nhận",
+      address:usedAddresses
+ 
+    };
+      const CartCol = collection(db, "orders");
+      const docRef = await addDoc( CartCol, newOrder);
+      const generatedId = docRef.id;
+      await updateDoc(doc(db, "orders", generatedId), {idorder: generatedId });
+
+      console.log("cart created successfully!");
+      history.push("/ConfirmPurchase");
+      } catch (error) {
+      console.error("Error creating order:", error);
+>>>>>>> Stashed changes
       }
     }, [user]);
 
@@ -151,6 +280,7 @@ const Payment = () => {
       setIsModalOpen(false);
     }
     return (
+<<<<<<< Updated upstream
       <>
         <div className="payment_body">
           <div className="payment_body_left">
@@ -192,6 +322,25 @@ const Payment = () => {
                 <h3 className="width_common left">Phương thức thanh toán</h3>
                 <p>Thanh toán khi nhận hàng</p>
               </div>
+=======
+      <div className="payment_body">
+        <div className="payment_body_left">
+          <div className="address_info">
+            <div style={{ padding: '20px' }}>
+              <h3 className="width_common left">Thông tin nhận hàng</h3>
+              <p>Họ và tên:  {userinfo&&userinfo.nameUser}</p>
+              <p>Số điện thoại: {userinfo&&userinfo.phoneNum}</p>
+              <p>Địa chỉ nhận hàng:</p>
+              {usedAddresses.map((address) => (
+                        <CardAddressUsed
+                        key={address.idAddress}
+                        name={address.name}
+                        phonenum={address.phoneNumber}
+                        address={`${address.province}, ${address.district}, ${address.ward}`}
+                        isused={address.used}
+                        />
+                    ))}
+>>>>>>> Stashed changes
             </div>
           </div>
           <div className="payment_body_right">
