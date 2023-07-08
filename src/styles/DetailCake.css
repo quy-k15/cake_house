@@ -134,7 +134,7 @@
     height: 35px;
     border-radius: 10px;
     border: 1px solid #CD8042;
- 
+    cursor: pointer;
   }
   .detail_number_button{
     display: flex;

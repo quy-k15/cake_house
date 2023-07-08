@@ -122,9 +122,9 @@
     font-family: Bellota ;
     font-weight: bold;
     font-size:1rem;
-    flex: 25%;
+    flex: 0.125%;
     margin-left: 10%;
-    width: 50%;
+    width: 30%;
   }
 
   .all_purchase .detail_purchase .btn_purchase{

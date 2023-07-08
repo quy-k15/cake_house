@@ -73,7 +73,7 @@ function SideMenu() {
           <div className="title">
             <AccountCircleIcon className="accountCircleIcon" fontSize="large" />
             <div className="titleh3">
-              <h3>Xin chào Quý!</h3>
+              <h3>Xin chào!</h3>
               <Link to="/EditProfile" className="link_edit_profile">
                 <p>Chỉnh sửa thông tin <i className="fas fa-edit"></i></p>
               </Link>
@@ -101,7 +101,7 @@ function SideMenu() {
             <div className="title">
               <AccountCircleIcon className="accountCircleIcon" fontSize="large" />
               <div className="titleh3">
-                <h3>Xin chào Quý!</h3>
+                <h3>Xin chào!</h3>
                 <Link to="/EditProfile" className="link_edit_profile">
                   <p>Chỉnh sửa thông tin <i className="fas fa-edit"></i></p>
                 </Link>

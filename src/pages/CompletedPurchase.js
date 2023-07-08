@@ -7,7 +7,7 @@ import { faStar as lightStar } from "@fortawesome/free-regular-svg-icons";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "../styles/Rated.css";
-import { collection, getDocs, doc, docs, query, where, updateDoc } from 'firebase/firestore/lite';
+import { collection, getDocs, doc, updateDoc, query, where } from 'firebase/firestore/lite';
 import { db } from "../firebase";
 import { UserAuth } from "../context/AuthContext";
 import CardOrder from "../components/CardOrder";
@@ -16,6 +16,11 @@ import { Link } from "react-router-dom";
 function CompletedPurchase() {
   const [rating, setRating] = useState(0);
   const [showPopup, setShowPopup] = useState(false);
+  const [orders, setOrders] = useState([]);
+  const { user } = UserAuth();
+  const [email, setEmail] = useState('');
+  const [cart, setCart] = useState([]);
+  const [userinfo, setUser] = useState(null);
 
   const handleRatingChange = (value) => {
     setRating(value);
@@ -24,75 +29,41 @@ function CompletedPurchase() {
   const handleRateClick = () => {
     setShowPopup(true);
   };
-  const handleSubmit = () => {
-    // Perform the desired action here, such as sending the review to the server
-    // You can access the rating and review values from the component's state
 
-    // After submitting the review, you can close the popup or reset the form
-    closePopup();
+  const handleSubmit = async () => {
+    try {
+      // Get the review text from the textarea (assuming the textarea has an ID of "review")
+      const reviewText = document.getElementById("review").value;
+  
+      // Prepare the data to update in the user document
+      const updatedData = {
+        rating: rating,
+        review: reviewText
+      };
+  
+      // Get the user's document ID from the userinfo state
+      const userDocId = userinfo && userinfo.docId;
+  
+      console.log("userDocId:", userDocId); // Check the value of userDocId
+  
+      if (userDocId) {
+        // Update the user document in Firestore with the new rating and review
+        const userDocRef = doc(db, "users", userDocId);
+        await updateDoc(userDocRef, updatedData);
+      }
+  
+      // Close the popup or reset the form
+      closePopup();
+    } catch (error) {
+      console.error("Error updating user rating:", error);
+    }
   };
+  
 
   const closePopup = () => {
     setShowPopup(false);
+    setRating(0); // Reset the rating state
   };
-  const [orders, setOrders] = useState([]);
-  const { user } = UserAuth();
-  const [email, setEmail] = useState('');
-  // const [userinfo,setUser]  = useState();
-  const [cart, setCart] = useState([]);
-  const [cake, setcake] = useState();
-  const [userinfo, setUser] = useState();
-
-  const [selectedOrderId, setSelectedOrderId] = useState(null);
-  const [showNotiUpdate, setShowNotiUpdate] = useState(false);
-
-  const defaultStyle = {
-    backgroundColor: "",
-    color: ""
-  };
-  const hoverStyle = {
-    backgroundColor: "#8F3C02",
-    color: "white"
-  };
-
-  const [style2, setStyle2] = useState(defaultStyle);
-  const handleUpdatestatus = async (event, selectedOrderId, updatedStatus) => {
-    event.preventDefault();
-    const updatedOrder = {
-      ...orders.find((order) => order.idorder === selectedOrderId), // Spread the properties of the selected order
-      // status: "Xác nhận",
-      status: updatedStatus,
-    };
-
-    try {
-      // Update the order in Firestore
-      if (selectedOrderId) {
-        const orderDocRef = doc(db, "orders", selectedOrderId);
-        await updateDoc(orderDocRef, updatedOrder);
-        console.log("selectedOrderId", selectedOrderId);
-      }
-
-      // Cập nhật danh sách đơn hàng sau khi cập nhật
-      const updatedOrders = orders.map((order) =>
-        order.idorder === selectedOrderId ? { ...order, status: updatedStatus } : order
-      );
-      setOrders(updatedOrders);
-      window.location.reload();
-      // Đóng popup
-      setShowNotiUpdate(true);
-      setTimeout(() => {
-        setShowNotiUpdate(false);
-      }, 3000);
-    } catch (error) {
-      console.error("Lỗi khi cập nhật đơn hàng:", error);
-    }
-  };
-
-
-  // const SetEmails = () => {
-  //     setEmail(user&&user.idUser);
-  // };
-
 
   useEffect(() => {
     if (user) {
@@ -103,13 +74,12 @@ function CompletedPurchase() {
   useEffect(() => {
     const getUserData = async () => {
       if (email) {
-        const q = query(collection(db, "users"), where("email", "==", email));
+        const usersRef = collection(db, "users");
+        const q = query(usersRef, where("email", "==", email));
         const querySnapshot = await getDocs(q);
         if (!querySnapshot.empty) {
           const doc = querySnapshot.docs[0];
-          setUser(doc.data());
-          console.log("user: ", doc.data());
-          console.log("email: ", email);
+          setUser({ ...doc.data(), docId: doc.id });
         }
       }
     };
@@ -121,7 +91,8 @@ function CompletedPurchase() {
     const getOrders = async () => {
       try {
         if (userinfo) {
-          const q = query(collection(db, "orders"), where("iduser", "==", userinfo.idUser), where("status", "==", "Hoàn thành"));
+          const ordersRef = collection(db, "orders");
+          const q = query(ordersRef, where("iduser", "==", userinfo.idUser), where("status", "==", "Hoàn thành"));
           const querySnapshot = await getDocs(q);
           const ordersArray = querySnapshot.docs.map((doc) => ({
             idorder: doc.id,
@@ -129,8 +100,6 @@ function CompletedPurchase() {
           }));
 
           setOrders(ordersArray);
-          console.log("ordersArray", ordersArray);
-          console.log("orders", orders);
         }
       } catch (error) {
         console.error('Error fetching orders:', error);
@@ -143,7 +112,8 @@ function CompletedPurchase() {
   }, [userinfo]);
 
   const getCartData = async (idcart) => {
-    const q = query(collection(db, "carts"), where("idcart", "==", idcart));
+    const cartsRef = collection(db, "carts");
+    const q = query(cartsRef, where("idcart", "==", idcart));
     const querySnapshot = await getDocs(q);
     if (!querySnapshot.empty) {
       const doc = querySnapshot.docs[0];
@@ -154,11 +124,9 @@ function CompletedPurchase() {
     return null;
   };
 
-
-
   useEffect(() => {
     const getCartDataArray = async () => {
-      const cartDataPromises = orders.flatMap(order => order.idcart.map(getCartData));
+      const cartDataPromises = orders.flatMap((order) => order.idcart.map(getCartData));
       const cartDataArray = await Promise.all(cartDataPromises);
       setCart(cartDataArray.filter(Boolean));
     };
@@ -168,9 +136,6 @@ function CompletedPurchase() {
     }
   }, [orders]);
 
-
-
-  // Tính tổng tiền:
   const calculateTotalPrice = () => {
     let totalPrice = 0;
 
@@ -179,12 +144,13 @@ function CompletedPurchase() {
       orderCarts.forEach((cart) => {
         const cartPrice = parseFloat(cart.price);
         const cartNum = parseInt(cart.num);
-        totalPrice += cartPrice * cartNum;
+       totalPrice += cartPrice * cartNum;
       });
     });
 
     return totalPrice;
   };
+
   return (
     <div className="MyOrders">
       <div className="leftSide">
@@ -196,33 +162,18 @@ function CompletedPurchase() {
           {orders.map((order) => {
             const orderCarts = cart.filter((c) => order.idcart.includes(c.idcart));
             return (
-              <div
-                className="row"
-
-              // id={window.location.pathname == val.link ? "active" : ""}
-              // onClick={() => {
-              //     window.location.pathname = val.link;
-              // }}
-              >
-                {""}
+              <div className="row" key={order.idorder}>
                 <div className="ruler_status">
                   <div id="id">
-                    <div id="id_inf">Mã số đơn hàng: {order.idorder} </div>
+                    <div id="id_inf">Mã số đơn hàng: {order.idorder}</div>
                   </div>
-
                   <div id="tradeDate">
-
                     <div id="tradeDate_inf"> Ngày đặt hàng: {order.date.formattedDate}</div>
                   </div>
-
-                  <div >
-                    <button id="btn_detail">
-                      Xem chi tiết <i class="fa-solid fa-arrow-right"></i>
-                    </button>
+                  <div>
+                    <button id="btn_detail">Xem chi tiết <i className="fa-solid fa-arrow-right"></i></button>
                   </div>
-
                 </div>
-
                 <div className="detail_purchase">
                   {orderCarts.map((cart) => (
                     <CardOrder
@@ -235,8 +186,6 @@ function CompletedPurchase() {
                       idcake={cart.idcake}
                     />
                   ))}
-
-
                   <div className="col3">
                     <div className="AllPrice"> Tổng giá đơn hàng: {order.allPrice} (VND)</div>
                     {orderCarts.map((cart) => (
@@ -254,7 +203,6 @@ function CompletedPurchase() {
           })}
         </div>
       </div>
-
       {showPopup && (
         <div className="popup">
           <div className="popup-content">
@@ -280,8 +228,12 @@ function CompletedPurchase() {
               <textarea className="review_fb" id="review" rows="4" />
             </div>
             <div className="popup-button">
-              <button className="update-button" onClick={handleSubmit}>Đánh giá</button>
-              <button className="close-button" onClick={closePopup}>Đóng</button>
+              <button className="update-button" onClick={handleSubmit}>
+                Đánh giá
+              </button>
+              <button className="close-button" onClick={closePopup}>
+                Đóng
+              </button>
             </div>
           </div>
         </div>
