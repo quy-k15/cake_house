@@ -152,6 +152,7 @@
     height: 110px;
     margin-top: 10px;
     border-radius: 10px;
+    object-fit: cover;
 }
 .Cartinfo{
     flex: 20%;
