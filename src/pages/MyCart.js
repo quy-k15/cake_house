@@ -37,11 +37,13 @@ function MyCart() {
     const querySnapshot = await getDocs(q);
     if (!querySnapshot.empty) {
       const doc = querySnapshot.docs.find((d) => d.id === idcake);
-      const cakeData = doc.data();
-      return cakeData; // Return the cake data
+      if (doc) {
+        const cakeData = doc.data();
+        return cakeData; // Return the cake data
+      }
     }
     return null;
-  };
+  }; 
 
   const UserQuery = async () => {
     if (email) {
@@ -134,11 +136,12 @@ function MyCart() {
 
   useEffect(() => {
     const getCakeData = async () => {
-      const cakePromises = carts.map(async (cart) => {
-        const cakeData = await getcake(cart.idcake);
-        return cakeData !== null ? cakeData : null;
-      });
-      const cakeDataArray = await Promise.all(cakePromises);
+      const cakeDataArray = await Promise.all(
+        carts.map(async (cart) => {
+          const cakeData = await getcake(cart.idcake);
+          return cakeData;
+        })
+      );
       setCake(cakeDataArray);
     };
     getCakeData();
